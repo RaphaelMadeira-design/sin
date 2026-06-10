@@ -13,6 +13,7 @@ import BootScreen from './components/BootScreen'
 import ShutdownDialog from './components/ShutdownDialog'
 import Snake from './components/Snake'
 import JumpGame from './components/JumpGame'
+import MyComputer from './components/MyComputer'
 import Loading from './components/Loading'
 import MediaPlayer from './components/MediaPlayer'
 import Mail from './components/Mail'
@@ -72,7 +73,6 @@ const INITIAL_ICONS = [
     icon: 'https://win98icons.alexmeub.com/icons/png/outlook_express-5.png',
     x: 1, y: 4
   },
-
   {
     id: 'media',
     label: 'Windows Media Player',
@@ -84,6 +84,12 @@ const INITIAL_ICONS = [
     label: 'Internet Explorer',
     icon: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
     x: 0, y: 0,
+  },
+  {
+    id: 'computer',
+    label: 'Mon ordinateur',
+    icon: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
+    x: 0, y: 4,
   },
   { 
     id: 'msn', 
@@ -125,6 +131,11 @@ const WINDOW_CONFIGS = {
     defaultSize: { width: 720, height: 520 },
     defaultPosition: { x: 100, y: 40 },
   },
+  computer: {
+    title: 'Poste de travail',
+    defaultSize: { width: 760, height: 520 },
+    defaultPosition: { x: 90, y: 40 },
+  },
   media: {
     title: 'Windows Media Player',
     defaultSize: { width: 340, height: 460 },
@@ -156,7 +167,7 @@ const LOADING_LABELS = {
   powers: 'POUVOIRS.exe',
   snake: 'SNAKE.exe',
   jump: 'JUMP.exe',
-  intranet : 'INTRANET',
+  intranet : 'INTRANET v1.7b',
 }
 
 const makeNotepadConfig = (fileId, fileName) => ({
@@ -225,7 +236,7 @@ function App() {
       Sounds.windowOpen()
       return
     }
-    const skipLoading = id === 'documents' || id === 'cmd' || id === 'media' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
+    const skipLoading = id === 'documents' || id === 'cmd' || id === 'media' || id === 'computer' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
     setWindows(prev => {
       const existing = prev.find(w => w.id === id)
       if (existing) {
@@ -371,15 +382,8 @@ function App() {
     if (id === 'intranet') return <Intranet />
     if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
     if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />
-    if (id === 'documents') return (
-    <FileExplorer
-      key={win.initialFolder ?? 'root'}
-      onOpenNotepad={openNotepad}
-      onPlayMusic={handlePlayMusic}
-      onOpenImage={handleOpenImage}
-      initialFolder={win.initialFolder}
-    />
-  )
+    if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow}/>)
+    if (id === 'documents') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
     if (id.startsWith('notepad-')) return <Notepad fileName={win.notepadFile?.name} content={win.notepadContent} />
     return null
   }

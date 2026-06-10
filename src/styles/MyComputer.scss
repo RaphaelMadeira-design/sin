@@ -1,0 +1,188 @@
+@use 'Variables' as *;
+
+/* =====================================================
+   MY COMPUTER (Poste de travail) — Windows 98
+   ===================================================== */
+.my-computer {
+  // hérite de .file-explorer pour les couleurs, on ajoute juste
+  // les éléments spécifiques
+
+  &__section-title {
+    font-family: $font-system;
+    font-size: 11px;
+    font-weight: 700;
+    color: $win98-black;
+    padding: 6px 4px;
+    border-bottom: 1px dotted $win98-dark-gray;
+    margin-bottom: 8px;
+  }
+
+  &__empty {
+    font-family: $font-system;
+    font-size: 11px;
+    color: $win98-dark-gray;
+    padding: 24px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* ---------- Panneau de gauche style "Web View" Win98 ---------- */
+  &__sidebar {
+    width: 200px;
+    min-width: 140px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #4a73c0 0%, #1f3b80 100%);
+    color: $win98-white;
+    padding: 12px 10px;
+    overflow-y: auto;
+    border-right: 2px solid $win98-dark-gray;
+    font-family: $font-system;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  &__sidebar-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #ffe9a8;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    padding-bottom: 4px;
+  }
+
+  &__sidebar-text {
+    color: $win98-white;
+    strong { color: #ffe9a8; }
+  }
+
+  &__sidebar-sep {
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin: 10px 0;
+  }
+
+  /* ---------- Boîte de dialogue Win98 (générique) ---------- */
+  &__dialog-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__dialog {
+    background: $win98-light-gray;
+    border: 2px solid;
+    border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
+    box-shadow:
+      inset -1px -1px 0 #808080,
+      inset 1px 1px 0 #dfdfdf,
+      4px 4px 0 rgba(0,0,0,0.35);
+    min-width: 340px;
+    max-width: 460px;
+    font-family: $font-system;
+    font-size: 11px;
+    color: $win98-black;
+  }
+
+  &__dialog-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, $win98-navy 0%, #1084d0 100%);
+    color: $win98-white;
+    font-weight: 700;
+    padding: 3px 4px 3px 6px;
+    font-size: 11px;
+
+    button {
+      width: 18px;
+      height: 16px;
+      background: $win98-light-gray;
+      border: 1px solid;
+      border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
+      color: $win98-black;
+      font-size: 10px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+
+      &:active {
+        border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
+      }
+    }
+  }
+
+  &__dialog-body {
+    display: flex;
+    gap: 12px;
+    padding: 18px 18px 10px;
+    align-items: flex-start;
+  }
+
+  &__dialog-icon {
+    width: 32px;
+    height: 32px;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+  }
+
+  &__dialog-content {
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  &__dialog-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    padding: 6px 14px 14px;
+
+    button {
+      min-width: 78px;
+      height: 22px;
+      background: $win98-light-gray;
+      border: 1px solid;
+      border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
+      font-family: $font-system;
+      font-size: 11px;
+      color: $win98-black;
+      cursor: pointer;
+      padding: 0 10px;
+
+      &:hover { background: lighten($win98-light-gray, 2%); }
+      &:active {
+        border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
+      }
+      &:focus {
+        outline: 1px dotted $win98-black;
+        outline-offset: -4px;
+      }
+    }
+  }
+
+  /* ---------- Input mot de passe ---------- */
+  &__pwd-input {
+    width: 100%;
+    height: 20px;
+    border: 1px solid;
+    border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
+    background: $win98-white;
+    font-family: $font-system;
+    font-size: 11px;
+    padding: 2px 4px;
+    color: $win98-black;
+    box-sizing: border-box;
+
+    &:focus { outline: 1px dotted $win98-black; outline-offset: -3px; }
+  }
+
+  &__pwd-error {
+    color: #b00000;
+    margin-top: 6px;
+    font-weight: 700;
+  }
+}
