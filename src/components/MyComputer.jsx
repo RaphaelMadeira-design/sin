@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import Sounds from '../components/Sounds'
 
 /* -----------------------------------------------------------
@@ -27,39 +28,29 @@ const ICONS = {
 
 /* -----------------------------------------------------------
    Arborescence "Poste de travail"
-   - Les disques sont les enfants de "computer" (vue racine)
-   - Chaque dossier contient `children`
-   - Chaque fichier porte `type: 'file'` et un `content`
 ----------------------------------------------------------- */
 const TREE = {
-  // ----- Racine -----
   computer: {
     name: 'Poste de travail',
     children: ['driveA', 'driveB', 'driveC'],
     isRoot: true,
   },
 
-  // ===========================================================
-  // A: — Disquette 3"1/2
-  // ===========================================================
   driveA: {
     name: 'Disquette 3½ (A:)',
     parent: 'computer',
     drive: 'A',
     icon: ICONS.floppy,
-    empty: true,                  // déclenche le message "aucun disque"
+    empty: true,
   },
 
-  // ===========================================================
-  // B: — Disquette chiffrée
-  // ===========================================================
   driveB: {
     name: 'Disquette chiffrée (B:)',
     parent: 'computer',
     drive: 'B',
     icon: ICONS.floppyLocked,
-    locked: true,                 // déclenche le prompt de mot de passe
-    password: 'shokan',           // ⚠️ change-le si tu veux
+    locked: true,
+    password: 'shokan',
     children: ['b_readme', 'b_log', 'b_keys'],
   },
   b_readme: {
@@ -107,9 +98,6 @@ SAFE_HOUSE    : Bunkyo, 3-12, 5e étage
 SIGNAL        : si je disparais, va voir Aoi.`,
   },
 
-  // ===========================================================
-  // C: — Disque dur principal
-  // ===========================================================
   driveC: {
     name: 'Disque local (C:)',
     parent: 'computer',
@@ -217,7 +205,7 @@ Glisse n'importe quel .txt dessus pour l'ouvrir.`,
     parent: 'driveC',
     icon: ICONS.myDocs,
     type: 'shortcut',
-    target: 'documents',          // ouvre la fenêtre "Explorateur"
+    target: 'documents',
   },
 
   c_users: {
@@ -279,10 +267,10 @@ DEVICEHIGH=C:\\WINDOWS\\SHOKAN.SYS /STABLE`,
 Bienvenue sur la station de Kiba Igarashi.
 
 Tu peux explorer librement :
-  • WINDOWS      — système (sensible, ne pas toucher)
-  • Program Files— applications installées
-  • Mes Documents— histoire, musiques, images
-  • Users        — profils utilisateurs
+  • WINDOWS        — système (sensible, ne pas toucher)
+  • Program Files  — applications installées
+  • Mes Documents  — histoire, musiques, images
+  • Users          — profils utilisateurs
 
 Si une disquette est insérée dans A:, son contenu
 apparaîtra automatiquement. La disquette B: est chiffrée.`,
@@ -320,12 +308,36 @@ const getAddress = (history) =>
   }).join('\\').replace(/\\:\\\\/g, ':\\').replace(/\\\\/g, '\\')
 
 /* -----------------------------------------------------------
-   Boîte de dialogue Win98 (générique)
+   Boîte de dialogue Win98 — Portal CENTRÉ DANS L'ÉCRAN CRT
+   ✅ Cible .crt-monitor__screen pour rester dans le faux écran
+   ✅ Fallback sur document.body si le CRT n'existe pas
 ----------------------------------------------------------- */
 function Win98Dialog({ icon, title, children, onClose, buttons }) {
-  return (
-    <div className="my-computer__dialog-backdrop">
-      <div className="my-computer__dialog" role="dialog" aria-modal="true">
+  const [target, setTarget] = useState(null)
+
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    const el =
+      document.querySelector('.crt-monitor__screen') ||
+      document.querySelector('.crt-monitor__content') ||
+      document.body
+    setTarget(el)
+  }, [])
+
+  if (!target) return null
+
+  return createPortal(
+    <div
+      className="my-computer__dialog-backdrop"
+      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose?.() }}
+      data-testid="mycomputer-dialog-backdrop"
+    >
+      <div
+        className="my-computer__dialog"
+        role="dialog"
+        aria-modal="true"
+        onMouseDown={(e) => e.stopPropagation()}
+      >
         <div className="my-computer__dialog-titlebar">
           <span>{title}</span>
           <button onClick={onClose} aria-label="Fermer" data-testid="mycomputer-dialog-close">✕</button>
@@ -336,7 +348,8 @@ function Win98Dialog({ icon, title, children, onClose, buttons }) {
         </div>
         <div className="my-computer__dialog-buttons">{buttons}</div>
       </div>
-    </div>
+    </div>,
+    target
   )
 }
 
@@ -348,12 +361,11 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
   const [selected, setSelected] = useState(null)
   const [unlocked, setUnlocked] = useState(false)
 
-  // États de dialogues
-  const [pwdDialog, setPwdDialog] = useState(false)   // demande de mot de passe pour B:
+  const [pwdDialog, setPwdDialog] = useState(false)
   const [pwdInput, setPwdInput]   = useState('')
   const [pwdError, setPwdError]   = useState(false)
-  const [floppyDialog, setFloppyDialog] = useState(false) // "Aucun disque" pour A:
-  const [sysDialog, setSysDialog] = useState(null)    // fichier système verrouillé
+  const [floppyDialog, setFloppyDialog] = useState(false)
+  const [sysDialog, setSysDialog] = useState(null)
 
   const pwdRef = useRef(null)
   useEffect(() => { if (pwdDialog && pwdRef.current) pwdRef.current.focus() }, [pwdDialog])
@@ -361,26 +373,20 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
   const currentId = history[history.length - 1]
   const current = TREE[currentId]
 
-  /* ---------- Navigation ---------- */
   const enter = (id) => {
     const node = TREE[id]
     if (!node) return
 
-    // Raccourci → ouvre une autre fenêtre du desktop
     if (node.type === 'shortcut') {
       Sounds.click?.()
       if (onOpenWindow && node.target) onOpenWindow(node.target)
       return
     }
-
-    // Disquette vide → dialogue
     if (node.empty) {
       Sounds.error?.()
       setFloppyDialog(true)
       return
     }
-
-    // Disquette chiffrée → demande mot de passe (une seule fois)
     if (node.locked && !unlocked && node.drive === 'B') {
       Sounds.error?.()
       setPwdInput('')
@@ -388,22 +394,19 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
       setPwdDialog(true)
       return
     }
-
-    // Fichier système verrouillé
     if (node.type === 'file' && node.locked) {
       Sounds.error?.()
-      setSysDialog({ title: 'Accès refusé', message: `Le fichier "${node.name}" est protégé par le système et ne peut pas être ouvert.` })
+      setSysDialog({
+        title: 'Accès refusé',
+        message: `Le fichier "${node.name}" est protégé par le système et ne peut pas être ouvert.`
+      })
       return
     }
-
-    // Fichier classique → bloc-notes
     if (node.type === 'file') {
       Sounds.click?.()
       onOpenNotepad?.({ id, name: node.name, content: node.content })
       return
     }
-
-    // Dossier → navigation
     Sounds.navigate?.()
     setHistory(h => [...h, id])
     setSelected(null)
@@ -415,7 +418,6 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
     setHistory(h => h.slice(0, -1))
     setSelected(null)
   }
-
   const goUp = goBack
   const goHome = () => {
     Sounds.navigate?.()
@@ -437,7 +439,6 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
     }
   }
 
-  /* ---------- Vue racine (drives) ---------- */
   const renderDrivesView = () => {
     const drives = current.children.map(id => TREE[id])
     return (
@@ -464,7 +465,6 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
     )
   }
 
-  /* ---------- Vue dossier ---------- */
   const renderFolderView = () => {
     const children = current.children || []
     return (
@@ -494,7 +494,6 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
     )
   }
 
-  /* ---------- Vue panneau gauche (infos drive ou racine) ---------- */
   const renderLeftPane = () => {
     if (current.isRoot) {
       return (
@@ -519,21 +518,14 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
         </div>
       )
     }
-    // Vue dans un drive : afficher un mini "infos"
     const drive = findDrive(currentId)
     return (
       <div className="my-computer__sidebar">
         <div className="my-computer__sidebar-title">{drive?.name || current.name}</div>
         <div className="my-computer__sidebar-text">
-          {drive?.drive === 'C' && (
-            <>Espace utilisé : 1.8 Go<br />Espace libre : 0.4 Go<br />Système : FAT32</>
-          )}
-          {drive?.drive === 'B' && (
-            <>Volume chiffré.<br />Lecture en clair autorisée.<br />Ne pas extraire.</>
-          )}
-          {drive?.drive === 'A' && (
-            <>Disquette 3½.<br />Capacité : 1.44 Mo.</>
-          )}
+          {drive?.drive === 'C' && (<>Espace utilisé : 1.8 Go<br />Espace libre : 0.4 Go<br />Système : FAT32</>)}
+          {drive?.drive === 'B' && (<>Volume chiffré.<br />Lecture en clair autorisée.<br />Ne pas extraire.</>)}
+          {drive?.drive === 'A' && (<>Disquette 3½.<br />Capacité : 1.44 Mo.</>)}
         </div>
       </div>
     )
@@ -548,74 +540,48 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
     return null
   }
 
-  /* ---------- Address ---------- */
   const addressPath = getAddress(history)
   const drive = findDrive(currentId)
 
-  /* ---------- Render ---------- */
   return (
     <div className="file-explorer my-computer" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      {/* Menubar */}
       <div className="win98-window__menubar">
-        <span>Fichier</span>
-        <span>Édition</span>
-        <span>Affichage</span>
-        <span>Aller à</span>
-        <span>Favoris</span>
-        <span>?</span>
+        <span>Fichier</span><span>Édition</span><span>Affichage</span><span>Aller à</span><span>Favoris</span><span>?</span>
       </div>
 
-      {/* Toolbar */}
       <div className="win98-window__toolbar">
         <button
           className={`win98-window__toolbar-btn ${history.length <= 1 ? 'win98-window__toolbar-btn--disabled' : ''}`}
-          onClick={goBack}
-          disabled={history.length <= 1}
-          data-testid="mycomputer-back"
-          style={{ gap: '4px' }}
+          onClick={goBack} disabled={history.length <= 1}
+          data-testid="mycomputer-back" style={{ gap: '4px' }}
         >
-          <span style={{ fontSize: '13px', lineHeight: 1 }}>◄</span>
-          Précédent
+          <span style={{ fontSize: '13px', lineHeight: 1 }}>◄</span>Précédent
         </button>
         <button
           className={`win98-window__toolbar-btn ${history.length <= 1 ? 'win98-window__toolbar-btn--disabled' : ''}`}
-          onClick={goUp}
-          disabled={history.length <= 1}
-          data-testid="mycomputer-up"
-          style={{ gap: '4px' }}
+          onClick={goUp} disabled={history.length <= 1}
+          data-testid="mycomputer-up" style={{ gap: '4px' }}
         >
-          <span style={{ fontSize: '13px', lineHeight: 1 }}>▲</span>
-          Dossier parent
+          <span style={{ fontSize: '13px', lineHeight: 1 }}>▲</span>Dossier parent
         </button>
         <button
-          className="win98-window__toolbar-btn"
-          onClick={goHome}
-          data-testid="mycomputer-home"
-          style={{ gap: '4px' }}
+          className="win98-window__toolbar-btn" onClick={goHome}
+          data-testid="mycomputer-home" style={{ gap: '4px' }}
         >
-          <img src={ICONS.myComputer} alt="" style={{ width: 16, height: 16 }} />
-          Poste de travail
+          <img src={ICONS.myComputer} alt="" style={{ width: 16, height: 16 }} />Poste de travail
         </button>
       </div>
 
-      {/* Barre d'adresse */}
       <div className="win98-window__address-bar">
         <label>Adresse</label>
-        <input
-          type="text"
-          value={addressPath}
-          readOnly
-          data-testid="mycomputer-address"
-        />
+        <input type="text" value={addressPath} readOnly data-testid="mycomputer-address" />
       </div>
 
-      {/* Panneaux */}
       <div className="file-explorer__panes" style={{ flex: 1, overflow: 'hidden' }}>
         {renderLeftPane()}
         {current.isRoot ? renderDrivesView() : renderFolderView()}
       </div>
 
-      {/* Barre de statut */}
       <div className="win98-window__statusbar">
         <span>
           {current.isRoot
@@ -661,13 +627,10 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
             Entrez le mot de passe&nbsp;:
             <div style={{ marginTop: 8 }}>
               <input
-                ref={pwdRef}
-                type="password"
-                value={pwdInput}
+                ref={pwdRef} type="password" value={pwdInput}
                 onChange={(e) => { setPwdInput(e.target.value); setPwdError(false) }}
                 className="my-computer__pwd-input"
-                data-testid="mycomputer-pwd-input"
-                autoComplete="off"
+                data-testid="mycomputer-pwd-input" autoComplete="off"
               />
             </div>
             {pwdError && (
