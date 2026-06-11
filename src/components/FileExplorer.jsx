@@ -2,19 +2,26 @@ import { useState } from 'react'
 import Sounds from '../components/Sounds'
 
 const ICONS = {
-  folderClosed: 'https://win98icons.alexmeub.com/icons/png/directory_closed-4.png',
-  folderOpen:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-3.png',
-  myDocs:       'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png',
+  folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
+  folderClosed: 'https://win98icons.alexmeub.com/icons/png/directory_closed-2.png',
+  folderOpen:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-4.png',
+  myDocs:       'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-1.png',
   txt:          'https://win98icons.alexmeub.com/icons/png/notepad_file-0.png',
+  folderTxt:    'https://win98icons.alexmeub.com/icons/png/notepad_file-1.png',
   mp3:          'https://win98icons.alexmeub.com/icons/png/wm_file-5.png',
   img:          'https://win98icons.alexmeub.com/icons/png/kodak_imaging_file-0.png',
 }
 
-const getFileIcon = (name = '') => {
-  if (name.endsWith('.mp3')) 
+const getFileIcon = (name = '', sidebar = false) => {
+  if (name.endsWith('.mp3'))
     return ICONS.mp3
-  if (name.match(/.(jpg|jpeg|png|gif|bmp)$/i)) 
+
+  if (name.match(/\.(jpg|jpeg|png|gif|bmp)$/i))
     return ICONS.img
+
+  if (name.endsWith('.txt'))
+    return sidebar ? ICONS.folderTxt : ICONS.txt
+
   return ICONS.txt
 }
 
@@ -307,7 +314,7 @@ function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelect
     ? ICONS.myDocs
     : isFolder
       ? (isExpanded ? ICONS.folderOpen : ICONS.folderClosed)
-      : getFileIcon(node.name)
+      : getFileIcon(node.name, true)
 
   return (
     <div>
@@ -457,7 +464,7 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
                   onDoubleClick={() => isFolder ? navigateFolder(id) : openFile(id)}
                   data-testid={`explorer-item-${id}`}
                 >
-                  <img src={isFolder ? ICONS.folderClosed : getFileIcon(node.name)} alt="" />
+                  <img src={isFolder ? ICONS.folder : getFileIcon(node.name)} alt="" />
                   <span>{node.name}</span>
                 </div>
               )

@@ -1,0 +1,370 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Titre",
+            "priority": "MOYENNE",
+            "deadline": "Date",
+            "status": "EN COURS",
+            "assigned": "Nom"
+        },
+        {
+            "id": 2,
+            "title": "Titre",
+            "priority": "MOYENNE",
+            "deadline": "Date",
+            "status": "À RENDRE",
+            "assigned": "Section 7"
+        },
+        {
+            "id": 3,
+            "title": "Titre",
+            "priority": "BASSE",
+            "deadline": "Date",
+            "status": "PLANIFIÉE",
+            "assigned": "Auto-assigné"
+        },
+        {
+            "id": 4,
+            "title": "Titre",
+            "priority": "HAUTE",
+            "deadline": "Date",
+            "status": "EN RETARD",
+            "assigned": "Nom"
+        },
+        {
+            "id": 5,
+            "title": "Titre",
+            "priority": "BASSE",
+            "deadline": "Date",
+            "status": "COMPLÉTÉE",
+            "assigned": "Auto"
+        },
+        {
+            "id": 6,
+            "title": "Titre",
+            "priority": "CRITIQUE",
+            "deadline": "???",
+            "status": "BLOQUÉE",
+            "assigned": "Confidentiel"
+        }
+    ],
+
+    "reports": [
+        {
+            "id": "r001",
+            "code": "SHK-2626-041",
+            "classification": "USAGE INTERNE",
+            "title": "TITRE",
+            "author": "Agent I. Shura #0791",
+            "date": "28/03/2026",
+            "body": "OBJECTIF : ...\n\nOBSERVATIONS :\n- ...\n- ...\n- ...\n\nCONCLUSION :\n... \n\nACTION REQUISE :\n..."
+        },
+        {
+            "id": "r002",
+            "code": "SHK-2626-042",
+            "classification": "CONFIDENTIEL",
+            "title": "TITRE",
+            "author": "Agent I. Shura #0791",
+            "date": "12/04/2026",
+            "body": "OBJECTIF : ...\n\nOBSERVATIONS :\n- ...\n- ...\n- ...\n\nCONCLUSION :\n... \n\nACTION REQUISE :\n..."
+        },
+        {
+            "id": "r003",
+            "code": "SHK-2626-043",
+            "classification": "TOP SECRET",
+            "title": "[ACCÈS RESTREINT — NIVEAU 3 REQUIS]",
+            "author": "???",
+            "date": "??/??/2026",
+            "body": null,
+            "locked": 3
+        }
+    ],
+
+    "squads": [1, 2, 3, 4, 5],
+
+    "personnelStructure": {
+        "leader": ["7000"],
+        "squad1": {
+            "fieldAgents": ["4215","9985","5543","7120"],
+            "teleoperator": ["5320"]
+        },
+        "squad2": {
+            "fieldAgents": ["5018", "0791", "9205", "3054"],
+            "teleoperator": ["1322"]
+        },
+        "squad3": {
+            "fieldAgents": ["4122","8761","6543","3210"],
+            "teleoperator": ["4778"]
+        },
+        "squad4": {
+            "fieldAgents": ["1225","0189","6997","7880"],
+            "teleoperator": ["9988"]
+        },
+        "squad5": {
+            "fieldAgents": ["4411", "0642", "1006", "4128"],
+            "teleoperator": ["7092"]
+        },
+        "other": ["1622"]
+    },
+
+    "personnel": [
+        {
+            "id": "7000",
+            "name": "VALKENHEIN, Melinia",
+            "status": "ACTIF"
+        },
+        {
+            "id": "4215",
+            "name": "KATO, Fubuki",
+            "rank": "Première classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "9985",
+            "name": "MARLIN, Eliz",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "5543",
+            "name": "NIMTARA, Juran",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "7120",
+            "name": "YI, Lei Fon",
+            "rank": "Troisième classe",
+            "status": "INACTIF"
+        },
+        {
+            "id": "5320",
+            "name": "AROKA, Minso",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "5018",
+            "name": "DAVIS, Malcolm",
+            "rank": "Première classe",
+            "age": "29",
+            "sector": "Section 7",
+            "team": "Escouade 2",
+            "class": "Classe",
+            "status": "ACTIF",
+            "notes": "Meneur d'escouade."
+        },
+        {
+            "id": "0791",
+            "name": "SHURA, Isen",
+            "rank": "Seconde classe",
+            "age": "29",
+            "sector": "Section 7",
+            "team": "Escouade 2",
+            "class": "Classe",
+            "status": "ACTIF",
+            "notes": "Sujet ambivalent."
+        },
+        {
+            "id": "9205",
+            "name": "KREST, Orisa",
+            "rank": "Seconde classe",
+            "age": "27",
+            "sector": "Section 7",
+            "team": "Escouade 2",
+            "class": "Classe",
+            "status": "ACTIF",
+            "notes": "Asset stratégique. Loyauté totale."
+        },
+        {
+            "id": "3054",
+            "name": "O'BORO, Kanza",
+            "rank": "Troisième classe",
+            "age": "27",
+            "sector": "Section 7",
+            "team": "Escouade 2",
+            "class": "Classe",
+            "status": "ACTIF",
+            "notes": "RAS."
+        },
+        {
+            "id": "1322",
+            "name": "SEDO, Juni",
+            "rank": "Seconde classe",
+            "age": "28",
+            "sector": "Section 7",
+            "team": "Escouade 2",
+            "class": "Classe",
+            "status": "ACTIF",
+            "notes": "Téléopérateur d'escouade."
+        },
+        {
+            "id": "1622",
+            "name": "NISHIKAWA, Ryohei",
+            "rank": "[ANCIEN] rang ???",
+            "age": "30",
+            "sector": "Section 7",
+            "team": "[DISSOUTE]",
+            "class": "[DONNÉES SCELLÉES]",
+            "status": "DISPARU",
+            "notes": "Dernier message daté du 14/02/2026. Aucun signal depuis. Dossier complet — clearance NIVEAU 3.",
+            "locked": 3
+        },
+        {
+            "id": "4122",
+            "name": "NOVAK, Muqa",
+            "rank": "Première classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "8761",
+            "name": "WUDRAND, Clere",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "6543",
+            "name": "PAO, Yalang",
+            "rank": "Troisième classe",
+            "status": "INACTIF"
+        },
+        {
+            "id": "3210",
+            "name": "SOROVIC, Pavle",
+            "rank": "Troisième classe",
+            "status": "INACTIF"
+        },
+        {
+            "id": "4778",
+            "name": "ALUMEDA, Hictor",
+            "rank": "Troisième classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "1225",
+            "name": "PEGAZZI, Yuilia",
+            "rank": "Première classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "0189",
+            "name": "OKAFOR, Chinedu",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "6997",
+            "name": "VAN MARSON, Irick",
+            "rank": "Seconde classe",
+            "class": "Classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "7880",
+            "name": "LEBLEC, Antowan",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "9988",
+            "name": "SÀ, Rin-Da",
+            "rank": "Troisième classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "4411",
+            "name": "TURA'BO, Emporo",
+            "rank": "Première classe",
+            "status": "INACTIF"
+        },
+        {
+            "id": "0642",
+            "name": "YAMANOKO, Suikyo",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "1006",
+            "name": "SWANSON, Konradd",
+            "rank": "Seconde classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "4128",
+            "name": "MAHAGA, Kaoru",
+            "rank": "Troisième classe",
+            "status": "ACTIF"
+        },
+        {
+            "id": "7092",
+            "name": "HELONG, Zeng",
+            "rank": "Seconde classe",
+            "status": "INACTIF"
+        }
+    ],
+
+    "logs": [
+        "04/05/2026 02:14:09 — [SYS] Connexion CGU-NET (poste #0791)",
+        "04/05/2026 02:14:11 — [AUTH] Session NIVEAU-1 expirée",
+        "04/05/2026 02:14:42 — [APP] Ouverture module \"Tâches\"",
+        "04/05/2026 02:15:01 — [APP] Ouverture module \"Rapports\"",
+        "04/05/2026 02:15:30 — [WARN] Tentative d'accès SHK-2626-043 — refusée (clearance insuffisante)",
+        "04/05/2026 02:16:18 — [APP] Ouverture module \"Messagerie\"",
+        "04/05/2026 02:16:45 — [WARN] Email non-traçable détecté (exp.: ???). Conservé.",
+        "04/05/2026 02:17:02 — [APP] Ouverture module \"Personnel\"",
+        "04/05/2026 02:18:11 — [SYS] Latence inhabituelle — pingback 1337ms",
+        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "03/05/2026 23:47:12 — [APP] Réception email — A. Valkenhein — objet: \"Re: Rapport SHK-2626-042\"",
+        "03/05/2026 19:02:00 — [USR] Déconnexion volontaire",
+        "03/05/2026 14:30:00 — [USR] Soumission rapport SHK-2626-042"
+    ],
+
+    "tabs": [
+        {
+            "id": "tasks",
+            "label": "Tâches",
+            "icon": "https://win98icons.alexmeub.com/icons/png/certificate_checklist-0.png"
+        },
+        {
+            "id": "reports",
+            "label": "Rapports",
+            "icon": "https://win98icons.alexmeub.com/icons/png/notepad_file-1.png"
+        },
+        {
+            "id": "personnel",
+            "label": "Personnel",
+            "icon": "https://win98icons.alexmeub.com/icons/png/users-1.png"
+        },
+        {
+            "id": "logs",
+            "label": "Journaux",
+            "icon": "https://win98icons.alexmeub.com/icons/png/executable_script-0.png"
+        },
+        {
+            "id": "secure",
+            "label": "Confidentiel",
+            "icon": "https://win98icons.alexmeub.com/icons/png/key_padlock-1.png"
+        }
+    ],
+
+    "secure": {
+            "echo": {
+            "level": 1,
+            "title": "DOSSIER « ÉCHO »",
+            "content": "...\n...\n...\n..."
+        },
+            "ambre01": {
+            "level": 2,
+            "title": "DOSSIER « AMBRE-01 »",
+            "content": "...\n...\n...\n..."
+        },
+            "kogaveil": {
+            "level": 3,
+            "title": "DOSSIER « KOGA-VEIL »",
+            "content": "...\n...\n...\n..."
+        }
+    }
+}

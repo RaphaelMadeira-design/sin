@@ -3,13 +3,14 @@ import { Rnd } from 'react-rnd'
 
 const ICONS = {
   powers: 'https://win98icons.alexmeub.com/icons/png/executable_script-0.png',
-  documents: 'https://win98icons.alexmeub.com/icons/png/directory_closed-4.png',
+  documents: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-1.png',
   snake: 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
   jump: 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
   media: 'https://win98icons.alexmeub.com/icons/png/wm-3.png',
   browser: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
   mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-2.png',
   intranet: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
+  computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',
 }
 
 export default function Win98Window({

@@ -44,64 +44,38 @@ function useIsMobile(breakpoint = 768) {
   return isMobile
 }
 
-const CELL = 90
+const CELL = 72
 
 const INITIAL_ICONS = [
-  { id: 'powers',    
-    label: 'Rapport SHOKAN', 
-    icon: 'https://win98icons.alexmeub.com/icons/png/shell_window5-0.png',  
-    x: 1, y: 0
-  },
-  { id: 'documents',  
-    label: 'Mes Documents', 
-    icon: 'https://win98icons.alexmeub.com/icons/png/directory_closed-4.png',   
-    x: 0, y: 3
-  },
-  { id: 'snake',     
-    label: 'SNAKE.exe',              
-    icon: 'https://win98icons.alexmeub.com/icons/png/joystick-4.png',           
-    x: 1, y: 1
-  },
-  { id: 'jump',      
-    label: 'JUMP.exe',               
-    icon: 'https://win98icons.alexmeub.com/icons/png/joystick-4.png',            
-    x: 1, y: 2
-  },
     {
     id: 'mail',
     label: 'E-mail',
-    icon: 'https://win98icons.alexmeub.com/icons/png/outlook_express-5.png',
-    x: 1, y: 4
-  },
-  {
-    id: 'media',
-    label: 'Windows Media Player',
-    icon: 'https://win98icons.alexmeub.com/icons/png/wm-4.png',
-    x: 0, y: 2,
+    icon: 'https://win98icons.alexmeub.com/icons/png/mailbox_world-2.png',
+    x: 0, y: 2
   },
   {
     id: 'browser',
-    label: 'Internet Explorer',
-    icon: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
-    x: 0, y: 0,
+    label: 'Internet',
+    icon: 'https://win98icons.alexmeub.com/icons/png/internet_connection_wiz-4.png',
+    x: 1, y: 0,
   },
   {
     id: 'computer',
-    label: 'Mon ordinateur',
+    label: 'PC',
     icon: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
-    x: 0, y: 4,
+    x: 0, y: 0,
   },
   { 
     id: 'msn', 
-    label: 'MSN Messenger', 
-    icon: 'https://win98icons.alexmeub.com/icons/png/msn3-3.png', 
+    label: 'Messagerie', 
+    icon: 'https://win98icons.alexmeub.com/icons/png/msn2-2.png', 
     x: 0, y: 1,
   },
   {
     id: 'intranet',
     label: 'Intranet',
     icon: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
-    x: 1, y: 3
+    x: 1, y: 1,
   },
 ].map(icon => ({ ...icon, x: icon.x * CELL, y: icon.y * CELL }))
 
@@ -157,7 +131,7 @@ const WINDOW_CONFIGS = {
     defaultPosition: { x: 0, y: 0 },
   },
   intranet: {
-    title: 'KISHI-NET — Intranet Shokan no Kishi',
+    title: 'Intranet — CGU-NET v1.04',
     defaultSize: { width: '80%', height: '85%' },
     defaultPosition: { x: 60, y: 30 },
   },
@@ -167,7 +141,7 @@ const LOADING_LABELS = {
   powers: 'POUVOIRS.exe',
   snake: 'SNAKE.exe',
   jump: 'JUMP.exe',
-  intranet : 'INTRANET v1.7b',
+  intranet : 'CGU-NET v1.04',
 }
 
 const makeNotepadConfig = (fileId, fileName) => ({

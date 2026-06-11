@@ -1,7 +1,7 @@
 import { useRef, useCallback } from 'react'
 import Sounds from '../components/Sounds'
 
-const CELL = 90
+const CELL = 72
 
 const snapToGrid = (x, y) => ({
   x: Math.round(x / CELL) * CELL,

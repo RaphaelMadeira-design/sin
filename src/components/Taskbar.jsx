@@ -6,7 +6,7 @@ const ICONS = {
   volume: 'https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png',
   network: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
   powers: 'https://win98icons.alexmeub.com/icons/png/executable_script-0.png',
-  documents: 'https://win98icons.alexmeub.com/icons/png/directory_closed-3.png',
+  documents: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-1.png',
   notepad: 'https://win98icons.alexmeub.com/icons/png/notepad-0.png',
   snake : 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
   jump: 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
@@ -14,9 +14,10 @@ const ICONS = {
   cmd: 'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
   imageviewer: 'https://win98icons.alexmeub.com/icons/png/kodak_imaging_file-0.png',
   browser: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
-  msn: 'https://win98icons.alexmeub.com/icons/png/msn3-3.png',
+  msn: 'https://win98icons.alexmeub.com/icons/png/msn2-1.png',
   intranet: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
   mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-2.png',
+  computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',
 }
 
 const getIcon = (id) => {
@@ -28,6 +29,7 @@ const getIcon = (id) => {
   if (id === 'jump') return ICONS.jump
   if (id === 'browser') return ICONS.browser
   if (id === 'intranet') return ICONS.intranet
+  if (id === 'computer') return ICONS.computer
   if (id === 'cmd') return ICONS.cmd
   if (id === 'imageviewer') return ICONS.imageviewer
   if (id === 'msn') return ICONS.msn
