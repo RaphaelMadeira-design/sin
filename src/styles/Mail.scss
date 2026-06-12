@@ -113,22 +113,31 @@
     img { width: 16px; height: 16px; image-rendering: pixelated; }
   }
   &__folder {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 3px 4px 3px 22px;
-    cursor: pointer;
-    user-select: none;
-    img { width: 16px; height: 16px; image-rendering: pixelated; }
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 4px 3px 22px;
+  cursor: pointer;
 
-    &:hover { background: #e8e8e8; }
-    &.is-active {
-      background: #000080;
-      color: #fff;
+  &:hover {
+    background: #e8e8e8;
+  }
+
+  &.is-active {
+    background: #000080;
+    color: white;
+
+    .mail__badge {
+      color: #aaffaa;
     }
   }
-  &__badge { color: #006600; font-weight: bold; }
-  &.is-active &__badge { color: #aaffaa; }
+}
+
+&__badge {
+  margin-left: auto; // optionnel pour l'aligner à droite
+  color: #006600;
+  font-weight: bold;
+}
 
   // ─── Right pane ───
   &__right {

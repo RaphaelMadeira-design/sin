@@ -85,8 +85,8 @@ const WINDOW_CONFIGS = {
     defaultSize: { width: '80%', height: '90%' },
     defaultPosition: { x: 40, y: 20 },
   },
-  documents: {
-    title: 'Mes Documents - Explorateur',
+  explorer: {
+    title: 'Explorateur de Fichiers',
     defaultSize: { width: '82%', height: '80%' },
     defaultPosition: { x: 50, y: 25 },
   },
@@ -101,7 +101,7 @@ const WINDOW_CONFIGS = {
     defaultPosition: { x: 40, y: 20 },
   },
   mail: {
-    title: 'Boîte de réception - Outlook Express',
+    title: 'Courrier électronique — Boîte de réception',
     defaultSize: { width: 720, height: 520 },
     defaultPosition: { x: 100, y: 40 },
   },
@@ -210,7 +210,7 @@ function App() {
       Sounds.windowOpen()
       return
     }
-    const skipLoading = id === 'documents' || id === 'cmd' || id === 'media' || id === 'computer' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
+    const skipLoading = id === 'explorer' || id === 'cmd' || id === 'media' || id === 'computer' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
     setWindows(prev => {
       const existing = prev.find(w => w.id === id)
       if (existing) {
@@ -357,7 +357,7 @@ function App() {
     if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
     if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />
     if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow}/>)
-    if (id === 'documents') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
+    if (id === 'explorer') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
     if (id.startsWith('notepad-')) return <Notepad fileName={win.notepadFile?.name} content={win.notepadContent} />
     return null
   }

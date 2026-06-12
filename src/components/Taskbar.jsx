@@ -6,7 +6,7 @@ const ICONS = {
   volume: 'https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png',
   network: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
   powers: 'https://win98icons.alexmeub.com/icons/png/executable_script-0.png',
-  documents: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-1.png',
+  explorer: 'https://win98icons.alexmeub.com/icons/png/directory_explorer-1.png',
   notepad: 'https://win98icons.alexmeub.com/icons/png/notepad-0.png',
   snake : 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
   jump: 'https://win98icons.alexmeub.com/icons/png/joystick_alt-1.png',
@@ -16,13 +16,13 @@ const ICONS = {
   browser: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
   msn: 'https://win98icons.alexmeub.com/icons/png/msn2-1.png',
   intranet: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
-  mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-2.png',
+  mail: 'https://win98icons.alexmeub.com/icons/png/mailbox_world-1.png',
   computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',
 }
 
 const getIcon = (id) => {
   if (id === 'powers') return ICONS.powers
-  if (id === 'documents') return ICONS.documents
+  if (id === 'explorer') return ICONS.explorer
   if (id === 'media') return ICONS.media
   if (id === 'snake') return ICONS.snake
   if (id ==='mail') return ICONS.mail

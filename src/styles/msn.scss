@@ -1,3 +1,5 @@
+@use 'Variables' as*;
+
 // ─── WINDOW INNER FLEX LAYOUT ────────────────────────────────────
 // Permet aux fenêtres de s'étirer quand on les redimensionne
 .msn-window-inner {
@@ -98,7 +100,7 @@
 }
 
 .win98-input {
-  font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+  font-family: $font-system;
   font-size: 11px;
   width: 100%;
   padding: 2px 4px;

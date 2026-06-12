@@ -4,8 +4,8 @@ import Sounds from '../components/Sounds'
 const ICONS = {
   start:        'https://win98icons.alexmeub.com/icons/png/windows-0.png',
   powers:       'https://win98icons.alexmeub.com/icons/png/shell_window5-0.png',
-  folder:       'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png',
-  folderClosed: 'https://win98icons.alexmeub.com/icons/png/directory_closed-4.png',
+  folderExplorer: 'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
+  folderClosed: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
   shutdown:     'https://win98icons.alexmeub.com/icons/png/monitor_blue_grad-0.png',
   snake:        'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
   jump:         'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
@@ -64,21 +64,21 @@ export default function StartMenu({ onClose, onOpenWindow, onShutdown }) {
             onMouseLeave={() => setDocsOpen(false)}
             data-testid="start-menu-docs"
           >
-            <img src={ICONS.folder} alt="Mes Documents" />
-            Mes Documents
+            <img src={ICONS.folderExplorer} alt="Explorateur de fichiers" />
+            Explorateur de fichiers
             <span className="start-menu__item__arrow">▶</span>
 
             {docsOpen && (
               <div className="start-menu__submenu">
-                <div className="start-menu__item" onClick={() => handle('documents', { initialFolder: 'histoire' })} data-testid="start-menu-docs-histoire">
-                  <img src={ICONS.folderClosed} alt="Histoire" />
-                  Histoire
+                <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'documents' })} data-testid="start-menu-docs-documents">
+                  <img src={ICONS.folderClosed} alt="Documents" />
+                  Documents
                 </div>
-                <div className="start-menu__item" onClick={() => handle('documents', { initialFolder: 'musique' })} data-testid="start-menu-docs-musique">
+                <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'musique' })} data-testid="start-menu-docs-musique">
                   <img src={ICONS.folderClosed} alt="Musique" />
                   Musique
                 </div>
-                <div className="start-menu__item" onClick={() => handle('documents', { initialFolder: 'images' })} data-testid="start-menu-docs-images">
+                <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'images' })} data-testid="start-menu-docs-images">
                   <img src={ICONS.folderClosed} alt="Images" />
                   Images
                 </div>

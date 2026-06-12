@@ -12,7 +12,7 @@ floppy:       'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0
 floppyLocked: 'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
 controlPanel: 'https://win98icons.alexmeub.com/icons/png/directory_control_panel-4.png',
 folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
-myDocs:       'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-0.png',
+explorer:       'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
 windowsDir:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-5.png',
 programFiles: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
 txt:          'https://win98icons.alexmeub.com/icons/png/notepad-4.png',
@@ -102,7 +102,7 @@ name: 'Disque local (C:)',
 parent: 'computer',
 drive: 'C',
 icon: ICONS.hdd,
-children: ['c_windows', 'c_programs', 'c_mydocs', 'c_users', 'c_autoexec', 'c_config', 'c_readme'],
+children: ['c_windows', 'c_programs', 'c_users', 'c_autoexec', 'c_config', 'c_readme'],
 },
 
 c_windows: {
@@ -199,32 +199,32 @@ content: `Bloc-notes — éditeur de texte.
 Glisse n'importe quel .txt dessus pour l'ouvrir.`,
 },
 
-c_mydocs: {
-name: 'Mes Documents',
-parent: 'driveC',
-icon: ICONS.myDocs,
+u_explorer: {
+name: 'Explorateur de fichiers',
+parent: 'u_isen',
+icon: ICONS.explorer,
 type: 'shortcut',
-target: 'documents',
+target: 'explorer',
 },
 
 c_users: {
 name: 'Users',
 parent: 'driveC',
-children: ['u_kiba'],
+children: ['u_isen'],
 },
-u_kiba: {
-name: 'kiba.igarashi',
+u_isen: {
+name: 'isen.shura',
 parent: 'c_users',
-children: ['u_desktop', 'u_pwd'],
+children: ['u_desktop', 'u_explorer', 'u_pwd'],
 },
 u_desktop: {
 name: 'Bureau',
-parent: 'u_kiba',
+parent: 'u_isen',
 children: [],
 },
 u_pwd: {
 name: 'note_perso.txt',
-parent: 'u_kiba',
+parent: 'u_isen',
 type: 'file',
 content: `Pense-bête —
 
@@ -263,7 +263,7 @@ type: 'file',
 content: `PC-98 — Disque local C:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Bienvenue sur la station de Kiba Igarashi.
+Bienvenue sur la station de Isen Shura      .
 
 Tu peux explorer librement :
 • WINDOWS        — système (sensible, ne pas toucher)
@@ -293,7 +293,7 @@ const n = TREE[id]
 if (!n) return ICONS.folder
 if (n.icon) return n.icon
 if (n.type === 'file') return fileIcon(n)
-if (n.type === 'shortcut') return ICONS.myDocs
+if (n.type === 'shortcut') return ICONS.explorer
 return ICONS.folder
 }
 

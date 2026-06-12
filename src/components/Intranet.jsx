@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import '../styles/Intranet.scss'
 import intranetData from '../data/intranet.json'
+import Sounds from '../components/Sounds'
+
+// ─── CGU CREDENTIALS ───────────────────────────────────────────
+const CGU_CREDENTIALS = {
+    matricule: 'CHANGE_ME',   // ← Identifiant agent (ex: '0791')
+    password:  'CHANGE_ME',   // ← Mot de passe
+}
 
 const { 
     tasks: TASKS, 
@@ -18,7 +25,119 @@ const getClearance = () => {
     return isNaN(n) ? 0 : n
 }
 
+// ─── CGU INTRANET LOGIN ────────────────────────────────────────
+function IntranetLogin({ onLogin }) {
+    const [matricule, setMatricule] = useState('')
+    const [password, setPassword]   = useState('')
+    const [error, setError]         = useState('')
+    const [loading, setLoading]     = useState(false)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setLoading(true)
+        setTimeout(() => {
+            if (
+                matricule.trim() === CGU_CREDENTIALS.matricule &&
+                password === CGU_CREDENTIALS.password
+            ) {
+                Sounds?.msnNotify?.()
+                sessionStorage.setItem('cgu_auth', '1')
+                onLogin()
+            } else {
+                Sounds?.error?.()
+                setError("Matricule ou code d'accès invalide. Vérifiez vos informations et réessayez.")
+                setLoading(false)
+            }
+        }, 900)
+    }
+
+    return (
+        <div className="cgu-login" data-testid="intranet-login">
+            {/* Bandeau de marque CGU */}
+            <div className="cgu-login__header">
+                <div className="cgu-login__crest" />
+                    <div>
+                        <div className="cgu-login__title">SERVEUR INTERNE — CGU-NET</div>
+                        <div className="cgu-login__subtitle">
+                            POSTE DE TRAVAIL MONITORÉ
+                        </div>
+                    </div>
+                </div>
+
+                {/* Corps : centre le formulaire */}
+                <div className="cgu-login__body">
+                    <form onSubmit={handleSubmit} className="cgu-login__form">
+                        <div className="cgu-login__banner">
+                            ACCÈS RESTREINT — AUTHENTIFICATION REQUISE
+                        </div>
+
+                        <p className="cgu-login__intro">
+                            Veuillez saisir votre matricule et votre code d'accèspour consulter le réseau interne.
+                        </p>
+
+                        <div className="cgu-login__form-group">
+                            <label className="cgu-login__label" htmlFor="cgu-matricule">
+                                Matricule agent&nbsp;:
+                            </label>
+                            <input
+                                id="cgu-matricule"
+                                type="text"
+                                className="win98-input"
+                                value={matricule}
+                                onChange={(e) => setMatricule(e.target.value)}
+                                placeholder="Ex. #1234"
+                                autoFocus
+                                autoComplete="off"
+                                spellCheck={false}
+                                data-testid="cgu-matricule-input"
+                            />
+                        </div>
+
+                        <div className="cgu-login__form-group">
+                            <label className="cgu-login__label" htmlFor="cgu-password">
+                                Code d'accès&nbsp;:
+                            </label>
+                            <input
+                                id="cgu-password"
+                                type="password"
+                                className="win98-input"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                autoComplete="off"
+                                data-testid="cgu-password-input"
+                            />
+                        </div>
+
+                        {error && (
+                            <div className="cgu-login__error">⚠ {error}</div>
+                        )}
+
+                        <div className="cgu-login__actions">
+                            <button
+                                type="submit"
+                                className="win98-btn"
+                                disabled={loading}
+                                data-testid="cgu-login-submit"
+                            >
+                                {loading ? 'Vérification...' : 'Se connecter'}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {/* Footer collé tout en bas de la fenêtre */}
+                <div className="cgu-login__footer">
+                    Toute tentative d'intrusion est consignée et tracée.<br/>
+                    CGU-NET vERSION 1.04
+                </div>
+        </div>
+    )
+}
+
 export default function Intranet() {
+    const [authed, setAuthed] = useState(
+        () => sessionStorage.getItem('cgu_auth') === '1'
+    )
     const [tab, setTab] = useState('tasks')
     const [openReport, setOpenReport] = useState(null)
     const [openPerson, setOpenPerson] = useState(null)
@@ -29,6 +148,11 @@ export default function Intranet() {
         const i = setInterval(() => setClearance(getClearance()), 1000)
         return () => clearInterval(i)
     }, [])
+
+    // 🔒 Gate d'authentification
+    if (!authed) {
+        return <IntranetLogin onLogin={() => setAuthed(true)} />
+    }
 
     const groupedPersonnel = PERSONNEL.reduce((acc, p) => {
         if (!p.team) return acc

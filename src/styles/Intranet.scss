@@ -6,7 +6,7 @@
   height: 100%;
   background: #ece9d8;
   font-family: $font-system;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.2px;
   font-size: 12px;
   color: #000;
   overflow: hidden;
@@ -221,7 +221,7 @@
     padding-bottom: 8px;
     margin-bottom: 12px;
   }
-  &__doc-org { font-weight: bold; font-size: 13px; letter-spacing: 0.4px }
+  &__doc-org { font-weight: bold; font-size: 13px; letter-spacing: 0.2px }
   &__doc-meta {
     display: flex;
     gap: 24px;
@@ -360,7 +360,7 @@
     &:hover { background: #fffbe6; }
   }
   &__card-id { font-family: monospace; font-size: 10px; color: #777; }
-  &__card-name { font-weight: bold; font-size: 14px; margin: 4px 0; letter-spacing: 0.4px; }
+  &__card-name { font-weight: bold; font-size: 14px; margin: 4px 0; letter-spacing: 0.2px; }
   &__card-rank { font-size: 12px; color: #555; }
   &__card-status {
     display: inline-block;
@@ -444,7 +444,7 @@
     background: #000080;
     color: #f5f1cc;
     font-size: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0.6px;
     text-align: center;
     padding: 3px 4px;
     font-weight: bold;
@@ -481,7 +481,7 @@
     text-align: center;
     padding: 3px;
     color: #1b2540;
-    letter-spacing: 1px;
+    letter-spacing: 0.6px;
     flex: 0 0 auto;
   }
 
@@ -528,7 +528,7 @@
   &__sealed-head {
     font-weight: bold;
     font-size: 12px;
-    letter-spacing: 1px;
+    letter-spacing: 0.6px;
     color: inherit;
   }
   &__sealed-lock {
@@ -549,5 +549,134 @@
     border-left: 3px solid #b87800;
     font-size: 11px;
     font-style: italic;
+  }
+}
+
+// ─── CGU LOGIN (style cohérent avec MSN login) ──────────────────
+.cgu-login {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #c0c0c0;
+  font-family: $font-system;
+  color: #000;
+
+  // Bandeau de marque (reste en haut, pleine largeur)
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background:
+      linear-gradient(135deg, #0a0f25 0%, #1b2540 50%, #2a3a6e 100%);
+    border-bottom: 2px solid #000;
+    box-shadow: inset 0 -1px 0 #000080;
+    flex-shrink: 0;
+  }
+
+  &__crest {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background:
+      url('https://win98icons.alexmeub.com/icons/png/key_win-0.png')
+      no-repeat center / contain;
+    image-rendering: pixelated;
+  }
+
+  &__title {
+    color: #f5f1cc;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  &__subtitle {
+    color: #9ecfff;
+    font-size: 10px;
+    letter-spacing: 0.4px;
+    margin-top: 2px;
+  }
+
+  // ── Corps centré ─────────────────────────────────────
+  // On utilise flex pour centrer le formulaire verticalement
+  // ET pousser le footer tout en bas.
+  &__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       // centre horizontalement
+    padding: 24px 20px 0;
+    background: #ece9d8;
+    overflow-y: auto;
+  }
+
+  // Wrapper du formulaire avec largeur max contrôlée
+  &__form {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__banner {
+    background: #2b0000;
+    color: #ffcfcf;
+    border: 1px solid #5a0000;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  &__intro {
+    font-size: 11px;
+    line-height: 1.45;
+    margin: 0 0 16px;
+    color: #222;
+    text-align: center;
+  }
+
+  &__form-group {
+    margin-bottom: 10px;
+    margin: 0 auto;
+  }
+
+  &__label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 3px;
+    color: #000;
+  }
+
+  &__error {
+    background: #fff5f5;
+    border: 1px solid #cc0000;
+    color: #aa0000;
+    font-size: 11px;
+    padding: 6px 8px;
+    margin: 4px 0 12px;
+    line-height: 1.4;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;   // bouton centré
+    margin-top: 14px;
+  }
+
+  // ── Footer collé en bas, pleine largeur ──────────────
+  &__footer {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    background: #d4d0c8;
+    border-top: 1px solid #b0b0a8;
+    box-shadow: inset 0 1px 0 #fff;
+    font-size: 10px;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
   }
 }

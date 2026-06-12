@@ -4,7 +4,7 @@ import '../styles/Mail.scss'
 const ICONS = {
   inbox:       'https://win98icons.alexmeub.com/icons/png/outlook_express-2.png',
   inboxFolder: 'https://win98icons.alexmeub.com/icons/png/mailbox_world-1.png',
-  sent:        'https://win98icons.alexmeub.com/icons/png/unplug_storage-1.png',
+  sent:        'https://win98icons.alexmeub.com/icons/png/envelope_open_sheet-1.png',
   drafts:      'https://win98icons.alexmeub.com/icons/png/write_file-0.png',
   trash:       'https://win98icons.alexmeub.com/icons/png/recycle_bin_empty_cool-4.png',
   mailRead:    'https://win98icons.alexmeub.com/icons/png/message_envelope_open-1.png',
@@ -163,7 +163,7 @@ export default function Mail() {
     <div className="mail" data-testid="mail-window">
       {/* Menubar */}
       <div className="mail__menubar">
-        {['Fichier', 'Édition', 'Affichage', 'Outils', 'Composer', 'Aide'].map(m => (
+        {['Fichier', 'Édition', 'Affichage', 'Outils'].map(m => (
           <span key={m} className="mail__menu"><u>{m[0]}</u>{m.slice(1)}</span>
         ))}
       </div>
@@ -263,7 +263,7 @@ export default function Mail() {
       <div className="mail__statusbar">
         <span>{messages.length} message(s)</span>
         <span>{unreadCount} non lu(s)</span>
-        <span>Connecté à kishi.jp</span>
+        <span>Connexion sécurisée vers #0791</span>
       </div>
     </div>
   )

@@ -5,7 +5,7 @@ const ICONS = {
   folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
   folderClosed: 'https://win98icons.alexmeub.com/icons/png/directory_closed-2.png',
   folderOpen:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-4.png',
-  myDocs:       'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs_2k-1.png',
+  explorer:     'https://win98icons.alexmeub.com/icons/png/directory_explorer-1.png',
   txt:          'https://win98icons.alexmeub.com/icons/png/notepad_file-0.png',
   folderTxt:    'https://win98icons.alexmeub.com/icons/png/notepad_file-1.png',
   mp3:          'https://win98icons.alexmeub.com/icons/png/wm_file-5.png',
@@ -26,15 +26,19 @@ const getFileIcon = (name = '', sidebar = false) => {
 }
 
 export const FILE_TREE = {
-  root: {
-    name: 'Mes Documents',
-    children: ['histoire', 'musique', 'images', 'important'],
+    root: {
+      name: 'Explorateur de fichiers',
+      children: ['documents', 'musique', 'images', 'important'],
   },
-
+  documents: {
+      name: 'Documents',
+      parent: 'root',
+      children: ['histoire'],
+  },
   // --- Histoire ---
   histoire: {
     name: 'Histoire',
-    parent: 'root',
+    parent: 'documents',
     children: ['chapitre1', 'chapitre2', 'chapitre3'],
   },
   chapitre1: {
@@ -311,7 +315,7 @@ function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelect
   const isExpanded = isCurrentFolder || ancestors.has(id)
 
   const icon = id === 'root'
-    ? ICONS.myDocs
+    ? ICONS.explorer
     : isFolder
       ? (isExpanded ? ICONS.folderOpen : ICONS.folderClosed)
       : getFileIcon(node.name, true)
