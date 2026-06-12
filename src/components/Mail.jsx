@@ -187,7 +187,7 @@ export default function Mail() {
           <div className="mail__sb-tree">
             <div className="mail__sb-root">
               <img src={ICONS.inbox} alt="" />
-              <span>Boîte aux lettres — K. Igarashi</span>
+              <span>Boîte aux lettres — #0791</span>
             </div>
             {FOLDERS.map(f => (
               <div

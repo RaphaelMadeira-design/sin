@@ -153,7 +153,8 @@
             "team": "Escouade 2",
             "class": "Classe",
             "status": "ACTIF",
-            "notes": "Meneur d'escouade."
+            "notes": "Meneur d'escouade.",
+            "image": "/images/malcolm.jpg"
         },
         {
             "id": "0791",
@@ -164,7 +165,8 @@
             "team": "Escouade 2",
             "class": "Classe",
             "status": "ACTIF",
-            "notes": "Sujet ambivalent."
+            "notes": "Sujet ambivalent.",
+            "image": "/images/isen.jpg"
         },
         {
             "id": "9205",
@@ -175,7 +177,8 @@
             "team": "Escouade 2",
             "class": "Classe",
             "status": "ACTIF",
-            "notes": "Asset stratégique. Loyauté totale."
+            "notes": "Asset stratégique. Loyauté totale.",
+            "image": "/images/orisa.jpg"
         },
         {
             "id": "3054",
@@ -186,7 +189,8 @@
             "team": "Escouade 2",
             "class": "Classe",
             "status": "ACTIF",
-            "notes": "RAS."
+            "notes": "RAS.",
+            "image": "/images/kanza.jpg"
         },
         {
             "id": "1322",
@@ -197,8 +201,9 @@
             "team": "Escouade 2",
             "class": "Classe",
             "status": "ACTIF",
-            "notes": "Téléopérateur d'escouade."
-        },
+            "notes": "Téléopérateur d'escouade.",
+            "image": "/images/juni.jpg"
+            },
         {
             "id": "1622",
             "name": "NISHIKAWA, Ryohei",

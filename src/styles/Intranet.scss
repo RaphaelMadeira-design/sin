@@ -5,7 +5,8 @@
   flex-direction: column;
   height: 100%;
   background: #ece9d8;
-  font-family: 'MS Sans Serif', Tahoma, sans-serif;
+  font-family: $font-system;
+  letter-spacing: 0.4px;
   font-size: 12px;
   color: #000;
   overflow: hidden;
@@ -30,9 +31,8 @@
 
   &__title { flex: 1; line-height: 1.15; }
   &__org {
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
     color: #000080;
   }
   &__sub {
@@ -45,9 +45,8 @@
     background: #c0c0c0;
     border: 1px solid;
     border-color: #808080 #fff #fff #808080;
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-size: 11px;
+    letter-spacing: 0.4px;
+    font-size: 12px;
     color: #dedede;
 
     &.lvl-0 { 
@@ -84,7 +83,7 @@
     border-color: #fff #808080 #808080 #fff;
     border-bottom: none;
     font: inherit;
-    font-size: 11px;
+    font-size: 12px;
     cursor: pointer;
     color: #000;
     margin-right: -1px;
@@ -125,7 +124,7 @@
     background: #c0c0c0;
     border-top: 1px solid #fff;
     padding: 2px 8px;
-    font-size: 11px;
+    font-size: 10px;
     color: #000;
     box-shadow: inset 0 1px 0 #808080;
   }
@@ -158,8 +157,7 @@
     color: #fff;
     padding: 1px 8px;
     font-size: 10px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     border: 1px solid rgba(0,0,0,0.4);
   }
 
@@ -202,7 +200,7 @@
     border: 1px solid;
     border-color: #808080 #fff #fff #808080;
     padding: 16px 20px;
-    font-family: 'MS Sans Serif', Tahoma, sans-serif;
+    font-family: $font-system;
   }
   &__back {
     background: #c0c0c0;
@@ -223,24 +221,25 @@
     padding-bottom: 8px;
     margin-bottom: 12px;
   }
-  &__doc-org { font-weight: bold; font-size: 13px; letter-spacing: 1px; }
+  &__doc-org { font-weight: bold; font-size: 13px; letter-spacing: 0.4px }
   &__doc-meta {
     display: flex;
     gap: 24px;
-    font-size: 11px;
+    font-size: 12px;
     color: #444;
     margin-bottom: 10px;
   }
   &__doc-title {
     margin: 10px 0 14px;
-    font-size: 15px;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
   }
   &__doc-body {
     white-space: pre-wrap;
     line-height: 1.55;
     font-size: 12px;
+    font-family: $font-system;
     background: transparent;
     margin: 0;
   }
@@ -276,7 +275,7 @@
     border: 1px solid #b6b6b6;
     padding: 10px 14px;
     margin-bottom: 14px;
-    font-family: 'MS Sans Serif', Tahoma, sans-serif;
+    font-family: $font-system;
     > div { margin: 2px 0; }
   }
 
@@ -327,7 +326,7 @@
     border-bottom: 2px solid #000080;
     font-size: 12px;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #000080;
   }
@@ -340,10 +339,9 @@
     margin-bottom: 8px;
     padding-left: 4px;
 
-    font-size: 11px;
-    font-weight: bold;
+    font-size: 12px;
     color: #444;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
   }
 
@@ -362,31 +360,129 @@
     &:hover { background: #fffbe6; }
   }
   &__card-id { font-family: monospace; font-size: 10px; color: #777; }
-  &__card-name { font-weight: bold; font-size: 13px; margin: 4px 0; letter-spacing: 0.5px; }
-  &__card-rank { font-size: 11px; color: #555; }
+  &__card-name { font-weight: bold; font-size: 14px; margin: 4px 0; letter-spacing: 0.4px; }
+  &__card-rank { font-size: 12px; color: #555; }
   &__card-status {
     display: inline-block;
     margin-top: 8px;
     padding: 2px 8px;
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 12px;
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
     &.s-actif { background: #2c7a2c; }
     &.s-inactif { background: #b80000; }
     &.s-disparu { background: #888; }
   }
-  &__fiche {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'MS Sans Serif', Tahoma, sans-serif;
+    &__fiche {
+    flex: 1;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: $font-system;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #404040;
+    padding: 2px;
+    align-self: stretch;
+
     th, td {
-      border: 1px solid #b6b6b6;
+      border: 1px solid;
+      border-color: #808080 #fff #fff #808080;
       padding: 6px 10px;
       text-align: left;
-      vertical-align: top;
+      vertical-align: middle;
+      font-size: 12px;
+      line-height: 1.3;
     }
-    th { background: #1b2540; color: #f5f1cc; width: 130px; font-weight: normal; letter-spacing: 0.5px; }
+
+    th {
+      background: #c0c0c0;
+      color: #000;
+      width: 140px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border-color: #fff #808080 #808080 #fff;
+    }
+
+    td {
+      background: #fff;
+      color: #000;
+    }
+
+    tr:nth-child(even) td {
+      background: #f4f4f4;
+    }
+  }
+
+
+  // ─── Fiche layout + cadre photo matricule ────────
+  &__fiche-layout {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+
+  &__photo-frame {
+    margin: 0;
+    flex: 0 0 200px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #404040;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-self: stretch;
+  }
+
+  &__photo-caption {
+    background: #000080;
+    color: #f5f1cc;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 3px 4px;
+    font-weight: bold;
+    flex: 0 0 auto;
+  }
+
+  &__photo-inner {
+    flex: 1 1 auto;
+    min-height: 0;
+    background: #1b2540;
+    border: 1px solid;
+    border-color: #404040 #fff #fff #404040;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  &__photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    image-rendering: auto;
+    filter: contrast(1.05) saturate(0.9);
+  }
+
+  &__photo-id {
+    background: #ece9d8;
+    border: 1px dashed #808080;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    text-align: center;
+    padding: 3px;
+    color: #1b2540;
+    letter-spacing: 1px;
+    flex: 0 0 auto;
   }
 
   // ─── Logs ─────────────────────────────────────────

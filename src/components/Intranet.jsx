@@ -236,16 +236,36 @@ export default function Intranet() {
                             <div className="intranet__doc-org">FICHE PERSONNEL — DOSSIER N° {openPerson.id.toUpperCase()}</div>
                             <div className={`intranet__stamp classifié`}>USAGE INTERNE</div>
                         </div>
-                        <table className="intranet__fiche">
-                            <tbody>
-                                {Object.entries({ "Nom complet": openPerson.name, "Rang": openPerson.rank, "Âge": openPerson.age, "Secteur": openPerson.sector, "Équipe": openPerson.team, "Classe": openPerson.class, "Statut": openPerson.status, "Notes": openPerson.notes }).map(([k,v]) => (
-                                    <tr key={k}>
-                                        <th>{k}</th>
-                                        <td>{v}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+
+                        <div className="intranet__fiche-layout">
+                            <table className="intranet__fiche">
+                                <tbody>
+                                    {Object.entries({ "Nom complet": openPerson.name, "Rang": openPerson.rank, "Âge": openPerson.age, "Secteur": openPerson.sector, "Équipe": openPerson.team, "Classe": openPerson.class, "Statut": openPerson.status, "Notes": openPerson.notes }).map(([k,v]) => (
+                                        <tr key={k}>
+                                            <th>{k}</th>
+                                            <td>{v}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+
+                            {openPerson.image && (
+                                <figure className="intranet__photo-frame">
+                                    <div className="intranet__photo-caption">PHOTO MATRICULE</div>
+                                    <div className="intranet__photo-inner">
+                                        <img
+                                            src={openPerson.image}
+                                            alt={openPerson.name}
+                                            className="intranet__photo-img"
+                                            onError={(e) => { e.currentTarget.style.display = 'none' }}
+                                        />
+                                    </div>
+                                    <figcaption className="intranet__photo-id">
+                                        N° {openPerson.id.toUpperCase()}
+                                    </figcaption>
+                                </figure>
+                            )}
+                        </div>
                     </div>
                 )}
 
