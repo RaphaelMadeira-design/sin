@@ -1,12 +1,12 @@
 @font-face {
-font-family: 'WindowsRegular';
-src: url('../fonts/Windows.woff') format('woff'),
-url('../fonts/Windows.woff2') format('woff2');
-font-weight: 400;
-font-style: normal;
-font-display: swap;
--webkit-font-smoothing: none;
-font-smooth: never;
+    font-family: 'WindowsRegular';
+    src: url('../fonts/Windows.woff') format('woff'),
+    url('../fonts/Windows.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
 }
 
 // Windows 98 + PC-98 Color Palette
@@ -29,31 +29,31 @@ $pc98-deep-purple: #1a0033;
 
 // 3D Border Mixins (Windows 98 style)
 @mixin border-outset {
-border-top: 2px solid $win98-white;
-border-left: 2px solid $win98-white;
-border-right: 2px solid $win98-black;
-border-bottom: 2px solid $win98-black;
+    border-top: 2px solid $win98-white;
+    border-left: 2px solid $win98-white;
+    border-right: 2px solid $win98-black;
+    border-bottom: 2px solid $win98-black;
 }
 
 @mixin border-outset-light {
-border-top: 1px solid $win98-white;
-border-left: 1px solid $win98-white;
-border-right: 1px solid $win98-dark-gray;
-border-bottom: 1px solid $win98-dark-gray;
+    border-top: 1px solid $win98-white;
+    border-left: 1px solid $win98-white;
+    border-right: 1px solid $win98-dark-gray;
+    border-bottom: 1px solid $win98-dark-gray;
 }
 
 @mixin border-inset {
-border-top: 2px solid $win98-black;
-border-left: 2px solid $win98-black;
-border-right: 2px solid $win98-white;
-border-bottom: 2px solid $win98-white;
+    border-top: 2px solid $win98-black;
+    border-left: 2px solid $win98-black;
+    border-right: 2px solid $win98-white;
+    border-bottom: 2px solid $win98-white;
 }
 
 @mixin border-inset-light {
-border-top: 1px solid $win98-dark-gray;
-border-left: 1px solid $win98-dark-gray;
-border-right: 1px solid $win98-white;
-border-bottom: 1px solid $win98-white;
+    border-top: 1px solid $win98-dark-gray;
+    border-left: 1px solid $win98-dark-gray;
+    border-right: 1px solid $win98-white;
+    border-bottom: 1px solid $win98-white;
 }
 
 // Pixel font
