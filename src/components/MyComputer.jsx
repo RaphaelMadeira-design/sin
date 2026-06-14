@@ -62,36 +62,39 @@ return n.name
 })
 .join('\\')
 
-/* -----------------------------------------------------------
-Boîte de dialogue Win98 — Rendu INLINE (comme <Loading />)
-✅ Plus de createPortal : utilise position:fixed comme Loading
-✅ S'affiche au centre de l'écran CRT grâce au filter
-qui crée un containing block sur .crt-monitor__content
------------------------------------------------------------ */
 function Win98Dialog({ icon, title, children, onClose, buttons }) {
-return (
-<div
-className="my-computer__dialog-backdrop"
-onMouseDown={(e) => { if (e.target === e.currentTarget) onClose?.() }}
-data-testid="mycomputer-dialog-backdrop"
->
-<div
-className="my-computer__dialog"
-role="dialog"
-aria-modal="true"
-onMouseDown={(e) => e.stopPropagation()}
->
-<div className="my-computer__dialog-titlebar">
-<span>{title}</span>
-</div>
-<div className="my-computer__dialog-body">
-{icon && <img src={icon} alt="" className="my-computer__dialog-icon" />}
-<div className="my-computer__dialog-content">{children}</div>
-</div>
-<div className="my-computer__dialog-buttons">{buttons}</div>
-</div>
-</div>
-)
+    return (
+        <div
+            className="my-computer__dialog-backdrop"
+            onMouseDown={(e) => { if (e.target === e.currentTarget) onClose?.() }}
+            data-testid="mycomputer-dialog-backdrop"
+        >
+            <div
+                className="my-computer__dialog"
+                role="dialog"
+                aria-modal="true"
+                onMouseDown={(e) => e.stopPropagation()}
+            >
+                <div className="win98-window__titlebar">
+                    <span className="win98-window__title-text">{title}</span>
+                    <div className="win98-window__controls">
+                        <button
+                            type="button"
+                            className="win98-window__ctrl-btn win98-window__ctrl-btn--close"
+                            onClick={onClose}
+                            aria-label="Fermer"
+                            data-testid="mycomputer-dialog-close"
+                        />
+                    </div>
+                </div>
+                <div className="my-computer__dialog-body">
+                    {icon && <img src={icon} alt="" className="my-computer__dialog-icon" />}
+                    <div className="my-computer__dialog-content">{children}</div>
+                </div>
+                <div className="my-computer__dialog-buttons">{buttons}</div>
+            </div>
+        </div>
+    )
 }
 
 /* -----------------------------------------------------------

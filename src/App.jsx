@@ -25,6 +25,7 @@ import Browser from './components/Browser'
 import MSNApp from './components/MSN'
 import Sounds from './components/Sounds'
 import Help from './components/Help'
+import Trash from './components/Trash'
 
 // Hook pour détecter le mode mobile
 function useIsMobile(breakpoint = 768) {
@@ -75,6 +76,12 @@ const INITIAL_ICONS = [
         label: 'CGU-NET Intranet',
         icon: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png',
         x: 1, y: 1,
+    },
+    {
+        id: 'recycle',
+        label: 'Corbeille',
+        icon: 'https://win98icons.alexmeub.com/icons/png/recycle_bin_full-4.png',
+        x: 0, y: 4,
     },
 ].map(icon => ({ ...icon, x: icon.x * CELL, y: icon.y * CELL }))
 
@@ -138,7 +145,12 @@ const WINDOW_CONFIGS = {
     title: "Aide",
     defaultSize: { width: 540, height: 420 },
     defaultPosition: { x: 120, y: 60 },
-    }
+    },
+    recycle: {
+        title: 'Corbeille',
+        defaultSize: { width: 680, height: 460 },
+        defaultPosition: { x: 110, y: 50 },
+    },
 }
 
 const NO_LOADING_WINDOWS = new Set([
@@ -149,6 +161,7 @@ const NO_LOADING_WINDOWS = new Set([
     'browser',
     'mail',
     'imageviewer',
+    'recycle',
 ])
 
 const LOADING_LABELS = {
@@ -411,6 +424,7 @@ function App() {
         if (id === 'jump') return <JumpGame />
         if (id === 'mail') return <Mail />
         if (id === 'intranet') return <Intranet />
+        if (id === 'recycle') return <Trash />
         if (id.startsWith("help-")) { return <Help app={win.helpApp} />}
         if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
         if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />

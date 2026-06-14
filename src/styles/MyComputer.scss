@@ -81,7 +81,7 @@
         cursor: not-allowed;
         opacity: 0.45;
         filter: grayscale(0.8);
-        pointer-events: auto;          // garde le hover pour montrer le curseur
+        pointer-events: auto;
         user-select: none;
 
         &:hover {
@@ -93,113 +93,96 @@
             filter: grayscale(1) brightness(1.1);
         }
     }
-}
 
-.my-computer__dialog-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: mc-dialog-fade 120ms ease-out;
-}
 
-.my-computer__dialog {
-    position: relative;
-    background: $win98-light-gray;
-    border: 2px solid;
-    border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
-    min-width: 340px;
-    max-width: 460px;
-    font-family: $font-system;
-    font-size: 11px;
-    color: $win98-black;
-    animation: mc-dialog-pop 140ms ease-out;
-}
-
-.my-computer__dialog-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, $win98-navy 0%, #1084d0 100%);
-    color: $win98-white;
-    font-weight: 700;
-    padding: 3px 4px 3px 6px;
-    font-size: 11px;
-
-    button {
-        width: 18px;
-        height: 16px;
+    &__dialog {
+        position: relative;
         background: $win98-light-gray;
-        border: 1px solid;
-        border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
-        color: $win98-black;
-        font-size: 10px;
-        line-height: 1;
-        cursor: pointer;
-        padding: 0;
-
-        &:active {
-            border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
-        }
-    }
-}
-
-.my-computer__dialog-body {
-    display: flex;
-    gap: 12px;
-    padding: 18px 18px 10px;
-    align-items: flex-start;
-}
-
-.my-computer__dialog-icon {
-    width: 32px;
-    height: 32px;
-    image-rendering: pixelated;
-    flex-shrink: 0;
-}
-
-.my-computer__dialog-content {
-    flex: 1;
-    line-height: 1.5;
-}
-
-.my-computer__dialog-buttons {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    padding: 6px 14px 14px;
-
-    button {
-        min-width: 78px;
-        height: 22px;
-        background: $win98-gray;
         border: 2px solid;
-        border-color: $win98-white $win98-black $win98-black $win98-white;
+        border-color: $win98-white $win98-dark-gray $win98-dark-gray $win98-white;
+        min-width: 340px;
+        max-width: 460px;
         font-family: $font-system;
         font-size: 11px;
         color: $win98-black;
-        cursor: pointer;
-        padding: 0 10px;
+        animation: mc-dialog-pop 140ms ease-out;
 
-        &:active {
-            border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
+        &-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: mc-dialog-fade 120ms ease-out;
         }
-        &:focus {
-            outline: 1px dotted $win98-black;
-            outline-offset: -4px;
+
+        &-body {
+            display: flex;
+            gap: 12px;
+            padding: 18px 18px 10px;
+            align-items: flex-start;
+        }
+
+        &-icon {
+            width: 32px;
+            height: 32px;
+            image-rendering: pixelated;
+            flex-shrink: 0;
+        }
+
+        &-content {
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        &-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 6px 14px 14px;
+
+            button {
+                min-width: 78px;
+                height: 22px;
+                background: $win98-gray;
+                border: 2px solid;
+                border-color: $win98-white $win98-black $win98-black $win98-white;
+                font-family: $font-system;
+                font-size: 11px;
+                color: $win98-black;
+                cursor: pointer;
+                padding: 0 10px;
+
+                &:active {
+                    border-color: $win98-dark-gray $win98-white $win98-white $win98-dark-gray;
+                }
+                &:focus {
+                    outline: 1px dotted $win98-black;
+                    outline-offset: -4px;
+                }
+            }
         }
     }
 }
 
 @keyframes mc-dialog-fade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from { 
+        opacity: 0; 
+    }
+    to   { 
+        opacity: 1; 
+    }
 }
 
 @keyframes mc-dialog-pop {
-    from { transform: scale(0.92); opacity: 0; }
-    to   { transform: scale(1);    opacity: 1; }
+    from { 
+        transform: scale(0.92); 
+        opacity: 0; 
+    }
+    to   { 
+        transform: scale(1);    
+        opacity: 1; 
+    }
 }
