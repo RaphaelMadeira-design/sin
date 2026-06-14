@@ -27,591 +27,588 @@ import Sounds from './components/Sounds'
 
 // Hook pour détecter le mode mobile
 function useIsMobile(breakpoint = 768) {
-  const [isMobile, setIsMobile] = useState(() => {
-    if (typeof window === 'undefined') return false
-    return window.innerWidth <= breakpoint || 'ontouchstart' in window
-  })
+    const [isMobile, setIsMobile] = useState(() => {
+        if (typeof window === 'undefined') return false
+        return window.innerWidth <= breakpoint || 'ontouchstart' in window
+    })
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= breakpoint || 'ontouchstart' in window)
-    }
-    
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [breakpoint])
-
-  return isMobile
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= breakpoint || 'ontouchstart' in window)
+        }
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [breakpoint])
+    return isMobile
 }
 
-const CELL = 72
+const CELL = 78
 
 const INITIAL_ICONS = [
     {
-    id: 'mail',
-    label: 'E-mail',
-    icon: 'https://win98icons.alexmeub.com/icons/png/mailbox_world-2.png',
-    x: 0, y: 2
-  },
-  {
-    id: 'browser',
-    label: 'Internet',
-    icon: 'https://win98icons.alexmeub.com/icons/png/internet_connection_wiz-4.png',
-    x: 1, y: 0,
-  },
-  {
-    id: 'computer',
-    label: 'PC',
-    icon: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
-    x: 0, y: 0,
-  },
-  { 
-    id: 'msn', 
-    label: 'Messagerie', 
-    icon: 'https://win98icons.alexmeub.com/icons/png/msn2-2.png', 
-    x: 0, y: 1,
-  },
-  {
-    id: 'intranet',
-    label: 'Intranet',
-    icon: 'https://win98icons.alexmeub.com/icons/png/network_normal_two_pcs-0.png',
-    x: 1, y: 1,
-  },
+        id: 'mail',
+        label: 'Outlook Express',
+        icon: 'https://win98icons.alexmeub.com/icons/png/outlook_express-4.png',
+        x: 0, y: 2
+    },
+    {
+        id: 'browser',
+        label: 'Internet Explorer',
+        icon: 'https://win98icons.alexmeub.com/icons/png/msie2-1.png',
+        x: 1, y: 0,
+    },
+    {
+        id: 'computer',
+        label: 'Poste de travail',
+        icon: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
+        x: 0, y: 0,
+    },
+    { 
+        id: 'msn', 
+        label: 'MSN Messenger', 
+        icon: 'https://win98icons.alexmeub.com/icons/png/msn3-3.png', 
+        x: 0, y: 1,
+    },
+    {
+        id: 'intranet',
+        label: 'CGU-NET Intranet',
+        icon: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png',
+        x: 1, y: 1,
+    },
 ].map(icon => ({ ...icon, x: icon.x * CELL, y: icon.y * CELL }))
 
 const WINDOW_CONFIGS = {
-  powers: {
-    title: 'Shokan et Techniques - SHOKAN.exe',
-    defaultSize: { width: '80%', height: '90%' },
-    defaultPosition: { x: 40, y: 20 },
-  },
-  explorer: {
-    title: 'Explorateur de Fichiers',
-    defaultSize: { width: '82%', height: '80%' },
-    defaultPosition: { x: 50, y: 25 },
-  },
-  snake: {
-    title: 'Snake — SNAKE.exe',
-    defaultSize: { width: '40%', height: '70%' },
-    defaultPosition: { x: 40, y: 20 },
-  },
-  jump: {
-    title: 'Jeu de saut — JUMP.exe',
-    defaultSize: { width: '40%', height: '50%' },
-    defaultPosition: { x: 40, y: 20 },
-  },
-  mail: {
-    title: 'Courrier électronique — Boîte de réception',
-    defaultSize: { width: 720, height: 520 },
-    defaultPosition: { x: 100, y: 40 },
-  },
-  computer: {
-    title: 'Poste de travail',
-    defaultSize: { width: 760, height: 520 },
-    defaultPosition: { x: 90, y: 40 },
-  },
-  media: {
-    title: 'Windows Media Player',
-    defaultSize: { width: 340, height: 460 },
-    defaultPosition: { x: 80, y: 20 },
-  },
-  cmd: {
-    title: 'Invite de commandes',
-    defaultSize: { width: 600, height: 380 },
-    defaultPosition: { x: 80, y: 60 },
-  },
-  imageviewer: {
-    title: "Visionneuse d'image",
-    defaultSize: { width: 520, height: 460 },
-    defaultPosition: { x: 100, y: 30 },
-  },
-  browser: {
-    title: 'Internet Explorer',
-    defaultSize: { width: '100%', height: '100%' },
-    defaultPosition: { x: 0, y: 0 },
-  },
-  intranet: {
-    title: 'Intranet — CGU-NET v1.04',
-    defaultSize: { width: '80%', height: '85%' },
-    defaultPosition: { x: 60, y: 30 },
-  },
+    powers: {
+        title: 'Shokan et Techniques - SHOKAN.exe',
+        defaultSize: { width: '80%', height: '90%' },
+        defaultPosition: { x: 40, y: 20 },
+    },
+    explorer: {
+        title: 'Explorateur de Fichiers',
+        defaultSize: { width: '82%', height: '80%' },
+        defaultPosition: { x: 50, y: 25 },
+    },
+    snake: {
+        title: 'Snake — SNAKE.exe',
+        defaultSize: { width: '40%', height: '70%' },
+        defaultPosition: { x: 40, y: 20 },
+    },
+    jump: {
+        title: 'Jeu de saut — JUMP.exe',
+        defaultSize: { width: '40%', height: '50%' },
+        defaultPosition: { x: 40, y: 20 },
+    },
+    mail: {
+        title: 'Courrier électronique — Boîte de réception',
+        defaultSize: { width: 720, height: 520 },
+        defaultPosition: { x: 100, y: 40 },
+    },
+    computer: {
+        title: 'Poste de travail',
+        defaultSize: { width: 760, height: 520 },
+        defaultPosition: { x: 90, y: 40 },
+    },
+    media: {
+        title: 'Windows Media Player',
+        defaultSize: { width: 340, height: 460 },
+        defaultPosition: { x: 80, y: 20 },
+    },
+    cmd: {
+        title: 'Invite de commandes',
+        defaultSize: { width: 600, height: 380 },
+        defaultPosition: { x: 80, y: 60 },
+    },
+    imageviewer: {
+        title: "Visionneuse d'image",
+        defaultSize: { width: 520, height: 460 },
+        defaultPosition: { x: 100, y: 30 },
+    },
+    browser: {
+        title: 'Internet Explorer',
+        defaultSize: { width: '100%', height: '100%' },
+        defaultPosition: { x: 0, y: 0 },
+    },
+    intranet: {
+        title: 'Intranet — CGU-NET v5.04',
+        defaultSize: { width: '80%', height: '85%' },
+        defaultPosition: { x: 60, y: 30 },
+    },
 }
 
 const LOADING_LABELS = {
-  powers: 'POUVOIRS.exe',
-  snake: 'SNAKE.exe',
-  jump: 'JUMP.exe',
-  intranet : 'CGU-NET v1.04',
+    powers: 'POUVOIRS.exe',
+    snake: 'SNAKE.exe',
+    jump: 'JUMP.exe',
+    intranet : 'CGU-NET v5.04',
 }
 
 const makeNotepadConfig = (fileId, fileName) => ({
-  title: `${fileName} - Bloc-notes`,
-  defaultSize: { width: 540, height: 420 },
-  defaultPosition: { x: 80 + Math.random() * 120, y: 40 + Math.random() * 80 },
-  notepadFile: { id: fileId, name: fileName },
+    title: `${fileName} - Bloc-notes`,
+    defaultSize: { width: 540, height: 420 },
+    defaultPosition: { x: 80 + Math.random() * 120, y: 40 + Math.random() * 80 },
+    notepadFile: { id: fileId, name: fileName },
 })
 
 let zCounter = 100
 
 function App() {
-  const isMobile = useIsMobile()
-  const [booted, setBooted] = useState(false)
-  const [windows, setWindows] = useState([])
-  const [startOpen, setStartOpen] = useState(false)
-  const [showShutdown, setShowShutdown] = useState(false)
-  const [icons, setIcons] = useState(INITIAL_ICONS)
-  const [selectedIcon, setSelectedIcon] = useState(null)
-  const [loading, setLoading] = useState(null)
-  const [mediaTrack, setMediaTrack] = useState(null)
-  const [imageToView, setImageToView] = useState(null)
-  const [msnOpen, setMsnOpen] = useState(false)
-  const [msnMinimized, setMsnMinimized] = useState(false)
+    const isMobile = useIsMobile()
+    const [booted, setBooted] = useState(false)
+    const [windows, setWindows] = useState([])
+    const [startOpen, setStartOpen] = useState(false)
+    const [showShutdown, setShowShutdown] = useState(false)
+    const [icons, setIcons] = useState(INITIAL_ICONS)
+    const [selectedIcon, setSelectedIcon] = useState(null)
+    const [loading, setLoading] = useState(null)
+    const [mediaTrack, setMediaTrack] = useState(null)
+    const [imageToView, setImageToView] = useState(null)
+    const [msnOpen, setMsnOpen] = useState(false)
+    const [msnMinimized, setMsnMinimized] = useState(false)
 
-  const handleIconDragEnd = useCallback((id, pos) => {
-    setIcons(prev => {
-      const others = prev.filter(ic => ic.id !== id)
-      const isOccupied = (x, y) => others.some(ic => ic.x === x && ic.y === y)
+    const handleIconDragEnd = useCallback((id, pos) => {
+        setIcons(prev => {
+            const others = prev.filter(ic => ic.id !== id)
+            const isOccupied = (x, y) => others.some(ic => ic.x === x && ic.y === y)
 
-      if (!isOccupied(pos.x, pos.y)) {
-        return prev.map(ic => ic.id === id ? { ...ic, ...pos } : ic)
-      }
+            if (!isOccupied(pos.x, pos.y)) {
+                return prev.map(ic => ic.id === id ? { ...ic, ...pos } : ic)
+            }
 
-      return prev
-    })
-  }, [])
-
-  useEffect(() => {
-    if (msnOpen) {
-      setWindows(prev => {
-        if (prev.find(w => w.id === 'msn')) return prev
-        return [
-          ...prev.map(w => ({ ...w, focused: false })),
-          { id: 'msn', title: 'MSN Messenger', minimized: false, focused: true, zIndex: ++zCounter }
-        ]
-      })
-    } else {
-      setWindows(prev => prev.filter(w => w.id !== 'msn'))
-      setMsnMinimized(false)
-    }
-  }, [msnOpen])
-
-  useEffect(() => {
-    if (!msnOpen) return
-    setWindows(prev => prev.map(w =>
-      w.id === 'msn' ? { ...w, minimized: msnMinimized, focused: !msnMinimized } : w
-    ))
-  }, [msnMinimized, msnOpen])
-
-  const openWindow = useCallback((id, options = {}) => {
-    if (id === 'msn') { 
-      setMsnOpen(true)
-      setMsnMinimized(false)
-      setStartOpen(false)
-      Sounds.windowOpen()
-      return
-    }
-    const skipLoading = id === 'explorer' || id === 'cmd' || id === 'media' || id === 'computer' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
-    setWindows(prev => {
-      const existing = prev.find(w => w.id === id)
-      if (existing) {
-        return prev.map(w =>
-          w.id === id
-            ? { ...w, minimized: false, focused: true, zIndex: ++zCounter, ...(options.initialFolder ? { initialFolder: options.initialFolder } : {}) }
-            : { ...w, focused: false }
-        )
-      }
-      return prev
-    })
-    setStartOpen(false)
-
-    setWindows(prev => {
-      const existing = prev.find(w => w.id === id)
-      if (existing) return prev
-
-      if (skipLoading) {
-        Sounds.windowOpen()
-        return [
-          ...prev.map(w => ({ ...w, focused: false })),
-          { id, ...WINDOW_CONFIGS[id], initialFolder: options.initialFolder, minimized: false, focused: true, zIndex: ++zCounter }
-        ]
-      }
-
-      const delay = 1200 + Math.random() * 1000
-      setLoading({ id, label: LOADING_LABELS[id] || id })
-      setTimeout(() => {
-        setLoading(null)
-        Sounds.windowOpen()
-        setWindows(prev2 => {
-          if (prev2.find(w => w.id === id)) return prev2
-          return [
-            ...prev2.map(w => ({ ...w, focused: false })),
-            { id, ...WINDOW_CONFIGS[id], initialFolder: options.initialFolder, minimized: false, focused: true, zIndex: ++zCounter }          ]
+            return prev
         })
-      }, delay)
+    }, [])
 
-      return prev
-    })
-  }, [])
-
-  const closeWindow = useCallback((id) => {
-    if (id === 'msn') { 
-      setMsnOpen(false)
-      Sounds.windowClose()
-      return 
-    }
-    Sounds.windowClose()
-    setWindows(prev => prev.filter(w => w.id !== id))
-  }, [])
-
-  const minimizeWindow = useCallback((id) => {
-    setWindows(prev => prev.map(w =>
-      w.id === id ? { ...w, minimized: true, focused: false } : w
-    ))
-  }, [])
-
-  const focusWindow = useCallback((id) => {
-    setWindows(prev => prev.map(w =>
-      w.id === id
-        ? { ...w, focused: true, zIndex: ++zCounter }
-        : { ...w, focused: false }
-    ))
-  }, [])
-
-  const toggleWindow = useCallback((id) => {
-    if (id === 'msn') { 
-      if (!msnOpen) {
-        setMsnOpen(true)
-        setMsnMinimized(false)
-      } else {
-        setMsnMinimized(prev => !prev)
-      }
-      return 
-    }
-    setWindows(prev => {
-      const win = prev.find(w => w.id === id)
-      if (!win) return prev
-      if (win.minimized) {
-        return prev.map(w =>
-          w.id === id
-            ? { ...w, minimized: false, focused: true, zIndex: ++zCounter }
-            : { ...w, focused: false }
-        )
-      }
-      if (win.focused) {
-        return prev.map(w =>
-          w.id === id ? { ...w, minimized: true, focused: false } : w
-        )
-      }
-      return prev.map(w =>
-        w.id === id
-          ? { ...w, focused: true, zIndex: ++zCounter }
-          : { ...w, focused: false }
-      )
-    })
-  }, [msnOpen])
-
-  const openNotepad = useCallback(({ id, name, content }) => {
-    const winId = `notepad-${id}`
-    setWindows(prev => {
-      const existing = prev.find(w => w.id === winId)
-      if (existing) {
-        return prev.map(w =>
-          w.id === winId
-            ? { ...w, minimized: false, focused: true, zIndex: ++zCounter }
-            : { ...w, focused: false }
-        )
-      }
-      return [
-        ...prev.map(w => ({ ...w, focused: false })),
-        {
-          id: winId,
-          ...makeNotepadConfig(id, name),
-          notepadContent: content,
-          minimized: false,
-          focused: true,
-          zIndex: ++zCounter,
-        },
-      ]
-    })
-  }, [])
-
-  const handlePlayMusic = useCallback((track) => {
-    openWindow('media')
-    setMediaTrack(track)
-  }, [openWindow])
-
-  const handleOpenImage = useCallback((img) => {
-    openWindow('imageviewer')
-    setImageToView(img)
-  }, [openWindow])
-
-  const renderWindowContent = (win) => {
-    const { id } = win
-    if (id === 'powers') return <Pouvoirs />
-    if (id === 'cmd') return <CMD />
-    if (id === 'browser') return <Browser />
-    if (id === 'snake') return <Snake />
-    if (id === 'jump') return <JumpGame />
-    if (id === 'mail') return <Mail />
-    if (id === 'intranet') return <Intranet />
-    if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
-    if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />
-    if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow}/>)
-    if (id === 'explorer') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
-    if (id.startsWith('notepad-')) return <Notepad fileName={win.notepadFile?.name} content={win.notepadContent} />
-    return null
-  }
-
-  const desktopContent = (
-    <div className="desktop" data-testid="desktop" 
-      onMouseDown={(e) => {
-        if (!e.target.closest('.start-menu') && !e.target.closest('.taskbar')) {
-          setStartOpen(false)
+    useEffect(() => {
+        if (msnOpen) {
+            setWindows(prev => {
+                if (prev.find(w => w.id === 'msn')) return prev
+                return [
+                ...prev.map(w => ({ ...w, focused: false })),
+                    { id: 'msn', title: 'MSN Messenger', minimized: false, focused: true, zIndex: ++zCounter }
+                ]
+            })
+        } else {
+            setWindows(prev => prev.filter(w => w.id !== 'msn'))
+            setMsnMinimized(false)
         }
-        if (!e.target.closest('.desktop-icon')) {
-          setSelectedIcon(null)
+    }, [msnOpen])
+
+    useEffect(() => {
+        if (!msnOpen) return
+        setWindows(prev => prev.map(w =>
+            w.id === 'msn' ? { ...w, minimized: msnMinimized, focused: !msnMinimized } : w
+        ))
+    }, [msnMinimized, msnOpen])
+
+    const openWindow = useCallback((id, options = {}) => {
+        if (id === 'msn') { 
+            setMsnOpen(true)
+            setMsnMinimized(false)
+            setStartOpen(false)
+            Sounds.windowOpen()
+            return
         }
-      }}>
-
-      {/* Boot screen - affiché par-dessus tout jusqu'à la fin du boot */}
-       {!booted && 
-        <BootScreen onDone={() => { 
-          setBooted(true)
-          Sounds.startup() 
-        }} 
-      />}
-
-      {/* Wallpaper */}
-      <div className="desktop__wallpaper" />
-
-      {/* Scan lines overlay */}
-      <div className="scanlines" />
-
-      {/* Watermark */}
-      <div className="desktop__watermark">
-        <span>PC-98</span>
-      </div>
-
-      {/* Desktop Icons */}
-      {icons.map(icon => (
-        <DesktopIcon
-          key={icon.id}
-          id={icon.id}
-          label={icon.label}
-          icon={icon.icon}
-          position={{ x: icon.x, y: icon.y }}
-          selected={selectedIcon === icon.id}
-          onSelect={setSelectedIcon}
-          onOpen={openWindow}
-          onDragEnd={handleIconDragEnd}
-        />
-      ))}
-
-      {/* Windows container */}
-      <div className="desktop__content" style={{ position: 'absolute', inset: '0 0 32px 0' }}>
-        {windows.filter(win => win.id !== 'msn').map(win => (
-          <Win98Window
-            key={win.id}
-            id={win.id}
-            title={win.title}
-            zIndex={win.zIndex}
-            focused={win.focused}
-            minimized={win.minimized}
-            defaultSize={win.defaultSize}
-            defaultPosition={win.defaultPosition}
-            onClose={closeWindow}
-            onMinimize={minimizeWindow}
-            onFocus={focusWindow}
-          >
-             {renderWindowContent(win)}
-          </Win98Window>
-        ))}
-      </div>
-
-      {/* Spinner de chargement */}
-      {loading && 
-        <Loading label={loading.label} 
-      />}
-
-      {/* Start Menu */}
-      {startOpen && (
-        <StartMenu
-          onClose={() => setStartOpen(false)}
-          onOpenWindow={openWindow}
-          onShutdown={() => setShowShutdown(true)}
-        />
-      )}
-
-      {/* Dialog Arrêt de Windows */}
-      {showShutdown && (
-        <ShutdownDialog
-          onCancel={() => setShowShutdown(false)}
-          onShutdownSound={Sounds.shutdown}
-          onConfirm={() => {
-            handleReset()
-            powerOff()
-          }}
-        />      
-      )}
-
-      {/* MSN App */}
-      {msnOpen && (
-        <div
-          className="desktop__content"
-          style={{
-            position: 'absolute',
-            inset: '0 0 32px 0',
-            display: msnMinimized ? 'none' : undefined,
-          }}
-        >
-          <MSNApp
-            onClose={() => { setMsnOpen(false); setMsnMinimized(false) }}
-            onMinimize={() => setMsnMinimized(true)}
-          />
-        </div>
-      )}
-
-      {/* Taskbar */}
-      <Taskbar
-        windows={windows}
-        onWindowFocus={focusWindow}
-        onWindowToggle={toggleWindow}
-        onStartClick={(e) => { e.stopPropagation(); setStartOpen(prev => !prev); }}
-        startOpen={startOpen}
-      />
-    </div>
-  )
-
-   const handleReset = useCallback(() => {
-    setBooted(false)
-    setWindows([])
-    setStartOpen(false)
-    setShowShutdown(false)
-    setLoading(null)
-    setMsnOpen(false)
-    setMsnMinimized(false)
-  }, [])
-
-  if (isMobile) {
-    return <PDAView />
-  }
-
-  return (
-    <CRTFrame onReset={handleReset}>
-      {({ powerOff }) => (
-        <div className="desktop" data-testid="desktop"
-          onMouseDown={(e) => {
-            if (!e.target.closest('.start-menu') && !e.target.closest('.taskbar')) {
-              setStartOpen(false)
+        const skipLoading = id === 'explorer' || id === 'cmd' || id === 'media' || id === 'computer' || id === 'browser' || id === 'mail' || id === 'imageviewer' || id.startsWith('notepad-')
+        setWindows(prev => {
+            const existing = prev.find(w => w.id === id)
+            if (existing) {
+                return prev.map(w =>
+                    w.id === id
+                    ? { ...w, minimized: false, focused: true, zIndex: ++zCounter, ...(options.initialFolder ? { initialFolder: options.initialFolder } : {}) }
+                    : { ...w, focused: false }
+                )
             }
-            if (!e.target.closest('.desktop-icon')) {
-              setSelectedIcon(null)
+            return prev
+        })
+        setStartOpen(false)
+
+        setWindows(prev => {
+            const existing = prev.find(w => w.id === id)
+            if (existing) return prev
+
+            if (skipLoading) {
+                Sounds.windowOpen()
+                return [
+                    ...prev.map(w => ({ ...w, focused: false })),
+                    { id, ...WINDOW_CONFIGS[id], initialFolder: options.initialFolder, minimized: false, focused: true, zIndex: ++zCounter }
+                ]
             }
-          }}>
 
-          {/* Boot screen */}
-          {!booted && <BootScreen onDone={() => { setBooted(true); Sounds.startup() }} />}
+            const delay = 1200 + Math.random() * 1000
+            setLoading({ id, label: LOADING_LABELS[id] || id })
+            setTimeout(() => {
+                setLoading(null)
+                Sounds.windowOpen()
+                setWindows(prev2 => {
+                    if (prev2.find(w => w.id === id)) return prev2
+                    return [
+                        ...prev2.map(w => ({ ...w, focused: false })),
+                        { id, ...WINDOW_CONFIGS[id], initialFolder: options.initialFolder, minimized: false, focused: true, zIndex: ++zCounter }
+                    ]
+                })
+            }, delay)
+            return prev
+        })
+    }, [])
 
-          {/* Wallpaper */}
-          <div className="desktop__wallpaper" />
+    const closeWindow = useCallback((id) => {
+        if (id === 'msn') { 
+            setMsnOpen(false)
+            Sounds.windowClose()
+            return 
+        }
+        Sounds.windowClose()
+        setWindows(prev => prev.filter(w => w.id !== id))
+    }, [])
 
-          {/* Scan lines overlay */}
-          <div className="scanlines" />
+    const minimizeWindow = useCallback((id) => {
+        setWindows(prev => prev.map(w =>
+            w.id === id ? { ...w, minimized: true, focused: false } : w
+        ))
+    }, [])
 
-          {/* Watermark */}
-          <div className="desktop__watermark">
-            <span>PC-98</span>
-          </div>
+    const focusWindow = useCallback((id) => {
+        setWindows(prev => prev.map(w =>
+            w.id === id
+            ? { ...w, focused: true, zIndex: ++zCounter }
+            : { ...w, focused: false }
+        ))
+    }, [])
 
-          {/* Desktop Icons */}
-          {icons.map(icon => (
-            <DesktopIcon
-              key={icon.id}
-              id={icon.id}
-              label={icon.label}
-              icon={icon.icon}
-              position={{ x: icon.x, y: icon.y }}
-              selected={selectedIcon === icon.id}
-              onSelect={setSelectedIcon}
-              onOpen={openWindow}
-              onDragEnd={handleIconDragEnd}
-            />
-          ))}
+    const toggleWindow = useCallback((id) => {
+        if (id === 'msn') { 
+            if (!msnOpen) {
+                setMsnOpen(true)
+                setMsnMinimized(false)
+            } else {
+                setMsnMinimized(prev => !prev)
+            }
+            return 
+        }
+        setWindows(prev => {
+            const win = prev.find(w => w.id === id)
+            if (!win) return prev
+            if (win.minimized) {
+                return prev.map(w =>
+                    w.id === id
+                    ? { ...w, minimized: false, focused: true, zIndex: ++zCounter }
+                    : { ...w, focused: false }
+                )
+            }
+            if (win.focused) {
+                return prev.map(w =>
+                    w.id === id ? { ...w, minimized: true, focused: false } : w
+                )
+            }
+            return prev.map(w =>
+                w.id === id
+                ? { ...w, focused: true, zIndex: ++zCounter }
+                : { ...w, focused: false }
+            )
+        })
+    }, [msnOpen])
 
-          {/* Windows container */}
-          <div className="desktop__content" style={{ position: 'absolute', inset: '0 0 32px 0' }}>
-            {windows.filter(win => win.id !== 'msn').map(win => (
-              <Win98Window
-                key={win.id}
-                id={win.id}
-                title={win.title}
-                zIndex={win.zIndex}
-                focused={win.focused}
-                minimized={win.minimized}
-                defaultSize={win.defaultSize}
-                defaultPosition={win.defaultPosition}
-                onClose={closeWindow}
-                onMinimize={minimizeWindow}
-                onFocus={focusWindow}
-              >
-                {renderWindowContent(win)}
-              </Win98Window>
-            ))}
-          </div>
+    const openNotepad = useCallback(({ id, name, content }) => {
+        const winId = `notepad-${id}`
+        setWindows(prev => {
+            const existing = prev.find(w => w.id === winId)
+            if (existing) {
+                return prev.map(w =>
+                    w.id === winId
+                    ? { ...w, minimized: false, focused: true, zIndex: ++zCounter }
+                    : { ...w, focused: false }
+                )
+            }
+            return [
+                ...prev.map(w => ({ ...w, focused: false })),
+                {
+                    id: winId,
+                    ...makeNotepadConfig(id, name),
+                    notepadContent: content,
+                    minimized: false,
+                    focused: true,
+                    zIndex: ++zCounter,
+                },
+            ]
+        })
+    }, [])
 
-          {/* Spinner de chargement */}
-          {loading && <Loading label={loading.label} />}
+    const handlePlayMusic = useCallback((track) => {
+        openWindow('media')
+        setMediaTrack(track)
+    }, [openWindow])
 
-          {/* Start Menu */}
-          {startOpen && (
-            <StartMenu
-              onClose={() => setStartOpen(false)}
-              onOpenWindow={openWindow}
-              onShutdown={() => setShowShutdown(true)}
-            />
-          )}
+    const handleOpenImage = useCallback((img) => {
+        openWindow('imageviewer')
+        setImageToView(img)
+    }, [openWindow])
 
-          {/* Dialog Arrêt de Windows */}
-          {showShutdown && (
-            <ShutdownDialog
-              onCancel={() => setShowShutdown(false)}
-              onShutdownSound={Sounds.shutdown}
-              onConfirm={() => {
-                setShowShutdown(false)
-                powerOff()
-              }}
-            />
-          )}
+    const renderWindowContent = (win) => {
+        const { id } = win
+        if (id === 'powers') return <Pouvoirs />
+        if (id === 'cmd') return <CMD />
+        if (id === 'browser') return <Browser />
+        if (id === 'snake') return <Snake />
+        if (id === 'jump') return <JumpGame />
+        if (id === 'mail') return <Mail />
+        if (id === 'intranet') return <Intranet />
+        if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
+        if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />
+        if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow} desktopIcons={icons}/>)
+        if (id === 'explorer') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
+        if (id.startsWith('notepad-')) return <Notepad fileName={win.notepadFile?.name} content={win.notepadContent} />
+        return null
+    }
 
-          {/* MSN App */}
-          {msnOpen && (
-            <div
-              className="desktop__content"
-              style={{
-                position: 'absolute',
-                inset: '0 0 32px 0',
-                display: msnMinimized ? 'none' : undefined,
-              }}
-            >
-              <MSNApp
-                onClose={() => { setMsnOpen(false); setMsnMinimized(false) }}
-                onMinimize={() => setMsnMinimized(true)}
-              />
+    const desktopContent = (
+        <div className="desktop" data-testid="desktop" 
+            onMouseDown={(e) => {
+                if (!e.target.closest('.start-menu') && !e.target.closest('.taskbar')) {
+                    setStartOpen(false)
+                }
+                if (!e.target.closest('.desktop-icon')) {
+                    setSelectedIcon(null)
+                }
+            }}>
+
+            {/* Boot screen - affiché par-dessus tout jusqu'à la fin du boot */}
+            {!booted && 
+                <BootScreen onDone={() => { 
+                    setBooted(true)
+                    Sounds.startup() 
+                }}/>
+            }
+
+            {/* Wallpaper */}
+            <div className="desktop__wallpaper" />
+
+            {/* Scan lines overlay */}
+            <div className="scanlines" />
+
+            {/* Watermark */}
+            <div className="desktop__watermark">
+                <span>PC-98</span>
             </div>
-          )}
 
-          {/* Taskbar */}
-          <Taskbar
-            windows={windows}
-            onWindowFocus={focusWindow}
-            onWindowToggle={toggleWindow}
-            onStartClick={(e) => { e.stopPropagation(); setStartOpen(prev => !prev); }}
-            startOpen={startOpen}
-          />
+            {/* Desktop Icons */}
+            {icons.map(icon => (
+                <DesktopIcon
+                    key={icon.id}
+                    id={icon.id}
+                    label={icon.label}
+                    icon={icon.icon}
+                    position={{ x: icon.x, y: icon.y }}
+                    selected={selectedIcon === icon.id}
+                    onSelect={setSelectedIcon}
+                    onOpen={openWindow}
+                    onDragEnd={handleIconDragEnd}
+                />
+            ))}
+
+            {/* Windows container */}
+            <div className="desktop__content" style={{ position: 'absolute', inset: '0 0 32px 0' }}>
+                {windows.filter(win => win.id !== 'msn').map(win => (
+                    <Win98Window
+                        key={win.id}
+                        id={win.id}
+                        title={win.title}
+                        zIndex={win.zIndex}
+                        focused={win.focused}
+                        minimized={win.minimized}
+                        defaultSize={win.defaultSize}
+                        defaultPosition={win.defaultPosition}
+                        onClose={closeWindow}
+                        onMinimize={minimizeWindow}
+                        onFocus={focusWindow}
+                    >
+                        {renderWindowContent(win)}
+                    </Win98Window>
+                ))}
+            </div>
+
+            {/* Spinner de chargement */}
+            {loading && 
+                <Loading label={loading.label} />
+            }
+
+            {/* Start Menu */}
+            {startOpen && (
+                <StartMenu
+                    onClose={() => setStartOpen(false)}
+                    onOpenWindow={openWindow}
+                    onShutdown={() => setShowShutdown(true)}
+                />
+            )}
+
+            {/* Dialog Arrêt de Windows */}
+            {showShutdown && (
+                <ShutdownDialog
+                    onCancel={() => setShowShutdown(false)}
+                    onShutdownSound={Sounds.shutdown}
+                    onConfirm={() => {
+                        handleReset()
+                        powerOff()
+                    }}
+                />      
+            )}
+
+            {/* MSN App */}
+            {msnOpen && (
+                <div className="desktop__content"
+                    style={{
+                        position: 'absolute',
+                        inset: '0 0 32px 0',
+                        display: msnMinimized ? 'none' : undefined,
+                    }}
+                    >
+                    <MSNApp
+                        onClose={() => { setMsnOpen(false); setMsnMinimized(false) }}
+                        onMinimize={() => setMsnMinimized(true)}
+                    />
+                </div>
+            )}
+
+            {/* Taskbar */}
+            <Taskbar
+                windows={windows}
+                onWindowFocus={focusWindow}
+                onWindowToggle={toggleWindow}
+                onStartClick={(e) => { e.stopPropagation(); setStartOpen(prev => !prev); }}
+                startOpen={startOpen}
+            />
         </div>
-      )}
-    </CRTFrame>
-  )
+    )
+
+    const handleReset = useCallback(() => {
+        setBooted(false)
+        setWindows([])
+        setStartOpen(false)
+        setShowShutdown(false)
+        setLoading(null)
+        setMsnOpen(false)
+        setMsnMinimized(false)
+    }, [])
+
+    if (isMobile) {
+        return <PDAView />
+    }
+
+    return (
+        <CRTFrame onReset={handleReset}>
+            {({ powerOff }) => (
+                <div className="desktop" data-testid="desktop"
+                    onMouseDown={(e) => {
+                        if (!e.target.closest('.start-menu') && !e.target.closest('.taskbar')) {
+                            setStartOpen(false)
+                        }
+                        if (!e.target.closest('.desktop-icon')) {
+                            setSelectedIcon(null)
+                        }
+                    }}>
+
+                    {/* Boot screen */}
+                    {!booted && <BootScreen onDone={() => { setBooted(true); Sounds.startup() }} />}
+
+                    {/* Wallpaper */}
+                    <div className="desktop__wallpaper" />
+
+                    {/* Scan lines overlay */}
+                    <div className="scanlines" />
+
+                    {/* Watermark */}
+                    <div className="desktop__watermark">
+                        <span>PC-98</span>
+                    </div>
+
+                    {/* Desktop Icons */}
+                    {icons.map(icon => (
+                        <DesktopIcon
+                            key={icon.id}
+                            id={icon.id}
+                            label={icon.label}
+                            icon={icon.icon}
+                            position={{ x: icon.x, y: icon.y }}
+                            selected={selectedIcon === icon.id}
+                            onSelect={setSelectedIcon}
+                            onOpen={openWindow}
+                            onDragEnd={handleIconDragEnd}
+                        />
+                    ))}
+
+                    {/* Windows container */}
+                    <div className="desktop__content" style={{ position: 'absolute', inset: '0 0 32px 0' }}>
+                        {windows.filter(win => win.id !== 'msn').map(win => (
+                            <Win98Window
+                                key={win.id}
+                                id={win.id}
+                                title={win.title}
+                                zIndex={win.zIndex}
+                                focused={win.focused}
+                                minimized={win.minimized}
+                                defaultSize={win.defaultSize}
+                                defaultPosition={win.defaultPosition}
+                                onClose={closeWindow}
+                                onMinimize={minimizeWindow}
+                                onFocus={focusWindow}
+                                >
+                                {renderWindowContent(win)}
+                            </Win98Window>
+                        ))}
+                    </div>
+
+                    {/* Spinner de chargement */}
+                    {loading && <Loading label={loading.label} />}
+
+                    {/* Start Menu */}
+                    {startOpen && (
+                        <StartMenu
+                            onClose={() => setStartOpen(false)}
+                            onOpenWindow={openWindow}
+                            onShutdown={() => setShowShutdown(true)}
+                        />
+                    )}
+
+                    {/* Dialog Arrêt de Windows */}
+                    {showShutdown && (
+                        <ShutdownDialog
+                            onCancel={() => setShowShutdown(false)}
+                            onShutdownSound={Sounds.shutdown}
+                            onConfirm={() => {
+                                setShowShutdown(false)
+                                powerOff()
+                            }}
+                        />
+                    )}
+
+                    {/* MSN App */}
+                    {msnOpen && (
+                        <div
+                            className="desktop__content"
+                            style={{
+                                position: 'absolute',
+                                inset: '0 0 32px 0',
+                                display: msnMinimized ? 'none' : undefined,
+                            }}
+                        >
+                            <MSNApp
+                                onClose={() => { setMsnOpen(false); setMsnMinimized(false) }}
+                                onMinimize={() => setMsnMinimized(true)}
+                            />
+                        </div>
+                    )}
+
+                    {/* Taskbar */}
+                    <Taskbar
+                        windows={windows}
+                        onWindowFocus={focusWindow}
+                        onWindowToggle={toggleWindow}
+                        onStartClick={(e) => { e.stopPropagation(); setStartOpen(prev => !prev); }}
+                        startOpen={startOpen}
+                    />
+                </div>
+            )}
+        </CRTFrame>
+    )
 }
 
 export default App

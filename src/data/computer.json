@@ -1,0 +1,173 @@
+{
+    "computer": {
+        "name": "PC",
+        "children": ["driveA", "driveB", "driveC"],
+        "isRoot": true
+    },
+
+    "driveA": {
+        "name": "Disquette 3½ (A:)",
+        "parent": "computer",
+        "drive": "A",
+        "icon": "floppy",
+        "empty": true
+    },
+
+    "driveB": {
+        "name": "Disquette chiffrée (B:)",
+        "parent": "computer",
+        "drive": "B",
+        "icon": "floppyLocked",
+        "locked": true,
+        "password": "echo-remanent",
+        "children": ["b_readme", "b_log", "b_keys"]
+    },
+    "b_readme": {
+        "name": "LISEZ-MOI.txt",
+        "parent": "driveB",
+        "type": "file",
+        "content": "[ DISQUETTE CHIFFRÉE — ACCÈS AUTORISÉ ]\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBravo. Tu as trouvé le mot de passe.\n\nCette disquette contient les fragments\nqu'on a effacés du dossier officiel.\n\nGarde ça pour toi. Ils nous surveillent.\n\n—K."
+    },
+    "b_log": {
+        "name": "observation.log",
+        "parent": "driveB",
+        "type": "file",
+        "content": ">> LOG D'OBSERVATION — TOKYO SKYRUNNER LEAGUE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n[06/03] Silhouette aux yeux ambrés — toit nord. Immobile.\n[12/03] Disparition de N.K. (Shokan instable, rang E).\n[24/03] Ryohei : \"Ils sélectionnent\". Il a peur.\n[02/04] Plus de signal. Plus de SMS. Plus rien.\n\nConclusion provisoire :\n→ Ce ne sont pas des spectateurs.\n→ Ce sont des recruteurs."
+    },
+    "b_keys": {
+        "name": "cles_perdues.txt",
+        "parent": "driveB",
+        "type": "file",
+        "content": "// fragments mémoire — ne pas effacer\n\nID_INTRANET   : kishi.kiba-99\nPASS_INTRANET : ********\nSHOKAN_SIGN   : echo-remanent / pattern 04-A\nSAFE_HOUSE    : Bunkyo, 3-12, 5e étage\nSIGNAL        : si je disparais, va voir Aoi."
+    },
+
+    "driveC": {
+        "name": "Disque local (C:)",
+        "parent": "computer",
+        "drive": "C",
+        "icon": "hdd",
+        "children": ["c_windows", "c_programs", "c_users", "c_autoexec", "c_config", "c_readme"]
+    },
+
+    "c_windows": {
+        "name": "WINDOWS",
+        "parent": "driveC",
+        "icon": "windowsDir",
+        "children": ["win_system", "win_command", "win_wallpaper"]
+    },
+    "win_system": {
+        "name": "SYSTEM",
+        "parent": "c_windows",
+        "children": ["sys_kernel", "sys_shokan"]
+    },
+    "sys_kernel": {
+        "name": "KERNEL32.DLL",
+        "parent": "win_system",
+        "type": "file",
+        "locked": true,
+        "content": "// Fichier système — accès refusé\n// Ce fichier ne doit pas être modifié.\n// Ouverture en lecture seule.\n\n[ ERREUR : module verrouillé par le système ]"
+    },
+    "sys_shokan": {
+        "name": "SHOKAN.DLL",
+        "parent": "win_system",
+        "type": "file",
+        "content": "// SHOKAN.DLL — module spirituel\n// version 6.07 — build \"Echo Rémanent\"\n\n> Charge la signature du porteur\n> Mappe les manifestations rémanentes\n> Stabilise la projection\n\nNOTE : NE PAS DÉSACTIVER.\nL'arrêt du module entraîne perte de Shokan."
+    },
+    "win_command": {
+        "name": "COMMAND.COM",
+        "parent": "c_windows",
+        "type": "file",
+        "content": "MS-DOS COMMAND INTERPRETER\n(C) Microsoft Corporation 1981-1998\n\nTape \"exit\" pour revenir à Windows."
+    },
+    "win_wallpaper": {
+        "name": "WALLPAPER.BMP",
+        "parent": "c_windows",
+        "type": "file",
+        "content": "[ Image bitmap 800x600 — Fond d'écran système ]\n\"Tokyo, toits — vue depuis Bunkyo, 3h12 AM\""
+    },
+
+    "c_programs": {
+        "name": "Program Files",
+        "parent": "driveC",
+        "icon": "programFiles",
+        "children": ["p_msn", "p_ie", "p_media", "p_notepad"]
+    },
+    "p_msn": {
+        "name": "MSN Messenger",
+        "parent": "c_programs",
+        "type": "file",
+        "content": "MSN Messenger 4.7\n(C) Microsoft Corporation 1999\n\nCompte enregistré : koga99@hotmail.jp\nStatut : en ligne\nContacts : 3"
+    },
+    "p_ie": {
+        "name": "Internet Explorer",
+        "parent": "c_programs",
+        "type": "file",
+        "content": "Internet Explorer 5.5\n(C) Microsoft Corporation 2000\n\nPage d'accueil : kishi-net://intranet.local"
+    },
+    "p_media": {
+        "name": "Windows Media",
+        "parent": "c_programs",
+        "type": "file",
+        "content": "Windows Media Player 6.4\nPour lire un titre, ouvre \"Mes Documents > Musique\"."
+    },
+    "p_notepad": {
+        "name": "Notepad.exe",
+        "parent": "c_programs",
+        "type": "file",
+        "content": "Bloc-notes — éditeur de texte.\nGlisse n'importe quel .txt dessus pour l'ouvrir."
+    },
+
+    "c_users": {
+        "name": "Users",
+        "parent": "driveC",
+        "children": ["u_isen", "u_admin"]
+    },
+    "u_isen": {
+        "name": "isen.shura",
+        "parent": "c_users",
+        "children": ["u_desktop", "u_mydocs", "u_pwd"]
+    },
+    "u_admin": {
+        "name": "Admin",
+        "parent": "c_users",
+        "icon": "folder",
+        "disabled": true
+    },
+    "u_desktop": {
+        "name": "Bureau",
+        "parent": "u_isen",
+        "children": []
+    },
+    "u_mydocs": {
+        "name": "Mes Documents",
+        "parent": "u_isen",
+        "icon": "myDocs",
+        "type": "shortcut",
+        "target": "explorer"
+    },
+    "u_pwd": {
+        "name": "note_perso.txt",
+        "parent": "u_isen",
+        "type": "file",
+        "content": "Pense-bête —\n\n- Rappeler Aoi avant minuit\n- Vérifier le dossier \"Important\"\n- Ne plus jamais croire Kazuki\n\n— K."
+    },
+
+    "c_autoexec": {
+        "name": "AUTOEXEC.BAT",
+        "parent": "driveC",
+        "type": "file",
+        "content": "@ECHO OFF\nPROMPT $P$G\nPATH=C:\\WINDOWS;C:\\WINDOWS\\COMMAND\nSET TEMP=C:\\WINDOWS\\TEMP\nLH C:\\WINDOWS\\SHOKAN.DLL\nECHO Bienvenue, Kiba."
+    },
+    "c_config": {
+        "name": "CONFIG.SYS",
+        "parent": "driveC",
+        "type": "file",
+        "content": "DEVICE=C:\\WINDOWS\\HIMEM.SYS\nDOS=HIGH,UMB\nFILES=60\nBUFFERS=30\nDEVICEHIGH=C:\\WINDOWS\\SHOKAN.SYS /STABLE"
+    },
+    "c_readme": {
+        "name": "LISEZ-MOI.txt",
+        "parent": "driveC",
+        "type": "file",
+        "content": "PC-98 — Disque local C:\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBienvenue sur la station de Kiba Igarashi.\n\nTu peux explorer librement :\n• WINDOWS — système (sensible, ne pas toucher)\n• Program Files — applications installées\n• Users — profils utilisateurs (Mes Documents s'y trouve)\n\nSi une disquette est insérée dans A:, son contenu\napparaîtra automatiquement. La disquette B: est chiffrée."
+    }
+}

@@ -4,22 +4,22 @@
 // SCROLLBAR
 // =====================
 ::-webkit-scrollbar {
-  width: 16px;
-  height: 16px;
+width: 16px;
+height: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: $win98-light-gray;
+background: $win98-light-gray;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $win98-gray;
-  @include border-outset-light;
+background: $win98-gray;
+@include border-outset-light;
 }
 
 ::-webkit-scrollbar-button {
-  background: $win98-gray;
-  @include border-outset-light;
-  width: 16px;
-  height: 16px;
+background: $win98-gray;
+@include border-outset-light;
+width: 16px;
+height: 16px;
 }

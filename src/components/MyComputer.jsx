@@ -1,10 +1,8 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import Sounds from '../components/Sounds'
+import treeData from '../data/computer.json'
 import '../styles/MyComputer.scss'
 
-/* -----------------------------------------------------------
-Icones Win98 (alexmeub)
------------------------------------------------------------ */
 const ICONS = {
 myComputer:   'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
 hdd:          'https://win98icons.alexmeub.com/icons/png/hard_disk_drive-4.png',
@@ -12,7 +10,7 @@ floppy:       'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0
 floppyLocked: 'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
 controlPanel: 'https://win98icons.alexmeub.com/icons/png/directory_control_panel-4.png',
 folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
-explorer:       'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
+explorer:     'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
 windowsDir:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-5.png',
 programFiles: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
 txt:          'https://win98icons.alexmeub.com/icons/png/notepad-4.png',
@@ -25,255 +23,11 @@ info:         'https://win98icons.alexmeub.com/icons/png/msg_information-0.png',
 key:          'https://win98icons.alexmeub.com/icons/png/key_win-0.png',
 }
 
-/* -----------------------------------------------------------
-Arborescence "Poste de travail"
------------------------------------------------------------ */
-const TREE = {
-computer: {
-name: 'PC',
-children: ['driveA', 'driveB', 'driveC'],
-isRoot: true,
-},
-
-driveA: {
-name: 'Disquette 3½ (A:)',
-parent: 'computer',
-drive: 'A',
-icon: ICONS.floppy,
-empty: true,
-},
-
-driveB: {
-name: 'Disquette chiffrée (B:)',
-parent: 'computer',
-drive: 'B',
-icon: ICONS.floppyLocked,
-locked: true,
-password: 'echo-remanent',
-children: ['b_readme', 'b_log', 'b_keys'],
-},
-b_readme: {
-name: 'LISEZ-MOI.txt',
-parent: 'driveB',
-type: 'file',
-content: `[ DISQUETTE CHIFFRÉE — ACCÈS AUTORISÉ ]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Bravo. Tu as trouvé le mot de passe.
-
-Cette disquette contient les fragments
-qu'on a effacés du dossier officiel.
-
-Garde ça pour toi. Ils nous surveillent.
-
-—K.`,
-},
-b_log: {
-name: 'observation.log',
-parent: 'driveB',
-type: 'file',
-content: `>> LOG D'OBSERVATION — TOKYO SKYRUNNER LEAGUE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-[06/03] Silhouette aux yeux ambrés — toit nord. Immobile.
-[12/03] Disparition de N.K. (Shokan instable, rang E).
-[24/03] Ryohei : "Ils sélectionnent". Il a peur.
-[02/04] Plus de signal. Plus de SMS. Plus rien.
-
-Conclusion provisoire :
-→ Ce ne sont pas des spectateurs.
-→ Ce sont des recruteurs.`,
-},
-b_keys: {
-name: 'cles_perdues.txt',
-parent: 'driveB',
-type: 'file',
-content: `// fragments mémoire — ne pas effacer
-
-ID_INTRANET   : kishi.kiba-99
-PASS_INTRANET : ********
-SHOKAN_SIGN   : echo-remanent / pattern 04-A
-SAFE_HOUSE    : Bunkyo, 3-12, 5e étage
-SIGNAL        : si je disparais, va voir Aoi.`,
-},
-
-driveC: {
-name: 'Disque local (C:)',
-parent: 'computer',
-drive: 'C',
-icon: ICONS.hdd,
-children: ['c_windows', 'c_programs', 'c_users', 'c_autoexec', 'c_config', 'c_readme'],
-},
-
-c_windows: {
-name: 'WINDOWS',
-parent: 'driveC',
-icon: ICONS.windowsDir,
-children: ['win_system', 'win_command', 'win_wallpaper'],
-},
-win_system: {
-name: 'SYSTEM',
-parent: 'c_windows',
-children: ['sys_kernel', 'sys_shokan'],
-},
-sys_kernel: {
-name: 'KERNEL32.DLL',
-parent: 'win_system',
-type: 'file',
-locked: true,
-content: `// Fichier système — accès refusé
-// Ce fichier ne doit pas être modifié.
-// Ouverture en lecture seule.
-
-[ ERREUR : module verrouillé par le système ]`,
-},
-sys_shokan: {
-name: 'SHOKAN.DLL',
-parent: 'win_system',
-type: 'file',
-content: `// SHOKAN.DLL — module spirituel
-// version 6.07 — build "Echo Rémanent"
-
-> Charge la signature du porteur
-> Mappe les manifestations rémanentes
-> Stabilise la projection
-
-NOTE : NE PAS DÉSACTIVER.
-L'arrêt du module entraîne perte de Shokan.`,
-},
-win_command: {
-name: 'COMMAND.COM',
-parent: 'c_windows',
-type: 'file',
-content: `MS-DOS COMMAND INTERPRETER
-(C) Microsoft Corporation 1981-1998
-
-Tape "exit" pour revenir à Windows.`,
-},
-win_wallpaper: {
-name: 'WALLPAPER.BMP',
-parent: 'c_windows',
-type: 'file',
-content: `[ Image bitmap 800x600 — Fond d'écran système ]
-"Tokyo, toits — vue depuis Bunkyo, 3h12 AM"`,
-},
-
-c_programs: {
-name: 'Program Files',
-parent: 'driveC',
-icon: ICONS.programFiles,
-children: ['p_msn', 'p_ie', 'p_media', 'p_notepad'],
-},
-p_msn: {
-name: 'MSN Messenger',
-parent: 'c_programs',
-type: 'file',
-content: `MSN Messenger 4.7
-(C) Microsoft Corporation 1999
-
-Compte enregistré : koga99@hotmail.jp
-Statut : en ligne
-Contacts : 3`,
-},
-p_ie: {
-name: 'Internet Explorer',
-parent: 'c_programs',
-type: 'file',
-content: `Internet Explorer 5.5
-(C) Microsoft Corporation 2000
-
-Page d'accueil : kishi-net://intranet.local`,
-},
-p_media: {
-name: 'Windows Media',
-parent: 'c_programs',
-type: 'file',
-content: `Windows Media Player 6.4
-Pour lire un titre, ouvre "Mes Documents > Musique".`,
-},
-p_notepad: {
-name: 'Notepad.exe',
-parent: 'c_programs',
-type: 'file',
-content: `Bloc-notes — éditeur de texte.
-Glisse n'importe quel .txt dessus pour l'ouvrir.`,
-},
-
-u_explorer: {
-name: 'Explorateur de fichiers',
-parent: 'u_isen',
-icon: ICONS.explorer,
-type: 'shortcut',
-target: 'explorer',
-},
-
-c_users: {
-name: 'Users',
-parent: 'driveC',
-children: ['u_isen'],
-},
-u_isen: {
-name: 'isen.shura',
-parent: 'c_users',
-children: ['u_desktop', 'u_explorer', 'u_pwd'],
-},
-u_desktop: {
-name: 'Bureau',
-parent: 'u_isen',
-children: [],
-},
-u_pwd: {
-name: 'note_perso.txt',
-parent: 'u_isen',
-type: 'file',
-content: `Pense-bête —
-
-- Rappeler Aoi avant minuit
-- Vérifier le dossier "Important"
-- Ne plus jamais croire Kazuki
-
-— K.`,
-},
-
-c_autoexec: {
-name: 'AUTOEXEC.BAT',
-parent: 'driveC',
-type: 'file',
-content: `@ECHO OFF
-PROMPT $P$G
-PATH=C:WINDOWS;C:WINDOWSCOMMAND
-SET TEMP=C:WINDOWSTEMP
-LH C:WINDOWSSHOKAN.DLL
-ECHO Bienvenue, Kiba.`,
-},
-c_config: {
-name: 'CONFIG.SYS',
-parent: 'driveC',
-type: 'file',
-content: `DEVICE=C:WINDOWSHIMEM.SYS
-DOS=HIGH,UMB
-FILES=60
-BUFFERS=30
-DEVICEHIGH=C:WINDOWSSHOKAN.SYS /STABLE`,
-},
-c_readme: {
-name: 'LISEZ-MOI.txt',
-parent: 'driveC',
-type: 'file',
-content: `PC-98 — Disque local C:
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Bienvenue sur la station de Isen Shura      .
-
-Tu peux explorer librement :
-• WINDOWS        — système (sensible, ne pas toucher)
-• Program Files  — applications installées
-• Mes Documents  — histoire, musiques, images
-• Users          — profils utilisateurs
-
-Si une disquette est insérée dans A:, son contenu
-apparaîtra automatiquement. La disquette B: est chiffrée.`,
-},
+// Résout une icône : soit une URL directe (http...), soit une clé de ICONS
+const resolveIcon = (val) => {
+if (!val) return ICONS.folder
+if (typeof val === 'string' && val.startsWith('http')) return val
+return ICONS[val] || ICONS.folder
 }
 
 /* -----------------------------------------------------------
@@ -288,19 +42,19 @@ if (name.endsWith('.log')) return ICONS.sys
 return ICONS.txt
 }
 
-const nodeIcon = (id) => {
-const n = TREE[id]
+const nodeIcon = (id, tree) => {
+const n = tree[id]
 if (!n) return ICONS.folder
-if (n.icon) return n.icon
+if (n.icon) return resolveIcon(n.icon)
 if (n.type === 'file') return fileIcon(n)
 if (n.type === 'shortcut') return ICONS.explorer
 return ICONS.folder
 }
 
-const getAddress = (history) =>
+const getAddress = (history, tree) =>
 history
 .map(id => {
-const n = TREE[id]
+const n = tree[id]
 if (!n) return id
 if (n.isRoot) return 'PC'
 if (n.drive) return `${n.drive}:`
@@ -343,7 +97,24 @@ onMouseDown={(e) => e.stopPropagation()}
 /* -----------------------------------------------------------
 Composant principal MyComputer
 ----------------------------------------------------------- */
-export default function MyComputer({ onOpenNotepad, onOpenWindow }) {
+export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons = [] }) {
+// Construit l'arborescence à partir du JSON, en injectant les raccourcis
+// du Bureau de l'utilisateur (synchronisés avec les icônes du bureau).
+const tree = useMemo(() => {
+const t = { ...treeData }
+const deskChildren = desktopIcons.map(ic => `desk_${ic.id}`)
+t.u_desktop = { ...t.u_desktop, children: deskChildren }
+desktopIcons.forEach(ic => {
+t[`desk_${ic.id}`] = {
+name: ic.label,
+parent: 'u_desktop',
+type: 'shortcut',
+target: ic.id,
+icon: ic.icon,
+}
+})
+return t
+}, [desktopIcons])
 const [history, setHistory] = useState(['computer'])
 const [selected, setSelected] = useState(null)
 const [unlocked, setUnlocked] = useState(false)
@@ -358,11 +129,17 @@ const pwdRef = useRef(null)
 useEffect(() => { if (pwdDialog && pwdRef.current) pwdRef.current.focus() }, [pwdDialog])
 
 const currentId = history[history.length - 1]
-const current = TREE[currentId]
+const current = tree[currentId]
 
 const enter = (id) => {
-const node = TREE[id]
+const node = tree[id]
 if (!node) return
+
+// 🚫 Élément désactivé (ex: utilisateur Admin)
+if (node.disabled) {
+Sounds.error?.()
+return
+}
 
 if (node.type === 'shortcut') {
 Sounds.click?.()
@@ -414,7 +191,7 @@ setSelected(null)
 
 const submitPwd = (e) => {
 e?.preventDefault?.()
-const target = TREE.driveB
+const target = tree.driveB
 if (pwdInput.trim().toLowerCase() === target.password) {
 Sounds.click?.()
 setUnlocked(true)
@@ -428,15 +205,15 @@ setPwdError(true)
 
 const findDrive = (id) => {
 let cur = id
-while (cur && TREE[cur]) {
-if (TREE[cur].drive) return TREE[cur]
-cur = TREE[cur].parent
+while (cur && tree[cur]) {
+if (tree[cur].drive) return tree[cur]
+cur = tree[cur].parent
 }
 return null
 }
 
 const renderDrivesView = () => {
-const drives = current.children.map(id => TREE[id])
+const drives = current.children.map(id => tree[id])
 return (
 <div className="file-explorer__content">
 <div className="my-computer__section-title">Les fichiers et dossiers stockés sur cet ordinateur</div>
@@ -451,7 +228,7 @@ onClick={() => setSelected(id)}
 onDoubleClick={() => enter(id)}
 data-testid={`mycomputer-drive-${d.drive}`}
 >
-<img src={d.icon} alt="" />
+<img src={nodeIcon(id, tree)} alt="" />
 <span>{d.name}</span>
 </div>
 )
@@ -467,17 +244,17 @@ return (
 <div className="file-explorer__content">
 <div className="file-explorer__grid">
 {children.map(id => {
-const node = TREE[id]
+const node = tree[id]
 return (
 <div
 key={id}
-className={`file-explorer__file-item ${selected === id ? 'file-explorer__file-item--selected' : ''}`}
-onClick={() => setSelected(id)}
+className={`file-explorer__file-item${selected === id ? ' file-explorer__file-item--selected' : ''}${node.disabled ? ' my-computer__item--disabled' : ''}`}
+onClick={() => !node.disabled && setSelected(id)}
 onDoubleClick={() => enter(id)}
 data-testid={`mycomputer-item-${id}`}
-title={node.name}
+title={node.disabled ? 'Accès restreint' : node.name}
 >
-<img src={nodeIcon(id)} alt="" />
+<img src={nodeIcon(id, tree)} alt="" />
 <span>{node.name}</span>
 </div>
 )
@@ -500,14 +277,14 @@ Cette section vous permet d&apos;afficher le contenu de votre ordinateur.
 <br /><br />
 Cliquez sur un élément pour afficher sa description.
 </div>
-{selected && TREE[selected] && (
+{selected && tree[selected] && (
 <>
 <div className="my-computer__sidebar-sep" />
 <div className="my-computer__sidebar-text">
-<strong>{TREE[selected].name}</strong><br />
-{TREE[selected].drive === 'A' && 'Lecteur de disquette 3½'}
-{TREE[selected].drive === 'B' && 'Lecteur de disquette chiffrée'}
-{TREE[selected].drive === 'C' && 'Disque dur local — système installé'}
+<strong>{tree[selected].name}</strong><br />
+{tree[selected].drive === 'A' && 'Lecteur de disquette 3½'}
+{tree[selected].drive === 'B' && 'Lecteur de disquette chiffrée'}
+{tree[selected].drive === 'C' && 'Disque dur local — système installé'}
 </div>
 </>
 )}
@@ -527,7 +304,7 @@ return (
 )
 }
 
-const addressPath = getAddress(history)
+const addressPath = getAddress(history, tree)
 const drive = findDrive(currentId)
 
 return (

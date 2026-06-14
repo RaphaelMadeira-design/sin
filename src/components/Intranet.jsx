@@ -128,7 +128,7 @@ function IntranetLogin({ onLogin }) {
                 {/* Footer collé tout en bas de la fenêtre */}
                 <div className="cgu-login__footer">
                     Toute tentative d'intrusion est consignée et tracée.<br/>
-                    CGU-NET vERSION 1.04
+                    CGU-NET VERSION 5.04
                 </div>
         </div>
     )
