@@ -244,7 +244,7 @@ setLoading(false);
 return (
 <Win98Window
 title="MSN Messenger"
-icon="https://win98icons.alexmeub.com/icons/png/msn2-1.png"
+icon="../public/images/icons/16x16/messenger.png"
 onClose={onClose}
 zIndex={200}
 initPos={{ x: 200, y: 60 }}
@@ -253,7 +253,7 @@ showMinimize={false}
 >
 <div className="msn-header">
 <div className="msn-header__logo">
-<img src="https://win98icons.alexmeub.com/icons/png/msn_cool-0.png" />
+<img src="../public/images/icons/32x32/messenger.png" />
 </div>
 <div>
 <div className="msn-header__title">MSN Messenger</div>

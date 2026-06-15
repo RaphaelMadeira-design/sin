@@ -49,13 +49,13 @@ const CELL = 78
 const INITIAL_ICONS = [
     {
         id: 'mail',
-        label: 'Outlook Express',
+        label: 'Inlook Express',
         icon: 'https://win98icons.alexmeub.com/icons/png/outlook_express-4.png',
         x: 0, y: 2
     },
     {
         id: 'browser',
-        label: 'Internet Explorer',
+        label: 'Internet Voyager',
         icon: 'https://win98icons.alexmeub.com/icons/png/msie2-1.png',
         x: 1, y: 0,
     },
@@ -67,8 +67,8 @@ const INITIAL_ICONS = [
     },
     { 
         id: 'msn', 
-        label: 'MSN Messenger', 
-        icon: 'https://win98icons.alexmeub.com/icons/png/msn3-3.png', 
+        label: 'NSN Messenger', 
+        icon: '../public/images/icons/32x32/messenger.png', 
         x: 0, y: 1,
     },
     {
@@ -117,7 +117,7 @@ const WINDOW_CONFIGS = {
         defaultPosition: { x: 90, y: 40 },
     },
     media: {
-        title: 'Windows Media Player',
+        title: 'Vindows Media Player',
         defaultSize: { width: 340, height: 460 },
         defaultPosition: { x: 80, y: 20 },
     },
@@ -132,7 +132,7 @@ const WINDOW_CONFIGS = {
         defaultPosition: { x: 100, y: 30 },
     },
     browser: {
-        title: 'Internet Explorer',
+        title: 'Internet Voyager',
         defaultSize: { width: '100%', height: '100%' },
         defaultPosition: { x: 0, y: 0 },
     },
@@ -213,7 +213,7 @@ function App() {
                 if (prev.find(w => w.id === 'msn')) return prev
                 return [
                 ...prev.map(w => ({ ...w, focused: false })),
-                    { id: 'msn', title: 'MSN Messenger', minimized: false, focused: true, zIndex: ++zCounter }
+                    { id: 'msn', title: 'NSN Messenger', minimized: false, focused: true, zIndex: ++zCounter }
                 ]
             })
         } else {
