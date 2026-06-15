@@ -15,7 +15,8 @@ const ICONS = {
 
 export default function Win98Window({
     id, title, children, onClose, onMinimize, onFocus, onHelp,
-    zIndex, focused, minimized, defaultSize, defaultPosition
+    zIndex, focused, minimized, defaultSize, defaultPosition,
+    icon: iconOverride, hideMaximize = false
 }) {
     const [pos, setPos] = useState({
         x: defaultPosition?.x ?? 60,
@@ -48,7 +49,7 @@ export default function Win98Window({
         }
     }, [maximized, pos, size])
 
-    const icon = ICONS[id]
+    const icon = iconOverride ?? ICONS[id]
 
     return (
         <Rnd
@@ -96,20 +97,24 @@ export default function Win98Window({
                                 data-testid={`window-help-${id}`}
                             />
                         )}
-                        <button
-                            className="win98-window__ctrl-btn win98-window__ctrl-btn--minimize"
-                            onClick={() => onMinimize(id)}
-                            title="Réduire"
-                            aria-label="Minimize"
-                            data-testid={`window-minimize-${id}`}
-                        />
-                        <button
-                            className={`win98-window__ctrl-btn win98-window__ctrl-btn--${maximized ? 'restore' : 'maximize'}`}
-                            onClick={handleMaximize}
-                            title={maximized ? 'Restaurer' : 'Agrandir'}
-                            aria-label={maximized ? 'Restore' : 'Maximize'}
-                            data-testid={`window-maximize-${id}`}
-                        />
+                        {onMinimize && (
+                            <button
+                                className="win98-window__ctrl-btn win98-window__ctrl-btn--minimize"
+                                onClick={() => onMinimize(id)}
+                                title="Réduire"
+                                aria-label="Minimize"
+                                data-testid={`window-minimize-${id}`}
+                            />
+                        )}
+                        {!hideMaximize && (
+                            <button
+                                className={`win98-window__ctrl-btn win98-window__ctrl-btn--${maximized ? 'restore' : 'maximize'}`}
+                                onClick={handleMaximize}
+                                title={maximized ? 'Restaurer' : 'Agrandir'}
+                                aria-label={maximized ? 'Restore' : 'Maximize'}
+                                data-testid={`window-maximize-${id}`}
+                            />
+                        )}
                         <button
                             className="win98-window__ctrl-btn win98-window__ctrl-btn--close"
                             onClick={() => onClose(id)}

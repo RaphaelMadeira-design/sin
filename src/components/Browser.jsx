@@ -486,7 +486,7 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
   const CATS = [
     'Autos', 'Business', 'Carrières', 'Informatique & Web', 'Divertissement',
     'Jeux', 'Santé', { label: 'Loisirs', isNew: true }, 'Maison & Prêts',
-    { label: 'Guides locaux', isNew: true }, 'MSN Update', 'Actualités',
+    { label: 'Guides locaux', isNew: true }, 'NSN Update', 'Actualités',
     'Finance perso', 'Radio & Vidéo', 'Recherche & École', 'Sports', 'Voyages', 'Femmes',
   ]
 
@@ -662,7 +662,7 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
       {/* BAND 7 : footer */}
       <div className="browser__msn-footer">
         <div className="browser__msn-footer-block">
-          <div className="browser__msn-footer-block-hd">Exclusivités MSN</div>
+          <div className="browser__msn-footer-block-hd">Exclusivités NSN</div>
           <div className="browser__msn-footer-block-body">
             <h4>Envie de gratuit ?</h4>
             <span className="link">Trouvez-en plein ici</span>
