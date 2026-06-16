@@ -179,13 +179,13 @@ export default function Intranet() {
 
     const renderPersonnelCard = (p) => {
         const locked = p.locked && clearance < p.locked
-        const clickAllowed = p.team === 'Escouade 2' && !locked
+        const clickAllowed = p.team === 'Équipe 2' && !locked
         return (
             <div
                 key={p.id}
                 className={`intranet__card${!clickAllowed ? ' is-locked' : ''}`}
                 onClick={() => clickAllowed && setOpenPerson(p)}
-                title={!clickAllowed ? 'Accès restreint — Escouade 2 uniquement' : ''}
+                title={!clickAllowed ? 'Accès restreint — Équipe 2 uniquement' : ''}
                 >
                 <div className="intranet__card-id">N° {p.id.toUpperCase()}</div>
                 <div className="intranet__card-name">{locked ? '████████████' : p.name}</div>
@@ -201,8 +201,8 @@ export default function Intranet() {
             <div className="intranet__header">
                 <div className="intranet__crest"></div>
                 <div className="intranet__title">
-                    <div className="intranet__org">PROTECTORAT DE LA COALITION DES GOUVERNEMENTS UNIS</div>
-                    <div className="intranet__sub">Intranet CGU-NET v1.04 — Protectorat Section 7</div>
+                    <div className="intranet__org">ORDRE DE LA COALITION DES GOUVERNEMENTS UNIS</div>
+                    <div className="intranet__sub">Intranet CGU-NET v1.04 — Section 7</div>
                 </div>
                 <div className={`intranet__clearance lvl-${clearance}`}>AUTORISATION : NIVEAU {clearance}</div>
             </div>
@@ -278,13 +278,14 @@ export default function Intranet() {
                             ◄ Retour
                         </button>
                         <div className="intranet__doc-head">
-                            <div className="intranet__doc-org">SECTION 7, ESCOUADE 2 — RAPPORT OFFICIEL</div>
+                            <div className="intranet__doc-org">SECTION 7, ÉQUIPE 2 — RAPPORT OFFICIEL</div>
                             <div className={`intranet__stamp ${openReport.classification.toLowerCase().replace(/ /g,'-')}`}>{openReport.classification}</div>
                         </div>
                         <div className="intranet__doc-meta">
                             <div><b>Réf. :</b> {openReport.code}</div>
                             <div><b>Auteur :</b> {openReport.author}</div>
                             <div><b>Date :</b> {openReport.date}</div>
+                            <div><b>Lieu :</b> {openReport.place}</div>
                         </div>
                         <h3 className="intranet__doc-title">{openReport.title}</h3>
                         <pre className="intranet__doc-body">{openReport.body}</pre>
@@ -307,7 +308,7 @@ export default function Intranet() {
                                 className="intranet__squad-header" 
                                 onClick={() => setOpenSquad(openSquad === number ? null : number)}
                                 >
-                                {openSquad === number ? '▼' : '▶'} ESCOUADE {String(number).padStart(2,'0')}
+                                {openSquad === number ? '▼' : '▶'} ÉQUIPE {String(number).padStart(2,'0')}
                                 </button>
 
                                 {openSquad === number && (
@@ -334,7 +335,7 @@ export default function Intranet() {
                                     </div>
                                     </div>
 
-                                    {/* Pour l’escouade 2 uniquement, ajouter les autres données archivées */}
+                                    {/* Pour l’équipe 2 uniquement, ajouter les autres données archivées */}
                                     {number === 2 && (
                                     <div className="intranet__subgroup">
                                         <div className="intranet__subgroup-title">DONNÉES ARCHIVÉES</div>
@@ -364,7 +365,15 @@ export default function Intranet() {
                         <div className="intranet__fiche-layout">
                             <table className="intranet__fiche">
                                 <tbody>
-                                    {Object.entries({ "Nom complet": openPerson.name, "Rang": openPerson.rank, "Âge": openPerson.age, "Secteur": openPerson.sector, "Équipe": openPerson.team, "Classe": openPerson.class, "Statut": openPerson.status, "Notes": openPerson.notes }).map(([k,v]) => (
+                                    {Object.entries({ 
+                                        "Nom complet": openPerson.name,
+                                        "Âge": openPerson.age,
+                                        "Genre": openPerson.genre,
+                                        "Taille / Poids": openPerson.physical,
+                                        "Race / Origine": openPerson.race,
+                                        "Rôle": openPerson.role, 
+                                        "Notes": openPerson.notes 
+                                    }).map(([k,v]) => (
                                         <tr key={k}>
                                             <th>{k}</th>
                                             <td>{v}</td>
@@ -419,7 +428,7 @@ export default function Intranet() {
 
             {/* Footer */}
             <div className="intranet__footer">
-                CGU-NET — Section 7, Escouade 2 — Utilisateur : I. SHURA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
+                CGU-NET — Section 7, Équipe 2 — Utilisateur : I. SHURA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
             </div>
         </div>
     )

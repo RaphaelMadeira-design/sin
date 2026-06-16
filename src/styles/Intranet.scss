@@ -170,6 +170,7 @@ border: 1px solid rgba(0,0,0,0.4);
 &__listitem {
 display: flex;
 align-items: center;
+justify-content: space-between;
 gap: 16px;
 padding: 8px 10px;
 background: #fff;
@@ -180,6 +181,12 @@ cursor: pointer;
 &:active {
 border-color: #808080 #fff #fff #808080;
 }
+}
+&__listcode {
+    font-size: 10px;
+}
+&__listtitle {
+    font-weight: bold;
 }
 
 &__cards {
@@ -423,7 +430,7 @@ flex-direction: column;
 
 &__photo-frame {
 margin: 0;
-flex: 0 0 200px;
+flex: 0 0 250px;
 background: #c0c0c0;
 border: 2px solid;
 border-color: #fff #808080 #808080 #fff;

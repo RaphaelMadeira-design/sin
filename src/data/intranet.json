@@ -2,81 +2,132 @@
     "tasks": [
         {
             "id": 1,
-            "title": "Titre",
-            "priority": "MOYENNE",
-            "deadline": "Date",
-            "status": "EN COURS",
-            "assigned": "Nom"
+            "title": "Neutralisation sujet - Matricule ████████",
+            "priority": "CRITIQUE",
+            "deadline": "N/A",
+            "status": "BLOQUÉE",
+            "assigned": "CONFIDENTIEL"
         },
         {
             "id": 2,
-            "title": "Titre",
-            "priority": "MOYENNE",
-            "deadline": "Date",
-            "status": "À RENDRE",
-            "assigned": "Section 7"
+            "title": "Enquête sur l'affaire n° EST-44200 - 'Amber Eyed Tiger'",
+            "priority": "CRITIQUE",
+            "deadline": "N/A",
+            "status": "EN COURS",
+            "assigned": "VALKENHEIN Malenia (#7000)"
         },
         {
             "id": 3,
-            "title": "Titre",
-            "priority": "BASSE",
-            "deadline": "Date",
+            "title": "Perquisition n°F4877-QE",
+            "priority": "HAUTE",
+            "deadline": "28/06",
             "status": "PLANIFIÉE",
-            "assigned": "Auto-assigné"
+            "assigned": "VALKENHEIN Malenia (#7000)"
         },
         {
             "id": 4,
-            "title": "Titre",
+            "title": "Surveillance suspect - Matricule HF-24125VE",
             "priority": "HAUTE",
-            "deadline": "Date",
-            "status": "EN RETARD",
-            "assigned": "Nom"
+            "deadline": "16/06",
+            "status": "EN COURS",
+            "assigned": "SEDO Juni (#1322)"
         },
         {
             "id": 5,
-            "title": "Titre",
-            "priority": "BASSE",
-            "deadline": "Date",
+            "title": "Arrestation suspect - Matricule SM-78914PM",
+            "priority": "HAUTE",
+            "deadline": "09/06",
             "status": "COMPLÉTÉE",
-            "assigned": "Auto"
+            "assigned": "DAVIS Malcolm (#5018)"
         },
         {
             "id": 6,
-            "title": "Titre",
-            "priority": "CRITIQUE",
-            "deadline": "???",
-            "status": "BLOQUÉE",
-            "assigned": "Confidentiel"
+            "title": "Prise de déposition n°14798-O",
+            "priority": "MOYENNE",
+            "deadline": "15/06",
+            "status": "EN COURS",
+            "assigned": "SHURA Isen (#0791)"
+        },
+        {
+            "id": 7,
+            "title": "Analyse de preuves n° EST-44200 - 'Amber Eyed Tiger'",
+            "priority": "MOYENNE",
+            "deadline": "15/06",
+            "status": "EN COURS",
+            "assigned": "DAVIS Malcolm (#5018)"
+        },
+        {
+            "id": 8,
+            "title": "Perquisition n°B1447-AD",
+            "priority": "MOYENNE",
+            "deadline": "08/06",
+            "status": "COMPLÉTÉE",
+            "assigned": "VALKENHEIN Malenia (#7000)"
+        },
+        {
+            "id": 9,
+            "title": "Rapport SK-417",
+            "priority": "MOYENNE",
+            "deadline": "30/06",
+            "status": "À RENDRE",
+            "assigned": "DAVIS Malcolm (#5018)"
+        },
+        {
+            "id": 10,
+            "title": "Rapport SK-421",
+            "priority": "BASSE",
+            "deadline": "23/07",
+            "status": "À RENDRE",
+            "assigned": "DAVIS Malcolm (#5018)"
+        },
+        {
+            "id": 11,
+            "title": "Rapport SK-408",
+            "priority": "BASSE",
+            "deadline": "03/06",
+            "status": "COMPLÉTÉE",
+            "assigned": "DAVIS Malcolm (#5018)"
+        },
+        {
+            "id": 12,
+            "title": "Prise de déposition n°06987-N",
+            "priority": "BASSE",
+            "deadline": "28/05",
+            "status": "COMPLÉTÉE",
+            "assigned": "SHURA Isen (#0791)"
         }
     ],
 
     "reports": [
         {
             "id": "r001",
-            "code": "SHK-2626-041",
+            "code": "SK-408",
             "classification": "USAGE INTERNE",
-            "title": "TITRE",
+            "title": "Démantèlement d'un réseau narcotrafiquant",
             "author": "Agent I. Shura #0791",
-            "date": "28/03/2026",
-            "body": "OBJECTIF : ...\n\nOBSERVATIONS :\n- ...\n- ...\n- ...\n\nCONCLUSION :\n... \n\nACTION REQUISE :\n..."
+            "date": "03/06",
+            "place": "Reach",
+            "body": "OBJECTIF : Lier le suspect SEO Makan (HM-1996UV) au groupe déviant 'Dent de Sabre'\n\nOBSERVATIONS :\n- Suspect observé en compagnie de membres importants du groupe à plusieurs reprises\n- Interception d'appels entrants et sortants avec des lieutenants du groupe déviant\n- La perquisition a permise de saisir 4 kilogrammes de narcotiques destinés à la vente et 2 disques durs \n\nCONCLUSION :\nLe suspect est impliqué dans l'élaboration et la distribution de narcotiques dans l'arrondissement vert \n\nACTION REQUISE :\nProcéder à l'arrestation de SEO Makan (HM-1996UV)"
         },
         {
             "id": "r002",
-            "code": "SHK-2626-042",
+            "code": "SK-417",
             "classification": "CONFIDENTIEL",
-            "title": "TITRE",
+            "title": "Disparition de K'SARI Rina",
             "author": "Agent I. Shura #0791",
-            "date": "12/04/2026",
-            "body": "OBJECTIF : ...\n\nOBSERVATIONS :\n- ...\n- ...\n- ...\n\nCONCLUSION :\n... \n\nACTION REQUISE :\n..."
+            "date": "11/06",
+            "place": "Reach",
+            "body": "OBJECTIF : Enquêter sur les conditions de disparition de la victime\n\nOBSERVATIONS :\n- Victime déjà connue des forces de l'ordre locales et a été arrêtée à plusieurs reprises\n- Victime a déjà été portée disparue il y a 3 ans avant d'être retrouvée 2 semaines plus tard, saine et sauve\n- Plusieurs sources indiquent qu'elle est associée à la secte des 'Graines du Renouveau' \n\nCONCLUSION :\nNos recherches indiquent qu'un pélerinage est effectué chaque année par les membres de la secte \n\nACTION REQUISE :\nSurveillance modérée de l'itinéraire de pélerinage pour confirmer ou infirmer sa présence"
         },
         {
             "id": "r003",
-            "code": "SHK-2626-043",
+            "code": "SL-011",
             "classification": "TOP SECRET",
             "title": "[ACCÈS RESTREINT — NIVEAU 3 REQUIS]",
-            "author": "???",
-            "date": "??/??/2026",
-            "body": null,
+            "author": "N/A",
+            "date": "N/A",
+            "place": "Lenoxia",
+            "body": "OBJECTIF : Retrouver les reliques liées à la légende des 'Lames de l'Espoir' et du 'Monarque Oublié'\n\nOBSERVATIONS :\n- Plusieurs rumeurs dans différentes régions du monde parlent d'une terre disparue durant l'Ère Archaïque nommée Ishaka\n- D'autres rumeurs traitent d'un troisième monarque proche de Datare et Yoma, mais qui n'aurait jamais succombé à la Corruption\n- Ces trois légendes auraient formé les 'Lames de l'Espoir' durant leur jeunesse visant combattre l'invasion de l'île d'Ishaka\n- Chaque membre des 'Lames de l'Espoir' aurait été détenteur d'une relique mystique, source de puissance et de savoir\n\nCONCLUSION :\nAucune preuve concrète sur l'existence de cette île ni même la légende du 'Monarque Oublié' \n\nACTION REQUISE :\nPoursuivre les recherches en se focalisant sur les reliques des 'Lames de l'Espoir'",
             "locked": 3
         }
     ],
@@ -111,59 +162,53 @@
     "personnel": [
         {
             "id": "7000",
-            "name": "VALKENHEIN, Melinia",
+            "name": "VALKENHEIN, Malenia",
             "status": "ACTIF"
         },
         {
             "id": "4215",
             "name": "KATO, Fubuki",
-            "rank": "Première classe",
+            
             "status": "ACTIF"
         },
         {
             "id": "9985",
             "name": "MARLIN, Eliz",
-            "rank": "Seconde classe",
+            
             "status": "ACTIF"
         },
         {
             "id": "5543",
             "name": "NIMTARA, Juran",
-            "rank": "Seconde classe",
+            
             "status": "ACTIF"
         },
         {
             "id": "7120",
             "name": "YI, Lei Fon",
-            "rank": "Troisième classe",
+            
             "status": "INACTIF"
         },
         {
             "id": "5320",
             "name": "AROKA, Minso",
-            "rank": "Seconde classe",
+            
             "status": "ACTIF"
         },
         {
             "id": "5018",
             "name": "DAVIS, Malcolm",
-            "rank": "Première classe",
-            "age": "29",
-            "sector": "Section 7",
-            "team": "Escouade 2",
-            "class": "Classe",
-            "status": "ACTIF",
-            "notes": "Meneur d'escouade.",
-            "image": "/images/malcolm.jpg"
+            "status": "ACTIF"
         },
         {
             "id": "0791",
             "name": "SHURA, Isen",
-            "rank": "Seconde classe",
-            "age": "29",
-            "sector": "Section 7",
-            "team": "Escouade 2",
-            "class": "Classe",
+            "age": "29 ans",
+            "genre": "Masculin ♂",
+            "physical": "1m80 / 76kg",
+            "race": "Humain - Reach",
+            "role": "Agent de terrain — Section 7, équipe 2",
+            "team": "Équipe 2",
             "status": "ACTIF",
             "notes": "Sujet ambivalent.",
             "image": "/images/isen.jpg"
@@ -171,39 +216,18 @@
         {
             "id": "9205",
             "name": "KREST, Orisa",
-            "rank": "Seconde classe",
-            "age": "27",
-            "sector": "Section 7",
-            "team": "Escouade 2",
-            "class": "Classe",
-            "status": "ACTIF",
-            "notes": "Asset stratégique. Loyauté totale.",
-            "image": "/images/orisa.jpg"
+            "status": "ACTIF"
         },
         {
             "id": "3054",
             "name": "O'BORO, Kanza",
-            "rank": "Troisième classe",
-            "age": "27",
-            "sector": "Section 7",
-            "team": "Escouade 2",
-            "class": "Classe",
-            "status": "ACTIF",
-            "notes": "RAS.",
-            "image": "/images/kanza.jpg"
+            "status": "ACTIF"
         },
         {
             "id": "1322",
             "name": "SEDO, Juni",
-            "rank": "Seconde classe",
-            "age": "28",
-            "sector": "Section 7",
-            "team": "Escouade 2",
-            "class": "Classe",
-            "status": "ACTIF",
-            "notes": "Téléopérateur d'escouade.",
-            "image": "/images/juni.jpg"
-            },
+            "status": "ACTIF"
+        },
         {
             "id": "1622",
             "name": "NISHIKAWA, Ryohei",
@@ -219,112 +243,96 @@
         {
             "id": "4122",
             "name": "NOVAK, Muqa",
-            "rank": "Première classe",
             "status": "ACTIF"
         },
         {
             "id": "8761",
             "name": "WUDRAND, Clere",
-            "rank": "Seconde classe",
             "status": "ACTIF"
         },
         {
             "id": "6543",
             "name": "PAO, Yalang",
-            "rank": "Troisième classe",
             "status": "INACTIF"
         },
         {
             "id": "3210",
             "name": "SOROVIC, Pavle",
-            "rank": "Troisième classe",
             "status": "INACTIF"
         },
         {
             "id": "4778",
             "name": "ALUMEDA, Hictor",
-            "rank": "Troisième classe",
             "status": "ACTIF"
         },
         {
             "id": "1225",
             "name": "PEGAZZI, Yuilia",
-            "rank": "Première classe",
             "status": "ACTIF"
         },
         {
             "id": "0189",
             "name": "OKAFOR, Chinedu",
-            "rank": "Seconde classe",
             "status": "ACTIF"
         },
         {
             "id": "6997",
             "name": "VAN MARSON, Irick",
-            "rank": "Seconde classe",
-            "class": "Classe",
             "status": "ACTIF"
         },
         {
             "id": "7880",
             "name": "LEBLEC, Antowan",
-            "rank": "Seconde classe",
             "status": "ACTIF"
         },
         {
             "id": "9988",
             "name": "SÀ, Rin-Da",
-            "rank": "Troisième classe",
             "status": "ACTIF"
         },
         {
             "id": "4411",
             "name": "TURA'BO, Emporo",
-            "rank": "Première classe",
             "status": "INACTIF"
         },
         {
             "id": "0642",
             "name": "YAMANOKO, Suikyo",
-            "rank": "Seconde classe",
             "status": "ACTIF"
         },
         {
             "id": "1006",
             "name": "SWANSON, Konradd",
-            "rank": "Seconde classe",
             "status": "ACTIF"
         },
         {
             "id": "4128",
             "name": "MAHAGA, Kaoru",
-            "rank": "Troisième classe",
             "status": "ACTIF"
         },
         {
             "id": "7092",
             "name": "HELONG, Zeng",
-            "rank": "Seconde classe",
             "status": "INACTIF"
         }
     ],
 
     "logs": [
-        "04/05/2026 02:14:09 — [SYS] Connexion CGU-NET (poste #0791)",
-        "04/05/2026 02:14:11 — [AUTH] Session NIVEAU-1 expirée",
-        "04/05/2026 02:14:42 — [APP] Ouverture module \"Tâches\"",
-        "04/05/2026 02:15:01 — [APP] Ouverture module \"Rapports\"",
-        "04/05/2026 02:15:30 — [WARN] Tentative d'accès SHK-2626-043 — refusée (clearance insuffisante)",
-        "04/05/2026 02:16:18 — [APP] Ouverture module \"Messagerie\"",
-        "04/05/2026 02:16:45 — [WARN] Email non-traçable détecté (exp.: ???). Conservé.",
-        "04/05/2026 02:17:02 — [APP] Ouverture module \"Personnel\"",
-        "04/05/2026 02:18:11 — [SYS] Latence inhabituelle — pingback 1337ms",
-        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
-        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
-        "03/05/2026 23:59:58 — [SYS] Ping entrant inconnu — origine masquée",
-        "03/05/2026 23:47:12 — [APP] Réception email — A. Valkenhein — objet: \"Re: Rapport SHK-2626-042\"",
-        "03/05/2026 19:02:00 — [USR] Déconnexion volontaire",
-        "03/05/2026 14:30:00 — [USR] Soumission rapport SHK-2626-042"
+        "08:14:09 — [SYS] Connexion CGU-NET (poste #0791)",
+        "82:14:11 — [AUTH] Session NIVEAU-1 expirée",
+        "08:14:42 — [APP] Ouverture module \"Tâches\"",
+        "82:15:01 — [APP] Ouverture module \"Rapports\"",
+        "02:15:30 — [WARN] Tentative d'accès SL-011 — refusée (clearance insuffisante)",
+        "08:16:18 — [APP] Ouverture module \"Messagerie\"",
+        "08:16:45 — [WARN] Email non-traçable détecté (exp.: ???). Conservé.",
+        "08:17:02 — [APP] Ouverture module \"Personnel\"",
+        "08:18:11 — [SYS] Latence inhabituelle — pingback 1337ms",
+        "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "13:47:12 — [USR] Soumission rapport SK-417",
+        "14:05:21 — [APP] Réception email — A. Valkenhein — objet: \"Re: Rapport SK-417\"",
+        "18:02:00 — [USR] Déconnexion volontaire"
     ],
 
     "tabs": [

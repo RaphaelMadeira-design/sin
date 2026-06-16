@@ -42,7 +42,7 @@ ver: () => [
 whoami: () => [
 '',
 '┌─────────────────────────────────┐',
-'│  UTILISATEUR : Isen Hata        │',
+'│  UTILISATEUR : Isen Shura       │',
 '│  RANG        : E                │',
 '│  CLAN        : Magaishi         │',
 '│  SHOKAN      : [DIVERS]         │',
@@ -89,7 +89,7 @@ koga: () => [
 auth: '__AUTH__',
 
 logout: () => {
-sessionStorage.removeItem('kishi_clearance')
+sessionStorage.removeItem('cgu_clearance')
 return [
 '',
 '> Session Kishi-NET fermée. Clearance révoquée.',
@@ -98,7 +98,7 @@ return [
 },
 
 status: () => {
-const lvl = parseInt(sessionStorage.getItem('kishi_clearance') || '0', 10)
+const lvl = parseInt(sessionStorage.getItem('cgu_clearance') || '0', 10)
 return [
 '',
 '┌─────────────────────────────────┐',
@@ -288,13 +288,13 @@ setHistory([...newHistory,
 ])
 return
 }
-sessionStorage.setItem('kishi_clearance', String(VALID[level].lvl))
+sessionStorage.setItem('cgu_clearance', String(VALID[level].lvl))
 setHistory([...newHistory,
 '',
 '> ████████████████████████████████',
 `> ✓ Authentification ${level} validée.`,
 `> Clearance élevée à NIVEAU ${VALID[level].lvl}.`,
-'> Bienvenue, Chevalier Igarashi.',
+'> Bienvenue, Agent SHURA.',
 '> ████████████████████████████████',
 '',
 ])

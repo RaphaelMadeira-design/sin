@@ -160,7 +160,7 @@ function MSNLogin({ onLogin, onClose, onMinimize, onFocus, focused, zIndex }) {
         <Win98Window
             id="msn-login"
             title="NSN Messenger"
-            icon="../public/images/icons/16x16/messenger.png"
+            icon="/images/icons/16x16/messenger.png"
             onClose={onClose}
             onMinimize={onMinimize}
             onFocus={onFocus}
@@ -172,7 +172,7 @@ function MSNLogin({ onLogin, onClose, onMinimize, onFocus, focused, zIndex }) {
         >
             <div className="msn-header">
                 <div className="msn-header__logo">
-                    <img src="../public/images/icons/32x32/messenger.png" />
+                    <img src="/images/icons/32x32/messenger.png" />
                 </div>
                 <div>
                     <div className="msn-header__title">NSN Messenger</div>

@@ -16,7 +16,7 @@ const ICONS = {
     cmd: 'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
     imageviewer: 'https://win98icons.alexmeub.com/icons/png/kodak_imaging_file-0.png',
     browser: 'https://win98icons.alexmeub.com/icons/png/msie1-2.png',
-    msn: '../public/images/icons/16x16/messenger.png',
+    msn: '/images/icons/16x16/messenger.png',
     intranet: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-5.png',
     mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-3.png',
     computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',

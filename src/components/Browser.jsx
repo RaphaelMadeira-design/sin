@@ -469,226 +469,225 @@ const MSN_FOOTER_LINKS = [
 ]
 
 function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
-  const [query, setQuery] = useState('')
-  const [hotmailUser, setHotmailUser] = useState('')
-  const [hotmailPass, setHotmailPass] = useState('')
+    const [query, setQuery] = useState('')
+    const [hotmailUser, setHotmailUser] = useState('')
+    const [hotmailPass, setHotmailPass] = useState('')
 
-  const handleSearch = () => {
-    const q = query.trim()
-    if (!q) return
-    const topic = matchTopic(q)
-    if (topic) { onNormalSearch(q, topic); return }
-    const lower = q.toLowerCase()
-    if (SECRET_SEARCHES.some(s => lower.includes(s))) onSecretSearch(q)
-    else onNormalSearch(q, null)
-  }
+    const handleSearch = () => {
+        const q = query.trim()
+        if (!q) return
+        const topic = matchTopic(q)
+        if (topic) { onNormalSearch(q, topic); return }
+        const lower = q.toLowerCase()
+        if (SECRET_SEARCHES.some(s => lower.includes(s))) onSecretSearch(q)
+        else onNormalSearch(q, null)
+    }
 
-  const CATS = [
-    'Autos', 'Business', 'Carrières', 'Informatique & Web', 'Divertissement',
-    'Jeux', 'Santé', { label: 'Loisirs', isNew: true }, 'Maison & Prêts',
-    { label: 'Guides locaux', isNew: true }, 'NSN Update', 'Actualités',
-    'Finance perso', 'Radio & Vidéo', 'Recherche & École', 'Sports', 'Voyages', 'Femmes',
-  ]
+    const CATS = [
+        'Autos', 'Business', 'Carrières', 'Informatique & Web', 'Divertissement',
+        'Jeux', 'Santé', { label: 'Loisirs', isNew: true }, 'Maison & Prêts',
+        { label: 'Guides locaux', isNew: true }, 'NSN Update', 'Actualités',
+        'Finance perso', 'Radio & Vidéo', 'Recherche & École', 'Sports', 'Voyages', 'Femmes',
+    ]
 
-  return (
-    <div className="browser__msn" data-testid="msn-home">
+    return (
+        <div className="browser__msn" data-testid="msn-home">
 
-      {/* BAND 1 : logo + promo + date */}
-      <div className="browser__msn-top">
-        <div className="browser__msn-logo">
-          <span className="browser__msn-logo-text">nsn</span>
-          <span className="browser__msn-logo-sub">Nicrosoft®</span>
-        </div>
-        <div className="browser__msn-promo">
-          Bénéficiez de <em>10€ de réduction</em> dès <em>30€ d'achat</em><br />
-          cette saison sur <span className="link">wine.com</span>.
-        </div>
-        <div className="browser__msn-date">AVRIL <strong>17</strong></div>
-      </div>
-
-      {/* BAND 2 : barre bleue Search */}
-      <div className="browser__msn-searchbar">
-        <span className="browser__msn-searchbar-arrows">»</span>
-        <span className="browser__msn-searchbar-label">
-          <strong>RECHERCHER</strong> sur le Web
-        </span>
-        <input
-          type="text"
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && handleSearch()}
-          data-testid="msn-search-input"
-        />
-        <button className="browser__msn-searchbar-go" onClick={handleSearch}>go</button>
-      </div>
-
-      {/* BAND 3 : nav blanche/noire */}
-      <div className="browser__msn-mainnav">
-        <span className="browser__msn-mainnav-item browser__msn-mainnav-item--active">Accueil</span>
-        <span className="browser__msn-mainnav-item">Hotmail</span>
-        <span className="browser__msn-mainnav-item">Recherche</span>
-        <span className="browser__msn-mainnav-item">Shopping</span>
-        <span className="browser__msn-mainnav-item">Argent</span>
-        <span className="browser__msn-mainnav-item">People &amp; Chat</span>
-        <div className="browser__msn-mainnav-spacer" />
-        <div className="browser__msn-mainnav-passport">
-          <em>Passport</em>
-          <strong>Se connecter</strong>
-        </div>
-      </div>
-
-      {/* BAND 4 : sous-nav bleue */}
-      <div className="browser__msn-subnav">
-        <div className="browser__msn-subnav-col">
-          <span className="link">Téléchargement gratuit</span>
-          <span className="link">MSN Messenger Service</span>
-        </div>
-        <div className="browser__msn-subnav-col">
-          <span className="link">Personnaliser cette page</span>
-          <span className="link">Obtenez ce que vous aimez</span>
-        </div>
-        <div className="browser__msn-subnav-ad" onClick={onOpenNews}>
-          <span><strong>Envoyez des chocolats Godiva</strong><br />pour cette saison</span>
-          <em>Cliquez ici</em>
-        </div>
-      </div>
-
-      {/* BAND 5 : corps 3 colonnes */}
-      <div className="browser__msn-body">
-
-        {/* gauche : catégories */}
-        <div className="browser__msn-cats">
-          {CATS.map((c, i) => {
-            const label = typeof c === 'string' ? c : c.label
-            const isNew = typeof c === 'object' && c.isNew
-            return (
-              <span key={i} className="browser__msn-cats-item">
-                {label}{isNew && <em>New!</em>}
-              </span>
-            )
-          })}
-        </div>
-
-        {/* centre */}
-        <div className="browser__msn-center">
-
-          <div className="browser__msn-shortcuts">
-            <span className="link">Billets d'avion</span>
-            <span className="link">Acheter musique</span>
-            <span className="link">Jeux gratuits</span>
-            <span className="link">Cartes</span>
-            <span className="link is-orange">Enchères</span>
-            <span className="link">Téléchargements</span>
-            <span className="link">Se connecter</span>
-            <span className="link">Cours boursiers</span>
-            <span className="link">Acheter livres</span>
-            <span className="link">Cartes virtuelles</span>
-            <span className="link">Pages perso</span>
-            <span className="link is-orange">Plus…</span>
-          </div>
-
-          <div className="browser__msn-feature">
-            <div className="browser__msn-feature-title" onClick={onOpenNews}>
-              À la une : Disparition d'un étudiant de Todai
-            </div>
-            <div className="browser__msn-feature-row">
-              <div>
-                <div className="browser__msn-feature-img">
-                  <img
-                    src="https://placehold.co/200x130/000040/ffffff?text=NASA"
-                    alt=""
-                  />
-                  <div className="browser__msn-feature-img-credit">NASA</div>
+            {/* BAND 1 : logo + promo + date */}
+            <div className="browser__msn-top">
+                <div className="browser__msn-logo">
+                    <span className="browser__msn-logo-text">nsn</span>
+                    <span className="browser__msn-logo-sub">Nicrosoft®</span>
                 </div>
-                <div className="browser__msn-feature-caption">Vue de Tokyo depuis l'espace</div>
-              </div>
-              <div className="browser__msn-feature-also">
-                <h3>Aujourd'hui aussi</h3>
-                <ul>
-                  <li><span className="link">10 conseils fiscaux</span></li>
-                  <li><span className="link">Ce que les hommes lisent</span></li>
-                  <li><span className="link">Voyages hors saison</span></li>
-                  <li><span className="link">Emmenez Barbie en voyage</span></li>
-                </ul>
-              </div>
+                <div className="browser__msn-promo">
+                    Bénéficiez de <em>10€ de réduction</em> dès <em>30€ d'achat</em><br />
+                    cette saison sur <span className="link">wine.com</span>.
+                </div>
+                <div className="browser__msn-date">AVRIL <strong>17</strong></div>
             </div>
-          </div>
 
-          <div className="browser__msn-connect">
-            <div className="browser__msn-connect-list">
-              <h3>Restez connecté</h3>
-              <ul>
-                <li><span className="link">Top téléphones sans fil</span></li>
-                <li><span className="link">Anxiété en société ?</span></li>
-                <li><span className="link">Envoyez une e-card</span></li>
-              </ul>
+            {/* BAND 2 : barre bleue Search */}
+            <div className="browser__msn-searchbar">
+                <span className="browser__msn-searchbar-arrows">»</span>
+                <span className="browser__msn-searchbar-label">
+                    <strong>RECHERCHER</strong> sur le Web
+                </span>
+                <input
+                    type="text"
+                    value={query}
+                    onChange={e => setQuery(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && handleSearch()}
+                    data-testid="msn-search-input"
+                />
+                <button className="browser__msn-searchbar-go" onClick={handleSearch}>go</button>
             </div>
-            <div className="browser__msn-connect-side">
-              <div className="browser__msn-connect-side-img">
-                <img src="https://placehold.co/80x100/dddddd/333333?text=•" alt="" />
-                <div className="browser__msn-connect-side-img-credit">PhotoDisc</div>
-              </div>
-              <span className="browser__msn-connect-side-label">
-                Guide de drague pour timides
-              </span>
+
+            {/* BAND 3 : nav blanche/noire */}
+            <div className="browser__msn-mainnav">
+                <span className="browser__msn-mainnav-item browser__msn-mainnav-item--active">Accueil</span>
+                <span className="browser__msn-mainnav-item">Hotmail</span>
+                <span className="browser__msn-mainnav-item">Recherche</span>
+                <span className="browser__msn-mainnav-item">Shopping</span>
+                <span className="browser__msn-mainnav-item">Argent</span>
+                <span className="browser__msn-mainnav-item">People &amp; Chat</span>
+                <div className="browser__msn-mainnav-spacer" />
+                <div className="browser__msn-mainnav-passport">
+                    <em>Passport</em>
+                    <strong>Se connecter</strong>
+                </div>
             </div>
-          </div>
-        </div>
 
-        {/* droite : message center */}
-        <div className="browser__msn-msgcenter">
-          <h2>MESSAGE CENTER</h2>
-          <label>E-mail</label>
-          <label>Identifiant Hotmail :</label>
-          <input value={hotmailUser} onChange={e => setHotmailUser(e.target.value)} />
-          <label>Mot de passe :</label>
-          <input type="password" value={hotmailPass} onChange={e => setHotmailPass(e.target.value)} />
-          <div className="browser__msn-msgcenter-actions">
-            <button>go</button>
-          </div>
-          <span className="browser__msn-msgcenter-link">Inscrivez-vous gratuitement</span>
+            {/* BAND 4 : sous-nav bleue */}
+            <div className="browser__msn-subnav">
+                <div className="browser__msn-subnav-col">
+                    <span className="link">Téléchargement gratuit</span>
+                    <span className="link">NSN Messenger Service</span>
+                </div>
+                <div className="browser__msn-subnav-col">
+                    <span className="link">Personnaliser cette page</span>
+                    <span className="link">Obtenez ce que vous aimez</span>
+                </div>
+                <div className="browser__msn-subnav-ad" onClick={onOpenNews}>
+                    <span><strong>Envoyez des chocolats Godiva</strong><br />pour cette saison</span>
+                    <em>Cliquez ici</em>
+                </div>
+            </div>
 
-          <h3>People &amp; Chat</h3>
-          <span className="browser__msn-msgcenter-link">Créer une communauté</span>
-          <span className="browser__msn-msgcenter-link">Communautés populaires</span>
-          <span className="browser__msn-msgcenter-link">Lobby Emoticon Chat</span>
-          <span className="browser__msn-msgcenter-link">Nouveautés du chat</span>
-        </div>
-      </div>
+            {/* BAND 5 : corps 3 colonnes */}
+            <div className="browser__msn-body">
 
-      {/* BAND 6 : help */}
-      <div className="browser__msn-help">AIDE</div>
+                {/* gauche : catégories */}
+                <div className="browser__msn-cats">
+                    {CATS.map((c, i) => {
+                        const label = typeof c === 'string' ? c : c.label
+                        const isNew = typeof c === 'object' && c.isNew
+                        return (
+                        <span key={i} className="browser__msn-cats-item">
+                            {label}{isNew && <em>New!</em>}
+                        </span>
+                        )
+                    })}
+                </div>
 
-      {/* BAND 7 : footer */}
-      <div className="browser__msn-footer">
-        <div className="browser__msn-footer-block">
-          <div className="browser__msn-footer-block-hd">Exclusivités NSN</div>
-          <div className="browser__msn-footer-block-body">
-            <h4>Envie de gratuit ?</h4>
-            <span className="link">Trouvez-en plein ici</span>
-          </div>
-        </div>
-        <div className="browser__msn-footer-block">
-          <div className="browser__msn-footer-block-hd">Actualités</div>
-          <div className="browser__msn-footer-block-body">
-            <h4>MSNBC News</h4>
-            <ul>
-              <li>Sommet climatique de Genève — accord signé</li>
-            </ul>
-          </div>
-        </div>
-        <div className="browser__msn-footer-block">
-          <div className="browser__msn-footer-block-hd">Recherche locale</div>
-          <div className="browser__msn-footer-block-body">
-            <span className="link">Pages jaunes</span>
-            <span className="link">Pages blanches</span>
-            <span className="link">Météo</span>
-          </div>
-        </div>
-      </div>
+                {/* centre */}
+                <div className="browser__msn-center">
 
-    </div>
-  )
+                    <div className="browser__msn-shortcuts">
+                        <span className="link">Billets d'avion</span>
+                        <span className="link">Acheter musique</span>
+                        <span className="link">Jeux gratuits</span>
+                        <span className="link">Cartes</span>
+                        <span className="link is-orange">Enchères</span>
+                        <span className="link">Téléchargements</span>
+                        <span className="link">Se connecter</span>
+                        <span className="link">Cours boursiers</span>
+                        <span className="link">Acheter livres</span>
+                        <span className="link">Cartes virtuelles</span>
+                        <span className="link">Pages perso</span>
+                        <span className="link is-orange">Plus…</span>
+                    </div>
+
+                    <div className="browser__msn-feature">
+                        <div className="browser__msn-feature-title" onClick={onOpenNews}>
+                            À la une : Disparition d'un étudiant de Todai
+                        </div>
+                        <div className="browser__msn-feature-row">
+                            <div>
+                                <div className="browser__msn-feature-img">
+                                    <img
+                                        src="https://placehold.co/200x130/000040/ffffff?text=NASA"
+                                        alt=""
+                                    />
+                                    <div className="browser__msn-feature-img-credit">NASA</div>
+                                </div>
+                                <div className="browser__msn-feature-caption">Vue de Tokyo depuis l'espace</div>
+                            </div>
+                            <div className="browser__msn-feature-also">
+                                <h3>Aujourd'hui aussi</h3>
+                                <ul>
+                                    <li><span className="link">10 conseils fiscaux</span></li>
+                                    <li><span className="link">Ce que les hommes lisent</span></li>
+                                    <li><span className="link">Voyages hors saison</span></li>
+                                    <li><span className="link">Emmenez Barbie en voyage</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="browser__msn-connect">
+                        <div className="browser__msn-connect-list">
+                            <h3>Restez connecté</h3>
+                            <ul>
+                                <li><span className="link">Top téléphones sans fil</span></li>
+                                <li><span className="link">Anxiété en société ?</span></li>
+                                <li><span className="link">Envoyez une e-card</span></li>
+                            </ul>
+                        </div>
+                        <div className="browser__msn-connect-side">
+                            <div className="browser__msn-connect-side-img">
+                                <img src="https://placehold.co/80x100/dddddd/333333?text=•" alt="" />
+                                <div className="browser__msn-connect-side-img-credit">PhotoDisc</div>
+                            </div>
+                            <span className="browser__msn-connect-side-label">
+                                Guide de drague pour timides
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* droite : message center */}
+                <div className="browser__msn-msgcenter">
+                    <h2>MESSAGE CENTER</h2>
+                    <label>E-mail</label>
+                    <label>Identifiant Hotmail :</label>
+                    <input value={hotmailUser} onChange={e => setHotmailUser(e.target.value)} />
+                    <label>Mot de passe :</label>
+                    <input type="password" value={hotmailPass} onChange={e => setHotmailPass(e.target.value)} />
+                    <div className="browser__msn-msgcenter-actions">
+                        <button>go</button>
+                    </div>
+                    <span className="browser__msn-msgcenter-link">Inscrivez-vous gratuitement</span>
+
+                    <h3>People &amp; Chat</h3>
+                    <span className="browser__msn-msgcenter-link">Créer une communauté</span>
+                    <span className="browser__msn-msgcenter-link">Communautés populaires</span>
+                    <span className="browser__msn-msgcenter-link">Lobby Emoticon Chat</span>
+                    <span className="browser__msn-msgcenter-link">Nouveautés du chat</span>
+                </div>
+            </div>
+
+            {/* BAND 6 : help */}
+            <div className="browser__msn-help">AIDE</div>
+
+            {/* BAND 7 : footer */}
+            <div className="browser__msn-footer">
+                <div className="browser__msn-footer-block">
+                    <div className="browser__msn-footer-block-hd">Exclusivités NSN</div>
+                    <div className="browser__msn-footer-block-body">
+                        <h4>Envie de gratuit ?</h4>
+                        <span className="link">Trouvez-en plein ici</span>
+                    </div>
+                </div>
+                <div className="browser__msn-footer-block">
+                    <div className="browser__msn-footer-block-hd">Actualités</div>
+                    <div className="browser__msn-footer-block-body">
+                        <h4>MSNBC News</h4>
+                        <ul>
+                            <li>Sommet climatique de Genève — accord signé</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="browser__msn-footer-block">
+                    <div className="browser__msn-footer-block-hd">Recherche locale</div>
+                    <div className="browser__msn-footer-block-body">
+                        <span className="link">Pages jaunes</span>
+                        <span className="link">Pages blanches</span>
+                        <span className="link">Météo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 function FakeGoogleNoResult({ query, onSearch }) {
