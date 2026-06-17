@@ -206,12 +206,15 @@
             "age": "29 ans",
             "genre": "Masculin ♂",
             "physical": "1m80 / 76kg",
-            "race": "Humain - Reach",
+            "race": "Humain",
+            "origin": "Reach",
             "role": "Agent de terrain — Section 7, équipe 2",
             "team": "Équipe 2",
             "status": "ACTIF",
-            "notes": "Sujet ambivalent.",
-            "image": "/images/isen.jpg"
+            "alignment": "Neutre",
+            "image": "/images/isen.jpg",
+            "physicalDescription": "Homme de taille et corpulence situées dans la moyenne, avec une silhouette longiligne accentuée par des épaules larges et de longues jambes. Cheveux bruns, coiffés mais légèrement désordonnés. Traits du visage fins mais anguleux, mâchoire carrée. Yeux marrons en amande. Air ennuyé caractéristique.",
+            "psychProfile": "Calme et posé, à la limite de l'indolence. Tempérament profondément indépendant et attitude nonchalante. Vit au jour le jour et se projette très peu dans l'avenir. Tendance à se plaindre des tâches qui lui sont confiées et à arriver en retard. Secret sur certains aspects de sa vie privée."
         },
         {
             "id": "9205",
@@ -227,18 +230,6 @@
             "id": "1322",
             "name": "SEDO, Juni",
             "status": "ACTIF"
-        },
-        {
-            "id": "1622",
-            "name": "NISHIKAWA, Ryohei",
-            "rank": "[ANCIEN] rang ???",
-            "age": "30",
-            "sector": "Section 7",
-            "team": "[DISSOUTE]",
-            "class": "[DONNÉES SCELLÉES]",
-            "status": "DISPARU",
-            "notes": "Dernier message daté du 14/02/2026. Aucun signal depuis. Dossier complet — clearance NIVEAU 3.",
-            "locked": 3
         },
         {
             "id": "4122",

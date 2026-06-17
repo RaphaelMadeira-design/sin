@@ -68,7 +68,7 @@ const INITIAL_ICONS = [
     { 
         id: 'msn', 
         label: 'NSN Messenger', 
-        icon: '../public/images/icons/32x32/messenger.png', 
+        icon: '/images/icons/32x32/messenger.png', 
         x: 0, y: 1,
     },
     {

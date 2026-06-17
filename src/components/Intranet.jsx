@@ -370,9 +370,10 @@ export default function Intranet() {
                                         "Âge": openPerson.age,
                                         "Genre": openPerson.genre,
                                         "Taille / Poids": openPerson.physical,
-                                        "Race / Origine": openPerson.race,
-                                        "Rôle": openPerson.role, 
-                                        "Notes": openPerson.notes 
+                                        "Race": openPerson.race,
+                                        "Origine": openPerson.origin,
+                                        "Poste": openPerson.role, 
+                                        "Alignement": openPerson.alignment 
                                     }).map(([k,v]) => (
                                         <tr key={k}>
                                             <th>{k}</th>
@@ -399,6 +400,26 @@ export default function Intranet() {
                                 </figure>
                             )}
                         </div>
+                            {('physicalDescription' in openPerson || 'psychProfile' in openPerson) && (
+                                <div className="intranet__profiles">
+                                    <section className="intranet__profile-card">
+                                        <div className="intranet__profile-head">DESCRIPTION PHYSIQUE</div>
+                                        <div className="intranet__profile-body">
+                                            {openPerson.physicalDescription
+                                                ? openPerson.physicalDescription
+                                                : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
+                                        </div>
+                                    </section>
+                                    <section className="intranet__profile-card">
+                                        <div className="intranet__profile-head">PROFIL PSYCHOLOGIQUE</div>
+                                        <div className="intranet__profile-body">
+                                            {openPerson.psychProfile
+                                                ? openPerson.psychProfile
+                                                : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
+                                        </div>
+                                    </section>
+                                </div>
+                            )}
                     </div>
                 )}
 
