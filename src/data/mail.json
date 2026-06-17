@@ -1,0 +1,560 @@
+{
+    "icons": {
+        "inbox":       "https://win98icons.alexmeub.com/icons/png/outlook_express_tack-1.png",
+        "inboxFolder": "https://win98icons.alexmeub.com/icons/png/mailbox_world-1.png",
+        "sent":        "https://win98icons.alexmeub.com/icons/png/envelope_open_sheet-1.png",
+        "drafts":      "https://win98icons.alexmeub.com/icons/png/write_file-0.png",
+        "trash":       "https://win98icons.alexmeub.com/icons/png/recycle_bin_empty_cool-4.png",
+        "mailRead":    "https://win98icons.alexmeub.com/icons/png/message_envelope_open-1.png",
+        "mailUnread":  "https://win98icons.alexmeub.com/icons/png/envelope_closed-1.png",
+        "attach":      "https://win98icons.alexmeub.com/icons/png/notepad_file-0.png",
+        "newMail":     "https://win98icons.alexmeub.com/icons/png/envelope_closed-0.png",
+        "reply":       "https://win98icons.alexmeub.com/icons/png/outlook_express-0.png",
+        "forward":     "https://win98icons.alexmeub.com/icons/png/media_player_stream_conn1.png",
+        "delete":      "https://win98icons.alexmeub.com/icons/png/media_player_stream_no.png",
+        "print":       "https://win98icons.alexmeub.com/icons/png/printer-5.png",
+        "spam":        "https://win98icons.alexmeub.com/icons/png/outlook_express-2.png"
+
+    },
+
+    "folders": [
+        { "id": "inbox",  "label": "Boîte de réception",   "iconKey": "inboxFolder" },
+        { "id": "sent",   "label": "Éléments envoyés",     "iconKey": "sent" },
+        { "id": "drafts", "label": "Brouillons",           "iconKey": "drafts" },
+        { "id": "spam",   "label": "Courrier indésirable", "iconKey": "spam" },
+        { "id": "trash",  "label": "Éléments supprimés",   "iconKey": "trash" }
+    ],
+
+    "mailboxLabel": "Boîte aux lettres — #0791",
+
+    "inbox": [
+        {
+            "id": "e1",
+            "from": "Cmdt. M. Valkenhein",
+            "fromAddr": "m.valkenhein@cgu-net.s7",
+            "subject": "Re: Rapport SK-417",
+            "date": "12/06 — 14:05",
+            "unread": false,
+            "body": [
+                "Shura,",
+                "",
+                "Rapport bien reçu. Lecture rapide, mais l'angle « pèlerinage » de la secte des Graines du Renouveau tient la route. Je ne m'attendais pas à ça — toi non plus visiblement.",
+                "",
+                "Deux remarques :",
+                "  1. Tu sous-estimes l'itinéraire. Les Graines passent par trois points sans surveillance avant leur destination finale, pas deux. Recoupe avec les dépositions n°06987 et n°14798.",
+                "  2. Pas un mot à Davis tant que je ne l'autorise pas. Il a déjà SK-408 sur les bras, et je le préfère concentré sur la Dent de Sabre.",
+                "",
+                "Reprends-moi ça pour le 18/06. Je te veux propre — pas brillant. Propre.",
+                "",
+                "— Valkenhein",
+                "Chef Section 7 / Équipe 2"
+            ]
+        },
+        {
+            "id": "e2",
+            "from": "J. Sedo",
+            "fromAddr": "j.sedo@cgu-net.s7",
+            "subject": "MAJ surveillance HF-24125VE",
+            "date": "13/06— 09:47",
+            "unread": true,
+            "body": [
+                "0791,",
+                "",
+                "Le sujet HF-24125VE est sorti deux fois cette nuit par la sortie de service du 14e bloc. Trajet identique : nord-ouest, puis coupure dans l'arrondissement vert. Caméra 4-B a perdu le signal pendant 47 secondes vers 03:12 — pas la première fois sur ce tronçon.",
+                "",
+                "J'ai pingé Davis, il n'a pas répondu (comme d'hab).",
+                "",
+                "Tu prends le relais ce soir ? Je serai en console jusqu'à 02:00 max. Au-delà, débrouille-toi avec Hictor de la 3.",
+                "",
+                "— Juni",
+                "Téléopératrice, Équipe 2"
+            ]
+        },
+        {
+            "id": "e3",
+            "from": "Système CGU-NET",
+            "fromAddr": "noreply@cgu-net.s7",
+            "subject": "Renouvellement code d'accès NIVEAU-1",
+            "date": "14/06 — 00:00",
+            "unread": true,
+            "body": [
+                "Agent SHURA, Isen — Matricule #0791",
+                "",
+                "Votre code d'accès NIVEAU-1 a été régénéré conformément à la politique CGU-SEC-04-§2.",
+                "",
+                "Nouveau jeton : ECHO77",
+                "",
+                "Utilisez la commande « auth NIVEAU-1 ECHO77 » sur votre terminal pour renouveler la session.",
+                "Validité : 72h. Toute réutilisation après expiration sera consignée.",
+                "",
+                "Ce message est généré automatiquement. Ne pas répondre.",
+                "",
+                "— CGU-NET v5.04 / Section 7"
+            ]
+        },
+        {
+            "id": "e4",
+            "from": "M. Davis",
+            "fromAddr": "m.davis@cgu-net.s7",
+            "subject": "EST-44200 — photos jointes (Amber Eyed Tiger)",
+            "date": "13/06 — 11:32",
+            "unread": true,
+            "body": [
+                "Isen,",
+                "",
+                "Les clichés de l'analyse de preuves sont prêts. Quatre sont nettes, deux exploitables au mieux. L'iris du sujet est confirmé jaune-orangé, dilatation anormale même en lumière forte — pas un effet de lentille.",
+                "",
+                "Valkenhein veut un rapport croisé avec SK-417. Tu vois le lien que je vois ? Le pèlerinage des Graines passe à 800m du dernier point de contact d'EST-44200. Ça peut être une coïncidence. Ça peut ne pas en être une.",
+                "",
+                "Passe à l'armurerie quand tu peux, Krest a quelque chose pour toi.",
+                "",
+                "— Malcolm"
+            ]
+        },
+        {
+            "id": "e6",
+            "from": "K. O'Boro",
+            "fromAddr": "k.oboro@cgu-net.s7",
+            "subject": "verre ce soir ? (sérieux cette fois)",
+            "date": "13/06 — 17:18",
+            "unread": false,
+            "body": [
+                "Isen,",
+                "",
+                "Je sais que tu vas dire non. Tu dis toujours non. Mais Krest est de bonne humeur (oui, c'est arrivé) et Juni a fini sa rotation tôt. On va au Cuivre Tordu vers 21h.",
+                "",
+                "Amène pas ton dossier SK-417, je te jure que je le brûle.",
+                "",
+                "Si tu réponds pas dans l'heure je considère que c'est oui — fais pas le coup de la dernière fois.",
+                "",
+                "— Kanza"
+            ]
+        },
+        {
+            "id": "e7",
+            "from": "SuperEats Reach",
+            "fromAddr": "no-reply@supereats.reach",
+            "subject": "🍜 Votre commande #SR-887412 a été livrée !",
+            "date": "12/06 — 23:41",
+            "unread": false,
+            "body": [
+                "Bonsoir Isen S. !",
+                "",
+                "Votre commande chez « Nouilles du Vieux Han — Arr. vert » a bien été déposée à l'adresse indiquée :",
+                "",
+                "  ▸ 1x Ramen Tonkotsu XL",
+                "  ▸ 1x Gyoza (x6)",
+                "  ▸ 1x Thé glacé maison",
+                "  ▸ Sauce piquante extra (gratuit — merci d'être SuperEats Gold !)",
+                "",
+                "Votre livreur, Pao Y., a indiqué :",
+                "« Client absent au 1er appel. Déposé devant la porte comme demandé. »",
+                "",
+                "Montant : 14,80 ⛁",
+                "Mode : prélevé sur portefeuille agent",
+                "",
+                "Notez votre livreur en 1 clic. SuperEats — La faim n'attend pas, vous non plus."
+            ]
+        },
+        {
+            "id": "e8",
+            "from": "Administration CGU",
+            "fromAddr": "rh@cgu-net.s7",
+            "subject": "[RAPPEL — 3e] Formation continue B-3 : Procédures d'arrestation",
+            "date": "11/06 — 08:00",
+            "unread": false,
+            "body": [
+                "Agent SHURA, Isen — Matricule #0791",
+                "",
+                "Votre inscription au module B-3 « Procédures d'arrestation en milieu urbain dense » est obligatoire pour le maintien de votre habilitation de terrain.",
+                "",
+                "Vous avez manqué :",
+                "  – Session du 22/05 (motif déclaré : « patrouille »)",
+                "  – Session du 04/06 (motif déclaré : « patrouille »)",
+                "  – Session du 09/06 (motif déclaré : aucun)",
+                "",
+                "Prochaine et DERNIÈRE session : 26/06, 09:00, salle B-217.",
+                "Un défaut de présence entraînera une suspension administrative jusqu'à régularisation.",
+                "",
+                "Pour toute question, contactez le bureau du personnel.",
+                "",
+                "— Administration RH / CGU"
+            ]
+        },
+        {
+            "id": "e9",
+            "from": "O. Krest",
+            "fromAddr": "o.krest@cgu-net.s7",
+            "subject": "matos à récupérer (avant vendredi)",
+            "date": "12/06 — 10:09",
+            "unread": false,
+            "body": [
+                "0791,",
+                "",
+                "Ton kit de terrain est prêt :",
+                "  – 1 réplique calibrée (numéro de série attribué à ton matricule, déconne pas avec)",
+                "  – 2 chargeurs munitions standard",
+                "  – 1 lame de service (entretien neuf, j'ai aiguisé moi-même)",
+                "  – 1 trousse signalétique",
+                "",
+                "Viens AVANT vendredi 17h. Après, c'est Hictor qui tient la cage et il fait perdre les bons de retrait. Encore.",
+                "",
+                "P.S. : Davis m'a demandé un deuxième holster pour toi. Je n'ai pas posé de questions.",
+                "",
+                "— Krest"
+            ]
+        },
+        {
+            "id": "e10",
+            "from": "Bibliothèque centrale — Reach",
+            "fromAddr": "biblio-centrale@reach.gov",
+            "subject": "Retour en retard : « Chroniques de l'Ère Archaïque, vol. II »",
+            "date": "10/06 — 18:42",
+            "unread": false,
+            "body": [
+                "Madame, Monsieur,",
+                "",
+                "Nos registres indiquent que l'ouvrage suivant est en votre possession au-delà de la date limite de prêt :",
+                "",
+                "  Titre : Chroniques de l'Ère Archaïque, vol. II — Datare, Yoma et le silence d'Ishaka",
+                "  Auteur : Pr. H. Vendamir",
+                "  Date de retour prévue : 28/05",
+                "  Retard : 13 jours",
+                "",
+                "Montant des pénalités : 2,60 ⛁",
+                "",
+                "Merci de bien vouloir restituer l'ouvrage dans les meilleurs délais. La section « Histoire mythique » est très sollicitée ce mois-ci.",
+                "",
+                "— Bibliothèque centrale de Reach"
+            ]
+        }
+    ],
+
+    "sent": [
+        {
+            "id": "s1",
+            "from": "Moi",
+            "fromAddr": "i.shura@cgu-net.s7",
+            "subject": "Rapport SK-417 — joint",
+            "date": "11/06 — 23:48",
+            "unread": false,
+            "body": [
+                "Commandant,",
+                "",
+                "Rapport SK-417 joint comme demandé. Disparition K'SARI Rina.",
+                "",
+                "À noter : recoupement net avec les déclarations de la dernière fugue (il y a trois ans). Le profil correspond à un pèlerinage volontaire des Graines du Renouveau, plus qu'à un enlèvement. J'ai laissé l'option « surveillance modérée » plutôt qu'un dispositif lourd, ça me paraît proportionné.",
+                "",
+                "Dispo demain pour briefing si besoin. Pas avant 10h, j'ai une déposition à 09:00.",
+                "",
+                "— I. Shura #0791"
+            ]
+        },
+        {
+            "id": "s2",
+            "from": "Moi",
+            "fromAddr": "i.shura@cgu-net.s7",
+            "subject": "Re: EST-44200 — photos jointes (Amber Eyed Tiger)",
+            "date": "13/06 — 12:14",
+            "unread": false,
+            "body": [
+                "Malcolm,",
+                "",
+                "Reçu les clichés. La dilatation, c'est pas naturel. J'ai vu un truc similaire dans une vieille note du Pr. Vendamir, faut que je remette la main dessus (la biblio me harcèle d'ailleurs).",
+                "",
+                "Le lien avec SK-417 — ouais, je le vois aussi. Je le mets pas dans le rapport tant que Valkenhein l'a pas validé.",
+                "",
+                "Je passe à l'armurerie demain matin. Dis à Krest de pas re-aiguiser ma lame, la dernière fois elle a coupé la doublure du fourreau.",
+                "",
+                "— I."
+            ]
+        },
+        {
+            "id": "s4",
+            "from": "Moi",
+            "fromAddr": "i.shura@cgu-net.s7",
+            "subject": "Re: verre ce soir ? (sérieux cette fois)",
+            "date": "13/06 — 18:02",
+            "unread": false,
+            "body": [
+                "Kanza,",
+                "",
+                "Je viens.",
+                "Mais une heure, pas plus.",
+                "",
+                "Et si tu refais le coup de payer en disant « tu me revaudras ça », je te préviens, je te revaudrai jamais rien.",
+                "",
+                "— I."
+            ]
+        }
+    ],
+
+    "drafts": [
+        {
+            "id": "d1",
+            "from": "Moi (brouillon)",
+            "fromAddr": "i.shura@cgu-net.s7",
+            "subject": "(sans objet)",
+            "date": "12/06 — 02:47",
+            "unread": false,
+            "body": [
+                "Je ne pense pas venir ce soir",
+                "",
+                "Je ne sais pas ce qu'il y avait dans la bouffe du réfectoire mais je crois que j'ai la chia"
+            ]
+        }
+    ],
+
+    "spam": [
+        {
+            "id": "sp1",
+            "from": "Maître YULAN, Prophète des Graines",
+            "fromAddr": "yulan.le.prophete@graines-du-renouveau.org",
+            "subject": "✿ Et si la VRAIE famille t'attendait ailleurs, frère Isen ?",
+            "date": "13/06 — 04:14",
+            "unread": false,
+            "body": [
+                "Cher Isen,",
+                "",
+                "Tu as été CHOISI parmi 7 412 âmes errantes pour rejoindre le Cercle Intérieur des GRAINES DU RENOUVEAU. ✿",
+                "",
+                "Notre fondation a déjà transformé la vie de :",
+                "  ★ Madame K. (Reach) — autrefois fonctionnaire, aujourd'hui RAYONNANTE",
+                "  ★ Monsieur D. (Nuphia) — autrefois dépressif, aujourd'hui ÉVEILLÉ",
+                "  ★ Mademoiselle T. (Issitis) — autrefois agente CGU, aujourd'hui LIBRE",
+                "",
+                "POUR SEULEMENT 49,90 ⛁ par mois, tu reçois :",
+                "  ◆ Le manuel « 7 jours pour faire germer ton âme »",
+                "  ◆ L'accès aux retraites annuelles (pèlerinage offert dès le palier Émeraude !)",
+                "  ◆ Une amulette bénie personnellement par le Maître Yulan",
+                "  ◆ +20% de commission sur chaque ami que tu parraines !",
+                "",
+                "✿ Plus tu sèmes, plus tu récoltes. ✿",
+                "",
+                "Réponds à ce mail avec le mot « JE GERME » pour réserver ta place.",
+                "",
+                "— Maître YULAN",
+                "Veilleur du Jardin Intérieur",
+                "",
+                "Se désabonner : impossible. Le Renouveau ne se désabonne pas."
+            ]
+        },
+        {
+            "id": "sp2",
+            "from": "Assurances PUREVEINE™",
+            "fromAddr": "offre-exclusive@pureveine-assurances.com",
+            "subject": "⚠ Êtes-vous COUVERT contre la combustion spontannée ? (Devis gratuit en 30 secondes)",
+            "date": "12/06 — 19:33",
+            "unread": false,
+            "body": [
+                "Cher futur assuré,",
+                "",
+                "Saviez-vous que 1 personne sur 437 sera exposée à une combustion spontannée au cours de sa vie ?",
+                "",
+                "Les assurances classiques ne vous couvrent PAS. Votre mutuelle d'agent CGU ? Encore moins. La franchise commence à 12 000 ⛁ — autant dire jamais.",
+                "",
+                "Avec PUREVEINE™, vous bénéficiez de :",
+                "  ▸ Diagnostic à domicile (sous 48h)",
+                "  ▸ Prise en charge des soins « post-combustion stade 1 et 2 »",
+                "  ▸ Rapatriement vers le centre de purge le plus proche*",
+                "  ▸ Indemnités décès versées à votre famille (ou à la fondation Graines du Renouveau, au choix)",
+                "",
+                "* Stade 3 et au-delà : voir conditions générales, article 14, sous-section δ.",
+                "",
+                "OFFRE LANCEMENT : 3 mois OFFERTS si vous souscrivez avant le 30/06.",
+                "",
+                "Cliquez ICI pour votre devis gratuit (ne pas cliquer si vous présentez déjà des symptômes).",
+                "",
+                "— Service Souscription PUREVEINE™",
+                "« Votre veine, notre engagement. »"
+            ]
+        },
+        {
+            "id": "sp3",
+            "from": "Sécurité CGU-NET",
+            "fromAddr": "securite-cgunet@cgu-net-verification.s7.co",
+            "subject": "🔒 ACTION REQUISE — Votre matricule #0791 va être suspendu sous 24h",
+            "date": "13/06 — 06:02",
+            "unread": false,
+            "body": [
+                "Agent,",
+                "",
+                "Notre système a détecté une anomalie sur votre compte CGU-NET (matricule #0791).",
+                "",
+                "Pour éviter la SUSPENSION DÉFINITIVE de votre accès, veuillez confirmer votre identité en cliquant sur le lien ci-dessous dans les 24 heures :",
+                "",
+                "  ▶ http://cgu-net-verification.s7.co/reauth?token=ECHO77&matricule=0791",
+                "",
+                "Saisissez votre code d'accès NIVEAU-1 ainsi que votre code NIVEAU-2 pour finaliser la vérification.",
+                "",
+                "Nous vous remercions de votre coopération.",
+                "",
+                "— Équipe Sécurité CGU-NET"
+            ]
+        },
+        {
+            "id": "sp4",
+            "from": "Cabinet OLIROK & FRÈRES — Notaires",
+            "fromAddr": "succession.urgente@olirok-notaires.ln",
+            "subject": "Héritage non réclamé — Successeur direct",
+            "date": "11/06 — 23:11",
+            "unread": false,
+            "body": [
+                "Monsieur SHURA,",
+                "",
+                "Nos recherches généalogiques approfondies indiquent que vous seriez l'unique successeur en ligne directe de U. Shura — Aristocrate.",
+                "",
+                "La succession comprend :",
+                "  – Une part de propriété sur Issitis (situation cadastrale à clarifier)",
+                "  – Trois (3) reliques inventoriées comme « Trésors de la Nation »",
+                "  – Une rente annuelle évaluée à 4 800 000 ⛁",
+                "",
+                "Pour entamer la procédure de validation, merci de nous transmettre :",
+                "  1. Une copie de votre matricule CGU",
+                "  2. Vos coordonnées bancaires complètes",
+                "  3. Un règlement de 980 ⛁ correspondant aux frais d'ouverture du dossier",
+                "",
+                "Affaire à traiter dans les plus brefs délais. D'autres héritiers présumés se manifestent.",
+                "",
+                "— Maître C. OLIROK",
+                "Cabinet OLIROK & FRÈRES, Edolia"
+            ]
+        },
+        {
+            "id": "sp5",
+            "from": "PowerBoost Premium",
+            "fromAddr": "boost@powerboost-supplements.co",
+            "subject": "🔥 Triple ton Pouvoir en 14 jours — méthode INTERDITE par la CGU !",
+            "date": "10/06 — 02:48",
+            "unread": false,
+            "body": [
+                "ATTENTION AGENT,",
+                "",
+                "Marre d'être bloqué au même niveau de Pouvoir depuis des années ? Tes collègues progressent plus vite que toi ?",
+                "",
+                "Le Dr. KRAMOV — ancien chercheur de la Section 4 — a mis au point une méthode RÉVOLUTIONNAIRE que la hiérarchie CGU NE VEUT PAS QUE TU CONNAISSES.",
+                "",
+                "Résultats prouvés en 14 jours :",
+                "  💥 +250% d'intensité aurique",
+                "  💥 Temps de recharge divisé par 3",
+                "  💥 Effets secondaires : « légère résonance dans les molaires » (sans gravité)",
+                "",
+                "Témoignage de Magnus, 34 ans, agent rang E :",
+                "« J'étais au fond. Aujourd'hui je suis rang B. Merci PowerBoost. » ⭐⭐⭐⭐⭐",
+                "",
+                "Premier flacon GRATUIT (juste les frais de port : 39,99 ⛁).",
+                "",
+                "ATTENTION : Stock limité. Cette offre disparaîtra dès que la CGU nous aura retrouvés.",
+                "",
+                "— L'équipe PowerBoost"
+            ]
+        }
+    ],
+
+    "trash": [
+        {
+            "id": "t1",
+            "from": "Système CGU-NET",
+            "fromAddr": "noreply@cgu-net.s7",
+            "subject": "Renouvellement code d'accès NIVEAU-1",
+            "date": "10/06 — 00:00",
+            "unread": false,
+            "body": [
+                "Agent SHURA, Isen — Matricule #0791",
+                "",
+                "Votre code d'accès NIVEAU-1 a été régénéré.",
+                "",
+                "Nouveau jeton : KORI42 (expiré)",
+                "",
+                "— CGU-NET v5.04 / Section 7"
+            ]
+        },
+        {
+            "id": "t2",
+            "from": "Comité Inter-Sections CGU",
+            "fromAddr": "bulletin@cgu-net.s7",
+            "subject": "Bulletin syndical n°47 — Mai/Juin 2026",
+            "date": "01/06 — 07:00",
+            "unread": false,
+            "body": [
+                "Chers collègues,",
+                "",
+                "Ce mois-ci dans votre bulletin :",
+                "  • Réforme des heures supplémentaires : ce qui change",
+                "  • Interview du Cmdt. HOY (Section 4) — « Le bien-être de l'agent avant tout »",
+                "  • La cantine ouvre un comptoir de nouilles à l'étage B-2",
+                "  • Concours photo « Mon poste de travail » — gagnez un week-end à Reach",
+                "",
+                "Bonne lecture,",
+                "— Le Comité Inter-Sections"
+            ]
+        },
+        {
+            "id": "t3",
+            "from": "M. Davis",
+            "fromAddr": "m.davis@cgu-net.s7",
+            "subject": "tu viens à l'entraînement ce matin ?",
+            "date": "27/05 — 06:48",
+            "unread": false,
+            "body": [
+                "Isen,",
+                "",
+                "Entraînement de tir au stand B-4, dans 1h. Pas d'excuse, j'ai vérifié ton planning, t'es libre.",
+                "",
+                "Si tu réponds pas je viens te chercher.",
+                "",
+                "— Malcolm"
+            ]
+        },
+        {
+            "id": "t4",
+            "from": "Immobilier ATRIA — Reach Nord",
+            "fromAddr": "contact@atria-reach.im",
+            "subject": "Votre alerte : 2 nouveaux biens correspondants à vos critères",
+            "date": "05/06 — 12:00",
+            "unread": false,
+            "body": [
+                "Bonjour,",
+                "",
+                "Deux nouveaux biens correspondent à votre recherche « Studio meublé — Reach Nord — < 600 ⛁/mois » :",
+                "",
+                "  1. Studio 24m² — Quartier des Forges — 580 ⛁/mois",
+                "  2. T1 28m² — Reach Nord-Est — 620 ⛁/mois (légèrement au-dessus)",
+                "",
+                "Connectez-vous à votre espace pour planifier une visite.",
+                "",
+                "— L'équipe ATRIA"
+            ]
+        },
+        {
+            "id": "t5",
+            "from": "Administration CGU",
+            "fromAddr": "rh@cgu-net.s7",
+            "subject": "[RAPPEL — 2e] Formation continue B-3 : Procédures d'arrestation",
+            "date": "01/06 — 08:00",
+            "unread": false,
+            "body": [
+                "Agent SHURA, Isen — Matricule #0791",
+                "",
+                "Pour rappel, votre inscription au module B-3 est obligatoire.",
+                "",
+                "Vous avez manqué la session du 22/05 (motif déclaré : « patrouille »).",
+                "",
+                "Prochaine session : 04/06, 09:00, salle B-217.",
+                "",
+                "— Administration RH / CGU"
+            ]
+        },
+        {
+            "id": "t6",
+            "from": "J. Sedo",
+            "fromAddr": "j.sedo@cgu-net.s7",
+            "subject": "(vide)",
+            "date": "29/05 — 23:59",
+            "unread": false,
+            "body": [
+                "..."
+            ]
+        }
+    ]
+}
