@@ -11,6 +11,7 @@ const ICONS = {
     mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-3.png',
     intranet: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-5.png',
     computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',
+    recycle: 'https://win98icons.alexmeub.com/icons/png/recycle_bin_empty_cool-4.png'
 }
 
 export default function Win98Window({

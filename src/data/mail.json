@@ -13,7 +13,7 @@
         "forward":     "https://win98icons.alexmeub.com/icons/png/media_player_stream_conn1.png",
         "delete":      "https://win98icons.alexmeub.com/icons/png/media_player_stream_no.png",
         "print":       "https://win98icons.alexmeub.com/icons/png/printer-5.png",
-        "spam":        "https://win98icons.alexmeub.com/icons/png/outlook_express-2.png"
+        "spam":        "https://win98icons.alexmeub.com/icons/png/certificate_2_no-0.png"
 
     },
 
@@ -64,7 +64,7 @@
                 "",
                 "J'ai pingé Davis, il n'a pas répondu (comme d'hab).",
                 "",
-                "Tu prends le relais ce soir ? Je serai en console jusqu'à 02:00 max. Au-delà, débrouille-toi avec Hictor de la 3.",
+                "Tu prends le relais ce soir ? Je serai en console jusqu'à 02:00 max. Au-delà, tu devras te débrouiller avec Hictor de la 3.",
                 "",
                 "— Juni",
                 "Téléopératrice, Équipe 2"
@@ -113,26 +113,28 @@
         },
         {
             "id": "e6",
-            "from": "K. O'Boro",
-            "fromAddr": "k.oboro@cgu-net.s7",
-            "subject": "verre ce soir ? (sérieux cette fois)",
+            "from": "Administrateur système CGU",
+            "fromAddr": "admin-si@cgu-net.si",
+            "subject": "URGENT: ALERTE SÉCURITÉ",
             "date": "13/06 — 17:18",
             "unread": false,
             "body": [
-                "Isen,",
+                "Agent #0791 (SHURA, Isen),",
                 "",
-                "Je sais que tu vas dire non. Tu dis toujours non. Mais Krest est de bonne humeur (oui, c'est arrivé) et Juni a fini sa rotation tôt. On va au Cuivre Tordu vers 21h.",
+                "Nous avons détecté plusieurs activités inhabituelles associées à votre poste de travail, susceptibles de compromettre la sécurité de nos systèmes et la confidentialité de certaines données.",
                 "",
-                "Amène pas ton dossier SK-417, je te jure que je le brûle.",
+                "Par mesure de précaution, votre niveau d'autorisation a été temporairement réduit. L'accès aux fichiers classés comme sensibles vous est donc suspendu jusqu'à nouvel ordre, le temps que notre équipe termine les vérifications nécessaires.",
                 "",
-                "Si tu réponds pas dans l'heure je considère que c'est oui — fais pas le coup de la dernière fois.",
+                "Vous pouvez continuer à utiliser votre appareil pour l'ensemble de vos autres missions. Nous vous tiendrons informé dès que la situation aura été examinée et que vos accès pourront être réévalués.",
                 "",
-                "— Kanza"
+                "Merci de votre compréhension.",
+                "",
+                "— Administrateur système de la CGU"
             ]
         },
         {
             "id": "e7",
-            "from": "SuperEats Reach",
+            "from": "SuperEats",
             "fromAddr": "no-reply@supereats.reach",
             "subject": "🍜 Votre commande #SR-887412 a été livrée !",
             "date": "12/06 — 23:41",
@@ -151,7 +153,7 @@
                 "« Client absent au 1er appel. Déposé devant la porte comme demandé. »",
                 "",
                 "Montant : 14,80 ⛁",
-                "Mode : prélevé sur portefeuille agent",
+                "Mode : Carte de débit professionnelle",
                 "",
                 "Notez votre livreur en 1 clic. SuperEats — La faim n'attend pas, vous non plus."
             ]
@@ -185,14 +187,14 @@
             "id": "e9",
             "from": "O. Krest",
             "fromAddr": "o.krest@cgu-net.s7",
-            "subject": "matos à récupérer (avant vendredi)",
+            "subject": "Matériel à récupérer (avant vendredi)",
             "date": "12/06 — 10:09",
             "unread": false,
             "body": [
                 "0791,",
                 "",
                 "Ton kit de terrain est prêt :",
-                "  – 1 réplique calibrée (numéro de série attribué à ton matricule, déconne pas avec)",
+                "  – 1 réplique calibrée (numéro de série attribué à ton matricule, ne plaisante pas avec)",
                 "  – 2 chargeurs munitions standard",
                 "  – 1 lame de service (entretien neuf, j'ai aiguisé moi-même)",
                 "  – 1 trousse signalétique",
@@ -265,24 +267,6 @@
                 "Le lien avec SK-417 — ouais, je le vois aussi. Je le mets pas dans le rapport tant que Valkenhein l'a pas validé.",
                 "",
                 "Je passe à l'armurerie demain matin. Dis à Krest de pas re-aiguiser ma lame, la dernière fois elle a coupé la doublure du fourreau.",
-                "",
-                "— I."
-            ]
-        },
-        {
-            "id": "s4",
-            "from": "Moi",
-            "fromAddr": "i.shura@cgu-net.s7",
-            "subject": "Re: verre ce soir ? (sérieux cette fois)",
-            "date": "13/06 — 18:02",
-            "unread": false,
-            "body": [
-                "Kanza,",
-                "",
-                "Je viens.",
-                "Mais une heure, pas plus.",
-                "",
-                "Et si tu refais le coup de payer en disant « tu me revaudras ça », je te préviens, je te revaudrai jamais rien.",
                 "",
                 "— I."
             ]
@@ -424,27 +408,27 @@
             "id": "sp5",
             "from": "PowerBoost Premium",
             "fromAddr": "boost@powerboost-supplements.co",
-            "subject": "🔥 Triple ton Pouvoir en 14 jours — méthode INTERDITE par la CGU !",
+            "subject": "🔥 Triple tes capacités en 14 jours — méthode INFAILLIBLE !",
             "date": "10/06 — 02:48",
             "unread": false,
             "body": [
                 "ATTENTION AGENT,",
                 "",
-                "Marre d'être bloqué au même niveau de Pouvoir depuis des années ? Tes collègues progressent plus vite que toi ?",
+                "Marre d'être bloqué au même niveau depuis des années ? Tes collègues progressent plus vite que toi ? Tu veux épater ton crush ?",
                 "",
-                "Le Dr. KRAMOV — ancien chercheur de la Section 4 — a mis au point une méthode RÉVOLUTIONNAIRE que la hiérarchie CGU NE VEUT PAS QUE TU CONNAISSES.",
+                "Le Dr. MILUVIA — ancien chercheur à la Maison de l'Essence de l'Académie — a mis au point une méthode RÉVOLUTIONNAIRE que les plus puissants NE VEULENT PAS QUE TU CONNAISSES.",
                 "",
                 "Résultats prouvés en 14 jours :",
                 "  💥 +250% d'intensité aurique",
                 "  💥 Temps de recharge divisé par 3",
                 "  💥 Effets secondaires : « légère résonance dans les molaires » (sans gravité)",
                 "",
-                "Témoignage de Magnus, 34 ans, agent rang E :",
-                "« J'étais au fond. Aujourd'hui je suis rang B. Merci PowerBoost. » ⭐⭐⭐⭐⭐",
+                "Témoignage de Magnus A., 34 ans.",
+                "« J'étais au fond. Mais aujourd'hui je sens que je maîtrise le Jinsei mieux que jamais Merci PowerBoost. » ⭐⭐⭐⭐⭐",
                 "",
                 "Premier flacon GRATUIT (juste les frais de port : 39,99 ⛁).",
                 "",
-                "ATTENTION : Stock limité. Cette offre disparaîtra dès que la CGU nous aura retrouvés.",
+                "ATTENTION : Stock limité.",
                 "",
                 "— L'équipe PowerBoost"
             ]

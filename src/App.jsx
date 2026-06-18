@@ -80,7 +80,7 @@ const INITIAL_ICONS = [
     {
         id: 'recycle',
         label: 'Corbeille',
-        icon: 'https://win98icons.alexmeub.com/icons/png/recycle_bin_full-4.png',
+        icon: 'https://win98icons.alexmeub.com/icons/png/recycle_bin_full-3.png',
         x: 0, y: 4,
     },
 ].map(icon => ({ ...icon, x: icon.x * CELL, y: icon.y * CELL }))

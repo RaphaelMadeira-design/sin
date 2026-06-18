@@ -20,6 +20,7 @@ const ICONS = {
     intranet: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-5.png',
     mail: 'https://win98icons.alexmeub.com/icons/png/outlook_express-3.png',
     computer: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-1.png',
+    recycle: 'https://win98icons.alexmeub.com/icons/png/recycle_bin_empty_cool-4.png'
 }
 
 const getIcon = (id) => {
@@ -28,6 +29,7 @@ const getIcon = (id) => {
     if (id === 'media') return ICONS.media
     if (id === 'snake') return ICONS.snake
     if (id ==='mail') return ICONS.mail
+    if (id ==='recycle') return ICONS.recycle
     if (id === 'jump') return ICONS.jump
     if (id === 'browser') return ICONS.browser
     if (id === 'intranet') return ICONS.intranet
