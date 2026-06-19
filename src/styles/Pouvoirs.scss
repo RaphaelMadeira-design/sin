@@ -1,505 +1,679 @@
 @use 'Variables' as *;
 
-// ══════════════════════════════════════════════
-//  POUVOIRS.EXE — Fiche de Combat
-// ══════════════════════════════════════════════
-
-// ── Keyframes ─────────────────────────────────
-
-@keyframes pouvoirs-blink {
-0%, 100% { opacity: 1; }
-50%      { opacity: 0; }
-}
-
-@keyframes pv-fade-down {
-from { opacity: 0; transform: translateY(-18px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pv-slide-left {
-from { opacity: 0; transform: translateX(-28px); }
-to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pv-slide-right {
-from { opacity: 0; transform: translateX(28px); }
-to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pv-fade-up {
-from { opacity: 0; transform: translateY(14px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pv-stat-in {
-from { opacity: 0; transform: translateX(18px); }
-to   { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pv-spell-in {
-from { opacity: 0; transform: translateY(18px) scale(0.95); }
-to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes pv-radar-in {
-from { opacity: 0; transform: scale(0.85); }
-to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes pv-portrait-in {
-from { opacity: 0; transform: scale(0.92); }
-to   { opacity: 1; transform: scale(1); }
-}
-
-// ── Classes utilitaires d'animation ───────────
-
-.pv-hidden { 
-opacity: 0 !important; 
-}
-
-.pv-fade-down {
-animation: pv-fade-down 0.5s ease forwards;
-}
-
-.pv-slide-left {
-opacity: 0;
-animation: pv-slide-left 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
-}
-
-.pv-slide-right {
-opacity: 0;
-animation: pv-slide-right 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
-}
-
-.pv-portrait-in {
-opacity: 0;
-animation: pv-portrait-in 0.5s ease 0.2s forwards;
-}
-
-.pv-para-1 { 
-opacity: 0; 
-animation: pv-fade-up 0.5s ease 0.55s forwards; 
-}
-
-.pv-para-2 { 
-opacity: 0; 
-animation: pv-fade-up 0.5s ease 0.82s forwards; 
-}
-
-.pv-para-3 { 
-opacity: 0; 
-animation: pv-fade-up 0.5s ease 1.10s forwards; 
-}
-
-@for $i from 0 through 5 {
-.pv-stat-#{$i} {
-opacity: 0;
-animation: pv-stat-in 0.4s ease #{0.30 + $i * 0.08}s forwards;
-}
-}
-
-@for $i from 0 through 3 {
-.pv-spell-#{$i} {
-opacity: 0;
-animation: pv-spell-in 0.42s ease #{0.35 + $i * 0.13}s forwards;
-}
-}
-
-// ══════════════════════════════════════════════
-//  .pouvoirs  — conteneur principal
-// ══════════════════════════════════════════════
-
-.pouvoirs {
-height: 100%;
-display: flex;
-flex-direction: column;
-background-color: #09091a;
-
-&__cursor {
-display: inline-block;
-animation: pouvoirs-blink 0.6s step-end infinite;
-color: #e8c147;
-margin-left: 1px;
-}
-}
-
-.gp {
-min-height: 100%;
-color: #c8c8d8;
-font-family: 'Courier New', Courier, monospace;
-font-size: 11px;
-display: flex;
-padding: 0 200px;
-flex-direction: column;
-
-// ── En-tête ──────────────────────────────────────
-&__header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 6px 12px;
-background: #0d0e1f;
-border-bottom: 1px solid #e8c147;
-flex-shrink: 0;
-letter-spacing: 1px;
-}
-
-&__header-title {
-font-size: 9px;
-color: #e8c147;
-font-weight: bold;
-}
-
-&__header-ver {
-font-size: 8px;
-color: #4a4a6a;
-}
-
-// ── Corps principal ───────────────────────────────
-&__body {
-display: flex;
-flex: 1;
-min-height: 0;
-overflow: auto;
-margin-bottom: 25px;
-}
-
-// ── Colonne gauche ───────────────────────────────
-&__left {
-width: 375px;
-flex-shrink: 0;
-display: flex;
-flex-direction: column;
-gap: 10px;
-padding: 4px;
-background: #0b0c1c;
-}
-
-// ── Portrait ────────────────────────────────────
-&__portrait-frame {
-position: relative;
-border: 2px solid #e8c147;
-text-align: center;
-padding: 6px 6px 5px;
-box-shadow:
-inset 0 0 16px rgba(232,193,71,0.07),
-2px 2px 0 #000;
-
-// Coin Win98 inversé
-&::before {
-content: '';
-position: absolute;
-inset: 3px;
-border: 1px solid rgba(232,193,71,0.12);
-pointer-events: none;
-}
-}
-
-&__type-badge {
-position: absolute;
-top: -1px;
-left: -1px;
-background: #e8c147;
-color: #000;
-font-size: 10px;
-font-weight: bold;
-padding: 5px 10px;
-letter-spacing: 1px;
-line-height: 14px;
-}
-
-&__lvl-badge {
-position: absolute;
-top: -1px;
-right: -1px;
-background: #e8c147;
-color: #000;
-font-size: 10px;
-font-weight: bold;
-padding: 5px 10px;
-letter-spacing: 1px;
-line-height: 14px;
-}
-
-&__portrait {
-max-height: 250px;
-max-width: 100%;
-display: block;
-margin: 0 auto;
-image-rendering: pixelated;
-filter: drop-shadow(0 0 8px rgba(76,200,255,0.25));
-}
-
-&__char-name {
-font-size: 12px;
-font-weight: bold;
-color: #fff;
-letter-spacing: 2.5px;
-margin-top: 6px;
-}
-
-&__char-class {
-font-size: 10px;
-color: #e8c147;
-letter-spacing: 1px;
-margin-top: 2px;
-opacity: 0.85;
-}
-
-// ── Barres PV/EN/XP ──────────────────────────────
-&__bars {
-background: #08091a;
-border: 1px solid #181830;
-padding: 7px 6px;
-display: flex;
-flex-direction: column;
-gap: 5px;
-}
-
-&__bar-row {
-display: flex;
-align-items: center;
-gap: 5px;
-}
-
-&__bar-label {
-width: 16px;
-font-size: 10px;
-font-weight: bold;
-color: #555580;
-text-align: right;
-flex-shrink: 0;
-}
-
-&__bar-track {
-flex: 1;
-height: 9px;
-background: #0b0c1e;
-box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #2a2a44;
-overflow: hidden;
-position: relative;
-}
-
-&__bar-fill {
-height: 100%;
-position: relative;
-
-&::after {
-content: '';
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 3px;
-background: rgba(255,255,255,0.12);
-}
-
-&--hp {
-background: linear-gradient(90deg, #1c6e1c, #4cff4c);
-box-shadow: 0 0 6px rgba(76,255,76,0.35);
-}
-
-&--energy {
-background: linear-gradient(90deg, #124470, #4cc8ff);
-box-shadow: 0 0 6px rgba(76,200,255,0.35);
-}
-
-&--xp {
-background: linear-gradient(90deg, #6e5a0a, #ffdd44);
-box-shadow: 0 0 6px rgba(255,221,68,0.35);
-}
-}
-
-&__bar-nums {
-font-size: 10px;
-color: #8888aa;
-flex-shrink: 0;
-width: 58px;
-text-align: right;
-}
-
-&__bar-max {
-color: #3a3a5a;
-}
-
-// ── Radar ────────────────────────────────────────
-&__radar-row {
-display: flex;
-gap: 10px;
-align-items: flex-start;
-}
-
-&__radar-svg {
-width: 100%;
-height: auto;
-aspect-ratio: 120 / 100;
-flex-shrink: 0;
-border: 1px solid #181830;
-box-shadow: inset 1px 1px 0 #000, inset -1px -1px 0 #1c1c30;
-}
-
-// ── Section titre ─────────────────────────────────
-&__section-lbl {
-font-size: 12px;
-letter-spacing: 2px;
-color: #e8c147;
-margin-bottom: 7px;
-padding-bottom: 4px;
-border-bottom: 1px solid #181830;
-font-family: $font-pixel ;
-}
-
-// ── Colonne droite ───────────────────────────────
-&__right {
-flex: 1;
-display: flex;
-flex-direction: column;
-gap: 10px;
-padding: 4px;
-background: #0b0c1c;
-min-width: 0;
-text-align: justify;
-}
-
-// ── Panel générique ──────────────────────────────
-&__panel {
-background: #08091a;
-border: 1px solid #181830;
-padding: 8px;
-flex-shrink: 0;
-}
-
-// ── Dossier sujet ────────────────────────────────
-&__dossier {
-border: 1px solid #181830;
-padding: 7px;
-flex-shrink: 0;
-
-p {
-margin: 0 0 6px;
-font-size: 11px;
-line-height: 1.65;
-color: #9090b0;
-font-family: Arial, sans-serif;
-
-strong { 
-color: #d8d8f0; 
-font-family: 'Pixelify Sans', monospace; 
-}
-
-em { 
-color: #4cc8ff; 
-font-style: normal; 
-}
-
-&:last-child { 
-margin-bottom: 0; 
-}
-}
-}
-
-// ── Sorts ────────────────────────────────────────
-&__spells {
-display: flex;
-flex-direction: column;
-gap: 5px;
-}
-
-&__spell {
-display: flex;
-flex-wrap: wrap;
-gap: 7px;
-align-items: flex-start;
-padding: 5px;
-border: 1px solid #181830;
-transition: border-color 0.15s;
-
-&:hover {
-border-color: #4cc8ff;
-}
-
-&--ult {
-border-color: #e8c147;
-box-shadow: inset 0 0 10px rgba(232,193,71,0.05);
-
-&:hover { 
-border-color: #ffe080; 
-}
-
-.gp__spell-name { 
-color: #e8c147; 
-}
-}
-}
-
-&__spell-ico-wrap {
-position: relative;
-flex-shrink: 0;
-width: 60px;
-height: 60px;
-}
-
-&__spell-ico {
-width: 60px;
-height: 60px;
-display: block;
-border: 1px solid #23243a;
-image-rendering: pixelated;
-object-fit: cover;
-}
-
-&__spell-key {
-position: absolute;
-bottom: -1px;
-right: -1px;
-background: #e8c147;
-color: #000;
-font-size: 10px;
-font-weight: bold;
-line-height: 13px;
-padding: 0 3px;
-}
-
-&__spell-body {
-display: flex;
-flex-direction: column;
-flex: 1;
-gap: 8px;
-min-width: 0;
-}
-
-&__spell-name {
-font-size: 12px;
-font-weight: light;
-text-transform: uppercase;
-color: #d8d8f0;
-font-family: $font-pixel;
-}
-
-&__spell-meta {
-display: flex;
-gap: 10px;
-font-size: 10px;
-}
-
-&__spell-cost {
-padding: 4px;
-border: 1px solid #4cc8ff;
-color: rgb(206, 206, 206);
-font-weight: normal;
-font-size: 8px;
-}
-
-&__spell-dur {
-padding: 4px;
-border: 1px solid #e8c147;
-color: #7070a0;
-}
-
-&__spell-desc {
-width: 100%;
-font-size: 11px;
-color: #6868a0;
-margin: 0;
-line-height: 1.55;
-font-family: Arial, sans-serif;
-}
-}
+// ═══════════════════════════════════════════════════════════════
+//  POUVOIRS — Champion presentation (MOBA style, dark blue)
+// ═══════════════════════════════════════════════════════════════
+
+// ── Palette ─────────────────────────────────────────────────────
+$moba-bg-1:   #050b1a;
+$moba-bg-2:   #0a1530;
+$moba-bg-3:   #07101f;
+$moba-cyan:   #5ee6ff;
+$moba-blue:   #3a82d9;
+$moba-soft:   #9fc6ff;
+$moba-muted:  #6079a6;
+$moba-text:   #cfe0ff;
+$moba-border: rgba(94, 140, 210, 0.18);
+
+// ── Keyframes ───────────────────────────────────────────────────
+@keyframes moba-orb-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(20px, -20px) scale(1.08); }
+}
+
+@keyframes moba-grid-drift {
+    from { background-position: 0 0; }
+    to   { background-position: 60px 60px; }
+}
+
+@keyframes moba-fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes moba-fade-left {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes moba-fade-right {
+    from { opacity: 0; transform: translateX(30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes moba-portrait-in {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); filter: blur(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0);     filter: blur(0); }
+}
+
+@keyframes moba-shine {
+    0%   { transform: translateX(-120%); }
+    100% { transform: translateX(220%); }
+}
+
+@keyframes moba-pulse {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.7); }
+}
+
+@keyframes moba-spell-in {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  ROOT
+// ═══════════════════════════════════════════════════════════════
+.moba {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 20%, rgba(58,130,217,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 80%, rgba(94,230,255,0.08) 0%, transparent 60%),
+        linear-gradient(180deg, $moba-bg-1 0%, $moba-bg-2 50%, $moba-bg-3 100%);
+    color: $moba-text;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    letter-spacing: 0.02em;
+
+    &__bg-grid {
+        position: absolute; inset: 0;
+        background-image:
+            linear-gradient(rgba(94,140,210,0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(94,140,210,0.06) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: moba-grid-drift 20s linear infinite;
+        opacity: 0.55;
+        pointer-events: none;
+    }
+
+    &__bg-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+
+        &--1 {
+            width: 340px; height: 340px;
+            top: -60px; right: 10%;
+            background: radial-gradient(circle, rgba(94,230,255,0.45), transparent 70%);
+            animation: moba-orb-float 12s ease-in-out infinite;
+        }
+        &--2 {
+            width: 420px; height: 420px;
+            bottom: -120px; left: -100px;
+            background: radial-gradient(circle, rgba(58,130,217,0.4), transparent 70%);
+            animation: moba-orb-float 16s ease-in-out infinite reverse;
+        }
+    }
+
+    &__scanlines {
+        position: absolute; inset: 0;
+        background: repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 3px,
+            rgba(0, 20, 60, 0.08) 3px,
+            rgba(0, 20, 60, 0.08) 4px
+        );
+        pointer-events: none;
+        mix-blend-mode: overlay;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 24px 0px 24px;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  TOP BAR
+    // ═══════════════════════════════════════════════════════════
+    &__topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5px;
+        border-bottom: 1px solid $moba-border;
+        margin-bottom: 14px;
+        opacity: 0;
+        animation: moba-fade-up 0.6s ease 0.05s forwards;
+    }
+
+    &__crumb {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        color: $moba-muted;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+
+        strong {
+            color: $moba-cyan;
+            font-weight: 700;
+        }
+    }
+
+    &__crumb-dot {
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: $moba-cyan;
+        box-shadow: 0 0 10px $moba-cyan;
+        animation: moba-pulse 1.8s ease-in-out infinite;
+    }
+
+    &__rank {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+
+        &-label { color: $moba-muted; }
+        &-val   {
+            color: #fff;
+            font-weight: 800;
+            padding: 3px 10px;
+            background: linear-gradient(90deg, rgba(94,230,255,0.18), rgba(58,130,217,0.18));
+            border: 1px solid rgba(94,230,255,0.45);
+            border-radius: 2px;
+        }
+        &-mat { 
+            color: $moba-cyan; 
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  GRID LAYOUT
+    // ═══════════════════════════════════════════════════════════
+    &__grid {
+        flex: 1;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr 1.05fr;
+        gap: 18px;
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-height: 0;
+        min-width: 0;
+
+        &--left {
+            opacity: 0;
+            animation: moba-fade-left 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+        }
+        &--center {
+            opacity: 0;
+            animation: moba-portrait-in 0.9s cubic-bezier(0.22,1,0.36,1) 0.25s forwards;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        &--right {
+            opacity: 0;
+            animation: moba-fade-right 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  NAME BLOCK
+    // ═══════════════════════════════════════════════════════════
+    &__name-block {
+        position: relative;
+        padding: 2px 0 6px;
+    }
+
+    &__name {
+        position: relative;
+        margin: 0;
+        font-family: 'Bebas Neue', 'Impact', sans-serif;
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 0.92;
+        letter-spacing: 0.04em;
+        color: #fff;
+        background: linear-gradient(180deg, #ffffff 0%, #5ee6ff 60%, #1f7ad9 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(94, 230, 255, 0.25);
+    }
+
+    &__lastname {
+        margin: -4px 0 0;
+        font-family: 'Bebas Neue', 'Impact', sans-serif;
+        font-size: 36px;
+        font-weight: 400;
+        letter-spacing: 0.5em;
+        color: $moba-soft;
+        opacity: 0.85;
+    }
+
+    &__subtitle {
+        margin-top: 6px;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 11px;
+        letter-spacing: 0.32em;
+        color: $moba-cyan;
+        text-transform: uppercase;
+    }
+
+    &__affiliation {
+        margin-top: 4px;
+        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        font-size: 9px;
+        letter-spacing: 0.28em;
+        color: $moba-muted;
+    }
+
+    &__desc {
+        margin: 0;
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: $moba-text;
+        opacity: 0.85;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        padding-left: 12px;
+        border-left: 2px solid rgba(94, 230, 255, 0.35);
+    }
+
+    &__tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    &__tag {
+        position: relative;
+        padding: 5px 9px 5px 9px;
+        background: rgba(10, 25, 55, 0.6);
+        border: 1px solid rgba(94, 140, 210, 0.3);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9.5px;
+        letter-spacing: 0.15em;
+        color: $moba-text;
+        font-weight: 600;
+        clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+
+        i {
+            display: block;
+            font-style: normal;
+            font-size: 8px;
+            color: $moba-cyan;
+            font-weight: 400;
+            margin-bottom: 1px;
+            letter-spacing: 0.2em;
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  PANELS
+    // ═══════════════════════════════════════════════════════════
+    &__panel {
+        position: relative;
+        background: linear-gradient(180deg, rgba(10, 22, 48, 0.7) 0%, rgba(7, 16, 31, 0.6) 100%);
+        border: 1px solid $moba-border;
+        backdrop-filter: blur(8px);
+        padding: 10px 12px 12px;
+
+        // corner accents
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            width: 14px; height: 14px;
+            border: 1.5px solid $moba-cyan;
+            opacity: 0.8;
+        }
+        &::before {
+            top: -1px; left: -1px;
+            border-right: none; border-bottom: none;
+        }
+        &::after {
+            bottom: -1px; right: -1px;
+            border-left: none; border-top: none;
+        }
+    }
+
+    &__panel-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 9px;
+        padding-bottom: 6px;
+        border-bottom: 1px solid rgba(94, 140, 210, 0.12);
+    }
+
+    &__panel-title {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        color: $moba-cyan;
+        text-transform: uppercase;
+    }
+
+    &__panel-dot {
+        width: 6px; height: 6px;
+        background: $moba-cyan;
+        box-shadow: 0 0 8px $moba-cyan;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  RADAR
+    // ═══════════════════════════════════════════════════════════
+    &__radar-panel { flex: 1; min-height: 0; }
+
+    &__radar-wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__radar {
+        width: 100%;
+        max-width: 280px;
+        height: 100%;
+        max-height: 260px;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  PORTRAIT
+    // ═══════════════════════════════════════════════════════════
+    &__portrait {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    &__portrait-glow {
+        position: absolute;
+        top: 5%; left: 50%;
+        transform: translateX(-50%);
+        width: 90%; height: 88%;
+        background:
+            radial-gradient(ellipse 60% 50% at 50% 40%, rgba(94, 230, 255, 0.35) 0%, transparent 65%),
+            radial-gradient(ellipse 80% 70% at 50% 50%, rgba(58, 130, 217, 0.25) 0%, transparent 70%);
+        filter: blur(20px);
+        pointer-events: none;
+    }
+
+    &__portrait-frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    &__portrait-img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: bottom center;
+        filter:
+            drop-shadow(0 0 18px rgba(94, 230, 255, 0.35))
+            drop-shadow(0 10px 40px rgba(0, 0, 0, 0.7));
+    }
+
+    &__portrait-watermark {
+        position: absolute;
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Bebas Neue', 'Impact', sans-serif;
+        font-size: 120px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(94, 230, 255, 0.12);
+        white-space: nowrap;
+        z-index: 1;
+        pointer-events: none;
+        line-height: 1;
+    }
+
+    &__portrait-base {
+        position: absolute;
+        bottom: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 30px;
+        background: radial-gradient(ellipse at center, rgba(94, 230, 255, 0.45) 0%, transparent 70%);
+        filter: blur(8px);
+        z-index: 1;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  BARS
+    // ═══════════════════════════════════════════════════════════
+    &__bar-block + &__bar-block { margin-top: 8px; }
+
+    &__bar-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+    }
+
+    &__bar-name {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        color: $moba-soft;
+    }
+
+    &__bar-val {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 800;
+        color: #fff;
+
+        i {
+            font-style: normal;
+            color: $moba-muted;
+            font-weight: 500;
+            font-size: 10px;
+        }
+    }
+
+    &__bar-track {
+        position: relative;
+        height: 14px;
+        background: rgba(5, 12, 28, 0.85);
+        border: 1px solid rgba(94, 140, 210, 0.25);
+        overflow: hidden;
+        clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+    }
+
+    &__bar-fill {
+        position: relative;
+        height: 100%;
+        transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
+        }
+
+        &--hp {
+            background: linear-gradient(90deg, #1e7ae0 0%, #5ee6ff 100%);
+            box-shadow: 0 0 12px rgba(94, 230, 255, 0.5);
+        }
+        &--energy {
+            background: linear-gradient(90deg, #6a1ed4 0%, #b66bff 100%);
+            box-shadow: 0 0 12px rgba(180, 100, 255, 0.5);
+        }
+    }
+
+    &__bar-shine {
+        position: absolute;
+        top: 0; left: 0;
+        width: 30%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: moba-shine 3s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    // ═══════════════════════════════════════════════════════════
+    //  SPELLS
+    // ═══════════════════════════════════════════════════════════
+    &__spells-panel { flex: 1; min-height: 0; }
+
+    &__spells {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        height: 100%;
+    }
+
+    &__spell {
+        position: relative;
+        display: flex;
+        gap: 10px;
+        align-items: stretch;
+        padding: 7px 8px;
+        background: linear-gradient(90deg, rgba(20, 40, 80, 0.45) 0%, rgba(10, 20, 45, 0.3) 100%);
+        border: 1px solid rgba(94, 140, 210, 0.2);
+        transition: all 0.2s ease;
+        opacity: 0;
+        animation: moba-spell-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $moba-cyan;
+            background: linear-gradient(90deg, rgba(30, 60, 120, 0.55) 0%, rgba(15, 30, 60, 0.4) 100%);
+            transform: translateX(2px);
+        }
+
+        &.is-ult {
+            border-color: rgba(255, 200, 60, 0.45);
+            background: linear-gradient(90deg, rgba(80, 50, 10, 0.4) 0%, rgba(15, 20, 45, 0.3) 100%);
+
+            &:hover {
+                border-color: #ffc83c;
+                box-shadow: 0 0 14px rgba(255, 200, 60, 0.25);
+            }
+
+            .moba__spell-ico {
+                background: linear-gradient(135deg, #6a4810 0%, #2a1f08 100%);
+                border-color: rgba(255, 200, 60, 0.55);
+            }
+            .moba__spell-glyph { color: #ffc83c; text-shadow: 0 0 12px rgba(255,200,60,0.6); }
+            .moba__spell-key   { background: #ffc83c; color: #000; }
+            .moba__spell-name  { color: #ffc83c; }
+        }
+    }
+
+    &__spell-ico {
+        position: relative;
+        width: 48px; height: 48px;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, #103060 0%, #050d20 100%);
+        border: 1px solid rgba(94, 230, 255, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__spell-glyph {
+        font-family: 'Bebas Neue', 'Impact', sans-serif;
+        font-size: 28px;
+        font-weight: 900;
+        color: $moba-cyan;
+        text-shadow: 0 0 10px rgba(94,230,255,0.6);
+    }
+
+    &__spell-key {
+        position: absolute;
+        bottom: -1px; right: -1px;
+        background: $moba-cyan;
+        color: #051026;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 9px;
+        font-weight: 800;
+        padding: 1px 5px;
+        line-height: 1.2;
+    }
+
+    &__spell-body {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    &__spell-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__spell-name {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.18em;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    &__spell-meta {
+        display: flex;
+        gap: 6px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 8.5px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+    }
+
+    &__spell-cost {
+        color: #b66bff;
+        padding: 2px 5px;
+        border: 1px solid rgba(180, 100, 255, 0.4);
+        background: rgba(80, 30, 140, 0.18);
+    }
+
+    &__spell-dur {
+        color: $moba-cyan;
+        padding: 2px 5px;
+        border: 1px solid rgba(94, 230, 255, 0.4);
+        background: rgba(20, 60, 120, 0.18);
+    }
+
+    &__spell-desc {
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        font-size: 10px;
+        line-height: 1.45;
+        color: $moba-muted;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GOOGLE FONTS IMPORT
+// ═══════════════════════════════════════════════════════════════
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
