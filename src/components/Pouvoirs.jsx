@@ -1,62 +1,9 @@
 import { useEffect, useState } from 'react'
 import '../styles/Pouvoirs.scss'
+import pouvoirsData from '../data/pouvoirs.json'
 
-// ─── DATA ────────────────────────────────────────────────────────
-const HERO = {
-    firstName: 'ISEN',
-    lastName: 'SHURA',
-    title: "L'Agent Nonchalant",
-    matricule: "#0791",
-    affiliation: "CGU-NET · SECTION 7 · ÉQUIPE 2",
-    origin: 'Reach',
-    role: 'Agent de Terrain',
-    alignment: 'Neutre',
-    description:
-        "Opérateur d'élite affecté à la Section 7 du CGU-NET, Isen Shura cultive une nonchalance étudiée qui masque un instinct redoutable. Sous son regard ennuyé et son apparente indolence se cache un agent indépendant, méthodique et secret — capable de transmuter sa paresse en précision chirurgicale lorsque le terrain l'exige.",
-}
-
-const STATS = [
-    { name: 'FORCE',     value: 62, color: '#ff5e6c' },
-    { name: 'AGILITÉ',   value: 91, color: '#5ee6ff' },
-    { name: 'DÉFENSE',   value: 54, color: '#a98bff' },
-    { name: 'VITESSE',   value: 84, color: '#5effa1' },
-    { name: 'ENDURANCE', value: 71, color: '#ffd24a' },
-]
-
-const HP     = { current: 720, max: 900 }
-const ENERGY = { current: 480, max: 600 }
-
-const SPELLS = [
-    {
-        key: 'Q',
-        name: 'Sort I',
-        cost: 30,
-        duration: '1 TOUR',
-        desc: 'Placeholder — Capacité offensive de base. Inflige des dégâts ciblés à courte portée et marque la cible.',
-    },
-    {
-        key: 'W',
-        name: 'Sort II',
-        cost: 55,
-        duration: '2 TOURS',
-        desc: 'Placeholder — Capacité de contrôle. Ralentit la cible et applique un statut de vulnérabilité.',
-    },
-    {
-        key: 'E',
-        name: 'Sort III',
-        cost: 70,
-        duration: '3 TOURS',
-        desc: 'Placeholder — Capacité de mobilité. Permet un déplacement rapide et renforce l\'esquive.',
-    },
-    {
-        key: 'R',
-        name: 'Ultime',
-        cost: 120,
-        duration: '4 TOURS',
-        desc: 'Placeholder — Technique ultime. Déchaîne une frappe dévastatrice à zone d\'effet étendue.',
-        ult: true,
-    },
-]
+// ─── DATA (content lives in ../data/pouvoirs.json) ───────────────
+const { hero: HERO, stats: STATS, hp: HP, energy: ENERGY, spells: SPELLS } = pouvoirsData
 
 // ─── RADAR GEOMETRY ──────────────────────────────────────────────
 const CX = 130, CY = 130, R = 90
@@ -67,7 +14,7 @@ const DATA = STATS.map((s, i) => ({
     y: CY + R * (s.value / 100) * Math.sin(ANGLES[i]),
 }))
 const RINGS = [0.25, 0.5, 0.75, 1.0]
-const polyOf = pts => pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')
+const polyOf = pts => pts.map(p => `${Math.round(p.x)},${Math.round(p.y)}`).join(' ')
 
 // ─── COMPONENT ───────────────────────────────────────────────────
 export default function Pouvoirs() {
@@ -82,11 +29,9 @@ export default function Pouvoirs() {
 
     return (
         <div className="moba" data-testid="pouvoirs">
-            {/* Animated background layers */}
+            {/* Retro background layers */}
             <div className="moba__bg-grid" />
-            <div className="moba__bg-orb moba__bg-orb--1" />
-            <div className="moba__bg-orb moba__bg-orb--2" />
-            <div className="moba__scanlines" />
+            <div className="moba__bg-dither" />
 
             <div className={`moba__inner ${mounted ? 'is-in' : ''}`}>
 
@@ -94,11 +39,11 @@ export default function Pouvoirs() {
                 <header className="moba__topbar">
                     <div className="moba__crumb">
                         <span className="moba__crumb-dot" />
-                        PROFIL / AGENTS / <strong>SHURA, ISEN</strong>
+                        PROFIL \ AGENTS \ <strong>SHURA, ISEN</strong>
                     </div>
                     <div className="moba__rank">
                         <span className="moba__rank-label">RANG</span>
-                        <span className="moba__rank-val">ELITE</span>
+                        <span className="moba__rank-val">{HERO.rank}</span>
                         <span className="moba__rank-mat">{HERO.matricule}</span>
                     </div>
                 </header>
@@ -131,13 +76,7 @@ export default function Pouvoirs() {
                                 <span className="moba__panel-dot" />
                             </div>
                             <div className="moba__radar-wrap">
-                                <svg className="moba__radar" viewBox="0 0 260 260" data-testid="stats-radar">
-                                    <defs>
-                                        <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
-                                            <stop offset="0%" stopColor="#5ee6ff" stopOpacity="0.55" />
-                                            <stop offset="100%" stopColor="#1e7ae0" stopOpacity="0.05" />
-                                        </radialGradient>
-                                    </defs>
+                                <svg className="moba__radar" viewBox="0 0 260 260" data-testid="stats-radar" shapeRendering="crispEdges">
                                     {RINGS.map((s, ri) => (
                                         <polygon
                                             key={ri}
@@ -146,40 +85,38 @@ export default function Pouvoirs() {
                                                 y: CY + (p.y - CY) * s,
                                             })))}
                                             fill="none"
-                                            stroke={s === 1 ? '#3a82d9' : 'rgba(94,140,210,0.18)'}
-                                            strokeWidth={s === 1 ? 1.2 : 0.7}
+                                            stroke={s === 1 ? '#3a82d9' : 'rgba(94,140,210,0.35)'}
+                                            strokeWidth={s === 1 ? 2 : 1}
                                         />
                                     ))}
                                     {OUTER.map((p, i) => (
-                                        <line key={i} x1={CX} y1={CY} x2={p.x} y2={p.y} stroke="rgba(94,140,210,0.18)" strokeWidth="0.7" />
+                                        <line key={i} x1={CX} y1={CY} x2={Math.round(p.x)} y2={Math.round(p.y)} stroke="rgba(94,140,210,0.35)" strokeWidth="1" />
                                     ))}
                                     <polygon
                                         points={polyOf(DATA)}
-                                        fill="url(#radarFill)"
+                                        fill="rgba(94,230,255,0.28)"
                                         stroke="#5ee6ff"
-                                        strokeWidth="1.8"
+                                        strokeWidth="2"
                                         style={{
-                                            filter: 'drop-shadow(0 0 6px rgba(94,230,255,0.55))',
                                             transformOrigin: `${CX}px ${CY}px`,
                                             transform: mounted ? 'scale(1)' : 'scale(0)',
-                                            transition: 'transform 0.9s cubic-bezier(0.22,1,0.36,1) 0.3s',
+                                            transition: 'transform 0.6s steps(8, end) 0.3s',
                                         }}
                                     />
                                     {DATA.map((p, i) => (
-                                        <circle key={i} cx={p.x} cy={p.y} r="3.2" fill={STATS[i].color}
-                                            style={{ filter: `drop-shadow(0 0 4px ${STATS[i].color})` }} />
+                                        <rect key={i} x={Math.round(p.x) - 3} y={Math.round(p.y) - 3} width="6" height="6" fill={STATS[i].color} />
                                     ))}
                                     {STATS.map((s, i) => {
-                                        const lx = CX + (R + 20) * Math.cos(ANGLES[i])
-                                        const ly = CY + (R + 20) * Math.sin(ANGLES[i])
+                                        const lx = Math.round(CX + (R + 20) * Math.cos(ANGLES[i]))
+                                        const ly = Math.round(CY + (R + 20) * Math.sin(ANGLES[i]))
                                         return (
                                             <g key={i}>
                                                 <text x={lx} y={ly - 4} textAnchor="middle" dominantBaseline="middle"
-                                                    fill="#9fc6ff" fontSize="9" fontWeight="700" letterSpacing="1.5">
+                                                    fill="#9fc6ff" fontSize="9" letterSpacing="1">
                                                     {s.name}
                                                 </text>
-                                                <text x={lx} y={ly + 7} textAnchor="middle" dominantBaseline="middle"
-                                                    fill={s.color} fontSize="10" fontWeight="800">
+                                                <text x={lx} y={ly + 8} textAnchor="middle" dominantBaseline="middle"
+                                                    fill={s.color} fontSize="11">
                                                     {s.value}
                                                 </text>
                                             </g>
@@ -195,7 +132,7 @@ export default function Pouvoirs() {
                         <div className="moba__portrait" data-testid="hero-portrait">
                             <div className="moba__portrait-glow" />
                             <div className="moba__portrait-frame">
-                                <img src="/images/isen.png" alt="Isen Shura" className="moba__portrait-img" />
+                                <img src={HERO.portrait} alt={`${HERO.firstName} ${HERO.lastName}`} className="moba__portrait-img" />
                             </div>
                             <div className="moba__portrait-watermark">
                                 {HERO.firstName} <br/>{HERO.lastName}
@@ -228,7 +165,6 @@ export default function Pouvoirs() {
                                             width: bars ? `${(HP.current / HP.max) * 100}%` : '0%',
                                         }}
                                     />
-                                    <div className="moba__bar-shine" />
                                 </div>
                             </div>
 
@@ -246,7 +182,6 @@ export default function Pouvoirs() {
                                             width: bars ? `${(ENERGY.current / ENERGY.max) * 100}%` : '0%',
                                         }}
                                     />
-                                    <div className="moba__bar-shine" />
                                 </div>
                             </div>
                         </div>
@@ -274,8 +209,8 @@ export default function Pouvoirs() {
                                             <div className="moba__spell-head">
                                                 <span className="moba__spell-name">{sp.name}</span>
                                                 <div className="moba__spell-meta">
-                                                    <span className="moba__spell-cost">◆ {sp.cost}</span>
-                                                    <span className="moba__spell-dur">⧗ {sp.duration}</span>
+                                                    <span className="moba__spell-cost">[{sp.cost}]</span>
+                                                    <span className="moba__spell-dur">{sp.duration}</span>
                                                 </div>
                                             </div>
                                             <p className="moba__spell-desc">{sp.desc}</p>

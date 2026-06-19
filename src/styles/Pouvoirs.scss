@@ -1,63 +1,73 @@
 @use 'Variables' as *;
 
 // ═══════════════════════════════════════════════════════════════
-//  POUVOIRS — Champion presentation (MOBA style, dark blue)
+//  POUVOIRS — Fiche d'agent (style rétro / pixel, dark blue)
+//  Harmonisé avec le thème Windows 98 : net, crisp, dithering.
 // ═══════════════════════════════════════════════════════════════
 
 // ── Palette ─────────────────────────────────────────────────────
-$moba-bg-1:   #050b1a;
-$moba-bg-2:   #0a1530;
-$moba-bg-3:   #07101f;
+$moba-bg-1:   #060a1c;
+$moba-bg-2:   #0a1430;
 $moba-cyan:   #5ee6ff;
 $moba-blue:   #3a82d9;
 $moba-soft:   #9fc6ff;
-$moba-muted:  #6079a6;
+$moba-muted:  #6e87b6;
 $moba-text:   #cfe0ff;
-$moba-border: rgba(94, 140, 210, 0.18);
+$moba-border: #2c4f86;
+$moba-gold:   #ffc83c;
+$moba-violet: #b66bff;
 
-// ── Keyframes ───────────────────────────────────────────────────
-@keyframes moba-orb-float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50%      { transform: translate(20px, -20px) scale(1.08); }
+$pixel-font: $font-system; // 'WindowsRegular' — déjà bien pixellisée
+
+// ── Mixins rétro ────────────────────────────────────────────────
+// Bordure pixel à double trait (rétro net, sans anti-aliasing)
+@mixin pixel-frame($c: $moba-border) {
+    border: 1px solid #000;
+    box-shadow:
+        inset 0 0 0 1px $c,
+        inset 0 0 0 2px #000;
 }
 
+// Damier de tramage (dithering 50%) — superposé pour casser les aplats
+@mixin dither($c, $size: 2px) {
+    background-image:
+        repeating-conic-gradient(#{$c} 0% 25%, transparent 0% 50%);
+    background-size: $size $size;
+}
+
+// ── Keyframes (steppy = rétro) ──────────────────────────────────
 @keyframes moba-grid-drift {
     from { background-position: 0 0; }
-    to   { background-position: 60px 60px; }
+    to   { background-position: 32px 32px; }
 }
 
 @keyframes moba-fade-up {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes moba-fade-left {
-    from { opacity: 0; transform: translateX(-30px); }
+    from { opacity: 0; transform: translateX(-12px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes moba-fade-right {
-    from { opacity: 0; transform: translateX(30px); }
+    from { opacity: 0; transform: translateX(12px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes moba-portrait-in {
-    from { opacity: 0; transform: scale(0.92) translateY(20px); filter: blur(8px); }
-    to   { opacity: 1; transform: scale(1) translateY(0);     filter: blur(0); }
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes moba-shine {
-    0%   { transform: translateX(-120%); }
-    100% { transform: translateX(220%); }
-}
-
-@keyframes moba-pulse {
-    0%, 100% { opacity: 1;   transform: scale(1); }
-    50%      { opacity: 0.5; transform: scale(0.7); }
+@keyframes moba-blink {
+    0%, 60%  { opacity: 1; }
+    61%,100% { opacity: 0.25; }
 }
 
 @keyframes moba-spell-in {
-    from { opacity: 0; transform: translateX(20px); }
+    from { opacity: 0; transform: translateX(8px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
@@ -69,56 +79,42 @@ $moba-border: rgba(94, 140, 210, 0.18);
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background:
-        radial-gradient(ellipse at 80% 20%, rgba(58,130,217,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 15% 80%, rgba(94,230,255,0.08) 0%, transparent 60%),
-        linear-gradient(180deg, $moba-bg-1 0%, $moba-bg-2 50%, $moba-bg-3 100%);
+    background: $moba-bg-1;
     color: $moba-text;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    letter-spacing: 0.02em;
+    font-family: $pixel-font;
+    letter-spacing: 0;
+    image-rendering: pixelated;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+    text-rendering: optimizeSpeed;
 
+    // dégradé "dithered" : aplats francs entre deux bleus sombres
+    &::before {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+            linear-gradient(180deg, $moba-bg-2 0%, $moba-bg-1 60%, #04060f 100%);
+        z-index: 0;
+    }
+
+    // grille pixel
     &__bg-grid {
         position: absolute; inset: 0;
+        z-index: 1;
         background-image:
-            linear-gradient(rgba(94,140,210,0.06) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(94,140,210,0.06) 1px, transparent 1px);
-        background-size: 60px 60px;
-        animation: moba-grid-drift 20s linear infinite;
-        opacity: 0.55;
+            linear-gradient(rgba(94,140,210,0.10) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(94,140,210,0.10) 1px, transparent 1px);
+        background-size: 32px 32px;
+        animation: moba-grid-drift 18s steps(32) infinite;
         pointer-events: none;
     }
 
-    &__bg-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(80px);
-        pointer-events: none;
-
-        &--1 {
-            width: 340px; height: 340px;
-            top: -60px; right: 10%;
-            background: radial-gradient(circle, rgba(94,230,255,0.45), transparent 70%);
-            animation: moba-orb-float 12s ease-in-out infinite;
-        }
-        &--2 {
-            width: 420px; height: 420px;
-            bottom: -120px; left: -100px;
-            background: radial-gradient(circle, rgba(58,130,217,0.4), transparent 70%);
-            animation: moba-orb-float 16s ease-in-out infinite reverse;
-        }
-    }
-
-    &__scanlines {
+    // tramage global (dithering 2px) qui casse les aplats du fond
+    &__bg-dither {
         position: absolute; inset: 0;
-        background: repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent 3px,
-            rgba(0, 20, 60, 0.08) 3px,
-            rgba(0, 20, 60, 0.08) 4px
-        );
+        z-index: 1;
+        @include dither(rgba(94,230,255,0.05));
         pointer-events: none;
-        mix-blend-mode: overlay;
     }
 
     &__inner {
@@ -128,7 +124,7 @@ $moba-border: rgba(94, 140, 210, 0.18);
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 5px 24px 0px 24px;
+        padding: 6px 18px 0 18px;
     }
 
     // ═══════════════════════════════════════════════════════════
@@ -138,57 +134,49 @@ $moba-border: rgba(94, 140, 210, 0.18);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: 5px;
-        border-bottom: 1px solid $moba-border;
-        margin-bottom: 14px;
+        padding: 4px 6px;
+        background: rgba(10, 22, 48, 0.85);
+        @include pixel-frame($moba-border);
+        margin-bottom: 12px;
         opacity: 0;
-        animation: moba-fade-up 0.6s ease 0.05s forwards;
+        animation: moba-fade-up 0.4s steps(6) 0.05s forwards;
     }
 
     &__crumb {
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 10px;
-        font-weight: 500;
-        letter-spacing: 0.18em;
+        font-size: 13px;
         color: $moba-muted;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
+        text-transform: uppercase;
 
         strong {
             color: $moba-cyan;
-            font-weight: 700;
+            font-weight: 400;
         }
     }
 
     &__crumb-dot {
         width: 8px; height: 8px;
-        border-radius: 50%;
         background: $moba-cyan;
-        box-shadow: 0 0 10px $moba-cyan;
-        animation: moba-pulse 1.8s ease-in-out infinite;
+        animation: moba-blink 1s steps(1) infinite;
     }
 
     &__rank {
         display: flex;
         align-items: center;
-        gap: 10px;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
-        font-size: 10px;
-        letter-spacing: 0.18em;
+        gap: 8px;
+        font-size: 13px;
+        text-transform: uppercase;
 
         &-label { color: $moba-muted; }
         &-val   {
-            color: #fff;
-            font-weight: 800;
-            padding: 3px 10px;
-            background: linear-gradient(90deg, rgba(94,230,255,0.18), rgba(58,130,217,0.18));
-            border: 1px solid rgba(94,230,255,0.45);
-            border-radius: 2px;
+            color: #000;
+            background: $moba-cyan;
+            padding: 1px 8px;
+            box-shadow: 2px 2px 0 #08203a;
         }
-        &-mat { 
-            color: $moba-cyan; 
-        }
+        &-mat { color: $moba-cyan; }
     }
 
     // ═══════════════════════════════════════════════════════════
@@ -199,30 +187,32 @@ $moba-border: rgba(94, 140, 210, 0.18);
         min-height: 0;
         display: grid;
         grid-template-columns: 1.05fr 0.95fr 1.05fr;
-        gap: 18px;
+        gap: 16px;
     }
 
     &__col {
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
         min-height: 0;
         min-width: 0;
 
         &--left {
             opacity: 0;
-            animation: moba-fade-left 0.7s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+            animation: moba-fade-left 0.4s steps(6) 0.15s forwards;
+            padding-bottom: 14px;
         }
         &--center {
             opacity: 0;
-            animation: moba-portrait-in 0.9s cubic-bezier(0.22,1,0.36,1) 0.25s forwards;
+            animation: moba-portrait-in 0.4s steps(6) 0.25s forwards;
             align-items: center;
             justify-content: center;
             position: relative;
         }
         &--right {
             opacity: 0;
-            animation: moba-fade-right 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s forwards;
+            animation: moba-fade-right 0.4s steps(6) 0.2s forwards;
+            padding-bottom: 14px;
         }
     }
 
@@ -231,61 +221,54 @@ $moba-border: rgba(94, 140, 210, 0.18);
     // ═══════════════════════════════════════════════════════════
     &__name-block {
         position: relative;
-        padding: 2px 0 6px;
+        padding: 2px 0 4px;
     }
 
     &__name {
-        position: relative;
         margin: 0;
-        font-family: 'Bebas Neue', 'Impact', sans-serif;
-        font-size: 64px;
-        font-weight: 900;
-        line-height: 0.92;
-        letter-spacing: 0.04em;
-        color: #fff;
-        background: linear-gradient(180deg, #ffffff 0%, #5ee6ff 60%, #1f7ad9 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(94, 230, 255, 0.25);
+        font-family: $pixel-font;
+        font-size: 56px;
+        line-height: 0.95;
+        letter-spacing: 1px;
+        color: $moba-cyan;
+        // ombre pixel dure (offset, sans flou)
+        text-shadow:
+            3px 3px 0 #15347a,
+            6px 6px 0 #06102c;
     }
 
     &__lastname {
-        margin: -4px 0 0;
-        font-family: 'Bebas Neue', 'Impact', sans-serif;
-        font-size: 36px;
-        font-weight: 400;
-        letter-spacing: 0.5em;
+        margin: 4px 0 0;
+        font-family: $pixel-font;
+        font-size: 30px;
+        letter-spacing: 8px;
         color: $moba-soft;
-        opacity: 0.85;
+        text-shadow: 2px 2px 0 #06102c;
     }
 
     &__subtitle {
-        margin-top: 6px;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
-        font-size: 11px;
-        letter-spacing: 0.32em;
+        margin-top: 8px;
+        font-size: 13px;
+        letter-spacing: 1px;
         color: $moba-cyan;
         text-transform: uppercase;
     }
 
     &__affiliation {
-        margin-top: 4px;
-        font-family: 'JetBrains Mono', 'Courier New', monospace;
-        font-size: 9px;
-        letter-spacing: 0.28em;
+        margin-top: 3px;
+        font-size: 12px;
         color: $moba-muted;
+        text-transform: uppercase;
     }
 
     &__desc {
         margin: 0;
-        font-size: 11.5px;
-        line-height: 1.65;
+        font-size: 13px;
+        line-height: 1.55;
         color: $moba-text;
-        opacity: 0.85;
-        font-family: 'Inter', 'Segoe UI', sans-serif;
-        padding-left: 12px;
-        border-left: 2px solid rgba(94, 230, 255, 0.35);
+        padding: 6px 8px;
+        background: rgba(8, 18, 40, 0.6);
+        border-left: 3px solid $moba-cyan;
     }
 
     &__tags {
@@ -295,25 +278,19 @@ $moba-border: rgba(94, 140, 210, 0.18);
     }
 
     &__tag {
-        position: relative;
-        padding: 5px 9px 5px 9px;
-        background: rgba(10, 25, 55, 0.6);
-        border: 1px solid rgba(94, 140, 210, 0.3);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 9.5px;
-        letter-spacing: 0.15em;
+        padding: 4px 8px;
+        background: rgba(10, 25, 55, 0.8);
+        @include pixel-frame($moba-border);
+        font-size: 12px;
         color: $moba-text;
-        font-weight: 600;
-        clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+        text-transform: uppercase;
 
         i {
             display: block;
             font-style: normal;
-            font-size: 8px;
+            font-size: 10px;
             color: $moba-cyan;
-            font-weight: 400;
             margin-bottom: 1px;
-            letter-spacing: 0.2em;
         }
     }
 
@@ -322,43 +299,33 @@ $moba-border: rgba(94, 140, 210, 0.18);
     // ═══════════════════════════════════════════════════════════
     &__panel {
         position: relative;
-        background: linear-gradient(180deg, rgba(10, 22, 48, 0.7) 0%, rgba(7, 16, 31, 0.6) 100%);
-        border: 1px solid $moba-border;
-        backdrop-filter: blur(8px);
-        padding: 10px 12px 12px;
+        background: rgba(9, 20, 44, 0.82);
+        @include pixel-frame($moba-border);
+        padding: 8px 10px 10px;
 
-        // corner accents
-        &::before, &::after {
-            content: '';
-            position: absolute;
-            width: 14px; height: 14px;
-            border: 1.5px solid $moba-cyan;
-            opacity: 0.8;
-        }
-        &::before {
-            top: -1px; left: -1px;
-            border-right: none; border-bottom: none;
-        }
+        // overlay tramage discret sur les panneaux
         &::after {
-            bottom: -1px; right: -1px;
-            border-left: none; border-top: none;
+            content: '';
+            position: absolute; inset: 2px;
+            @include dither(rgba(94,230,255,0.045));
+            pointer-events: none;
         }
     }
 
     &__panel-head {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         gap: 8px;
-        margin-bottom: 9px;
+        margin-bottom: 8px;
         padding-bottom: 6px;
-        border-bottom: 1px solid rgba(94, 140, 210, 0.12);
+        border-bottom: 1px solid $moba-border;
     }
 
     &__panel-title {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.32em;
+        font-size: 13px;
+        letter-spacing: 1px;
         color: $moba-cyan;
         text-transform: uppercase;
     }
@@ -366,15 +333,20 @@ $moba-border: rgba(94, 140, 210, 0.18);
     &__panel-dot {
         width: 6px; height: 6px;
         background: $moba-cyan;
-        box-shadow: 0 0 8px $moba-cyan;
+        animation: moba-blink 1.2s steps(1) infinite;
     }
 
     // ═══════════════════════════════════════════════════════════
     //  RADAR
     // ═══════════════════════════════════════════════════════════
-    &__radar-panel { flex: 1; min-height: 0; }
+    &__radar-panel { 
+        flex: 1; 
+        min-height: 0; 
+    }
 
     &__radar-wrap {
+        position: relative;
+        z-index: 1;
         width: 100%;
         height: 100%;
         display: flex;
@@ -386,7 +358,11 @@ $moba-border: rgba(94, 140, 210, 0.18);
         width: 100%;
         max-width: 280px;
         height: 100%;
-        max-height: 260px;
+        max-height: 250px;
+
+        text {
+            font-family: $pixel-font;
+        }
     }
 
     // ═══════════════════════════════════════════════════════════
@@ -403,13 +379,13 @@ $moba-border: rgba(94, 140, 210, 0.18);
 
     &__portrait-glow {
         position: absolute;
-        top: 5%; left: 50%;
+        top: 8%; left: 50%;
         transform: translateX(-50%);
-        width: 90%; height: 88%;
-        background:
-            radial-gradient(ellipse 60% 50% at 50% 40%, rgba(94, 230, 255, 0.35) 0%, transparent 65%),
-            radial-gradient(ellipse 80% 70% at 50% 50%, rgba(58, 130, 217, 0.25) 0%, transparent 70%);
-        filter: blur(20px);
+        width: 80%; height: 80%;
+        // halo "dithered" net plutôt que flou
+        @include dither(rgba(94,230,255,0.10), 3px);
+        -webkit-mask-image: radial-gradient(ellipse 55% 55% at 50% 45%, #000 0%, transparent 70%);
+        mask-image: radial-gradient(ellipse 55% 55% at 50% 45%, #000 0%, transparent 70%);
         pointer-events: none;
     }
 
@@ -428,121 +404,119 @@ $moba-border: rgba(94, 140, 210, 0.18);
         max-width: 100%;
         object-fit: contain;
         object-position: bottom center;
+        image-rendering: pixelated;
+        // contour net + ombre portée dure
         filter:
-            drop-shadow(0 0 18px rgba(94, 230, 255, 0.35))
-            drop-shadow(0 10px 40px rgba(0, 0, 0, 0.7));
+            drop-shadow(2px 0 0 #0a1430)
+            drop-shadow(-2px 0 0 #0a1430)
+            drop-shadow(0 4px 0 rgba(0,0,0,0.6));
     }
 
     &__portrait-watermark {
         position: absolute;
-        top: 8%;
+        top: 6%;
         left: 50%;
         transform: translateX(-50%);
-        font-family: 'Bebas Neue', 'Impact', sans-serif;
-        font-size: 120px;
-        font-weight: 900;
-        letter-spacing: 0.1em;
+        font-family: $pixel-font;
+        font-size: 96px;
+        line-height: 0.9;
+        letter-spacing: 4px;
         color: transparent;
-        -webkit-text-stroke: 1.5px rgba(94, 230, 255, 0.12);
+        -webkit-text-stroke: 2px rgba(94, 230, 255, 0.14);
         white-space: nowrap;
+        text-align: center;
         z-index: 1;
         pointer-events: none;
-        line-height: 1;
     }
 
     &__portrait-base {
         position: absolute;
-        bottom: 6%;
+        bottom: 4%;
         left: 50%;
         transform: translateX(-50%);
-        width: 70%;
-        height: 30px;
-        background: radial-gradient(ellipse at center, rgba(94, 230, 255, 0.45) 0%, transparent 70%);
-        filter: blur(8px);
+        width: 62%;
+        height: 10px;
+        @include dither(rgba(94,230,255,0.35), 3px);
+        -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
+        mask-image: radial-gradient(ellipse at center, #000 0%, transparent 70%);
         z-index: 1;
     }
 
     // ═══════════════════════════════════════════════════════════
-    //  BARS
+    //  BARS (segmentées, pixel)
     // ═══════════════════════════════════════════════════════════
-    &__bar-block + &__bar-block { margin-top: 8px; }
+    &__bars-panel > *,
+    &__bar-block { 
+        position: relative; 
+        z-index: 1; 
+    }
+
+    &__bar-block + &__bar-block { 
+        margin-top: 10px; 
+    }
 
     &__bar-row {
         display: flex;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
         margin-bottom: 4px;
     }
 
     &__bar-name {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 9.5px;
-        font-weight: 700;
-        letter-spacing: 0.28em;
+        font-size: 12px;
+        letter-spacing: 1px;
         color: $moba-soft;
+        text-transform: uppercase;
     }
 
     &__bar-val {
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 12px;
-        font-weight: 800;
+        font-size: 14px;
         color: #fff;
 
         i {
             font-style: normal;
             color: $moba-muted;
-            font-weight: 500;
-            font-size: 10px;
+            font-size: 12px;
         }
     }
 
     &__bar-track {
         position: relative;
-        height: 14px;
-        background: rgba(5, 12, 28, 0.85);
-        border: 1px solid rgba(94, 140, 210, 0.25);
+        height: 16px;
+        background: #040a18;
+        @include pixel-frame($moba-border);
+        padding: 2px;
         overflow: hidden;
-        clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
     }
 
     &__bar-fill {
         position: relative;
         height: 100%;
-        transition: width 1.3s cubic-bezier(0.22, 1, 0.36, 1);
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 40%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
-        }
+        transition: width 0.8s steps(20, end);
+        // séparateurs pixel verticaux => effet "cellules"
+        background-size: 6px 100%;
+        background-repeat: repeat-x;
 
         &--hp {
-            background: linear-gradient(90deg, #1e7ae0 0%, #5ee6ff 100%);
-            box-shadow: 0 0 12px rgba(94, 230, 255, 0.5);
+            background-image:
+                repeating-linear-gradient(90deg, #5ee6ff 0, #5ee6ff 4px, #2aa9d6 4px, #2aa9d6 6px);
         }
         &--energy {
-            background: linear-gradient(90deg, #6a1ed4 0%, #b66bff 100%);
-            box-shadow: 0 0 12px rgba(180, 100, 255, 0.5);
+            background-image:
+                repeating-linear-gradient(90deg, #b66bff 0, #b66bff 4px, #7a3ad6 4px, #7a3ad6 6px);
         }
-    }
-
-    &__bar-shine {
-        position: absolute;
-        top: 0; left: 0;
-        width: 30%; height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-        animation: moba-shine 3s ease-in-out infinite;
-        pointer-events: none;
     }
 
     // ═══════════════════════════════════════════════════════════
     //  SPELLS
     // ═══════════════════════════════════════════════════════════
-    &__spells-panel { flex: 1; min-height: 0; }
+    &__spells-panel { 
+        min-height: 0; 
+    }
 
     &__spells {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         gap: 7px;
@@ -554,68 +528,88 @@ $moba-border: rgba(94, 140, 210, 0.18);
         display: flex;
         gap: 10px;
         align-items: stretch;
-        padding: 7px 8px;
-        background: linear-gradient(90deg, rgba(20, 40, 80, 0.45) 0%, rgba(10, 20, 45, 0.3) 100%);
-        border: 1px solid rgba(94, 140, 210, 0.2);
-        transition: all 0.2s ease;
+        padding: 6px 8px;
+        background: rgba(16, 32, 66, 0.7);
+        @include pixel-frame($moba-border);
+        transition: transform 0.1s steps(2), background-color 0.1s steps(2);
         opacity: 0;
-        animation: moba-spell-in 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
+        animation: moba-spell-in 0.3s steps(5) forwards;
         cursor: pointer;
 
         &:hover {
-            border-color: $moba-cyan;
-            background: linear-gradient(90deg, rgba(30, 60, 120, 0.55) 0%, rgba(15, 30, 60, 0.4) 100%);
-            transform: translateX(2px);
+            background: rgba(28, 56, 112, 0.85);
+            transform: translateX(3px);
+            box-shadow:
+                inset 0 0 0 1px $moba-cyan,
+                inset 0 0 0 2px #000;
         }
 
         &.is-ult {
-            border-color: rgba(255, 200, 60, 0.45);
-            background: linear-gradient(90deg, rgba(80, 50, 10, 0.4) 0%, rgba(15, 20, 45, 0.3) 100%);
+            box-shadow:
+                inset 0 0 0 1px $moba-gold,
+                inset 0 0 0 2px #000;
+            background: rgba(60, 44, 12, 0.6);
 
             &:hover {
-                border-color: #ffc83c;
-                box-shadow: 0 0 14px rgba(255, 200, 60, 0.25);
+                box-shadow:
+                    inset 0 0 0 1px #fff0b0,
+                    inset 0 0 0 2px #000;
             }
 
             .moba__spell-ico {
-                background: linear-gradient(135deg, #6a4810 0%, #2a1f08 100%);
-                border-color: rgba(255, 200, 60, 0.55);
+                background: #2a1f08;
+                box-shadow:
+                    inset 0 0 0 1px $moba-gold,
+                    inset 0 0 0 2px #000;
             }
-            .moba__spell-glyph { color: #ffc83c; text-shadow: 0 0 12px rgba(255,200,60,0.6); }
-            .moba__spell-key   { background: #ffc83c; color: #000; }
-            .moba__spell-name  { color: #ffc83c; }
+            .moba__spell-glyph { 
+                color: $moba-gold; 
+                text-shadow: 2px 2px 0 #1a1304; 
+            }
+            .moba__spell-key   { 
+                background: $moba-gold; 
+                color: #000; 
+            }
+            .moba__spell-name  { 
+                color: $moba-gold; 
+            }
+            .moba__spell-cost  { 
+                color: $moba-gold; 
+                border-color: $moba-gold; 
+            }
         }
     }
 
     &__spell-ico {
         position: relative;
-        width: 48px; height: 48px;
+        width: 44px; height: 44px;
         flex-shrink: 0;
-        background: linear-gradient(135deg, #103060 0%, #050d20 100%);
-        border: 1px solid rgba(94, 230, 255, 0.45);
+        background: #07142c;
+        box-shadow:
+            inset 0 0 0 1px $moba-cyan,
+            inset 0 0 0 2px #000;
         display: flex;
         align-items: center;
         justify-content: center;
+        image-rendering: pixelated;
     }
 
     &__spell-glyph {
-        font-family: 'Bebas Neue', 'Impact', sans-serif;
-        font-size: 28px;
-        font-weight: 900;
+        font-family: $pixel-font;
+        font-size: 26px;
         color: $moba-cyan;
-        text-shadow: 0 0 10px rgba(94,230,255,0.6);
+        text-shadow: 2px 2px 0 #04122c;
     }
 
     &__spell-key {
         position: absolute;
-        bottom: -1px; right: -1px;
+        bottom: -2px; right: -2px;
         background: $moba-cyan;
-        color: #051026;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 9px;
-        font-weight: 800;
-        padding: 1px 5px;
-        line-height: 1.2;
+        color: #04122c;
+        font-family: $pixel-font;
+        font-size: 11px;
+        padding: 0 4px;
+        line-height: 1.3;
     }
 
     &__spell-body {
@@ -634,46 +628,36 @@ $moba-border: rgba(94, 140, 210, 0.18);
     }
 
     &__spell-name {
-        font-family: 'Bebas Neue', sans-serif;
+        font-family: $pixel-font;
         font-size: 16px;
-        letter-spacing: 0.18em;
+        letter-spacing: 1px;
         color: #fff;
-        font-weight: 600;
+        text-transform: uppercase;
     }
 
     &__spell-meta {
         display: flex;
-        gap: 6px;
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 8.5px;
-        letter-spacing: 0.1em;
-        font-weight: 700;
+        gap: 5px;
+        font-size: 11px;
     }
 
     &__spell-cost {
-        color: #b66bff;
-        padding: 2px 5px;
-        border: 1px solid rgba(180, 100, 255, 0.4);
-        background: rgba(80, 30, 140, 0.18);
+        color: $moba-violet;
+        padding: 1px 5px;
+        border: 1px solid $moba-violet;
     }
 
     &__spell-dur {
         color: $moba-cyan;
-        padding: 2px 5px;
-        border: 1px solid rgba(94, 230, 255, 0.4);
-        background: rgba(20, 60, 120, 0.18);
+        padding: 1px 5px;
+        border: 1px solid $moba-cyan;
     }
 
     &__spell-desc {
         margin: 0;
-        font-family: 'Inter', 'Segoe UI', sans-serif;
-        font-size: 10px;
+        font-family: $pixel-font;
+        font-size: 12px;
         line-height: 1.45;
         color: $moba-muted;
     }
 }
-
-// ═══════════════════════════════════════════════════════════════
-//  GOOGLE FONTS IMPORT
-// ═══════════════════════════════════════════════════════════════
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');

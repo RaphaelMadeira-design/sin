@@ -1,0 +1,55 @@
+{
+    "hero": {
+        "firstName": "ISEN",
+        "lastName": "SHURA",
+        "title": "L'Agent Nonchalant",
+        "matricule": "#0791",
+        "affiliation": "CGU-NET · SECTION 7 · ÉQUIPE 2",
+        "origin": "Reach",
+        "role": "Agent de Terrain",
+        "alignment": "Neutre",
+        "rank": "ELITE",
+        "portrait": "/images/isen.png",
+        "description": "Opérateur d'élite affecté à la Section 7 du CGU-NET, Isen Shura cultive une nonchalance étudiée qui masque un instinct redoutable. Sous son regard ennuyé et son apparente indolence se cache un agent indépendant, méthodique et secret — capable de transmuter sa paresse en précision chirurgicale lorsque le terrain l'exige."
+    },
+    "stats": [
+        { "name": "FORCE",     "value": 62, "color": "#ff5e6c" },
+        { "name": "AGILITÉ",   "value": 91, "color": "#5ee6ff" },
+        { "name": "DÉFENSE",   "value": 54, "color": "#a98bff" },
+        { "name": "VITESSE",   "value": 84, "color": "#5effa1" },
+        { "name": "ENDURANCE", "value": 71, "color": "#ffd24a" }
+    ],
+    "hp": { "current": 720, "max": 900 },
+    "energy": { "current": 480, "max": 600 },
+    "spells": [
+        {
+            "key": "Q",
+            "name": "Sort I",
+            "cost": 30,
+            "duration": "1 TOUR",
+            "desc": "Placeholder — Capacité offensive de base. Inflige des dégâts ciblés à courte portée et marque la cible."
+        },
+        {
+            "key": "W",
+            "name": "Sort II",
+            "cost": 55,
+            "duration": "2 TOURS",
+            "desc": "Placeholder — Capacité de contrôle. Ralentit la cible et applique un statut de vulnérabilité."
+        },
+        {
+            "key": "E",
+            "name": "Sort III",
+            "cost": 70,
+            "duration": "3 TOURS",
+            "desc": "Placeholder — Capacité de mobilité. Permet un déplacement rapide et renforce l'esquive."
+        },
+        {
+            "key": "R",
+            "name": "Ultime",
+            "cost": 120,
+            "duration": "4 TOURS",
+            "desc": "Placeholder — Technique ultime. Déchaîne une frappe dévastatrice à zone d'effet étendue.",
+            "ult": true
+        }
+    ]
+}
