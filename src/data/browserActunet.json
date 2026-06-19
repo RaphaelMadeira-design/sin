@@ -1,0 +1,108 @@
+{
+    "date": "Vendredi 17 avril 6089",
+    "tickerItems": [
+        "FLASH : Harajuku — explosion d'un yatai, au moins huit blessés dont deux graves",
+        "TODAI : Disparition inquiétante d'un étudiant admis en première année, deux mois sans nouvelles",
+        "SANTÉ : Un nouvel implant neural prometteur présenté au salon MediTech de Yokohama",
+        "CULTURE : Le parkour, phénomène urbain en pleine expansion à Tokyo",
+        "TECHNOLOGIE : Vers un meilleur encardrement des shokans et des chevaliers ?",
+        "MONDE : Sommet climatique de Genève — le Japon annonce ses engagements pour 6095",
+        "FAIT DIVERS : Nouvelle « observation ambre » signalée à Ikebukuro",
+        "ÉCONOMIE : Le yen poursuit sa remontée face au dollar"
+    ],
+    "articles": [
+        {
+            "id": 1,
+            "category": "Faits divers",
+            "catColor": "#336600",
+            "date": "Jeu. 16 Avr. 6089  |  08:12 JST",
+            "headline": "Todai : un étudiant de première année porté disparu depuis plus de deux mois",
+            "summary": "Admis à l'Université de Tokyo à la rentrée dernière, un jeune homme de vingt ans n'a plus donné signe de vie depuis mi-février. Sa famille lance un appel à témoins.",
+            "paragraphs": [
+                "La préfecture de police de Tokyo a confirmé ce lundi que l'enquête ouverte à la suite de la disparition d'un étudiant de première année de l'Université de Tokyo reste active, sans piste privilégiée. Le jeune homme, âgé de vingt ans et décrit par ses proches comme « sérieux et mesuré », avait rejoint le campus de Hongō à l'automne dernier.",
+                "Selon sa famille, ses dernières communications — des messages brefs envoyés à un ami d'enfance — ne laissaient présager aucun départ volontaire : « Je m'absente un moment. Inutile de me chercher. » Rien d'autre. Aucun message depuis.",
+                "Les enquêteurs n'excluent aucune hypothèse, mais précisent qu'il n'existe à ce stade « aucun élément tangible permettant d'évoquer un crime ». Les caméras du campus ne l'ont pas filmé franchir les portiques depuis le 12 février.",
+                "Un appel à témoins est relayé par la mairie de Bunkyo. La famille remercie par avance toute personne disposant d'informations de se manifester auprès de la préfecture ou de la rédaction d'ActuNet."
+            ]
+        },
+        {
+            "id": 2,
+            "category": "Faits divers",
+            "catColor": "#336600",
+            "date": "Mer. 15 Avr. 6089  |  21:04 JST",
+            "headline": "Harajuku : explosion d'un stand de yatai sur Takeshita-dōri, plusieurs blessés",
+            "summary": "Un stand de nourriture de rue a violemment explosé mardi soir au cœur du quartier commerçant de Harajuku. Le bilan officiel fait état de huit blessés, dont deux en urgence absolue.",
+            "paragraphs": [
+                "Vers 20h47 mardi soir, une détonation a ébranlé le quartier de Harajuku, au croisement de Takeshita-dōri et d'une petite rue adjacente. Un yatai spécialisé dans les okonomiyaki a explosé au beau milieu de l'affluence, projetant débris et morceaux de métal sur plusieurs mètres.",
+                "Les pompiers de Tokyo, rapidement sur place, ont évacué huit personnes blessées, dont deux en urgence absolue. Les premiers éléments de l'enquête s'orientent vers une fuite de gaz sur la bouteille d'appoint du stand, bien qu'une source proche du dossier indique qu' « aucune hypothèse n'est écartée, y compris un acte volontaire ».",
+                "Plusieurs témoins, encore sous le choc, décrivent une scène d'effroi : « J'ai cru à un tremblement de terre. Puis j'ai vu la fumée, et les gens qui couraient. » Le quartier est resté bouclé une partie de la nuit, le temps des relevés techniques.",
+                "La mairie de Shibuya a annoncé un renforcement immédiat des contrôles de sécurité sur l'ensemble des yatai du quartier, et promet une rencontre avec les représentants de la filière dans les prochains jours."
+            ]
+        },
+        {
+            "id": 3,
+            "category": "Sciences",
+            "catColor": "#004499",
+            "date": "Mar. 14 Avr. 6089  |  10:30 JST",
+            "headline": "Un implant neural capable de régénérer les tissus nerveux présenté à Yokohama",
+            "summary": "Au salon MediTech de Yokohama, une équipe de l'Université de Kyoto dévoile un prototype d'implant capable de stimuler la repousse de fibres nerveuses endommagées. Premiers résultats jugés « très encourageants ».",
+            "paragraphs": [
+                "C'est peut-être l'annonce la plus remarquée du salon MediTech de Yokohama cette semaine : une équipe de recherche de l'Université de Kyoto, associée à deux sociétés de biotech, a présenté un implant neural miniature capable de stimuler la régénération de fibres nerveuses endommagées, notamment au niveau de la moelle épinière.",
+                "« Nous n'en sommes qu'à la phase précoce des essais cliniques, mais les résultats précliniques dépassent nos attentes, » a expliqué la Pr Akari Matsuda, directrice du programme. Sur les vingt-deux patients volontaires, dix-neuf ont vu leur sensibilité partielle revenir dans les trois mois suivant l'implantation.",
+                "La technologie, encore loin d'une commercialisation, redonne espoir aux personnes souffrant de séquelles lourdes après un traumatisme vertébral. Le dispositif, de la taille d'un grain de riz, émet des micro-impulsions programmables via un boîtier externe porté à la ceinture.",
+                "Des essais à grande échelle doivent débuter dès l'automne, soutenus par un financement public. « L'objectif est d'ouvrir cette option aux patients d'ici cinq ans au plus, » précise la chercheuse."
+            ]
+        },
+        {
+            "id": 4,
+            "category": "Culture",
+            "catColor": "#990000",
+            "date": "Lun. 13 Avr. 6089  |  15:22 JST",
+            "headline": "Le parkour, la discipline underground qui s'empare des toits de Tokyo",
+            "summary": "Longtemps confiné à quelques crews confidentiels, le parkour urbain connaît un engouement grandissant auprès des jeunes tokyoïtes. Portrait d'une pratique entre art, sport et rébellion douce.",
+            "paragraphs": [
+                "Si vous levez les yeux un soir en traversant Bunkyo, Shibuya ou Nakano, vous les verrez peut-être : des silhouettes rapides qui sautent d'un toit à l'autre, enchaînent franchissements et réceptions avec une précision quasi chorégraphique. Le parkour — cette discipline née en banlieue parisienne dans les années 1990 — a désormais trouvé à Tokyo un terrain de jeu à sa (dé)mesure.",
+                "« Ce n'est pas juste un sport, c'est une manière de relire la ville, » explique Rika, 22 ans, l'une des rares pratiquantes à accepter de nous parler à visage découvert. « Un mur n'est plus un mur, c'est un passage. Une rampe n'est plus une rampe, c'est un tremplin. »",
+                "La discipline reste largement informelle et évolue en marge des fédérations officielles. Les crews — des collectifs d'une poignée de traceurs — se retrouvent dans des spots rarement publiés, pour éviter à la fois les interventions de police et les afflux de curieux mal équipés. Les accidents, quoique rares chez les pratiquants expérimentés, existent : chutes, entorses, parfois bien pire.",
+                "Depuis un an, plusieurs équipes tentent d'organiser la pratique autour de compétitions officieuses — la plus citée étant la « Tokyo Skyrunner League ». La fédération officielle rappelle cependant qu'elle ne reconnaît aucun événement de ce type, et déconseille fermement la participation."
+            ]
+        },
+        {
+            "id": 5,
+            "category": "Monde",
+            "catColor": "#004499",
+            "date": "Dim. 12 Avr. 6089  |  08:00 JST",
+            "headline": "Sommet climatique de Genève : le Japon annonce ses engagements pour 6095",
+            "summary": "À l'issue de trois jours de négociations à Genève, la délégation japonaise s'est engagée sur une réduction renforcée de ses émissions de CO₂ à l'horizon 6095. Les ONG saluent prudemment.",
+            "paragraphs": [
+                "Le sommet climatique de Genève s'est conclu samedi soir par la signature d'un protocole additionnel auquel le Japon s'est associé. Tokyo s'engage à réduire de 42 % ses émissions brutes de CO₂ d'ici 6095, par rapport aux niveaux de 6080.",
+                "« C'est un signal fort, à la hauteur du moment, » a déclaré la cheffe de la délégation japonaise lors de sa conférence de presse de clôture. Plusieurs ONG, historiquement critiques, reconnaissent un effort réel mais jugent les mécanismes de contrôle encore « largement insuffisants ».",
+                "Sur le plan national, l'annonce devrait se traduire par un plan d'investissement public-privé orienté vers les énergies renouvelables, le rail longue distance et la rénovation thermique des bâtiments publics. Le ministère des Finances doit présenter le détail budgétaire en commission dès le mois prochain.",
+                "La prochaine étape diplomatique est attendue à Séoul, où les grandes puissances asiatiques doivent se retrouver en juin pour aborder la question de la coopération régionale sur l'hydrogène bas-carbone."
+            ]
+        }
+    ],
+    "briefs": [
+        "HARAJUKU — Explosion d'un yatai hier soir, l'enquête démarre (15/04)",
+        "TODAI — La famille de l'étudiant disparu relance l'appel à témoins (14/04)",
+        "SANTÉ — Ouverture d'un nouveau CHU spécialisé à Yokohama (11/04)",
+        "TECHNOLOGIE — Une nouvelle régularisation des Shokans à l'étude (09/04)",
+        "SPORT — Les Yomiuri Giants s'inclinent face aux Fukuoka Hawks (09/04)"
+    ],
+    "nav": ["Accueil", "Japon", "Monde", "Sciences", "Technologie", "Faits divers", "Sports", "Météo", "Finance"],
+    "sidebarCategories": ["Japon", "Monde", "Sciences", "Technologie", "Faits divers", "Sports", "Culture", "Météo"],
+    "weather": {
+        "city": "Tokyo, JP",
+        "temp": "19°C",
+        "desc": "Ciel dégagé"
+    },
+    "ad": {
+        "label": "PUBLICITÉ",
+        "title": "ActuNet Pro",
+        "lines": ["Hébergement web", "dès 2000¥/mois"]
+    },
+    "footer": "© 2000 ActuNet Actualités — Publicité — Aide — Contact — Conditions d'utilisation",
+    "footerSmall": "Ce site est optimisé pour Netscape Navigator 4.0 et Internet Explorer 5.0 · Résolution recommandée : 800×600",
+    "articleFooterHtml": "© 2000 ActuNet Actualités &nbsp;|&nbsp;",
+    "articleFooterLinks": ["Envoyer cet article", "Imprimer", "Signaler une erreur"]
+}
