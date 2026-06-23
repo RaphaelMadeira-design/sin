@@ -38,7 +38,7 @@ function SecretPage() {
                                 f.warn ? 'browser__secret-line--warn' : '',
                             ].filter(Boolean).join(' ')}
                         >
-                            {f.text || 'u00A0'}
+                            {f.text || '\u00A0'}
                         </div>
                     ) : null
                 )}
