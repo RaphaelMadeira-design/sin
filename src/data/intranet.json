@@ -206,15 +206,16 @@
             "age": "29 ans",
             "genre": "Masculin ♂",
             "physical": "1m80 / 76kg",
-            "race": "Humain",
-            "origin": "Reach",
-            "role": "Agent de terrain — Section 7, équipe 2",
+            "race": "???",
+            "ethnicity": "Astral",
+            "origin": "Las Noches",
+            "role": "Patrouilleur de l'Ordre",
             "team": "Équipe 2",
             "status": "ACTIF",
             "alignment": "Neutre",
             "image": "/images/isen.jpg",
-            "physicalDescription": "Homme de taille et corpulence situées dans la moyenne, avec une silhouette longiligne accentuée par des épaules larges et de longues jambes. Cheveux bruns, coiffés mais légèrement désordonnés. Traits du visage fins mais anguleux, mâchoire carrée. Yeux marrons en amande. Air ennuyé caractéristique.",
-            "psychProfile": "Calme et posé, à la limite de l'indolence. Tempérament profondément indépendant et attitude nonchalante. Vit au jour le jour et se projette très peu dans l'avenir. Tendance à se plaindre des tâches qui lui sont confiées et à arriver en retard. Secret sur certains aspects de sa vie privée."
+            "physicalDescription": "Homme de taille et corpulence situées dans la moyenne, avec une silhouette longiligne accentuée par des épaules larges et de longues jambes. Cheveux bruns, coiffés mais légèrement désordonnés. Traits du visage fins mais anguleux, mâchoire carrée. Yeux en amande, iris caractérisés par la présence d'un motif galactique animé, composé d'une multitude de points lumineux semblables à des étoiles.",
+            "psychProfile": "Individu indolent, présentant un tempérament indépendant et une attitude généralement nonchalante. Tendance marquée à éviter les responsabilités et à limiter son implication aux tâches strictement nécessaires. Manifeste peu d'ambition professionnelle mais se montre efficace et fiable lors de ses interventions. Sujet à des épisodes de réminiscences exogènes dont l'origine demeure indéterminée."
         },
         {
             "id": "9205",
@@ -357,17 +358,17 @@
     "secure": {
             "echo": {
             "level": 1,
-            "title": "DOSSIER « ÉCHO »",
+            "title": "DOSSIER « ??? »",
             "content": "...\n...\n...\n..."
         },
             "ambre01": {
             "level": 2,
-            "title": "DOSSIER « AMBRE-01 »",
+            "title": "DOSSIER « ??? »",
             "content": "...\n...\n...\n..."
         },
             "kogaveil": {
             "level": 3,
-            "title": "DOSSIER « KOGA-VEIL »",
+            "title": "DOSSIER « ??? »",
             "content": "...\n...\n...\n..."
         }
     }

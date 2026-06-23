@@ -206,10 +206,6 @@ function Page404({ url }) {
     )
 }
 
-/* ──────────────────────────────────────────────────────────
-   PAGE D'ACCUEIL — MSN.COM (style 1999-2000, en français)
-   ────────────────────────────────────────────────────────── */
-
 function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
     const [query, setQuery] = useState('')
     const [hotmailUser, setHotmailUser] = useState('')
@@ -310,23 +306,40 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
 
                     <div className="browser__msn-feature">
                         <div className="browser__msn-feature-title" onClick={onOpenNews}>
-                            {m.feature.title}
+                            {m.feature1.title}
                         </div>
-                        <div className="browser__msn-feature-row">
+                        <div className="browser__msn-feature-row-1">
                             <div>
-                                <div className="browser__msn-feature-img">
-                                    <img src={m.feature.image.src} alt="" />
-                                    <div className="browser__msn-feature-img-credit">{m.feature.image.credit}</div>
+                                <div className="browser__msn-feature-img-1">
+                                    <img src={m.feature1.image.src} alt="" />
+                                    <div className="browser__msn-feature-img-1-credit">{m.feature1.image.credit}</div>
                                 </div>
-                                <div className="browser__msn-feature-caption">{m.feature.image.caption}</div>
+                                <div className="browser__msn-feature-caption">{m.feature1.image.caption}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="browser__msn-feature">
+                        <div className="browser__msn-feature-title" onClick={onOpenNews}>
+                            {m.feature2.title}
+                        </div>
+                        <div className="browser__msn-feature-row-2">
+                            <div>
+                                <div className="browser__msn-feature-img-2">
+                                    <img src={m.feature2.image.src} alt="" />
+                                </div>
+                                <div className="browser__msn-feature-caption">{m.feature2.image.caption}</div>
                             </div>
                             <div className="browser__msn-feature-also">
-                                <h3>{m.feature.alsoTitle}</h3>
-                                <ul>
-                                    {m.feature.alsoList.map((l, i) => (
-                                        <li key={i}><span className="link">{l}</span></li>
-                                    ))}
-                                </ul>
+                                <h3>{m.feature2.alsoTitle}</h3>
+
+                                {m.feature2.alsoList?.length > 0 && (
+                                    <ul>
+                                        {m.feature2.alsoList.map((l, i) => (
+                                            <li key={i}><span className="link">{l}</span></li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -343,7 +356,6 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
                         <div className="browser__msn-connect-side">
                             <div className="browser__msn-connect-side-img">
                                 <img src={m.connect.side.img} alt="" />
-                                <div className="browser__msn-connect-side-img-credit">{m.connect.side.credit}</div>
                             </div>
                             <span className="browser__msn-connect-side-label">
                                 {m.connect.side.label}
@@ -612,7 +624,7 @@ function FakeNewsPortal() {
                         {newsData.articleFooterLinks.map((l, i) => (
                             <span key={i}>
                                 <span className="browser__news-link">{l}</span>
-                                {i < newsData.articleFooterLinks.length - 1 && ' u00A0|u00A0 '}
+                                {i < newsData.articleFooterLinks.length - 1 && ' | '}
                             </span>
                         ))}
                     </div>

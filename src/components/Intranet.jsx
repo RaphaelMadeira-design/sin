@@ -371,6 +371,7 @@ export default function Intranet() {
                                         "Genre": openPerson.genre,
                                         "Taille / Poids": openPerson.physical,
                                         "Race": openPerson.race,
+                                        "Ethnie": openPerson.ethnicity,
                                         "Origine": openPerson.origin,
                                         "Poste": openPerson.role, 
                                         "Alignement": openPerson.alignment 

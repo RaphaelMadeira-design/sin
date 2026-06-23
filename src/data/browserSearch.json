@@ -1,166 +1,164 @@
 {
     "topics": [
         {
-            "keys": ["isen hata", "isen", "hata", "kōga", "koga", "croc écarlate", "croc ecarlate"],
-            "displayQuery": "Isen Hata",
+            "keys": ["isen shura", "isen", "shura"],
+            "displayQuery": "Isen Shura",
             "resultsCount": "2 340",
             "seconds": "0,24",
             "real": {
-                "title": "Isen Hata — Wikipédia, l'encyclopédie libre",
-                "url": "jp.wikipedia.org/wiki/Isen_Hata",
-                "target": "wiki",
-                "desc": "Isen Hata (五十嵐 伊勢), aussi appelé Kōga ou « Croc Écarlate », est un chevalier de rang E issu de la souche inférieure du clan Magaishi. Membre des Bunkyo City Bolts ..."
+                "title": "Isen Shura — Wikipédia, l'encyclopédie libre",
+                "url": "jp.wikipedia.org/wiki/Isen_Shura",
+                "target": "",
+                "desc": "Isen Shura (五十嵐 伊勢), aussi appelé Kōga ou « Croc Écarlate », est un chevalier de rang E issu de la souche inférieure du clan Magaishi. Membre des Bunkyo City Bolts ..."
             },
             "fakes": [
-                { "title": "Isen_Koga (@isen_koga) — photos & messages", "url": "www.photoroll.jp/isen_koga", "desc": "Profil public — 412 photos, 89 abonnés. Dernier post : \"training session, Bunkyo, 03h22\". Aucun message depuis 11 jours." },
-                { "title": "Registre municipal de Tokyo — Hata, I.", "url": "www.tokyo.metro.jp/registre/hata-i", "desc": "Inscrit branche secondaire Magaishi. Dernière mise à jour partielle. Certaines lignes du recensement sont marquées « données retirées »." },
-                { "title": "Forum ParkourJP :: [Topic] Qui est vraiment Kōga ?", "url": "www.parkourjp.net/forum/viewtopic?t=88471", "desc": "— …peu de tout, il a un style très versatile et il court comme s'il connaissait le circuit depuis toujours. Perso, je ne crois pas une seconde au rang E.  |  34 réponses." },
-                { "title": "Shokan Index — Dualité rang E", "url": "shokan-index.org/E/dualite", "desc": "Manifestation semi-indépendante d'énergie. Portée ≈ 4 m. Durée ≈ 1–2 s. Peu de données fiables." },
-                { "title": "Tokyo Skyrunner League — Classement 6089", "url": "skyrunner-league.jp/classement/6089", "desc": "01. Tenku Striders — 114 pts  |  02. Bunkyo City Bolts — 112 pts  |  03. White Sparrows — 108 pts  |  04. Kanda Ravens — 104 pts ... Ligue officieuse, non affiliée à la fédération." },
-                { "title": "Hata (homonymie) — Wikipédia", "url": "jp.wikipedia.org/wiki/Hata_(homonymie)", "desc": "Page d'homonymie : Hata peut désigner un patronyme japonais, une lignée du clan Magaishi, ou une région montagneuse de la préfecture de Niigata..." },
-                { "title": "Recrutez un Sakiba Hata — AnnuairePro", "url": "www.annuairepro.jp/prestataire/sakiba-hata", "desc": "Plombier à Osaka, 41 ans. Aucun lien connu avec le membre du clan Magaishi du même nom. Note clients : 3,9 / 5." },
-                { "title": "Magaishi — Souches inférieures, liste indicative", "url": "www.clans-japon.jp/magaishi/souches-inferieures", "desc": "Ce document recense les lignées mineures rattachées au clan Magaishi. La ligne « Hata » y figure, bien que plusieurs entrées soient datées « [retirée] »." }
+                { "title": "Registre municipal de Reach — Shura, I.", "url": "www.reach.metro.is/registre/shura-i#428046", "desc": "Citoyen recensé. Dernière mise à jour partielle. Certaines lignes du recensement sont marquées « données confidentielles »." },
+                { "title": "Isen_Shura (@1sen_shura) — photos & messages", "url": "www.photoroll.is/1sen_shura", "desc": "Profil public — 24 photos, 51 abonnés. Dernier post : \"Burgers que 'Chez Koga' avec l'équipe 2, Issitis, 19h22\". Aucun message depuis 8 jours." },
+                { "title": "SuperEats — Profil de ShuraIsen98", "url": "www.superearts.lx/profil/gold_members/viewprofile?t=88471", "desc": "Isen Shura, membre SuperEats Gold depuis le 14/02. Commandes passées : 168. Adresse favorite : Poke-Man Poke - Bowls. Méthode de retrait préférée : Livraison Express." },
+                { "title": "Registre Jinséique International", "url": "jinsei-index.org/j=45g154d738", "desc": "... enregistrés. Shura, Isen — Ordre, Coalition des Gouvernements Unis — Qualité, quantité, nature et type officiellement enregistrés. Shuraba, Mokonji — Ordre ..." },
+                { "title": "Pronostics de Isen1111 — Rang Argent", "url": "betbetbet.is/classement/6089", "desc": "01. Tenku Striders — 114 pts  |  02. Bunkyo City Bolts — 112 pts  |  03. White Sparrows — 108 pts  |  04. Kanda Ravens — 104 pts ... SuperEats, partenaire officiel de la fédération." },
+                { "title": "Maison des Ancêtres — Liste des admis au diplôme", "url": "www.ancetres.academie-cgu.gouv/licence/histoire", "desc": "... Shoka, Pol. Admis. Mention Cum Laude — Shura, Isen. Admis. Mention Magna Cum Laude — Shyzuk, Milo. Admis. Mention Cum Laude — Sikovski, Kimail. Admis. Mention Cum Laude... " },
+                { "title": "Shura (homonymie) — Mikipédia", "url": "is.mikipedia.org/wiki/Shura_(homonymie)", "desc": "Page d'homonymie : Shura peut désigner un patronyme humain, une lignée de la branche inférieure apparentée au clan Shigemori, ou une région montagneuse à Ionia..." },
+                { "title": "Recrutez un Iseno Shuba — AnnuairePro", "url": "www.annuairepro.rc/prestataire/iseno_shuba", "desc": "Plombier à Reach, 41 ans. En activité depuis 23 ans. Note clients : 4,3 / 5." }
             ]
         },
         {
-            "keys": ["actunet", "actualités", "actualites", "actunet news"],
+            "keys": ["actunet", "news", "actualités", "actualites", "actunet news"],
             "displayQuery": "ActuNet",
             "resultsCount": "5 710",
             "seconds": "0,18",
             "real": {
                 "title": "ActuNet Actualités — Toutes les dépêches en direct",
-                "url": "www.actunet-news.jp",
+                "url": "www.actunet-news.is",
                 "target": "news",
-                "desc": "Portail d'information : Japon, Monde, Faits divers, Sports, Sciences. Édition quotidienne depuis 6078. Ticker en continu, édition du jour..."
+                "desc": "Portail d'information : Issitis, Monde, Faits divers, Sports, Sciences. Édition quotidienne depuis 50 ans. Ticker en continu, édition du jour..."
             },
             "fakes": [
-                { "title": "ActuNet — Pages Jaunes Internet", "url": "www.pj-internet.jp/annuaire/a/actunet", "desc": "Référencement officiel du portail ActuNet. Catégorie : Presse en ligne / Information générale. Siège : Tokyo - Arakawa" },
-                { "title": "ActuNet Pro — hébergement web dès 2000¥/mois", "url": "www.actunet-pro.jp/hebergement", "desc": "Offres d'hébergement mutualisé, nom de domaine .jp inclus, support FTP. Ne concerne pas le portail ActuNet Actualités." },
-                { "title": "Fédération de presse numérique — membre : ActuNet", "url": "www.fpn.jp/membres/actunet", "desc": "Fiche associative — ActuNet Actualités (JP). Rédacteur en chef : [données protégées]." },
-                { "title": "\"Pourquoi ActuNet a retiré son article ?\" — Forum Médias", "url": "www.forum-medias.jp/sujet/23418", "desc": "— Quelqu'un a sauvegardé l'article sur le rapport #00x7 avant qu'ils le suppriment ? Je le trouve plus nulle part.  |  12 réponses." },
-                { "title": "ActuNet : archives hebdomadaires (6070–6089)", "url": "archives.actunet-news.jp/6070-6089", "desc": "Accès aux numéros archivés. Certaines éditions de novembre 1999 sont manquantes : « édition non distribuée pour raisons indépendantes de notre volonté »." },
-                { "title": "ActuNet contre-attaque après une plainte anonyme", "url": "www.pressewatch.jp/actunet-plainte-anonyme", "desc": "Le portail d'actualités maintient ses publications sur la Tokyo Skyrunner League, malgré une demande de retrait reçue début janvier 6089." },
-                { "title": "Webring ActuNet — sites partenaires", "url": "webring.actunet-news.jp/partenaires", "desc": "Liste des sites frères : Météo-Express, Sports-JP, Tech6079. Optimisé pour Internet Explorer 5.0 et Netscape Navigator 4.0." },
-                { "title": "Naomi Miyamoto (animatrice TV) — fiche biographique", "url": "www.stars-tv.jp/fiche/naomi-miyamoto", "desc": "Homonymie : Naomi Miyamoto animatrice d'une émission régionale. Aucun lien avec le portail d'information." }
+                { "title": "ActuNet — Pages Jaunes Internet", "url": "www.pj-internet.rc/annuaire/a/actunet", "desc": "Référencement officiel du portail ActuNet. Catégorie : Presse en ligne / Information générale. Siège : Reach" },
+                { "title": "ActuNet Pro — hébergement web dès 20¥/mois", "url": "www.actunet-pro.is/hebergement", "desc": "Offres d'hébergement mutualisé, nom de domaine .is inclus, support FTP. Ne concerne pas le portail ActuNet Actualités." },
+                { "title": "Fédération de presse numérique — membre : ActuNet", "url": "www.fpn.lx/membres/actunet", "desc": "Fiche associative — ActuNet Actualités (IS). Rédacteur en chef : [données protégées]." },
+                { "title": "\"Pourquoi ActuNet a retiré son article ?\" — Forum Médias", "url": "www.forum-medias.rc/sujet/23418", "desc": "— Quelqu'un a sauvegardé l'article sur l'histoire de l'espèce de secte avant qu'ils le suppriment ? Je le trouve plus nulle part.  |  12 réponses." },
+                { "title": "ActuNet : archives hebdomadaires (mars–avril)", "url": "archives.actunet-news.is/03-04", "desc": "Accès aux numéros archivés. Certaines éditions de novembre sont manquantes : « édition non distribuée pour raisons indépendantes de notre volonté »." },
+                { "title": "ActuNet contre-attaque après une plainte anonyme", "url": "www.pressewatch.rc/actunet-plainte-anonyme", "desc": "Le portail d'actualités maintient ses publications sur l'affaire du ministre Backenbauer', malgré une demande de retrait reçue début janvier." },
+                { "title": "Webring ActuNet — sites partenaires", "url": "webring.actunet-news.is/partenaires", "desc": "Liste des sites frères : Météo-Express, Sports-IS, Tech99. Optimisé pour Internet Voyager 5.0 et Webscape Navigator 4.0." },
+                { "title": "Ven Jokolek (journaliste) — Profil ActuNet", "url": "www.actunet-news.is/redaction/ven-jokolek", "desc": "Ven est l'un des journalistes sportifs les plus emblématiques d'ActuNet, dont il est désormais rédacteur en chef." }
             ]
         },
         {
-            "keys": ["clan magaishi", "magaishi", "souche magaishi"],
-            "displayQuery": "Clan Magaishi",
+            "keys": ["cgu", "coalition", "coalition des gouvernements unis"],
+            "displayQuery": "Coalition des Gouvernements Unis",
             "resultsCount": "918",
             "seconds": "0,31",
             "real": {
-                "title": "Clan Magaishi — mentionné sur la fiche Isen Hata (Wikipédia)",
-                "url": "jp.wikipedia.org/wiki/Isen_Hata#Clan_Magaishi",
+                "title": "Coalition des Gouvernements Unis — mentionnée sur la fiche Isen Shura (Wikipédia)",
+                "url": "jp.wikipedia.org/wiki/Isen_Shura#CGU",
                 "target": "wiki",
-                "desc": "Le clan Magaishi contrôle une grande partie de la métropole de Tokyo. La souche inférieure, dont est issue la branche Hata, est reléguée à des rôles de second plan..."
+                "desc": "Organisation intergouvernementale chargée de maintenir la paix et lutter contre la Corruption sur Lenoxia."
             },
             "fakes": [
-                { "title": "Clans de Tokyo — fiche administrative MAGAISHI", "url": "www.tokyo.metro.jp/clans/magaishi", "desc": "Fiche officielle — Territoire : arrondissements de Bunkyo, Toshima, partie de Shinjuku. Porte-parole : [non divulgué]. Statut juridique : reconnu." },
-                { "title": "Magaishi — Pages Jaunes des grandes familles", "url": "www.pj-familles.jp/magaishi", "desc": "Siège principal : immeuble Magaishi, Chiyoda, Tokyo. Téléphone : [masqué sur demande du déclarant]." },
-                { "title": "Le blog de Ko — \"J'ai travaillé chez les Magaishi\"", "url": "www.leblogdeko.jp/post/chez-les-magaishi", "desc": "— On dit plein de choses, mais la vérité c'est surtout un énorme système hiérarchique. Il y a beaucoup d'inégalités au sein des différentes branches." },
-                { "title": "Rumeurs et \"purges\" dans les branches inférieures", "url": "www.forum-medias.jp/sujet/24011", "desc": "— Trois noms qui ne figurent plus au recensement. Le clan nie tous les soupçons.  |  45 réponses." },
-                { "title": "Magaishi (clan) — fandom encyclopédique", "url": "fandom-clans.jp/wiki/Magaishi", "desc": "Article de fandom : hiérarchie, branches, symboles. Attention, nombreuses sections sont contestées / non sourcées." },
-                { "title": "Clan moderne ou traditionnel ? Le cas Magaishi", "url": "www.sociologie-japon.jp/essai/magaishi-moderne", "desc": "Essai universitaire (6080) comparant l'organisation du clan Magaishi aux structures traditionnelles. Conclusion : modèle hybride, post-moderne." },
-                { "title": "Magaishi Zaibatsu. — dépôt de marque 5877", "url": "www.inpi.jp/marques/magaishi-zaibatsu", "desc": "Dépôt classes 9, 35, 41, 45. Statut : enregistrée. Signe distinctif associé : [Informations demandées]." },
-                { "title": "Magaishi Shoten — boutique de thés traditionnels", "url": "www.magaishi-shoten.jp", "desc": "Homonymie : boutique de thé située à Kyoto, fondée en 6024. Aucun lien officiel connu avec le clan Magaishi de Tokyo." }
+                {
+                "title": "CGU — portail officiel",
+                "url": "www.cgu.gov",
+                "desc": "Actualités, recrutement, signalement d'activité corruptrice et informations aux citoyens."
+                },
+                {
+                "title": "Combien coûte réellement la guerre contre la Corruption ?",
+                "url": "www.economie-lenoxia.is/dossiers/cout-cgu",
+                "desc": "Rapport économique sur les dépenses militaires et la production d'artéfacts."
+                },
+                {
+                "title": "Manifestation devant le siège de la CGU à Reach",
+                "url": "www.lenoxia-daily.is/societe/manifestation-reach",
+                "desc": "Plusieurs associations dénoncent les méthodes du Protectorat et du Central-X."
+                },
+                {
+                "title": "Black List CGU : fuite massive de données ?",
+                "url": "www.cyberwatch.is/alerte/blacklist",
+                "desc": "Des documents attribués au Protectorat circuleraient actuellement sur plusieurs réseaux clandestins. Mais leur véracité n'a pas été prouvée."
+                },
+                {
+                "title": "Ancien agent : « La CGU n'est pas ce qu'elle prétend être »",
+                "url": "www.letemoin-anonyme.rc/interview/ancien-agent",
+                "desc": "Interview controversée d'un ancien membre ayant quitté l'organisation il y a sept ans."
+                },
+                {
+                "title": "Que deviennent les criminels envoyés au Central-X ?",
+                "url": "www.forum-medias.jp/sujet/19874",
+                "desc": "— Personne n'en revient jamais. C'est déjà une réponse. | 354 réponses."
+                },
+                {
+                "title": "CGU ou gouvernement mondial ? Débat",
+                "url": "www.sociologie-lenoxia.lx/essai/cgu-pouvoir",
+                "desc": "Analyse universitaire portant sur l'influence croissante de la Coalition dans les affaires internationales."
+                },
+                {
+                "title": "Signaler un utilisateur suspect du Jinsei",
+                "url": "services.cgu.gov/signalement",
+                "desc": "Service citoyen permettant de transmettre anonymement des informations au Protectorat."
+                }
             ]
         },
         {
-            "keys": ["tokyo skyrunner league", "skyrunner league", "skyrunner", "skyrunner tokyo"],
-            "displayQuery": "Tokyo Skyrunner League",
-            "resultsCount": "1 487",
-            "seconds": "0,27",
-            "real": {
-                "title": "Tokyo Skyrunner League — la scène underground décryptée (ActuNet)",
-                "url": "www.actunet-news.jp/culture/parkour-tokyo",
-                "target": "news",
-                "desc": "Notre article culture consacré au parkour tokyoïte évoque longuement la compétition officieuse que les crews appellent « Tokyo Skyrunner League », et les raisons de son succès auprès des jeunes."
-            },
-            "fakes": [
-                { "title": "Skyrunner League — communiqué FJP (fédération)", "url": "www.fjparkour.jp/communique/skyrunner", "desc": "La Fédération Japonaise de Parkour rappelle qu'elle ne reconnaît aucune compétition appelée Skyrunner League. Avis aux pratiquants." },
-                { "title": "Classement Tokyo Skyrunner League — 6089", "url": "skyrunner-league.jp/classement/6089", "desc": "01. Bunkyo City Bolts  |  02. White Sparrows  |  03. Kanda Ravens  |  04. Tenku Striders  |  ... liste des 16 crews." },
-                { "title": "Parcours Nakano-Kōenji (vidéo amateur)", "url": "video-share.jp/v/82417", "desc": "Durée 04:12 — course de la 3ᵉ manche, vue d'un toit voisin. Commentaires désactivés sur cette vidéo." },
-                { "title": "Silhouettes aux yeux ambrés — on a vu la même chose", "url": "www.forum-medias.jp/sujet/24198", "desc": "— Pas juste à Bunkyo. Ikebukuro aussi. Toujours en hauteur, toujours immobiles. Personne ne veut en parler officiellement.  |  88 réponses." },
-                { "title": "Ligue Skyrunner (Osaka) — à ne pas confondre", "url": "www.skyrunner-osaka.jp", "desc": "Championnat régional de course en montagne. Rien à voir avec la ligue de parkour de Tokyo. Calendrier 2000 disponible en ligne." },
-                { "title": "Skyrunner — définition (Kodansha en ligne)", "url": "www.kodansha.jp/dictionnaires/skyrunner", "desc": "Anglicisme : coureur s'adonnant à la course verticale, urbaine ou montagnarde. Forme féminine : skyrunneuse." },
-                { "title": "Tokyo Skyrunner League — site officiel", "url": "skyrunner-league.jp", "desc": "Dates des prochaines manches, liste officielle des crews. Avertissement en pied de page : la ligue décline toute responsabilité en cas d'incident lors des courses." },
-                { "title": "Tokyo SKY Runner — marathon annuel (homonymie)", "url": "www.tokyo-sky-runner.jp", "desc": "Course caritative longue distance. Homonymie fréquente avec la ligue officieuse. Inscriptions ouvertes." }
-            ]
-        },
-        {
-            "keys": ["tenku striders", "tenku", "striders", "kazuki kurogane"],
-            "displayQuery": "Tenku Striders",
-            "resultsCount": "746",
+            "keys": ["ordre", "l'ordre", "patrouilleurs", "ordre cgu"],
+            "displayQuery": "L'Ordre CGU",
+            "resultsCount": "2 904",
             "seconds": "0,22",
             "real": {
-                "title": "Tenku Striders — section dans l'article Isen Hata (Wikipédia)",
-                "url": "jp.wikipedia.org/wiki/Isen_Hata#Tenku_Striders",
+                "title": "L'Ordre — mentionné sur la fiche Isen Shura (Wikipédia)",
+                "url": "jp.wikipedia.org/wiki/Isen_Shura#Ordre",
                 "target": "wiki",
-                "desc": "Le crew lycéen des Tenku Striders, mené par Kazuki Kurogane, est cité dans la biographie de Isen Hata — notamment pour sa rivalité historique avec les Bunkyo City Bolts."
+                "desc": "Branche d'intervention principale de la Coalition des Gouvernements Unis. Isen Shura y officie comme agent de terrain."
             },
             "fakes": [
-                { "title": "Tenku Striders — classement Skyrunner League", "url": "skyrunner-league.jp/crew/tenku-striders", "desc": "Position actuelle : 4ᵉ. Capitaine : T. Kurogane. Bilan saison : 2 victoires, 5 podiums, 1 disqualification." },
-                { "title": "Kazuki Kurogane — interview exclusive (parkourjp.net)", "url": "www.parkourjp.net/interviews/Kazuki-kurogane", "desc": "\"Je ne lis pas les articles d'ActuNet. Ce qui s'est passé au tournoi des Ura Ura Kidz ne regarde personne.\" — T. Kurogane, mars 6088." },
-                { "title": "Forum ParkourJP :: Tenku Striders, vrais champions ?", "url": "www.parkourjp.net/forum/viewtopic?t=90112", "desc": "— Depuis qu'ils ont recruté Kazuki, ils n'ont plus gagné une seule fois contre les Bolts. Coïncidence ?  |  61 réponses." },
-                { "title": "Tenku Striders (manga) — tome 3 en librairie", "url": "www.librairie-manga.jp/tenku-striders-t3", "desc": "Manga en 5 tomes publié chez Éditions Tōkai. Aucun lien avec le crew réel, selon l'éditeur." },
-                { "title": "Ura Ura Kidz → Tenku Striders : la bascule", "url": "archives.actunet-news.jp/sports/uraura-tenku", "desc": "Retour sur le tournoi décisif opposant les Ura Ura Kidz à la relève Tenku Striders. L'article évoque la chute de Ryohei Nishikawa." },
-                { "title": "Skyrunner League — vidéo : Tenku vs Bolts, manche 2", "url": "video-share.jp/v/81006", "desc": "Durée 06:44 — passage au ralenti du virage contesté du 4ᵉ checkpoint. Vidéo signalée puis réactivée." },
-                { "title": "Tenku Striders — t-shirts & goodies officiels", "url": "www.shop-skyrunner.jp/tenku-striders", "desc": "Merchandising officiel : maillots (éditions printemps), casquettes, pochettes. Expédition Japon uniquement." },
-                { "title": "Pourquoi Kazuki esquive les interviews ?", "url": "www.forum-medias.jp/sujet/24350", "desc": "— Il pète la forme sur les courses mais dès qu'un micro arrive, il est pressé. Quelqu'un a une théorie ?  |  39 réponses." }
-            ]
-        },
-        {
-            "keys": ["bunkyo city bolts", "bunkyo bolts", "bunkyo", "city bolts", "aoi kanzaki", "hidemichi oyama", "daigo kawamura"],
-            "displayQuery": "Bunkyo City Bolts",
-            "resultsCount": "1 093",
-            "seconds": "0,19",
-            "real": {
-                "title": "Bunkyo City Bolts — composition du crew (Wikipédia / fiche Isen Hata)",
-                "url": "jp.wikipedia.org/wiki/Isen_Hata#Bunkyo_City_Bolts",
-                "target": "wiki",
-                "desc": "Crew de parkour de l'arrondissement de Bunkyo. Membres : Isen Hata (Kōga), Aoi Kanzaki, Hidemichi Ōyama, Daigo Kawamura. Rivaux historiques des Tenku Striders."
-            },
-            "fakes": [
-                { "title": "Bunkyo City Bolts — fiche crew officielle", "url": "skyrunner-league.jp/crew/bunkyo-city-bolts", "desc": "Leader : K. Hata. Palmarès 6089 : 1er au classement saison. Style : rapide, agressif, imprévisible. 4 titulaires + 0 remplaçants." },
-                { "title": "Bunkyo — quartier parkour par excellence (JP-Trip)", "url": "www.jp-trip.jp/guides/bunkyo-parkour", "desc": "Guide touristique : spots légaux, cafés fréquentés par les traceurs, meilleurs toits pour observer les courses nocturnes (à vos risques)." },
-                { "title": "Aoi Kanzaki — \"le cerveau des Bolts\" (portrait)", "url": "www.actunet-news.jp/sports/aoi-kanzaki-portrait", "desc": "Portrait d'Aoi Kanzaki, stratège du crew. Silencieuse en course, redoutable sur le tableau. Peu d'apparitions publiques." },
-                { "title": "Hidemichi Ōyama — fiche physique / Skyrunner", "url": "skyrunner-league.jp/athlete/hidemichi-oyama", "desc": "Taille 1m94, 94 kg. Style : puissance, franchissement. Ne possède pas de Shokan documenté mais plusieurs témoignages contraires existent." },
-                { "title": "Daigo Kawamura — le plus rapide du nord de Tokyo", "url": "www.parkourjp.net/profils/daigo-kawamura", "desc": "Profil athlète : temps records sur checkpoints droits. Réputation sulfureuse : 2 disqualifications, 1 accrochage avec les White Sparrows." },
-                { "title": "Bunkyo City — mairie d'arrondissement", "url": "www.city.bunkyo.lg.jp", "desc": "Site officiel de la mairie de Bunkyo. Nous ne commentons pas les événements liés à la Tokyo Skyrunner League (communiqué du 15/01/6089)." },
-                { "title": "Bunkyo Bolts (équipe de football) — à ne pas confondre", "url": "www.foot-amateur-jp.jp/clubs/bunkyo-bolts", "desc": "Club amateur de football, division régionale. Saison 2000 : 3 victoires, 4 nuls, 2 défaites." },
-                { "title": "Bolts — agence de pub (homonymie)", "url": "www.bolts-agency.com", "desc": "Agence de communication numérique basée à Londres. Aucun rapport avec le crew de parkour japonais." }
-            ]
-        },
-        {
-            "keys": ["ryohei nishikawa", "ryohei", "nishikawa", "disparition ryohei"],
-            "displayQuery": "Ryohei Nishikawa",
-            "resultsCount": "3 821",
-            "seconds": "0,26",
-            "real": {
-                "title": "Disparition d'un étudiant de l'Université de Tokyo (ActuNet)",
-                "url": "www.actunet-news.jp/faits-divers/etudiant-todai-disparu",
-                "target": "news",
-                "desc": "Notre article à la une évoque la disparition d'un jeune homme de 20 ans inscrit à l'Université de Tokyo, sans nouvelles depuis plus de deux mois. Plusieurs forums l'identifient — sans confirmation officielle — comme Ryohei Nishikawa."
-            },
-            "fakes": [
-                { "title": "Ryohei Nishikawa — appel à témoins (police de Tokyo)", "url": "www.keishicho.metro.tokyo.jp/appel/nishikawa-r", "desc": "Homme, 19 ans, 1m82, dernier signalement : Bunkyo, 07/11/6089 vers 23h. Toute information peut être communiquée à la préfecture." },
-                { "title": "Ryohei Nishikawa (@ryo_nishi) — profil archivé", "url": "www.photoroll.jp/ryo_nishi", "desc": "Profil inactif depuis 68 jours. Dernier post : photo floue d'un toit, légende \"ils sont là, encore une fois\". Commentaires désactivés." },
-                { "title": "Todai — communiqué du service des admissions", "url": "www.u-tokyo.ac.jp/communique/avr-6089", "desc": "L'Université de Tokyo indique coopérer avec les autorités. Par respect pour la famille, aucune information personnelle concernant l'étudiant ne sera divulguée." },
-                { "title": "Forum Bunkyo :: \"Ryohei Nishikawa, quelqu'un l'a revu ?", "url": "www.forum-bunkyo.jp/sujet/24457", "desc": "— Des rumeurs de forum, rien de solide. Les médias généralistes ne citent pas son nom. ActuNet est le seul à évoquer l'hypothèse, et encore, à demi-mot.  |  72 réponses." },
-                { "title": "Nishikawa (homonymie) — Wikipédia", "url": "jp.wikipedia.org/wiki/Nishikawa", "desc": "Page d'homonymie : Nishikawa, patronyme japonais répandu. Aucune page individuelle dédiée à ce jour pour un « Ryohei Nishikawa »." },
-                { "title": "Famille Nishikawa : appel à la discrétion", "url": "www.actunet-news.jp/faits-divers/famille-nishikawa", "desc": "La famille remercie les personnes mobilisées et demande que sa vie privée soit respectée pendant que l'enquête se poursuit." },
-                { "title": "Ryohei Nishikawa (judoka) — à ne pas confondre", "url": "www.judojp.jp/athletes/ryohei-nishikawa", "desc": "Judoka vétéran de Nagoya, ceinture noire 5ᵉ dan. Aucun lien avec le jeune étudiant porté disparu à Tokyo." },
-                { "title": "Pétition en ligne — Relancer l'enquête", "url": "www.petition-web.jp/nishikawa-rouvrir-enquete", "desc": "14 218 signataires. Objectif : 20 000. Adressée à la préfecture de police de Tokyo et au bureau d'enquêtes spéciales." }
+                {
+                "title": "Rejoindre l'Ordre — portail officiel de la CGU",
+                "url": "recrutement.cgu.gov/ordre",
+                "desc": "Devenez Patrouilleur et protégez les peuples de Lenoxia. Candidatures ouvertes aux diplômés de l'Académie."
+                },
+                {
+                "title": "Le Gardien aperçu au-dessus de la ville de Reach",
+                "url": "http://www.actunet-news.is/monde/gardien-elysia",
+                "desc": "Le quartier général mobile de l'Ordre a stationné trois jours au-dessus de Reach avant de reprendre sa route vers le sud."
+                },
+                {
+                "title": "Est-ce que les Patrouilleurs possèdent un uniforme ?",
+                "url": "www.shokunin-times.jp/opinion/patrouilleurs",
+                "desc": "Selon plusieurs membres de l'Ordre, l'indépendance reste au cœur de leur identité, même au sein de la CGU."
+                },
+                {
+                "title": "Le Gardien — plans non officiels (archive)",
+                "url": "www.deepnet.is/archives/gardien",
+                "desc": "Schémas supposés du QG volant de l'Ordre. Authenticité impossible à vérifier."
+                },
+                {
+                "title": "Puis-je faire appel à l'Ordre et aux Patrouilleurs pour régler un problème ?",
+                "url": "www.forum-medias.jp/sujet/25388",
+                "desc": "... sait si c'est possible ou légal ? Je vais vous racontez mon souci et je ne pense pas que la police soit ... | 112 réponses."
+                },
+                {
+                "title": "Les dix Patrouilleurs les plus célèbres du siècle",
+                "url": "www.legendes-lenoxia.is/top10/q=?uhf4x248-patrouilleurs",
+                "desc": "Classement non officiel des agents ayant marqué l'histoire récente de l'Ordre."
+                },
+                {
+                "title": "Ordre, aide et politique : le rôle d'un Patrouilleur",
+                "url": "www.lenoxia-daily.is/politique/intervention",
+                "desc": "L'Ordre est la branche d'intervention principale de la Coalition des Gouvernements Unis et les Patrouilleurs constituent ... | 11 commentaires."
+                },
+                {
+                "title": "Peut-on vivre dans le Gardien ?",
+                "url": "questions.lenoxia.is/peut-on-vivre-gardien",
+                "desc": "Oui. De nombreux Patrouilleurs résident de façon permanente au sein du quartier général mobile."
+                }
             ]
         }
     ],
     "googleResults": {
         "header": {
             "logo": [
-                { "letter": "G", "color": "#0000cc" },
-                { "letter": "o", "color": "#cc0000" },
-                { "letter": "o", "color": "#cc9900" },
+                { "letter": "W", "color": "#0000cc" },
+                { "letter": "i", "color": "#cc0000" },
+                { "letter": "g", "color": "#cc9900" },
                 { "letter": "g", "color": "#0000cc" },
                 { "letter": "l", "color": "#339900" },
                 { "letter": "e", "color": "#cc0000" }
@@ -174,13 +172,13 @@
             { "label": "Actualités" }
         ],
         "pagerLogo": [
-            { "letter": "G", "color": "#0000cc" },
-            { "letter": "o", "color": "#cc0000" },
-            { "letter": "o", "color": "#cc9900" },
-            { "letter": "o", "color": "#cc9900" },
-            { "letter": "o", "color": "#0000cc" },
-            { "letter": "o", "color": "#339900" },
-            { "letter": "o", "color": "#cc0000" },
+            { "letter": "W", "color": "#0000cc" },
+            { "letter": "i", "color": "#cc0000" },
+            { "letter": "g", "color": "#cc9900" },
+            { "letter": "g", "color": "#cc9900" },
+            { "letter": "g", "color": "#0000cc" },
+            { "letter": "g", "color": "#339900" },
+            { "letter": "g", "color": "#cc0000" },
             { "letter": "g", "color": "#0000cc" },
             { "letter": "l", "color": "#339900" },
             { "letter": "e", "color": "#cc0000" }

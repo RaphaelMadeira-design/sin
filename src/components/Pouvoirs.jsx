@@ -2,11 +2,20 @@ import { useEffect, useState } from 'react'
 import '../styles/Pouvoirs.scss'
 import pouvoirsData from '../data/pouvoirs.json'
 
-// ─── DATA (content lives in ../data/pouvoirs.json) ───────────────
-const { hero: HERO, stats: STATS, hp: HP, energy: ENERGY, spells: SPELLS } = pouvoirsData
+// ─── DATA ────────────────────────────────────────────────────────
+const {
+    hero: HERO,
+    jinsei: JINSEI,
+    stats: STATS,
+    hp: HP,
+    energy: ENERGY,
+    spells: SPELLS,
+    equipement: EQUIPEMENT,
+    artefact: ARTEFACT,
+} = pouvoirsData
 
 // ─── RADAR GEOMETRY ──────────────────────────────────────────────
-const CX = 130, CY = 130, R = 90
+const CX = 130, CY = 130, R = 80
 const ANGLES = STATS.map((_, i) => -Math.PI / 2 + (2 * Math.PI * i) / STATS.length)
 const OUTER = ANGLES.map(a => ({ x: CX + R * Math.cos(a), y: CY + R * Math.sin(a) }))
 const DATA = STATS.map((s, i) => ({
@@ -20,12 +29,23 @@ const polyOf = pts => pts.map(p => `${Math.round(p.x)},${Math.round(p.y)}`).join
 export default function Pouvoirs() {
     const [mounted, setMounted] = useState(false)
     const [bars, setBars] = useState(false)
+    const [openSpell, setOpenSpell] = useState(null)
 
     useEffect(() => {
         const t1 = setTimeout(() => setMounted(true), 60)
         const t2 = setTimeout(() => setBars(true), 520)
         return () => { clearTimeout(t1); clearTimeout(t2) }
     }, [])
+
+    // Close modal on Esc
+    useEffect(() => {
+        if (openSpell === null) return
+        const onKey = (e) => { if (e.key === 'Escape') setOpenSpell(null) }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [openSpell])
+
+    const spell = openSpell !== null ? SPELLS[openSpell] : null
 
     return (
         <div className="moba" data-testid="pouvoirs">
@@ -39,7 +59,7 @@ export default function Pouvoirs() {
                 <header className="moba__topbar">
                     <div className="moba__crumb">
                         <span className="moba__crumb-dot" />
-                        PROFIL \ AGENTS \ <strong>SHURA, ISEN</strong>
+                        PROFIL  AGENTS  <strong>{HERO.lastName}, {HERO.firstName}</strong>
                     </div>
                     <div className="moba__rank">
                         <span className="moba__rank-label">RANG</span>
@@ -51,30 +71,100 @@ export default function Pouvoirs() {
                 {/* Main 3-col grid */}
                 <div className="moba__grid">
 
-                    {/* LEFT: identity + radar */}
+                    {/* LEFT: identity + jinsei + spells */}
                     <section className="moba__col moba__col--left">
+                        {/* Name + rank/alignment/anima */}
                         <div className="moba__name-block">
-                            <h1 className="moba__name" data-testid="hero-name">{HERO.firstName}</h1>
-                            <h2 className="moba__lastname">{HERO.lastName}</h2>
-                            <div className="moba__subtitle">— {HERO.title} —</div>
-                            <div className="moba__affiliation">{HERO.affiliation}</div>
+
+                            <div className="moba__ident-row" data-testid="hero-identity">
+                                <span className="moba__ident">
+                                    <i>CLASSE</i>{HERO.class}
+                                </span>
+                                <span className="moba__ident">
+                                    <i>ALIGNEMENT</i>{HERO.alignment}
+                                </span>
+                                <span className="moba__ident">
+                                    <i>ANIMA</i>{HERO.anima}
+                                </span>
+                            </div>
                         </div>
 
+                        {/* Quick description */}
                         <p className="moba__desc" data-testid="hero-desc">{HERO.description}</p>
 
-                        {/* Identity tags */}
-                        <div className="moba__tags">
-                            <span className="moba__tag"><i>ORIGINE</i>{HERO.origin}</span>
-                            <span className="moba__tag"><i>RÔLE</i>{HERO.role}</span>
-                            <span className="moba__tag"><i>ALIGNEMENT</i>{HERO.alignment}</span>
-                        </div>
-
-                        {/* Radar */}
-                        <div className="moba__panel moba__radar-panel">
+                        {/* Jinsei panel */}
+                        <div className="moba__panel moba__jinsei-panel" data-testid="jinsei-panel">
                             <div className="moba__panel-head">
-                                <span className="moba__panel-title">CARACTÉRISTIQUES</span>
+                                <span className="moba__panel-title">PROFIL JINSÉIQUE</span>
                                 <span className="moba__panel-dot" />
                             </div>
+                            <div className="moba__jinsei-grid">
+                                <div className="moba__jinsei-cell" data-testid="jinsei-qualite">
+                                    <i>QUALITÉ DU JINSEI</i>
+                                    <span>{JINSEI.qualite}</span>
+                                </div>
+                                <div className="moba__jinsei-cell" data-testid="jinsei-quantite">
+                                    <i>QUANTITÉ DU JINSEI</i>
+                                    <span>{JINSEI.quantite}</span>
+                                </div>
+                                <div className="moba__jinsei-cell" data-testid="jinsei-genre">
+                                    <i>GENRE SHOKUNÉEN</i>
+                                    <span>{JINSEI.genreShokuneen}</span>
+                                </div>
+                                <div className="moba__jinsei-cell" data-testid="jinsei-type">
+                                    <i>TYPE JINSÉIQUE</i>
+                                    <span>{JINSEI.typeJinseique}</span>
+                                </div>
+                                <div className="moba__jinsei-cell moba__jinsei-cell--wide" data-testid="jinsei-nature">
+                                    <i>NATURE JINSÉIQUE</i>
+                                    <span>{JINSEI.natureJinseique}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Spells — icon row */}
+                        <div className="moba__panel moba__spells-panel">
+                            <div className="moba__panel-head">
+                                <span className="moba__panel-title">SORTS &amp; TECHNIQUES</span>
+                                <span className="moba__panel-dot" />
+                            </div>
+
+                            <div className="moba__spell-row" data-testid="spells-grid">
+                                {SPELLS.map((sp, i) => (
+                                    <button
+                                        type="button"
+                                        key={sp.key}
+                                        className={`moba__spell-btn ${sp.ult ? 'is-ult' : ''}`}
+                                        style={{ animationDelay: `${0.4 + i * 0.08}s` }}
+                                        onClick={() => setOpenSpell(i)}
+                                        data-testid={`spell-${sp.key.toLowerCase()}`}
+                                        aria-label={`Ouvrir détails ${sp.name}`}
+                                    >
+                                        <span className="moba__spell-glyph">{sp.icon || sp.key}</span>
+                                        <span className="moba__spell-key">{sp.key}</span>
+                                        <span className="moba__spell-tip">{sp.name}</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* CENTER: portrait */}
+                    <section className="moba__col moba__col--center">
+                        <div className="moba__portrait" data-testid="hero-portrait">
+                            <div className="moba__portrait-glow" />
+                            <div className="moba__portrait-frame">
+                                <img src={HERO.portrait} alt={`${HERO.firstName} ${HERO.lastName}`} className="moba__portrait-img" />
+                            </div>
+                            <div className="moba__portrait-base" />
+                        </div>
+                    </section>
+
+                    {/* RIGHT: bars + radar + equipment */}
+                    <section className="moba__col moba__col--right">
+
+                        {/* Radar */}
+                        <div className="moba__radar-bare">
                             <div className="moba__radar-wrap">
                                 <svg className="moba__radar" viewBox="0 0 260 260" data-testid="stats-radar" shapeRendering="crispEdges">
                                     {RINGS.map((s, ri) => (
@@ -107,8 +197,8 @@ export default function Pouvoirs() {
                                         <rect key={i} x={Math.round(p.x) - 3} y={Math.round(p.y) - 3} width="6" height="6" fill={STATS[i].color} />
                                     ))}
                                     {STATS.map((s, i) => {
-                                        const lx = Math.round(CX + (R + 20) * Math.cos(ANGLES[i]))
-                                        const ly = Math.round(CY + (R + 20) * Math.sin(ANGLES[i]))
+                                        const lx = Math.round(CX + (R + 22) * Math.cos(ANGLES[i]))
+                                        const ly = Math.round(CY + (R + 22) * Math.sin(ANGLES[i]))
                                         return (
                                             <g key={i}>
                                                 <text x={lx} y={ly - 4} textAnchor="middle" dominantBaseline="middle"
@@ -125,104 +215,98 @@ export default function Pouvoirs() {
                                 </svg>
                             </div>
                         </div>
-                    </section>
 
-                    {/* CENTER: portrait */}
-                    <section className="moba__col moba__col--center">
-                        <div className="moba__portrait" data-testid="hero-portrait">
-                            <div className="moba__portrait-glow" />
-                            <div className="moba__portrait-frame">
-                                <img src={HERO.portrait} alt={`${HERO.firstName} ${HERO.lastName}`} className="moba__portrait-img" />
-                            </div>
-                            <div className="moba__portrait-watermark">
-                                {HERO.firstName} <br/>{HERO.lastName}
-                            </div>
-                            <div className="moba__portrait-base" />
-                        </div>
-                    </section>
-
-                    {/* RIGHT: bars + spells */}
-                    <section className="moba__col moba__col--right">
-
-                        {/* Vital bars */}
-                        <div className="moba__panel moba__bars-panel">
+                        {/* Equipment & Artifact */}
+                        <div className="moba__panel moba__gear-panel" data-testid="gear-panel">
                             <div className="moba__panel-head">
-                                <span className="moba__panel-title">VITALITÉ</span>
+                                <span className="moba__panel-title">ÉQUIPEMENT &amp; ARTEFACT</span>
                                 <span className="moba__panel-dot" />
                             </div>
 
-                            <div className="moba__bar-block" data-testid="hp-bar">
-                                <div className="moba__bar-row">
-                                    <span className="moba__bar-name">PV</span>
-                                    <span className="moba__bar-val">
-                                        {HP.current}<i>/{HP.max}</i>
-                                    </span>
-                                </div>
-                                <div className="moba__bar-track">
-                                    <div
-                                        className="moba__bar-fill moba__bar-fill--hp"
-                                        style={{
-                                            width: bars ? `${(HP.current / HP.max) * 100}%` : '0%',
-                                        }}
-                                    />
-                                </div>
+                            <div className="moba__gear-section">
+                                <div className="moba__gear-label">ÉQUIPEMENT</div>
+                                <ul className="moba__gear-list" data-testid="equipment-list">
+                                    {EQUIPEMENT.map((it, i) => (
+                                        <li key={i} className="moba__gear-item">
+                                            <span className="moba__gear-bullet">›</span>{it}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
 
-                            <div className="moba__bar-block" data-testid="energy-bar">
-                                <div className="moba__bar-row">
-                                    <span className="moba__bar-name">ÉNERGIE</span>
-                                    <span className="moba__bar-val">
-                                        {ENERGY.current}<i>/{ENERGY.max}</i>
-                                    </span>
+                            <div className="moba__gear-section">
+                                <div className="moba__gear-label">ARTEFACT</div>
+                                <div className="moba__artifact" data-testid="artefact">
+                                    <div className="moba__artifact-name">{ARTEFACT.name}</div>
+                                    <div className="moba__artifact-desc">{ARTEFACT.description}</div>
                                 </div>
-                                <div className="moba__bar-track">
-                                    <div
-                                        className="moba__bar-fill moba__bar-fill--energy"
-                                        style={{
-                                            width: bars ? `${(ENERGY.current / ENERGY.max) * 100}%` : '0%',
-                                        }}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Spells */}
-                        <div className="moba__panel moba__spells-panel">
-                            <div className="moba__panel-head">
-                                <span className="moba__panel-title">CAPACITÉS</span>
-                                <span className="moba__panel-dot" />
-                            </div>
-
-                            <div className="moba__spells" data-testid="spells-grid">
-                                {SPELLS.map((sp, i) => (
-                                    <div
-                                        key={sp.key}
-                                        className={`moba__spell ${sp.ult ? 'is-ult' : ''}`}
-                                        style={{ animationDelay: `${0.4 + i * 0.08}s` }}
-                                        data-testid={`spell-${sp.key.toLowerCase()}`}
-                                    >
-                                        <div className="moba__spell-ico">
-                                            <span className="moba__spell-glyph">{sp.key}</span>
-                                            <span className="moba__spell-key">{sp.key}</span>
-                                        </div>
-                                        <div className="moba__spell-body">
-                                            <div className="moba__spell-head">
-                                                <span className="moba__spell-name">{sp.name}</span>
-                                                <div className="moba__spell-meta">
-                                                    <span className="moba__spell-cost">[{sp.cost}]</span>
-                                                    <span className="moba__spell-dur">{sp.duration}</span>
-                                                </div>
-                                            </div>
-                                            <p className="moba__spell-desc">{sp.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                     </section>
 
                 </div>
             </div>
+
+            {/* ─── SPELL MODAL ─── */}
+            {spell && (
+                <div
+                    className="moba__modal-overlay"
+                    onClick={() => setOpenSpell(null)}
+                    data-testid="spell-modal-overlay"
+                >
+                    <div
+                        className={`moba__modal ${spell.ult ? 'is-ult' : ''}`}
+                        onClick={(e) => e.stopPropagation()}
+                        data-testid="spell-modal"
+                        role="dialog"
+                        aria-modal="true"
+                    >
+                        <div className="moba__modal-head">
+                            <div className="moba__modal-title-wrap">
+                                <span className="moba__modal-key">{spell.key}</span>
+                                <span className="moba__modal-title">{spell.name}</span>
+                            </div>
+                            <button
+                                type="button"
+                                className="moba__modal-close"
+                                onClick={() => setOpenSpell(null)}
+                                data-testid="spell-modal-close"
+                                aria-label="Fermer"
+                            >×</button>
+                        </div>
+
+                        <div className="moba__modal-body">
+                            <div className="moba__modal-glyph">{spell.icon || spell.key}</div>
+
+                            <div className="moba__modal-meta">
+                                <div className="moba__modal-pill moba__modal-pill--cost">
+                                    <i>COÛT</i><span>{spell.cost} JIN</span>
+                                </div>
+                                <div className="moba__modal-pill moba__modal-pill--recharge">
+                                    <i>RECHARGE</i><span>{spell.recharge}</span>
+                                </div>
+                                <div className="moba__modal-pill moba__modal-pill--duration">
+                                    <i>DURÉE</i><span>{spell.duration}</span>
+                                </div>
+                                {spell.range && (
+                                    <div className="moba__modal-pill moba__modal-pill--range">
+                                        <i>PORTÉE</i><span>{spell.range}</span>
+                                    </div>
+                                )}
+                            </div>
+
+                            <p className="moba__modal-desc">{spell.desc}</p>
+
+                            {spell.effect && (
+                                <div className="moba__modal-effect">
+                                    <span className="moba__modal-effect-label">EFFET</span>
+                                    <span className="moba__modal-effect-text">{spell.effect}</span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

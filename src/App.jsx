@@ -87,9 +87,9 @@ const INITIAL_ICONS = [
 
 const WINDOW_CONFIGS = {
     powers: {
-        title: 'Shokan et Techniques - SHOKAN.exe',
-        defaultSize: { width: '80%', height: '90%' },
-        defaultPosition: { x: 40, y: 20 },
+        title: 'Registre interne des Jinsei - CGU',
+        defaultSize: { width: '87%', height: '95%' },
+        defaultPosition: { x: 150, y: 20 },
     },
     explorer: {
         title: 'Explorateur de Fichiers',
@@ -165,7 +165,7 @@ const NO_LOADING_WINDOWS = new Set([
 ])
 
 const LOADING_LABELS = {
-    powers: 'POUVOIRS.exe',
+    powers: 'JINSEI-CGU.exe',
     snake: 'SNAKE.exe',
     jump: 'JUMP.exe',
     intranet : 'CGU-NET v5.04',

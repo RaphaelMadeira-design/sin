@@ -3,13 +3,13 @@
         "text": "nsn",
         "sub": "Nicrosoft®"
     },
-    "promoHtml": "Bénéficiez de <em>10€ de réduction</em> dès <em>30€ d'achat</em><br />cette saison sur <span class=\"link\">wine.com</span>.",
+    "promoHtml": "Bénéficiez de <em>10€ de réduction</em> dès <em>30€ d'achat</em><br />cette saison sur <span class=\"link\">amazor.com</span>.",
     "date": {
-        "month": "AVRIL",
+        "month": "JUIN",
         "day": "17"
     },
     "searchbarLabelHtml": "<strong>RECHERCHER</strong> sur le Web",
-    "mainNav": ["Accueil", "Hotmail", "Recherche", "Shopping", "Argent", "People & Chat"],
+    "mainNav": ["Accueil", "Recherche", "Images", "Shopping", "Monde", "People & Chat"],
     "subNavCols": [
         ["Téléchargement gratuit", "NSN Messenger Service"],
         ["Personnaliser cette page", "Obtenez ce que vous aimez"]
@@ -26,7 +26,7 @@
         "Finance perso", "Radio & Vidéo", "Recherche & École", "Sports", "Voyages", "Femmes"
     ],
     "shortcuts": [
-        { "label": "Billets d'avion" },
+        { "label": "Voyager" },
         { "label": "Acheter musique" },
         { "label": "Jeux gratuits" },
         { "label": "Cartes" },
@@ -39,28 +39,34 @@
         { "label": "Pages perso" },
         { "label": "Plus…", "orange": true }
     ],
-    "feature": {
-        "title": "À la une : Disparition d'un étudiant de Todai",
+    "feature1": {
+        "title": "À la une : Arrestation de Makan Seo et son lien avec les Dents de Sabre",
         "image": {
-            "src": "https://placehold.co/200x130/000040/ffffff?text=NASA",
-            "credit": "NASA",
-            "caption": "Vue de Tokyo depuis l'espace"
+            "src": "/images/news1.jpg",
+            "credit": "ActuNet",
+            "caption": "Les efforts combinés des forces de police de la ville et des patrouilleurs de l'Ordre ont permis l'arrestation de Makan Seo, dirigeant de l'entreprise pharmaceutique 'Evo-solutions'."
+        }
+    },
+    "feature2": {
+        "title": "Flash Info : Trois individus arrêtés par le Protectorat lors d'une opération nocturne à Reach",
+        "image": {
+            "src": "/images/news2.jpg",
+            "caption": "Affaire Seo : trois shokunins ont été arrêté par le Protectorat."
         },
         "alsoTitle": "Aujourd'hui aussi",
         "alsoList": [
             "10 conseils fiscaux",
-            "Ce que les hommes lisent",
+            "Le quotidien d'un shokunin",
             "Voyages hors saison",
-            "Emmenez Barbie en voyage"
+            "Cuisinez comme un chef"
         ]
     },
     "connect": {
         "title": "Restez connecté",
         "list": ["Top téléphones sans fil", "Anxiété en société ?", "Envoyez une e-card"],
         "side": {
-            "img": "https://placehold.co/80x100/dddddd/333333?text=•",
-            "credit": "PhotoDisc",
-            "label": "Guide de drague pour timides"
+            "img": "/images/news3.jpg",
+            "label": "Qheselis : Et si c'était votre partenaire idéal ?"
         }
     },
     "messageCenter": {
@@ -86,8 +92,8 @@
         },
         {
             "head": "Actualités",
-            "h4": "MSNBC News",
-            "items": ["Sommet climatique de Genève — accord signé"]
+            "h4": "Lenoxia News",
+            "items": ["Sommet climatique d'Issitis — accord signé", "Exposition de l'artiste Von Gong à Reach", "Ouverture d'une nouvelle embassade à Erebor"]
         },
         {
             "head": "Recherche locale",

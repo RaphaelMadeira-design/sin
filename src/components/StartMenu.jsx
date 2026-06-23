@@ -13,7 +13,7 @@ const ICONS = {
     media:        'https://win98icons.alexmeub.com/icons/png/wm-4.png',
     cmd:          'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
     browser:      'https://win98icons.alexmeub.com/icons/png/msie1-1.png',
-    msn:          '../public/images/icons/32x32/messenger.png',
+    msn:          '/images/icons/32x32/messenger.png',
     mail:         'https://win98icons.alexmeub.com/icons/png/outlook_express-0.png',
     computer:     'https://win98icons.alexmeub.com/icons/png/computer_explorer-2.png',
     intranet:     'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-3.png'
@@ -45,8 +45,8 @@ export default function StartMenu({ onClose, onOpenWindow, onShutdown }) {
                     </div>
 
                     <div className="start-menu__item" onClick={() => handle('powers')} data-testid="start-menu-powers">
-                        <img src={ICONS.powers} alt="Pouvoirs" />
-                        Rapport - Shokan
+                        <img src={ICONS.powers} alt="Jinsei" />
+                        JINSEI-CGU.exe
                     </div>
 
                     <div className="start-menu__item" onClick={() => handle('browser')} data-testid="start-menu-browser">
