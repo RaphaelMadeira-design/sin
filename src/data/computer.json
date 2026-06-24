@@ -19,26 +19,31 @@
         "drive": "B",
         "icon": "floppyLocked",
         "locked": true,
-        "password": "echo-remanent",
-        "children": ["b_readme", "b_log", "b_keys"]
+        "password": "las-noches",
+        "children": ["b_readme", "b_log", "b_keys", "b_archive"]
     },
     "b_readme": {
         "name": "LISEZ-MOI.txt",
         "parent": "driveB",
         "type": "file",
-        "content": "[ DISQUETTE CHIFFRÉE — ACCÈS AUTORISÉ ]\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBravo. Tu as trouvé le mot de passe.\n\nCette disquette contient les fragments\nqu'on a effacés du dossier officiel.\n\nGarde ça pour toi. Ils nous surveillent.\n\n—K."
-    },
-    "b_log": {
-        "name": "observation.log",
-        "parent": "driveB",
-        "type": "file",
-        "content": ">> LOG D'OBSERVATION — TOKYO SKYRUNNER LEAGUE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n[06/03] Silhouette aux yeux ambrés — toit nord. Immobile.\n[12/03] Disparition de N.K. (Shokan instable, rang E).\n[24/03] Ryohei : \"Ils sélectionnent\". Il a peur.\n[02/04] Plus de signal. Plus de SMS. Plus rien.\n\nConclusion provisoire :\n→ Ce ne sont pas des spectateurs.\n→ Ce sont des recruteurs."
-    },
+        "content": "[ DISQUETTE CHIFFRÉE — ACCÈS PATROUILLEUR ]\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBravo, agent. Tu as trouvé le mot de passe.\n\nCe support contient les fragments expurgés\ndu dossier officiel de l'Ordre de la CGU\nconcernant le sujet : ISEN SHURA.\n\nNe transmets rien sans autorisation directe\ndu Conseil. Et surtout, ne le lis pas à voix\nhaute. Il pourrait entendre.\n\n— Patrouilleur K."  },
+        "b_log": {
+            "name": "rapport_lasnoches.log",
+            "parent": "driveB",
+            "type": "file",
+            "content": ">> RAPPORT DE TERRAIN — DÉSERT BLANC DE LAS NOCHES\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n[ NUIT 001 ] Aucune étoile au-dessus du désert.\nLe soleil ne s'est jamais levé. Comme d'habitude.\n\n[ NUIT 014 ] Forme humaine repérée — assise,\nimmobile, dans le sable blanc. Yeux ouverts.\nPas de pouls cohérent. Pas d'identité.\n\n[ NUIT 015 ] Le sujet a parlé. Une langue que\nje n'avais jamais entendue. Pourtant je l'ai\ncomprise. Je n'ai pas osé répondre.\n\n[ NUIT 022 ] Récupération du sujet. Nom\nprovisoire attribué : ISEN SHURA.\nClassement : ASTRAL — origine indéterminée.\n\nNote : il dort, mais quel que chose en lui\nne dort pas. Garder à distance des miroirs.\n\n— Patrouilleur K., extraction réussie."
+        },
     "b_keys": {
-        "name": "cles_perdues.txt",
+        "name": "fragments_memoire.txt",
         "parent": "driveB",
         "type": "file",
-        "content": "// fragments mémoire — ne pas effacer\n\nID_INTRANET   : kishi.kiba-99\nPASS_INTRANET : ********\nSHOKAN_SIGN   : echo-remanent / pattern 04-A\nSAFE_HOUSE    : Bunkyo, 3-12, 5e étage\nSIGNAL        : si je disparais, va voir Aoi."
+        "content": "// fragments mémoire — ne pas effacer\n\nID_CGU         : isen.shura-007\nPASS_INTRANET  : ********\nSIGNATURE      : Astral / classe non-standard\nORIGINE        : Las Noches (dim. ???)\nÈRE PRÉSUMÉE   : archaïque\nSAFE_HOUSE     : Lenoxia, district nord, 5e étage\nSIGNAL         : si la lumière clignote 3 fois,\n                 quitter la pièce sans courir."
+    },
+    "b_archive": {
+        "name": "archive_archaique.dat",
+        "parent": "driveB",
+        "type": "file",
+        "content": "// VERROUILLAGE PARTIEL — LECTURE FRAGMENTAIRE\n\n███ Il dormait. Le monde dormait avec lui. ███\n██ Quand il s'est réveillé pour la première fois,\nles dieux n'avaient pas encore reçu leur nom. ██\n█ Il a regardé le néant, et le néant lui a █\n█ rendu son regard. Alors il a choisi d'oublier. █\n\n[ FIN DU FRAGMENT — séquence corrompue ]\n\n*\n\nSi tu lis ceci, ne prononce pas son vrai nom.\nIl n'en a pas. Il ne doit pas en avoir."
     },
 
     "driveC": {
@@ -53,12 +58,12 @@
         "name": "WINDOWS",
         "parent": "driveC",
         "icon": "windowsDir",
-        "children": ["win_system", "win_command", "win_wallpaper"]
+        "children": ["win_system", "win_command", "win_wallpaper", "win_fonts"]
     },
-    "win_system": {
+        "win_system": {
         "name": "SYSTEM",
         "parent": "c_windows",
-        "children": ["sys_kernel", "sys_shokan"]
+        "children": ["sys_kernel", "sys_jinsei", "sys_astral"]
     },
     "sys_kernel": {
         "name": "KERNEL32.DLL",
@@ -67,54 +72,134 @@
         "locked": true,
         "content": "// Fichier système — accès refusé\n// Ce fichier ne doit pas être modifié.\n// Ouverture en lecture seule.\n\n[ ERREUR : module verrouillé par le système ]"
     },
-    "sys_shokan": {
-        "name": "SHOKAN.DLL",
+    "sys_jinsei": {
+        "name": "JINSEI.DLL",
         "parent": "win_system",
         "type": "file",
-        "content": "// SHOKAN.DLL — module spirituel\n// version 6.07 — build \"Echo Rémanent\"\n\n> Charge la signature du porteur\n> Mappe les manifestations rémanentes\n> Stabilise la projection\n\nNOTE : NE PAS DÉSACTIVER.\nL'arrêt du module entraîne perte de Shokan."
+        "icon": "sys",
+        "trigger": "jinsei",
+        "content": "// JINSEI.DLL — module vital\n// version ??.?? — build \"Écho Archaïque\"\n\n> ATTENTION : module instable.\n> Ne pas exécuter sans clearance Conseil CGU.\n\n[ ERREUR ] La signature du porteur ne correspond\nplus à aucun registre connu de l'Ordre.\n\n[ ALERTE ] Un autre lit ce fichier en même\ntemps que toi."
+    },
+    "sys_astral": {
+        "name": "ASTRAL.SYS",
+        "parent": "win_system",
+        "type": "file",
+        "locked": true,
+        "content": "// ASTRAL.SYS — pilote dimensionnel\n// Réservé Ordre de la CGU — clearance niv. 9\n\n[ ACCÈS REFUSÉ ]"
     },
     "win_command": {
         "name": "COMMAND.COM",
         "parent": "c_windows",
-        "type": "file",
-        "content": "MS-DOS COMMAND INTERPRETER\n(C) Microsoft Corporation 1981-1998\n\nTape \"exit\" pour revenir à Windows."
+        "type": "shortcut",
+        "target": "cmd",
+        "icon": "bat",
+        "content": "MS-DOS COMMAND INTERPRETER\n(C) Microsoft Corporation 1981-1998"
     },
     "win_wallpaper": {
         "name": "WALLPAPER.BMP",
         "parent": "c_windows",
         "type": "file",
-        "content": "[ Image bitmap 800x600 — Fond d'écran système ]\n\"Tokyo, toits — vue depuis Bunkyo, 3h12 AM\""
+        "content": "[ Image bitmap 800x600 — Fond d'écran système ]\n\"Las Noches, dunes blanches sous une nuit sans étoiles.\""
+    },
+    "win_fonts": {
+        "name": "FONTS",
+        "parent": "c_windows",
+        "children": ["font_archaic"]
+    },
+    "font_archaic": {
+        "name": "ARCHAIC.FON",
+        "parent": "win_fonts",
+        "type": "file",
+        "locked": true,
+        "content": "// Police de caractères pré-archaïque\n// Non reconnue par le système courant.\n\n[ ERREUR : glyphes inconnus ]"
     },
 
     "c_programs": {
         "name": "Program Files",
         "parent": "driveC",
         "icon": "programFiles",
-        "children": ["p_msn", "p_ie", "p_media", "p_notepad"]
+        "children": ["p_powers", "p_mail", "p_browser", "p_msn", "p_intranet", "p_notepad", "p_media", "p_cmd", "p_games"]
+    },
+    "p_powers": {
+        "name": "Registre Jinsei",
+        "parent": "c_programs",
+        "type": "shortcut",
+        "target": "powers",
+        "icon": "https://win98icons.alexmeub.com/icons/png/key_win-0.png"
+    },
+    "p_mail": {
+        "name": "Inlook Express",
+        "parent": "c_programs",
+        "type": "shortcut",
+        "target": "mail",
+        "icon": "https://win98icons.alexmeub.com/icons/png/outlook_express-4.png"
+    },
+    "p_browser": {
+        "name": "Internet Voyager",
+        "parent": "c_programs",
+        "type": "shortcut",
+        "target": "browser",
+        "icon": "https://win98icons.alexmeub.com/icons/png/msie2-1.png"
     },
     "p_msn": {
-        "name": "MSN Messenger",
+        "name": "NSN Messenger",
         "parent": "c_programs",
-        "type": "file",
-        "content": "MSN Messenger 4.7\n(C) Microsoft Corporation 1999\n\nCompte enregistré : koga99@hotmail.jp\nStatut : en ligne\nContacts : 3"
+        "type": "shortcut",
+        "target": "msn",
+        "icon": "/images/icons/32x32/messenger.png"
     },
-    "p_ie": {
-        "name": "Internet Explorer",
+    "p_intranet": {
+        "name": "CGU-NET Intranet",
         "parent": "c_programs",
-        "type": "file",
-        "content": "Internet Explorer 5.5\n(C) Microsoft Corporation 2000\n\nPage d'accueil : kishi-net://intranet.local"
-    },
-    "p_media": {
-        "name": "Windows Media",
-        "parent": "c_programs",
-        "type": "file",
-        "content": "Windows Media Player 6.4\nPour lire un titre, ouvre \"Mes Documents > Musique\"."
+        "type": "shortcut",
+        "target": "intranet",
+        "icon": "https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png"
     },
     "p_notepad": {
-        "name": "Notepad.exe",
+        "name": "Bloc-notes",
         "parent": "c_programs",
         "type": "file",
         "content": "Bloc-notes — éditeur de texte.\nGlisse n'importe quel .txt dessus pour l'ouvrir."
+    },
+    "p_media": {
+        "name": "Vindows Media Player",
+        "parent": "c_programs",
+        "type": "shortcut",
+        "target": "media",
+        "icon": "https://win98icons.alexmeub.com/icons/png/media_player_file-2.png"
+    },
+    "p_cmd": {
+        "name": "Invite de commandes",
+        "parent": "c_programs",
+        "type": "shortcut",
+        "target": "cmd",
+        "icon": "https://win98icons.alexmeub.com/icons/png/console_prompt-0.png"
+    },
+    "p_games": {
+        "name": "Games",
+        "parent": "c_programs",
+        "icon": "folder",
+        "children": ["g_snake", "g_jump", "g_readme"]
+    },
+    "g_snake": {
+        "name": "SNAKE.exe",
+        "parent": "p_games",
+        "type": "shortcut",
+        "target": "snake",
+        "icon": "exe"
+    },
+    "g_jump": {
+        "name": "JUMP.exe",
+        "parent": "p_games",
+        "type": "shortcut",
+        "target": "jump",
+        "icon": "exe"
+    },
+    "g_readme": {
+        "name": "LISEZ-MOI.txt",
+        "parent": "p_games",
+        "type": "file",
+        "content": "Pause autorisée, patrouilleur.\nL'Ordre recommande dix minutes de jeu\npar tranche de quatre heures de veille.\n\n— Service psychologique CGU."
     },
 
     "c_users": {
@@ -125,10 +210,10 @@
     "u_isen": {
         "name": "isen.shura",
         "parent": "c_users",
-        "children": ["u_desktop", "u_mydocs", "u_pwd"]
+        "children": ["u_desktop", "u_mydocs", "u_pwd", "u_souvenirs"]
     },
     "u_admin": {
-        "name": "Admin",
+        "name": "Conseil_CGU",
         "parent": "c_users",
         "icon": "folder",
         "disabled": true
@@ -149,25 +234,31 @@
         "name": "note_perso.txt",
         "parent": "u_isen",
         "type": "file",
-        "content": "Pense-bête —\n\n- Rappeler Aoi avant minuit\n- Vérifier le dossier \"Important\"\n- Ne plus jamais croire Kazuki\n\n— K."
+        "content": "Pense-bête —\n\n- Refuser (encore) la promotion proposée par le Conseil.\n- Ranger l'appartement avant qu'Aoi ne repasse.\n- Acheter du café. Et du sel. Toujours du sel.\n- Ne pas se rendormir dans le miroir.\n\n— Isen."
+    },
+    "u_souvenirs": {
+        "name": "souvenirs_etranges.txt",
+        "parent": "u_isen",
+        "type": "file",
+        "content": "// Notes prises au réveil — à classer plus tard\n\nJe me souviens d'une mer que je n'ai jamais vue.\nJe me souviens d'un nom qu'on n'a jamais prononcé\ndevant moi. Je me souviens d'avoir été quelqu'un\nd'autre, très longtemps, dans un endroit où le\ntemps n'avait pas la même forme.\n\nLe désert blanc. Toujours le désert blanc.\n\nCes souvenirs ne sont pas à moi. Ils sont à\nquelqu'un — quelque chose — qui dort à\nl'intérieur. Qui rêve à travers moi.\n\nParfois je sens qu'il essaye de parler.\nLes écrans clignotent. Les fichiers se\nrenomment tout seuls.\n\nJe ne devrais pas écrire ceci."
     },
 
     "c_autoexec": {
         "name": "AUTOEXEC.BAT",
         "parent": "driveC",
         "type": "file",
-        "content": "@ECHO OFF\nPROMPT $P$G\nPATH=C:\\WINDOWS;C:\\WINDOWS\\COMMAND\nSET TEMP=C:\\WINDOWS\\TEMP\nLH C:\\WINDOWS\\SHOKAN.DLL\nECHO Bienvenue, Kiba."
+        "content": "@ECHO OFF\nPROMPT $P$G\nPATH=C:\\WINDOWS;C:\\WINDOWS\\COMMAND\nSET TEMP=C:\\WINDOWS\\TEMP\nLH C:\\WINDOWS\\SYSTEM\\JINSEI.DLL\nLH C:\\WINDOWS\\SYSTEM\\ASTRAL.SYS\nECHO Bienvenue, Patrouilleur Shura."
     },
     "c_config": {
         "name": "CONFIG.SYS",
         "parent": "driveC",
         "type": "file",
-        "content": "DEVICE=C:\\WINDOWS\\HIMEM.SYS\nDOS=HIGH,UMB\nFILES=60\nBUFFERS=30\nDEVICEHIGH=C:\\WINDOWS\\SHOKAN.SYS /STABLE"
+        "content": "DEVICE=C:\\WINDOWS\\HIMEM.SYS\nDOS=HIGH,UMB\nFILES=60\nBUFFERS=30\nDEVICEHIGH=C:\\WINDOWS\\SYSTEM\\JINSEI.DLL /STABLE\nDEVICEHIGH=C:\\WINDOWS\\SYSTEM\\ASTRAL.SYS /SILENT"
     },
     "c_readme": {
         "name": "LISEZ-MOI.txt",
         "parent": "driveC",
         "type": "file",
-        "content": "PC-98 — Disque local C:\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBienvenue sur la station de Kiba Igarashi.\n\nTu peux explorer librement :\n• WINDOWS — système (sensible, ne pas toucher)\n• Program Files — applications installées\n• Users — profils utilisateurs (Mes Documents s'y trouve)\n\nSi une disquette est insérée dans A:, son contenu\napparaîtra automatiquement. La disquette B: est chiffrée."
+        "content": "PC-98 — Disque local C:\n━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nStation personnelle attribuée au\nPatrouilleur ISEN SHURA — Ordre de la CGU.\n\nVous pouvez explorer librement :\n• WINDOWS — système (sensible, ne pas toucher)\n• Program Files — applications installées\n• Users — profils utilisateurs\n\nSi une disquette est insérée dans A:,\nson contenu apparaîtra automatiquement.\nLa disquette B: est chiffrée.\n\n[ Note : tout incident sur ce poste doit être\nrapporté à votre Administrateur Système dans les 24h. ]"
     }
 }

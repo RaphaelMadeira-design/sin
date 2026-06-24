@@ -26,6 +26,7 @@ import MSNApp from './components/MSN'
 import Sounds from './components/Sounds'
 import Help from './components/Help'
 import Trash from './components/Trash'
+import './styles/Jinsei.scss'
 
 // Hook pour détecter le mode mobile
 function useIsMobile(breakpoint = 768) {
@@ -193,6 +194,18 @@ function App() {
     const [imageToView, setImageToView] = useState(null)
     const [msnOpen, setMsnOpen] = useState(false)
     const [msnMinimized, setMsnMinimized] = useState(false)
+    const [jinseiGlitch, setJinseiGlitch] = useState(false)
+
+    useEffect(() => {
+        const handler = (e) => {
+            const duration = e?.detail?.duration ?? 4000
+            setJinseiGlitch(true)
+            const t = setTimeout(() => setJinseiGlitch(false), duration)
+            return () => clearTimeout(t)
+        }
+        window.addEventListener('isen:jinsei-glitch', handler)
+        return () => window.removeEventListener('isen:jinsei-glitch', handler)
+    }, [])
 
     const handleIconDragEnd = useCallback((id, pos) => {
         setIcons(prev => {
@@ -451,7 +464,7 @@ function App() {
     return (
         <CRTFrame onReset={handleReset}>
             {({ powerOff }) => (
-                <div className="desktop" data-testid="desktop"
+                <div className={`desktop${jinseiGlitch ? ' desktop--jinsei-glitch' : ''}`} data-testid="desktop"
                     onMouseDown={(e) => {
                         if (!e.target.closest('.start-menu') && !e.target.closest('.taskbar')) {
                             setStartOpen(false)
@@ -469,6 +482,21 @@ function App() {
 
                     {/* Scan lines overlay */}
                     <div className="scanlines" />
+
+                    {/* Jinsei glitch overlay */}
+                    {jinseiGlitch && (
+                        <div className="jinsei-overlay" data-testid="jinsei-glitch-overlay">
+                            <div className="jinsei-overlay__noise" />
+                            <div className="jinsei-overlay__bars" />
+                            <div className="jinsei-overlay__rgb" />
+                            <div className="jinsei-overlay__text">
+                                <span className="jinsei-overlay__line">J̷I̷N̸S̴E̵I̷</span>
+                                <span className="jinsei-overlay__line">É̶C̷H̸O̵ ̴A̷R̴C̷H̴A̷Ï̶Q̵U̸E̴</span>
+                                <span className="jinsei-overlay__line">011010 01101001</span>
+                                <span className="jinsei-overlay__line">N̸E̷ ̴R̷É̶V̷E̸I̷L̵L̴E̸ ̷P̴A̸S̵</span>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Watermark */}
                     <div className="desktop__watermark">

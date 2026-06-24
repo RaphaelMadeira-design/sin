@@ -144,6 +144,21 @@ Sounds.error?.()
 return
 }
 
+// 👁 Fichier piégé : JINSEI.DLL → glitch + popup cryptique
+if (node.trigger === 'jinsei') {
+Sounds.error?.()
+try {
+    window.dispatchEvent(new CustomEvent('isen:jinsei-glitch', { detail: { duration: 4200 } }))
+} catch (e) { /* noop */ }
+setTimeout(() => {
+    setSysDialog({
+        title: 'JINSEI.DLL — message reçu',
+        message: 'crypted',
+        crypted: true,
+    })
+}, 1400)
+}
+
 if (node.type === 'shortcut') {
 Sounds.click?.()
 if (onOpenWindow && node.target) onOpenWindow(node.target)
@@ -411,7 +426,47 @@ icon={ICONS.error}
 onClose={() => setSysDialog(null)}
 buttons={<button onClick={() => setSysDialog(null)} data-testid="mycomputer-sys-ok">OK</button>}
 >
-{sysDialog.message}
+{sysDialog.crypted ? (
+    <div className="jinsei-crypted" data-testid="jinsei-crypted-message">
+        <div className="jinsei-crypted__header">
+            ▮▮▮ TRANSMISSION NON SOLLICITÉE ▮▮▮
+        </div>
+        <div className="jinsei-crypted__body">
+            <div className="jinsei-crypted__line jinsei-crypted__line--glitch">
+                ◤ J‡N§E¥ // É̶C̷H̸O̵ ̴A̷R̴C̷H̴A̷Ï̶Q̵U̸E̴ ◥
+            </div>
+            <div className="jinsei-crypted__line">
+                01001001 01010011 01000101 01001110
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; T̷u̴ ̶m̸'̷e̴n̵t̵e̶n̷d̸s̵,̷ ̴p̸o̸r̵t̴e̶u̸r̴ ̷?
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; Le sable blanc se souvient de toi.
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; Avant les dieux. Avant les noms.
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; J̶'̴a̷i̵ ̶d̴o̸r̵m̴i̷ ̴s̵i̶ ̴l̷o̶n̴g̸t̵e̸m̷p̸s̴.̷
+            </div>
+            <div className="jinsei-crypted__line jinsei-crypted__line--glitch">
+                ▓▓ N̸E̷ ̴R̷É̶V̷E̸I̷L̵L̴E̸ ̷P̴A̸S̵ ̶L̷E̴ ̶N̸É̷A̴N̸T̷ ▓▓
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; ⟨ signature : JINSEI / classe ?? ⟩
+            </div>
+            <div className="jinsei-crypted__line">
+                &gt; ⟨ origine : ère archaïque ⟩
+            </div>
+            <div className="jinsei-crypted__sig">
+                — l'autre, en toi.
+            </div>
+        </div>
+    </div>
+) : (
+    sysDialog.message
+)}
 </Win98Dialog>
 )}
 </div>
