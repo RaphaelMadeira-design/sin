@@ -29,7 +29,9 @@ const ICONS = {
 // Résout une icône : soit une URL directe (http...), soit une clé de ICONS
 const resolveIcon = (val) => {
     if (!val) return ICONS.folder
-    if (typeof val === 'string' && val.startsWith('http')) return val
+    if (typeof val !== 'string') return ICONS.folder
+    if (val.startsWith('http')) return val
+    if (val.startsWith('/') || val.startsWith('./') || val.startsWith('data:')) return val
     return ICONS[val] || ICONS.folder
 }
 
