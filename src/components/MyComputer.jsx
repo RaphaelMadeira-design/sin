@@ -152,9 +152,10 @@ try {
 } catch (e) { /* noop */ }
 setTimeout(() => {
     setSysDialog({
-        title: 'JINSEI.DLL — message reçu',
+        title: 'JINSEI.DLL — Erreur critique',
         message: 'crypted',
         crypted: true,
+        hideIcon: true,
     })
 }, 1400)
 }
@@ -422,7 +423,7 @@ Mot de passe incorrect. Réessayez.
 {sysDialog && (
 <Win98Dialog
 title={sysDialog.title}
-icon={ICONS.error}
+icon={sysDialog.hideIcon ? null : ICONS.error}
 onClose={() => setSysDialog(null)}
 buttons={<button onClick={() => setSysDialog(null)} data-testid="mycomputer-sys-ok">OK</button>}
 >
