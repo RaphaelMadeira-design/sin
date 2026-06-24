@@ -87,10 +87,16 @@ function GlitchSearch({ query }) {
 // ── Résultats de recherche Google « vintage » (fin 90's / 2000) ─────────
 
 const TARGET_MAP = { wiki: WIKI_URL, news: NEWS_URL }
+
 const SEARCH_TOPICS = searchData.topics.map(t => ({
     ...t,
     real: { ...t.real, target: TARGET_MAP[t.real.target] || t.real.target },
 }))
+
+const normalizeText = (str) =>
+    str.toLowerCase()
+       .normalize('NFD')
+       .replace(/[\u0300-\u036f]/g, '')
 
 function matchTopic(query) {
     const q = query.trim().toLowerCase()
@@ -101,10 +107,71 @@ function matchTopic(query) {
     return null
 }
 
+// ─────────────────────────────────────────────
+// 🧭 CENTRAL SEARCH / ROUTING ENGINE
+// ─────────────────────────────────────────────
+
+const buildGoogleUrl = (q) =>
+    `http://www.google.jp/search?q=${encodeURIComponent(q).replace(/%20/g, '+')}`
+
+const isSecretSearch = (query, SECRET_SEARCHES) => {
+    const q = query.trim().toLowerCase()
+    return SECRET_SEARCHES.some(s => q.includes(s.toLowerCase()))
+}
+
+function resolveInput(raw, ctx) {
+    const {
+        SECRET_SEARCHES,
+        SECRET_URLS,
+        EXACT_URL_MAP,
+        normalizeUrl,
+        matchTopic,
+    } = ctx
+
+    const trimmed = raw.trim()
+    const lower = trimmed.toLowerCase()
+    const norm = normalizeUrl(raw)
+
+    // 1. SECRET SEARCH (priorité max)
+    if (isSecretSearch(trimmed, SECRET_SEARCHES)) {
+        return { type: 'GLITCH_SEARCH', query: trimmed }
+    }
+
+    // 2. SECRET URL
+    if (SECRET_URLS.includes(lower)) {
+        return { type: 'OPEN_SECRET' }
+    }
+
+    // 3. EXACT TAB ROUTE
+    const tabId = EXACT_URL_MAP[norm]
+    if (tabId) {
+        return { type: 'OPEN_TAB', tabId }
+    }
+
+    // 4. GOOGLE TOPIC
+    const topic = matchTopic(trimmed)
+    if (topic) {
+        return {
+            type: 'GOOGLE_RESULTS',
+            query: trimmed,
+            topic
+        }
+    }
+
+    // 5. DEFAULT
+    return {
+        type: 'GOOGLE_NORESULT',
+        query: trimmed
+    }
+}
+
 function FakeGoogleResults({ topic, query, onResultClick, onSearch }) {
     const [q, setQ] = useState(query)
     useEffect(() => { setQ(query) }, [query])
-    const submit = () => { if (q.trim()) onSearch(q) }
+    const submit = () => { 
+        if (q.trim()) 
+        onSearch(q) 
+    }
     const gr = searchData.googleResults
     return (
         <div className="browser__gresults">
@@ -206,7 +273,7 @@ function Page404({ url }) {
     )
 }
 
-function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
+function FakeMSN({ onSearch, onOpenNews }) {
     const [query, setQuery] = useState('')
     const [hotmailUser, setHotmailUser] = useState('')
     const [hotmailPass, setHotmailPass] = useState('')
@@ -214,11 +281,9 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
     const handleSearch = () => {
         const q = query.trim()
         if (!q) return
+
         const topic = matchTopic(q)
-        if (topic) { onNormalSearch(q, topic); return }
-        const lower = q.toLowerCase()
-        if (SECRET_SEARCHES.some(s => lower.includes(s))) onSecretSearch(q)
-        else onNormalSearch(q, null)
+        onSearch(q, topic)
     }
 
     const m = homeData
@@ -411,7 +476,9 @@ function FakeMSN({ onNormalSearch, onSecretSearch, onOpenNews }) {
 function FakeGoogleNoResult({ query, onSearch }) {
     const [q, setQ] = useState(query)
     useEffect(() => { setQ(query) }, [query])
-    const submit = () => { if (q.trim()) onSearch(q) }
+    const submit = () => {
+        if (q.trim()) onSearch(q)
+    }
     const gr = searchData.googleResults
     const nr = searchData.noResult
     return (
@@ -793,6 +860,80 @@ export default function Browser() {
     const [status, setStatus] = useState('Terminé')
     const [addressSaved, setAddressSaved] = useState('')
 
+    const openTab = useCallback((id) => {
+        setOpenedTabs(prev => (prev.includes(id) ? prev : [...prev, id]))
+    }, [])
+
+    // ── Glitch helper ──────────────────────────────────────────────
+    const triggerGlitch = useCallback((cb) => {
+        setGlitching(true)
+        setStatus('Chargement...')
+        setTimeout(() => {
+            setGlitching(false)
+            setStatus('Terminé')
+            cb()
+        }, 650)
+    }, [])
+
+    const handleInput = useCallback((raw) => {
+        triggerGlitch(() => {
+
+            const action = resolveInput(raw, {
+                SECRET_SEARCHES,
+                SECRET_URLS,
+                EXACT_URL_MAP,
+                normalizeUrl,
+                matchTopic,
+            })
+
+            switch (action.type) {
+
+                case 'GLITCH_SEARCH':
+                    setGlitchQuery(action.query)
+                    setContentMode('glitch-search')
+                    break
+
+                case 'OPEN_SECRET':
+                    setSecretTabVisible(true)
+                    setActiveTab('secret')
+                    setAddressValue('isen://core')
+                    setContentMode('normal')
+                    break
+
+                case 'OPEN_TAB':
+                    openTab(action.tabId)
+                    setActiveTab(action.tabId)
+                    setContentMode('normal')
+                    setAddressValue(TAB_DEFS[action.tabId].url)
+                    break
+
+                case 'GOOGLE_RESULTS':
+                    openTab('google')
+                    setActiveTab('google')
+                    setSearchQuery(action.query)
+                    setSearchTopic(action.topic)
+                    setContentMode('google-results')
+                    setAddressValue(buildGoogleUrl(action.query))
+                    break
+
+                case 'GOOGLE_NORESULT':
+                    openTab('google')
+                    setActiveTab('google')
+                    setSearchQuery(action.query)
+                    setSearchTopic(null)
+                    setContentMode('google-noresult')
+                    setAddressValue(buildGoogleUrl(action.query))
+                    break
+                }
+            })
+        }, [
+        triggerGlitch,
+        openTab,
+        SECRET_SEARCHES,
+        SECRET_URLS,
+        EXACT_URL_MAP,
+    ])
+
     const handleAddressFocus = () => {
         setAddressSaved(addressValue)
         setAddressValue('')
@@ -805,10 +946,6 @@ export default function Browser() {
         ...openedTabs.map(id => TAB_DEFS[id]),
         ...(secretTabVisible ? [secretData.secretTab] : []),
     ]
-
-    const openTab = useCallback((id) => {
-        setOpenedTabs(prev => (prev.includes(id) ? prev : [...prev, id]))
-    }, [])
 
     const closeTab = (id) => {
         if (id === 'google') return
@@ -843,51 +980,9 @@ export default function Browser() {
         return () => window.removeEventListener('keydown', onKey)
     }, [konamiIdx])
 
-    // ── Glitch helper ──────────────────────────────────────────────
-    const triggerGlitch = useCallback((cb) => {
-        setGlitching(true)
-        setStatus('Chargement...')
-        setTimeout(() => {
-            setGlitching(false)
-            setStatus('Terminé')
-            cb()
-        }, 650)
-    }, [])
-
     // ── Navigation barre d'adresse ─────────────────────────────────
     const normalizeUrl = (s) =>
         s.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/+$/, '')
-
-    const navigate = useCallback((raw) => {
-        const trimmedLow = raw.trim().toLowerCase()
-        const norm = normalizeUrl(raw)
-        triggerGlitch(() => {
-            if (SECRET_URLS.includes(trimmedLow)) {
-                setSecretTabVisible(true)
-                setActiveTab('secret')
-                setAddressValue('isen://core')
-                setContentMode('normal')
-                return
-            }
-            const tabId = EXACT_URL_MAP[norm]
-            if (tabId) {
-                openTab(tabId)
-                setActiveTab(tabId)
-                setContentMode('normal')
-                setAddressValue(TAB_DEFS[tabId].url)
-                return
-            }
-            const topic = matchTopic(raw)
-            openTab('google')
-            setActiveTab('google')
-            setSearchQuery(raw)
-            setSearchTopic(topic)
-            setContentMode(topic ? 'google-results' : 'google-noresult')
-            setAddressValue(
-                `http://www.google.jp/search?q=${encodeURIComponent(raw).replace(/%20/g, '+')}`
-            )
-        })
-    }, [triggerGlitch, openTab])
 
     // ── Logo ⊙ clics (×3 = onglet secret) ─────────────────────────
     const handleLogoClick = () => {
@@ -902,28 +997,6 @@ export default function Browser() {
                 setContentMode('normal')
             })
         }
-    }
-
-    // ── Recherche "normale" ────────────────────────────────────────
-    const handleNormalSearch = (query, topic) => {
-        triggerGlitch(() => {
-            setSearchQuery(query)
-            setSearchTopic(topic)
-            setContentMode(topic ? 'google-results' : 'google-noresult')
-        })
-    }
-
-    // ── Recherche secrète ───────────────────────────────────
-    const handleSecretSearch = (query) => {
-        triggerGlitch(() => {
-            setGlitchQuery(query)
-            setContentMode('glitch-search')
-        })
-    }
-
-    // ── Clic sur un résultat réel ──────────────────────────────────
-    const handleResultClick = (targetUrl) => {
-        navigate(targetUrl)
     }
 
     // ── Ouverture onglet ActuNet depuis MSN ────────────────────────
@@ -950,9 +1023,9 @@ export default function Browser() {
         if (contentMode === 'glitch-search')
             return <GlitchSearch query={glitchQuery} />
         if (contentMode === 'google-results' && searchTopic)
-            return <FakeGoogleResults topic={searchTopic} query={searchQuery} onResultClick={handleResultClick} onSearch={navigate} />
+            return <FakeGoogleResults topic={searchTopic} query={searchQuery} onResultClick={handleInput} onSearch={handleInput}/>
         if (contentMode === 'google-noresult')
-            return <FakeGoogleNoResult query={searchQuery} onSearch={navigate} />
+            return <FakeGoogleNoResult query={searchQuery} onSearch={handleInput} />
         if (activeTab === 'secret')
             return <SecretPage />
         if (activeTab === 'wiki')
@@ -961,8 +1034,7 @@ export default function Browser() {
             return <FakeNewsPortal />
         return (
             <FakeMSN
-                onNormalSearch={handleNormalSearch}
-                onSecretSearch={handleSecretSearch}
+                onSearch={handleInput}
                 onOpenNews={handleOpenNews}
             />
         )
@@ -978,7 +1050,7 @@ export default function Browser() {
                         onClick={() => { setContentMode('normal'); setActiveTab('google'); setAddressValue(TAB_DEFS.google.url) }}>◄</button>
                     <button className="browser__nav-btn" title="Suivant">►</button>
                     <button className="browser__nav-btn browser__nav-btn--stop" title="Arrêter">✕</button>
-                    <button className="browser__nav-btn" title="Actualiser" onClick={() => navigate(addressValue)}>↺</button>
+                    <button className="browser__nav-btn" title="Actualiser" onClick={() => handleInput(addressValue)}>↺</button>
                     <button className="browser__nav-btn" title="Accueil" onClick={() => handleTabChange('google')}>🏠</button>
                 </div>
                 <div className="browser__address-bar">
@@ -990,13 +1062,13 @@ export default function Browser() {
                             className="browser__address-text"
                             value={addressValue}
                             onChange={e => setAddressValue(e.target.value)}
-                            onKeyDown={e => e.key === 'Enter' && navigate(addressValue)}
+                            onKeyDown={e => e.key === 'Enter' && handleInput(addressValue)}
                             onFocus={handleAddressFocus}
                             onBlur={handleAddressBlur}
                             spellCheck={false}
                         />
                     </div>
-                    <button className="browser__address-go" onClick={() => navigate(addressValue)}>OK</button>
+                    <button className="browser__address-go" onClick={() => handleInput(addressValue)}>OK</button>
                 </div>
             </div>
 

@@ -6,9 +6,9 @@
             "resultsCount": "2 340",
             "seconds": "0,24",
             "real": {
-                "title": "Isen Shura — Wikipédia, l'encyclopédie libre",
-                "url": "jp.wikipedia.org/wiki/Isen_Shura",
-                "target": "",
+                "title": "Isen Shura — Shokupédia, l'encyclopédie libre",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura",
+                "target": "wiki",
                 "desc": "Isen Shura (五十嵐 伊勢), aussi appelé Kōga ou « Croc Écarlate », est un chevalier de rang E issu de la souche inférieure du clan Magaishi. Membre des Bunkyo City Bolts ..."
             },
             "fakes": [
@@ -50,8 +50,8 @@
             "resultsCount": "918",
             "seconds": "0,31",
             "real": {
-                "title": "Coalition des Gouvernements Unis — mentionnée sur la fiche Isen Shura (Wikipédia)",
-                "url": "jp.wikipedia.org/wiki/Isen_Shura#CGU",
+                "title": "Coalition des Gouvernements Unis — mentionnée sur la fiche Isen Shura (Shokupédia)",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura#CGU",
                 "target": "wiki",
                 "desc": "Organisation intergouvernementale chargée de maintenir la paix et lutter contre la Corruption sur Lenoxia."
             },
@@ -104,8 +104,8 @@
             "resultsCount": "2 904",
             "seconds": "0,22",
             "real": {
-                "title": "L'Ordre — mentionné sur la fiche Isen Shura (Wikipédia)",
-                "url": "jp.wikipedia.org/wiki/Isen_Shura#Ordre",
+                "title": "L'Ordre — mentionné sur la fiche Isen Shura (Shokupédia)",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura#Ordre",
                 "target": "wiki",
                 "desc": "Branche d'intervention principale de la Coalition des Gouvernements Unis. Isen Shura y officie comme agent de terrain."
             },
