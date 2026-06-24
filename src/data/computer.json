@@ -51,7 +51,7 @@
         "parent": "computer",
         "drive": "C",
         "icon": "hdd",
-        "children": ["c_windows", "c_programs", "c_users", "c_autoexec", "c_config", "c_readme"]
+        "children": ["c_windows", "c_programs", "c_users", "c_config", "c_readme"]
     },
 
     "c_windows": {
@@ -78,7 +78,7 @@
         "type": "file",
         "icon": "sys",
         "trigger": "jinsei",
-        "content": "// JINSEI.DLL — module vital\n// version ??.?? — build \"Écho Archaïque\"\n\n> ATTENTION : module instable.\n> Ne pas exécuter sans clearance Conseil CGU.\n\n[ ERREUR ] La signature du porteur ne correspond\nplus à aucun registre connu de l'Ordre.\n\n[ ALERTE ] Un autre lit ce fichier en même\ntemps que toi."
+        "content": "// JINSEI.DLL — module ██████\n// version ██.██  — build \"Écho █████████\"\n\n> ATTENTION : module extrêmement instable\n> Exécution prohibée\n> Lecture impossible\n\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ALERTE ] Ce fichier est déjà ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert\n[ ERREUR ] Ce fichier ne peut pas être ouvert"
     },
     "sys_astral": {
         "name": "ASTRAL.SYS",
@@ -125,7 +125,7 @@
         "parent": "c_programs",
         "type": "shortcut",
         "target": "powers",
-        "icon": "https://win98icons.alexmeub.com/icons/png/key_win-0.png"
+        "icon": "https://win98icons.alexmeub.com/icons/png/shell_window5-0.png"
     },
     "p_mail": {
         "name": "Inlook Express",
@@ -146,7 +146,7 @@
         "parent": "c_programs",
         "type": "shortcut",
         "target": "msn",
-        "icon": "/images/icons/32x32/messenger.png"
+        "icon": "msn"
     },
     "p_intranet": {
         "name": "CGU-NET Intranet",
@@ -166,7 +166,7 @@
         "parent": "c_programs",
         "type": "shortcut",
         "target": "media",
-        "icon": "https://win98icons.alexmeub.com/icons/png/media_player_file-2.png"
+        "icon": "https://win98icons.alexmeub.com/icons/png/wm-2.png"
     },
     "p_cmd": {
         "name": "Invite de commandes",
@@ -178,30 +178,23 @@
     "p_games": {
         "name": "Games",
         "parent": "c_programs",
-        "icon": "folder",
-        "children": ["g_snake", "g_jump", "g_readme"]
+        "icon": "games",
+        "children": ["g_snake", "g_jump"]
     },
     "g_snake": {
         "name": "SNAKE.exe",
         "parent": "p_games",
         "type": "shortcut",
         "target": "snake",
-        "icon": "exe"
+        "icon": "game"
     },
     "g_jump": {
         "name": "JUMP.exe",
         "parent": "p_games",
         "type": "shortcut",
         "target": "jump",
-        "icon": "exe"
+        "icon": "game"
     },
-    "g_readme": {
-        "name": "LISEZ-MOI.txt",
-        "parent": "p_games",
-        "type": "file",
-        "content": "Pause autorisée, patrouilleur.\nL'Ordre recommande dix minutes de jeu\npar tranche de quatre heures de veille.\n\n— Service psychologique CGU."
-    },
-
     "c_users": {
         "name": "Users",
         "parent": "driveC",
@@ -210,7 +203,7 @@
     "u_isen": {
         "name": "isen.shura",
         "parent": "c_users",
-        "children": ["u_desktop", "u_mydocs", "u_pwd", "u_souvenirs"]
+        "children": ["u_desktop", "u_mydocs", "u_souvenirs"]
     },
     "u_admin": {
         "name": "Conseil_CGU",
@@ -230,24 +223,11 @@
         "type": "shortcut",
         "target": "explorer"
     },
-    "u_pwd": {
-        "name": "note_perso.txt",
-        "parent": "u_isen",
-        "type": "file",
-        "content": "Pense-bête —\n\n- Refuser (encore) la promotion proposée par le Conseil.\n- Ranger l'appartement avant qu'Aoi ne repasse.\n- Acheter du café. Et du sel. Toujours du sel.\n- Ne pas se rendormir dans le miroir.\n\n— Isen."
-    },
     "u_souvenirs": {
         "name": "souvenirs_etranges.txt",
         "parent": "u_isen",
         "type": "file",
         "content": "// Notes prises au réveil — à classer plus tard\n\nJe me souviens d'une mer que je n'ai jamais vue.\nJe me souviens d'un nom qu'on n'a jamais prononcé\ndevant moi. Je me souviens d'avoir été quelqu'un\nd'autre, très longtemps, dans un endroit où le\ntemps n'avait pas la même forme.\n\nLe désert blanc. Toujours le désert blanc.\n\nCes souvenirs ne sont pas à moi. Ils sont à\nquelqu'un — quelque chose — qui dort à\nl'intérieur. Qui rêve à travers moi.\n\nParfois je sens qu'il essaye de parler.\nLes écrans clignotent. Les fichiers se\nrenomment tout seuls.\n\nJe ne devrais pas écrire ceci."
-    },
-
-    "c_autoexec": {
-        "name": "AUTOEXEC.BAT",
-        "parent": "driveC",
-        "type": "file",
-        "content": "@ECHO OFF\nPROMPT $P$G\nPATH=C:\\WINDOWS;C:\\WINDOWS\\COMMAND\nSET TEMP=C:\\WINDOWS\\TEMP\nLH C:\\WINDOWS\\SYSTEM\\JINSEI.DLL\nLH C:\\WINDOWS\\SYSTEM\\ASTRAL.SYS\nECHO Bienvenue, Patrouilleur Shura."
     },
     "c_config": {
         "name": "CONFIG.SYS",

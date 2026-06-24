@@ -4,63 +4,60 @@ import treeData from '../data/computer.json'
 import '../styles/MyComputer.scss'
 
 const ICONS = {
-myComputer:   'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
-hdd:          'https://win98icons.alexmeub.com/icons/png/hard_disk_drive-4.png',
-floppy:       'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
-floppyLocked: 'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
-controlPanel: 'https://win98icons.alexmeub.com/icons/png/directory_control_panel-4.png',
-folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
-explorer:     'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
-windowsDir:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-5.png',
-programFiles: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
-txt:          'https://win98icons.alexmeub.com/icons/png/notepad-4.png',
-exe:          'https://win98icons.alexmeub.com/icons/png/executable-0.png',
-bat:          'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
-sys:          'https://win98icons.alexmeub.com/icons/png/message_file-0.png',
-warning:      'https://win98icons.alexmeub.com/icons/png/msg_warning-0.png',
-error:        'https://win98icons.alexmeub.com/icons/png/msg_error-0.png',
-info:         'https://win98icons.alexmeub.com/icons/png/msg_information-0.png',
-key:          'https://win98icons.alexmeub.com/icons/png/key_win-0.png',
+    myComputer:   'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png',
+    hdd:          'https://win98icons.alexmeub.com/icons/png/hard_disk_drive-4.png',
+    floppy:       'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
+    floppyLocked: 'https://win98icons.alexmeub.com/icons/png/floppy_drive_3_5_cool-0.png',
+    controlPanel: 'https://win98icons.alexmeub.com/icons/png/directory_control_panel-4.png',
+    folder:       'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
+    explorer:     'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
+    windowsDir:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-5.png',
+    programFiles: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
+    txt:          'https://win98icons.alexmeub.com/icons/png/notepad-4.png',
+    exe:          'https://win98icons.alexmeub.com/icons/png/executable-0.png',
+    bat:          'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
+    sys:          'https://win98icons.alexmeub.com/icons/png/message_file-0.png',
+    warning:      'https://win98icons.alexmeub.com/icons/png/msg_warning-0.png',
+    error:        'https://win98icons.alexmeub.com/icons/png/msg_error-0.png',
+    info:         'https://win98icons.alexmeub.com/icons/png/msg_information-0.png',
+    key:          'https://win98icons.alexmeub.com/icons/png/key_win-0.png',
+    msn:          '/images/icons/32x32/messenger.png',
+    games:        'https://win98icons.alexmeub.com/icons/png/joystick-2.png',
+    game:         'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
 }
 
 // Résout une icône : soit une URL directe (http...), soit une clé de ICONS
 const resolveIcon = (val) => {
-if (!val) return ICONS.folder
-if (typeof val === 'string' && val.startsWith('http')) return val
-return ICONS[val] || ICONS.folder
+    if (!val) return ICONS.folder
+    if (typeof val === 'string' && val.startsWith('http')) return val
+    return ICONS[val] || ICONS.folder
 }
 
-/* -----------------------------------------------------------
-Helpers
------------------------------------------------------------ */
 const fileIcon = (node) => {
-const name = node.name || ''
-if (name.endsWith('.BAT') || name.endsWith('.bat') || name.endsWith('.COM')) return ICONS.bat
-if (name.endsWith('.exe') || name.endsWith('.EXE')) return ICONS.exe
-if (name.endsWith('.SYS') || name.endsWith('.DLL') || name.endsWith('.dll') || name.endsWith('.sys')) return ICONS.sys
-if (name.endsWith('.log')) return ICONS.sys
-return ICONS.txt
+    const name = node.name || ''
+    if (name.endsWith('.BAT') || name.endsWith('.bat') || name.endsWith('.COM')) return ICONS.bat
+    if (name.endsWith('.exe') || name.endsWith('.EXE')) return ICONS.exe
+    if (name.endsWith('.SYS') || name.endsWith('.DLL') || name.endsWith('.dll') || name.endsWith('.sys')) return ICONS.sys
+    if (name.endsWith('.log')) return ICONS.sys
+    return ICONS.txt
 }
 
 const nodeIcon = (id, tree) => {
-const n = tree[id]
-if (!n) return ICONS.folder
-if (n.icon) return resolveIcon(n.icon)
-if (n.type === 'file') return fileIcon(n)
-if (n.type === 'shortcut') return ICONS.explorer
-return ICONS.folder
+    const n = tree[id]
+    if (!n) return ICONS.folder
+    if (n.icon) return resolveIcon(n.icon)
+    if (n.type === 'file') return fileIcon(n)
+    if (n.type === 'shortcut') return ICONS.explorer
+    return ICONS.folder
 }
 
-const getAddress = (history, tree) =>
-history
-.map(id => {
-const n = tree[id]
-if (!n) return id
-if (n.isRoot) return 'PC'
-if (n.drive) return `${n.drive}:`
-return n.name
-})
-.join('\\')
+const getAddress = (history, tree) => history.map(id => {
+    const n = tree[id]
+    if (!n) return id
+    if (n.isRoot) return 'PC'
+    if (n.drive) return `${n.drive}:`
+    return n.name
+}).join('\\')
 
 function Win98Dialog({ icon, title, children, onClose, buttons }) {
     return (
@@ -97,68 +94,65 @@ function Win98Dialog({ icon, title, children, onClose, buttons }) {
     )
 }
 
-/* -----------------------------------------------------------
-Composant principal MyComputer
------------------------------------------------------------ */
 export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons = [] }) {
 // Construit l'arborescence à partir du JSON, en injectant les raccourcis
 // du Bureau de l'utilisateur (synchronisés avec les icônes du bureau).
-const tree = useMemo(() => {
-const t = { ...treeData }
-const deskChildren = desktopIcons.map(ic => `desk_${ic.id}`)
-t.u_desktop = { ...t.u_desktop, children: deskChildren }
-desktopIcons.forEach(ic => {
-t[`desk_${ic.id}`] = {
-name: ic.label,
-parent: 'u_desktop',
-type: 'shortcut',
-target: ic.id,
-icon: ic.icon,
-}
-})
-return t
-}, [desktopIcons])
-const [history, setHistory] = useState(['computer'])
-const [selected, setSelected] = useState(null)
-const [unlocked, setUnlocked] = useState(false)
+    const tree = useMemo(() => {
+        const t = { ...treeData }
+        const deskChildren = desktopIcons.map(ic => `desk_${ic.id}`)
+        t.u_desktop = { ...t.u_desktop, children: deskChildren }
+        desktopIcons.forEach(ic => {
+            t[`desk_${ic.id}`] = {
+                name: ic.label,
+                parent: 'u_desktop',
+                type: 'shortcut',
+                target: ic.id,
+                icon: ic.icon,
+            }
+        })
+        return t
+    }, [desktopIcons])
 
-const [pwdDialog, setPwdDialog] = useState(false)
-const [pwdInput, setPwdInput]   = useState('')
-const [pwdError, setPwdError]   = useState(false)
-const [floppyDialog, setFloppyDialog] = useState(false)
-const [sysDialog, setSysDialog] = useState(null)
+    const [history, setHistory] = useState(['computer'])
+    const [selected, setSelected] = useState(null)
+    const [unlocked, setUnlocked] = useState(false)
+    const [pwdDialog, setPwdDialog] = useState(false)
+    const [pwdInput, setPwdInput]   = useState('')
+    const [pwdError, setPwdError]   = useState(false)
+    const [floppyDialog, setFloppyDialog] = useState(false)
+    const [sysDialog, setSysDialog] = useState(null)
 
-const pwdRef = useRef(null)
-useEffect(() => { if (pwdDialog && pwdRef.current) pwdRef.current.focus() }, [pwdDialog])
+    const pwdRef = useRef(null)
+    useEffect(() => { if (pwdDialog && pwdRef.current) pwdRef.current.focus() }, [pwdDialog])
 
-const currentId = history[history.length - 1]
-const current = tree[currentId]
+    const currentId = history[history.length - 1]
+    const current = tree[currentId]
 
-const enter = (id) => {
-const node = tree[id]
-if (!node) return
+    const enter = (id) => {
+        const node = tree[id]
+        if (!node) return
 
-// 🚫 Élément désactivé (ex: utilisateur Admin)
-if (node.disabled) {
-Sounds.error?.()
-return
-}
+        // 🚫 Élément désactivé (ex: utilisateur Admin)
+        if (node.disabled) {
+            Sounds.error?.()
+            return
+        }
 
-// 👁 Fichier piégé : JINSEI.DLL → glitch + popup cryptique
-if (node.trigger === 'jinsei') {
-Sounds.error?.()
-try {
-    window.dispatchEvent(new CustomEvent('isen:jinsei-glitch', { detail: { duration: 4200 } }))
-} catch (e) { /* noop */ }
-setTimeout(() => {
-    setSysDialog({
-        title: 'JINSEI.DLL — Erreur critique',
-        message: 'crypted',
-        crypted: true,
-        hideIcon: true,
-    })
-}, 1400)
-}
+        // 👁 Fichier piégé : JINSEI.DLL → glitch + popup cryptique
+        if (node.trigger === 'jinsei') {
+            Sounds.error?.()
+            try {
+                window.dispatchEvent(new CustomEvent('isen:jinsei-glitch', { detail: { duration: 4200 } }))
+            } catch (e) { /* noop */ }
+            setTimeout(() => {
+                setSysDialog({
+                    title: 'JINSEI.DLL — Erreur critique',
+                    message: 'crypted',
+                    crypted: true,
+                    hideIcon: true,
+                })
+            }, 1400)
+        }
 
 if (node.type === 'shortcut') {
 Sounds.click?.()

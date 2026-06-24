@@ -10,7 +10,7 @@ const ICONS = {
     snake:        'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
     jump:         'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
     games:        'https://win98icons.alexmeub.com/icons/png/joystick-2.png',
-    media:        'https://win98icons.alexmeub.com/icons/png/wm-4.png',
+    media:        'https://win98icons.alexmeub.com/icons/png/wm-2.png',
     cmd:          'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
     browser:      'https://win98icons.alexmeub.com/icons/png/msie1-1.png',
     msn:          '/images/icons/32x32/messenger.png',
