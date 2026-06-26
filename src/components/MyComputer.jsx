@@ -24,9 +24,9 @@ const ICONS = {
     msn:          '/images/icons/32x32/messenger.png',
     games:        'https://win98icons.alexmeub.com/icons/png/joystick-2.png',
     game:         'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',
+    image:        'https://win98icons.alexmeub.com/icons/png/kodak_imaging_file-0.png'
 }
 
-// Résout une icône : soit une URL directe (http...), soit une clé de ICONS
 const resolveIcon = (val) => {
     if (!val) return ICONS.folder
     if (typeof val !== 'string') return ICONS.folder
@@ -40,6 +40,7 @@ const fileIcon = (node) => {
     if (name.endsWith('.BAT') || name.endsWith('.bat') || name.endsWith('.COM')) return ICONS.bat
     if (name.endsWith('.exe') || name.endsWith('.EXE')) return ICONS.exe
     if (name.endsWith('.SYS') || name.endsWith('.DLL') || name.endsWith('.dll') || name.endsWith('.sys')) return ICONS.sys
+    if (name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.png') || name.endsWith('.bmp')) return ICONS.image
     if (name.endsWith('.log')) return ICONS.sys
     return ICONS.txt
 }
@@ -49,6 +50,7 @@ const nodeIcon = (id, tree) => {
     if (!n) return ICONS.folder
     if (n.icon) return resolveIcon(n.icon)
     if (n.type === 'file') return fileIcon(n)
+    if (n.type === 'image') return ICONS.image
     if (n.type === 'shortcut') return ICONS.explorer
     return ICONS.folder
 }
@@ -96,7 +98,7 @@ function Win98Dialog({ icon, title, children, onClose, buttons }) {
     )
 }
 
-export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons = [] }) {
+export default function MyComputer({ onOpenNotepad, onOpenWindow, onOpenImage, desktopIcons = [] }) {
     const tree = useMemo(() => {
         const t = { ...treeData }
         const deskChildren = desktopIcons.map(ic => `desk_${ic.id}`)
@@ -132,13 +134,11 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons =
         const node = tree[id]
         if (!node) return
 
-        // 🚫 Élément désactivé (ex: utilisateur Admin)
         if (node.disabled) {
             Sounds.error?.()
             return
         }
 
-        // 👁 Fichier piégé : JINSEI.DLL → glitch + popup cryptique
         if (node.trigger === 'jinsei') {
             Sounds.error?.()
             try {
@@ -182,6 +182,11 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons =
         if (node.type === 'file') {
             Sounds.click?.()
             onOpenNotepad?.({ id, name: node.name, content: node.content })
+            return
+        }
+        if (node.type === 'image') {
+            Sounds.click?.()
+            onOpenImage?.({ file: node.imageFile, name: node.name })
             return
         }
         Sounds.navigate?.()
