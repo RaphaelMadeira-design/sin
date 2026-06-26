@@ -5,8 +5,8 @@ import Sounds from '../components/Sounds'
 
 // ─── CGU CREDENTIALS ───────────────────────────────────────────
 const CGU_CREDENTIALS = {
-    matricule: 'CHANGE_ME',   // ← Identifiant agent (ex: '0791')
-    password:  'CHANGE_ME',   // ← Mot de passe
+    matricule: 'CHANGE_ME',
+    password:  'CHANGE_ME',
 }
 
 const { 
@@ -149,7 +149,6 @@ export default function Intranet() {
         return () => clearInterval(i)
     }, [])
 
-    // 🔒 Gate d'authentification
     if (!authed) {
         return <IntranetLogin onLogin={() => setAuthed(true)} />
     }

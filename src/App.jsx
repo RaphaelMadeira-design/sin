@@ -28,7 +28,6 @@ import Help from './components/Help'
 import Trash from './components/Trash'
 import './styles/Jinsei.scss'
 
-// Hook pour détecter le mode mobile
 function useIsMobile(breakpoint = 768) {
     const [isMobile, setIsMobile] = useState(() => {
         if (typeof window === 'undefined') return false

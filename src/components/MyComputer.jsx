@@ -13,7 +13,7 @@ const ICONS = {
     explorer:     'https://win98icons.alexmeub.com/icons/png/directory_explorer-2.png',
     windowsDir:   'https://win98icons.alexmeub.com/icons/png/directory_open_cool-5.png',
     programFiles: 'https://win98icons.alexmeub.com/icons/png/directory_closed-0.png',
-    txt:          'https://win98icons.alexmeub.com/icons/png/notepad-4.png',
+    txt:          'https://win98icons.alexmeub.com/icons/png/notepad_file-0.png',
     exe:          'https://win98icons.alexmeub.com/icons/png/executable-0.png',
     bat:          'https://win98icons.alexmeub.com/icons/png/console_prompt-0.png',
     sys:          'https://win98icons.alexmeub.com/icons/png/message_file-0.png',
@@ -97,8 +97,6 @@ function Win98Dialog({ icon, title, children, onClose, buttons }) {
 }
 
 export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons = [] }) {
-// Construit l'arborescence à partir du JSON, en injectant les raccourcis
-// du Bureau de l'utilisateur (synchronisés avec les icônes du bureau).
     const tree = useMemo(() => {
         const t = { ...treeData }
         const deskChildren = desktopIcons.map(ic => `desk_${ic.id}`)
@@ -156,76 +154,76 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow, desktopIcons =
             }, 1400)
         }
 
-if (node.type === 'shortcut') {
-Sounds.click?.()
-if (onOpenWindow && node.target) onOpenWindow(node.target)
-return
-}
-if (node.empty) {
-Sounds.error?.()
-setFloppyDialog(true)
-return
-}
-if (node.locked && !unlocked && node.drive === 'B') {
-Sounds.error?.()
-setPwdInput('')
-setPwdError(false)
-setPwdDialog(true)
-return
-}
-if (node.type === 'file' && node.locked) {
-Sounds.error?.()
-setSysDialog({
-title: 'Accès refusé',
-message: `Le fichier "${node.name}" est protégé par le système et ne peut pas être ouvert.`
-})
-return
-}
-if (node.type === 'file') {
-Sounds.click?.()
-onOpenNotepad?.({ id, name: node.name, content: node.content })
-return
-}
-Sounds.navigate?.()
-setHistory(h => [...h, id])
-setSelected(null)
-}
+        if (node.type === 'shortcut') {
+            Sounds.click?.()
+            if (onOpenWindow && node.target) onOpenWindow(node.target)
+            return
+        }
+        if (node.empty) {
+            Sounds.error?.()
+            setFloppyDialog(true)
+            return
+        }
+        if (node.locked && !unlocked && node.drive === 'B') {
+            Sounds.error?.()
+            setPwdInput('')
+            setPwdError(false)
+            setPwdDialog(true)
+            return
+        }
+        if (node.type === 'file' && node.locked) {
+            Sounds.error?.()
+            setSysDialog({
+                title: 'Accès refusé',
+                message: `Le fichier "${node.name}" est protégé par le système et ne peut pas être ouvert.`
+            })
+            return
+        }
+        if (node.type === 'file') {
+            Sounds.click?.()
+            onOpenNotepad?.({ id, name: node.name, content: node.content })
+            return
+        }
+        Sounds.navigate?.()
+        setHistory(h => [...h, id])
+        setSelected(null)
+    }
 
-const goBack = () => {
-if (history.length <= 1) return
-Sounds.navigate?.()
-setHistory(h => h.slice(0, -1))
-setSelected(null)
-}
-const goUp = goBack
-const goHome = () => {
-Sounds.navigate?.()
-setHistory(['computer'])
-setSelected(null)
-}
+    const goBack = () => {
+        if (history.length <= 1) return
+        Sounds.navigate?.()
+        setHistory(h => h.slice(0, -1))
+        setSelected(null)
+    }
+    const goUp = goBack
+    const goHome = () => {
+        Sounds.navigate?.()
+        setHistory(['computer'])
+        setSelected(null)
+    }
 
-const submitPwd = (e) => {
-e?.preventDefault?.()
-const target = tree.driveB
-if (pwdInput.trim().toLowerCase() === target.password) {
-Sounds.click?.()
-setUnlocked(true)
-setPwdDialog(false)
-setHistory(h => [...h, 'driveB'])
-} else {
-Sounds.error?.()
-setPwdError(true)
-}
-}
+    const submitPwd = (e) => {
+        e?.preventDefault?.()
+        const target = tree.driveB
+        if (pwdInput.trim().toLowerCase() === target.password) {
+            Sounds.click?.()
+            setUnlocked(true)
+            setPwdDialog(false)
+            setHistory(h => [...h, 'driveB'])
+        } else {
+            Sounds.error?.()
+            setPwdError(true)
+        }
+    }
 
-const findDrive = (id) => {
-let cur = id
-while (cur && tree[cur]) {
-if (tree[cur].drive) return tree[cur]
-cur = tree[cur].parent
-}
-return null
-}
+    const findDrive = (id) => {
+        let cur = id
+        while (cur && tree[cur]) {
+            if (tree[cur].drive) return tree[cur]
+            cur = tree[cur].parent
+        }
+        return null
+    }
 
 const renderDrivesView = () => {
 const drives = current.children.map(id => tree[id])

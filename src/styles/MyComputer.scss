@@ -79,18 +79,13 @@
 
       &__item--disabled {
         cursor: not-allowed;
-        opacity: 0.45;
-        filter: grayscale(0.8);
+        opacity: 0.5;
         pointer-events: auto;
         user-select: none;
 
         &:hover {
             background: transparent !important;
             outline: none !important;
-        }
-
-        img {
-            filter: grayscale(1) brightness(1.1);
         }
     }
 

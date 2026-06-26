@@ -58,7 +58,7 @@
             "date": "13/06— 09:47",
             "unread": true,
             "body": [
-                "0791,",
+                "Isen,",
                 "",
                 "Le sujet HF-24125VE est sorti deux fois cette nuit par la sortie de service du 14e bloc. Trajet identique : nord-ouest, puis coupure dans l'arrondissement vert. Caméra 4-B a perdu le signal pendant 47 secondes vers 03:12 — pas la première fois sur ce tronçon.",
                 "",
@@ -66,30 +66,33 @@
                 "",
                 "Tu prends le relais ce soir ? Je serai en console jusqu'à 02:00 max. Au-delà, tu devras te débrouiller avec Hictor de la 3.",
                 "",
-                "— Juni",
+                "— Juni SEDO",
                 "Téléopératrice, Équipe 2"
             ]
         },
         {
             "id": "e3",
             "from": "Système CGU-NET",
-            "fromAddr": "noreply@cgu-net.s7",
-            "subject": "Renouvellement code d'accès NIVEAU-1",
+            "fromAddr": "admin-si@cgu-net.gouv",
+            "subject": "Renouvellement de vos identifiants",
             "date": "14/06 — 00:00",
             "unread": true,
             "body": [
                 "Agent SHURA, Isen — Matricule #0791",
                 "",
-                "Votre code d'accès NIVEAU-1 a été régénéré conformément à la politique CGU-SEC-04-§2.",
+                "Vos nouveaux identifiants pour accéder à l'Intranet CGU-Net ont été regénérés conformément à la politique CGU-SEC-04-§2.",
                 "",
-                "Nouveau jeton : ECHO77",
+                "Nouvel identifiant : CHANGE_ME",
+                "Nouveau mot de passe : CHANGE_ME",
                 "",
-                "Utilisez la commande « auth NIVEAU-1 ECHO77 » sur votre terminal pour renouveler la session.",
-                "Validité : 72h. Toute réutilisation après expiration sera consignée.",
+                "Nous avons remarqué que vous ne changiez pas vos identifiants. Nous vous rappelons que ceux-ci sont TEMPORAIRES et qu'ils doivent à tout prix être modifiés par vos soins DANS LES PLUS BREFS DÉLAIS.",
+                "",
+                "Merci de votre coopération.",
+                "",
                 "",
                 "Ce message est généré automatiquement. Ne pas répondre.",
                 "",
-                "— CGU-NET v5.04 / Section 7"
+                "— CGU-NET v5.04 / Administrateur"
             ]
         },
         {
@@ -114,7 +117,7 @@
         {
             "id": "e6",
             "from": "Administrateur système CGU",
-            "fromAddr": "admin-si@cgu-net.si",
+            "fromAddr": "admin-si@cgu-net.gouv",
             "subject": "URGENT: ALERTE SÉCURITÉ",
             "date": "13/06 — 17:18",
             "unread": false,
@@ -161,7 +164,7 @@
         {
             "id": "e8",
             "from": "Administration CGU",
-            "fromAddr": "rh@cgu-net.s7",
+            "fromAddr": "rh-ordre@cgu-net.gouv",
             "subject": "[RAPPEL — 3e] Formation continue B-3 : Procédures d'arrestation",
             "date": "11/06 — 08:00",
             "unread": false,
@@ -356,7 +359,7 @@
         {
             "id": "sp3",
             "from": "Sécurité CGU-NET",
-            "fromAddr": "securite-cgunet@cgu-net-verification.s7.co",
+            "fromAddr": "securite-cgunet@cgu-net-verification.gouv",
             "subject": "🔒 ACTION REQUISE — Votre matricule #0791 va être suspendu sous 24h",
             "date": "13/06 — 06:02",
             "unread": false,
@@ -379,7 +382,7 @@
         {
             "id": "sp4",
             "from": "Cabinet OLIROK & FRÈRES — Notaires",
-            "fromAddr": "succession.urgente@olirok-notaires.ln",
+            "fromAddr": "succession.urgente@olirok-notaires.is",
             "subject": "Héritage non réclamé — Successeur direct",
             "date": "11/06 — 23:11",
             "unread": false,
@@ -439,18 +442,28 @@
         {
             "id": "t1",
             "from": "Système CGU-NET",
-            "fromAddr": "noreply@cgu-net.s7",
-            "subject": "Renouvellement code d'accès NIVEAU-1",
+            "fromAddr": "admin-si@cgu-net.gouv",
+            "subject": "Renouvellement d'authentification NIVEAU-1",
             "date": "10/06 — 00:00",
             "unread": false,
             "body": [
                 "Agent SHURA, Isen — Matricule #0791",
                 "",
-                "Votre code d'accès NIVEAU-1 a été régénéré.",
+                "Votre code d'authentification NIVEAU-1 a été régénéré.",
                 "",
-                "Nouveau jeton : KORI42 (expiré)",
+                "Nouveau jeton : ECHO77",
                 "",
-                "— CGU-NET v5.04 / Section 7"
+                "À titre exceptionnel, un code d'authentification NIVEAU-2 vous a été attribué.",
+                "",
+                "Jeton : KISHI-OMEGA",
+                "",
+                "",
+                "Pour rappel, dans l'invite de commandes, entrez la commande suivante :",
+                "auth [NIVEAU-SOUHAITÉ] [JETON]",
+                "",
+                "Un indicateur vous signalera votre niveau d'autorisation sur CGU-NET.",
+                "",
+                "— CGU-NET v5.04 / Administrateur"
             ]
         },
         {
@@ -513,7 +526,7 @@
         {
             "id": "t5",
             "from": "Administration CGU",
-            "fromAddr": "rh@cgu-net.s7",
+            "fromAddr": "rh-ordre@cgu-net.gouv",
             "subject": "[RAPPEL — 2e] Formation continue B-3 : Procédures d'arrestation",
             "date": "01/06 — 08:00",
             "unread": false,
@@ -533,11 +546,20 @@
             "id": "t6",
             "from": "J. Sedo",
             "fromAddr": "j.sedo@cgu-net.s7",
-            "subject": "(vide)",
+            "subject": "Rapport SK-408",
             "date": "29/05 — 23:59",
             "unread": false,
             "body": [
-                "..."
+                "Isen,",
+                "",
+                "Pour finaliser le rendu du rapport SK-408, j'ai besoin que tu m'envoies la version écrite de la déposition 06987-N dont tu t'es chargé.",
+                "",
+                "Je sais que tu n'écris que rarement les dépositions mais essaye d'être le plus précis possible pour celle-ci. Valkenhein veut le rapport le plus tôt possible pour qu'on puisse se concentrer sur SK-417.",
+                "",
+                "Je compte sur toi !",
+                "",
+                "— Juni SEDO",
+                "Téléopératrice, Équipe 2"
             ]
         }
     ]

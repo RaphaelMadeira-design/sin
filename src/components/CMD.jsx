@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import '../styles/CMD.scss'
 
 const BOOT_LINES = [
-'Microsoft(R) Windows 98',
-'(C)Copyright Microsoft Corp 1981-2000.',
+'Nicrosoft(R) Vindows 98',
+'(C)Copyright Nicrosoft Corp XXXX-XXXX.',
 '',
 ]
 
@@ -34,7 +34,7 @@ help: () => [
 
 ver: () => [
 '',
-'Microsoft Windows 98 [Version 4.10.2222]',
+'Nicrosoft Vindows 98 [Version 4.10.2222]',
 'Pyrakitaï Edition — Build 0001',
 '',
 ],

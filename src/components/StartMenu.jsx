@@ -82,9 +82,9 @@ export default function StartMenu({ onClose, onOpenWindow, onShutdown }) {
 
                         {docsOpen && (
                             <div className="start-menu__submenu">
-                                <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'documents' })} data-testid="start-menu-docs-documents">
-                                    <img src={ICONS.folderClosed} alt="Documents" />
-                                    Documents
+                                <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'important' })} data-testid="start-menu-docs-important">
+                                    <img src={ICONS.folderClosed} alt="Important" />
+                                    Important
                                 </div>
                                 <div className="start-menu__item" onClick={() => handle('explorer', { initialFolder: 'musique' })} data-testid="start-menu-docs-musique">
                                     <img src={ICONS.folderClosed} alt="Musique" />
