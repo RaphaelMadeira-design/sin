@@ -6,6 +6,8 @@ const FALLBACK_IMAGES = [
     { name: '2.jpg',    file: '/images/2.jpg' },
     { name: '3.jpg',    file: '/images/3.jpg' },
     { name: '4.jpg',    file: '/images/4.jpg' },
+    { name: '5.jpg',    file: '/images/5.jpg' },
+    { name: '6.jpg',    file: '/images/6.jpg' },
     { name: 'scar.jpg', file: '/images/scar.jpg' },
     { name: 'cratere.jpg', file: '/images/cratere.jpg' },
 ]

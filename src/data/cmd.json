@@ -1,0 +1,202 @@
+{
+    "prompt": "C:\\WINDOWS> ",
+    "bootPrompt": "C:\\VINDOWS> ",
+    "matrixChars": "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF",
+
+    "boot": [
+        "Nicrosoft(R) Vindows 98",
+        "(C)Copyright Nicrosoft Corp XXXX-XXXX.",
+        ""
+    ],
+
+    "static": {
+        "help": [
+            "Commandes disponibles :",
+            "",
+            "  help              Affiche cette aide",
+            "  ver               Version du système",
+            "  whoami            Informations utilisateur",
+            "  dir               Liste les fichiers",
+            "  cls               Efface l'écran",
+            "  echo [msg]        Affiche un message",
+            "  ping [host]       Teste la connexion",
+            "  auth [LVL] [tok]  Authentification Kishi-NET",
+            "  status            Affiche la clearance actuelle",
+            "  logout            Ferme la session Kishi-NET",
+            "  matrix            ???",
+            "  hack              ???",
+            "  koga              ???",
+            "  sudo              ???",
+            "  format c:         ATTENTION",
+            "",
+            "Tapez une commande et appuyez sur Entrée."
+        ],
+
+        "ver": [
+            "",
+            "Nicrosoft Vindows 98 [Version 4.10.2222]",
+            "CGU Edition — Build 0001",
+            ""
+        ],
+
+        "whoami": [
+            "",
+            "┌─────────────────────────────────┐",
+            "│  UTILISATEUR : Isen Shura       │",
+            "│  RANG        : E                │",
+            "│  CLAN        : Magaishi         │",
+            "│  SHOKAN      : [DIVERS]         │",
+            "│  STATUT      : VIVANT           │",
+            "└─────────────────────────────────┘",
+            ""
+        ],
+
+        "dir": [
+            "",
+            " Répertoire de C:\\ISEN\\SYSTEM32",
+            "",
+            "  TROJAN.exe      42 Ko",
+            "  RAPPORT_SHOKAN.dat    ???  Ko",
+            "  new_tricks.txt             18 Ko",
+            "  SNAKE.exe                 8 Ko",
+            "  JUMP.exe                  6 Ko",
+            "  TSL.txt               1337 Ko",
+            "  MEMORIES.locked         [ACCÈS REFUSÉ]",
+            "  --------                          ",
+            "  7 fichier(s)    ??? Ko disponibles",
+            ""
+        ],
+
+        "sudo": [
+            "",
+            "sudo: command not found",
+            "Ce n'est pas Linux ici, tu crois qu'on est chez qui ?",
+            ""
+        ],
+
+        "koga": [
+            "",
+            "> Initialisation du protocole SHOKAN NO KISHI...",
+            "> Chargement des données de personnage...",
+            "> ...",
+            "> ...",
+            "> [DONNÉES CORROMPUES]",
+            "> Certaines vérités ne sont pas encore accessibles.",
+            "> Réessaie plus tard.",
+            ""
+        ],
+
+        "format c:": [
+            "",
+            "Avertissement : Cette opération va effacer TOUS les fichiers.",
+            "Êtes-vous sûr(e) ? (O/N)",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "...",
+            "..?",
+            "???",
+            "...",
+            "...",
+            "T'as vraiment essayé ? Respect.",
+            ""
+        ],
+
+        "logout": [
+            "",
+            "> Session CGU-NET fermée. Autorisation révoquée.",
+            ""
+        ]
+    },
+
+    "templates": {
+        "status": [
+            "",
+            "┌─────────────────────────────────┐",
+            "│ SESSION CGU-NET                 │",
+            "│ CLEARANCE ACTUELLE : NIVEAU {lvl}   │",
+            "│ UTILISATEUR : Isen Shura        │",
+            "│ POSTE : CGU-PC98 #0791          │",
+            "└─────────────────────────────────┘",
+            ""
+        ],
+
+        "ping": [
+            "",
+            "Envoi d'une requête 'ping' sur {host}...",
+            "Réponse de {host} : délai=1337ms TTL=98",
+            "Réponse de {host} : délai=404ms  TTL=98",
+            "Réponse de {host} : délai=∞ms    TTL=0",
+            "Réponse de {host} : [AUCUNE RÉPONSE]",
+            "",
+            "Statistiques : connexion établie puis perdue.",
+            "Certains hôtes ne répondent pas. C'est leur choix.",
+            ""
+        ],
+
+        "unknownCommand": [
+            "'{cmd}' n'est pas reconnu comme commande interne ou externe.",
+            ""
+        ]
+    },
+
+    "matrix": {
+        "start": [
+            "> Activation de la séquence Matrix...",
+            "> Appuie sur une touche pour arrêter."
+        ],
+        "end": [
+            "> Séquence terminée. Tu as vu ce que tu voulais voir.",
+            ""
+        ]
+    },
+
+    "hack": {
+        "lines": [
+            "Initialisation du protocole de connexion...",
+            "Bypass firewall... [OK]",
+            "Injection de paquets... [OK]",
+            "Accès au système CGU-NET CONFIDENTIEL... [OK]",
+            "Déchiffrement des données...",
+            "> MÉMOIRE FRAGMENT #1 : [ILLISIBLE]",
+            "> MÉMOIRE FRAGMENT #2 : \"...il ne faut pas...\"",
+            "> MÉMOIRE FRAGMENT #3 : [CORROMPU]",
+            "> MÉMOIRE FRAGMENT #4 : \"...je suis encore là...\"",
+            "Connexion terminée.",
+            "Tu n'aurais pas dû chercher.",
+            ""
+        ]
+    },
+
+    "auth": {
+        "valid": {
+            "NIVEAU-1": { "token": "ECHO77", "lvl": 1 },
+            "NIVEAU-2": { "token": "KISHI-OMEGA", "lvl": 2 },
+            "NIVEAU-3": { "token": "KOGA-VEIL", "lvl": 3 }
+        },
+        "unknownLevel": [
+            "",
+            "> Erreur : niveau \"{level}\" inconnu.",
+            "> Format : auth NIVEAU-X TOKEN",
+            ""
+        ],
+        "emptyLevelLabel": "(vide)",
+        "rejected": [
+            "",
+            "> X Token rejeté. Tentative consignée.",
+            "> Niveau demandé : {level}",
+            ""
+        ],
+        "success": [
+            "",
+            "> ████████████████████████████████",
+            "> ✓ Authentification {level} validée.",
+            "> Autorisation élevée à NIVEAU {lvl}.",
+            "> Bienvenue, Agent SHURA.",
+            "> ████████████████████████████████",
+            ""
+        ]
+    }
+}

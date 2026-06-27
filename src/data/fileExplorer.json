@@ -129,7 +129,9 @@
             "img1",
             "img2",
             "img3",
-            "img4"
+            "img4",
+            "img5",
+            "img6"
         ]
     },
     "img1": {
@@ -159,6 +161,20 @@
         "type": "file",
         "content": null,
         "imageFile": "/images/4.jpg"
+    },
+    "img5": {
+        "name": "5.jpg",
+        "parent": "images",
+        "type": "file",
+        "content": null,
+        "imageFile": "/images/5.jpg"
+    },
+    "img6": {
+        "name": "6.jpg",
+        "parent": "images",
+        "type": "file",
+        "content": null,
+        "imageFile": "/images/6.jpg"
     },
     "important": {
         "name": "Important",

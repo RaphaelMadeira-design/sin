@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Sounds from '../components/Sounds'
 import fileTreeData from '../data/fileExplorer.json'
 
@@ -14,44 +14,27 @@ const ICONS = {
 }
 
 const getFileIcon = (name = '', sidebar = false) => {
-    if (name.endsWith('.mp3'))
-    return ICONS.mp3
-
-    if (name.match(/\.(jpg|jpeg|png|gif|bmp)$/i))
-    return ICONS.img
-
-    if (name.endsWith('.txt'))
-    return sidebar ? ICONS.folderTxt : ICONS.txt
-
+    if (name.endsWith('.mp3')) return ICONS.mp3
+    if (name.match(/\.(jpg|jpeg|png|gif|bmp)$/i)) return ICONS.img
+    if (name.endsWith('.txt')) return sidebar ? ICONS.folderTxt : ICONS.txt
     return ICONS.txt
 }
 
 export const FILE_TREE = fileTreeData
 
-const getAncestors = (id) => {
-    const ancestors = new Set()
-    let cur = FILE_TREE[id]?.parent
-    while (cur) {
-        ancestors.add(cur)
-        cur = FILE_TREE[cur]?.parent
-    }
-    return ancestors
-}
-
-function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelectFile }) {
+function TreeNode({ id, depth, currentFolder, selectedItem, ancestors, onNavigate, onSelectFile }) {
     const node = FILE_TREE[id]
     if (!node) return null
 
     const isFolder = !node.type
     const isCurrentFolder = currentFolder === id
-    const ancestors = getAncestors(currentFolder)
     const isExpanded = isCurrentFolder || ancestors.has(id)
 
     const icon = id === 'root'
-    ? ICONS.explorer
-    : isFolder
-    ? (isExpanded ? ICONS.folderOpen : ICONS.folderClosed)
-    : getFileIcon(node.name, true)
+        ? ICONS.explorer
+        : isFolder
+            ? (isExpanded ? ICONS.folderOpen : ICONS.folderClosed)
+            : getFileIcon(node.name, true)
 
     return (
         <div>
@@ -62,11 +45,10 @@ function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelect
                 onDoubleClick={() => !isFolder && onSelectFile(id)}
                 data-testid={`tree-${id}`}
             >
-            <img src={icon} alt="" />
-            {node.name}
+                <img src={icon} alt="" />
+                {node.name}
             </div>
 
-            {/* Enfants affichés si le dossier est expanded */}
             {isFolder && isExpanded && node.children?.map(childId => (
                 <TreeNode
                     key={childId}
@@ -74,6 +56,7 @@ function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelect
                     depth={depth + 1}
                     currentFolder={currentFolder}
                     selectedItem={selectedItem}
+                    ancestors={ancestors}
                     onNavigate={onNavigate}
                     onSelectFile={onSelectFile}
                 />
@@ -85,27 +68,30 @@ function TreeNode({ id, depth, currentFolder, selectedItem, onNavigate, onSelect
 export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, initialFolder = 'root' }) {
     const [currentFolder, setCurrentFolder] = useState(initialFolder)
     const [selectedItem, setSelectedItem] = useState(null)
-    const [history, setHistory] = useState(() => {
-        const path = []
+    
+    const [path, setPath] = useState(() => {
+        const initialPath = []
         let cur = initialFolder
-        while (cur) { path.unshift(cur); cur = FILE_TREE[cur]?.parent || null }
-        return path
+        while (cur) { initialPath.unshift(cur); cur = FILE_TREE[cur]?.parent || null }
+        return initialPath
     })
 
     const getPathTo = (id) => {
-        const path = []
+        const newPath = []
         let cur = id
         while (cur) {
-            path.unshift(cur)
+            newPath.unshift(cur)
             cur = FILE_TREE[cur]?.parent || null
         }
-        return path
+        return newPath
     }
+
+    const ancestors = useMemo(() => new Set(path), [path])
 
     const navigateFolder = (id) => {
         if (id === currentFolder) return
-        Sounds.navigate()
-        setHistory(getPathTo(id))
+        Sounds.navigate?.()
+        setPath(getPathTo(id))
         setCurrentFolder(id)
         setSelectedItem(null)
     }
@@ -114,6 +100,7 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
         const node = FILE_TREE[id]
         if (!node || node.type !== 'file') return
         setSelectedItem(id)
+
         if (node.name.endsWith('.txt') && onOpenNotepad) {
             onOpenNotepad({ id, name: node.name, content: node.content })
         }
@@ -124,28 +111,28 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
             const parentId = node.parent
             const parent = FILE_TREE[parentId]
             const siblings = (parent?.children || [])
-            .map(cid => FILE_TREE[cid])
-            .filter(n => n && n.type === 'file' && /\.(png|jpg|jpeg|gif|bmp)$/i.test(n.name) && n.imageFile)
-            .map(n => ({ name: n.name, file: n.imageFile }))
+                .map(cid => FILE_TREE[cid])
+                .filter(n => n && n.type === 'file' && /\.(png|jpg|jpeg|gif|bmp)$/i.test(n.name) && n.imageFile)
+                .map(n => ({ name: n.name, file: n.imageFile }))
             onOpenImage({ file: node.imageFile, name: node.name, siblings })
         }
     }
 
-    const goBack = () => {
-        if (history.length <= 1) return
-        const newHistory = history.slice(0, -1)
-        setHistory(newHistory)
-        setCurrentFolder(newHistory[newHistory.length - 1])
+    const goUp = () => {
+        if (path.length <= 1) return
+        const newPath = path.slice(0, -1)
+        setPath(newPath)
+        setCurrentFolder(newPath[newPath.length - 1])
         setSelectedItem(null)
     }
 
     const current = FILE_TREE[currentFolder]
     const children = current?.children || []
-    const addressPath = history.map(id => FILE_TREE[id]?.name || id).join('')
+    
+    const addressPath = path.map(id => FILE_TREE[id]?.name || id).join('\\')
 
     return (
         <div className="file-explorer" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-        {/* Menubar */}
             <div className="win98-window__menubar">
                 <span>Fichier</span>
                 <span>Édition</span>
@@ -153,13 +140,12 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
                 <span>Aide</span>
             </div>
 
-            {/* Toolbar */}
             <div className="win98-window__toolbar">
                 <button
-                    className={`win98-window__toolbar-btn ${history.length <= 1 ? 'win98-window__toolbar-btn--disabled' : ''}`}
-                    onClick={goBack}
+                    className={`win98-window__toolbar-btn ${path.length <= 1 ? 'win98-window__toolbar-btn--disabled' : ''}`}
+                    onClick={goUp}
                     data-testid="explorer-back"
-                    disabled={history.length <= 1}
+                    disabled={path.length <= 1}
                     style={{ gap: '4px' }}
                 >
                     <span style={{ fontSize: '13px', lineHeight: 1 }}>◄</span>
@@ -167,33 +153,29 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
                 </button>
             </div>
 
-            {/* Barre d'adresse */}
             <div className="win98-window__address-bar">
                 <label>Adresse</label>
                 <input
                     type="text"
-                    value={`C:\\Isen\\${addressPath}`}
+                    value={`C:\\Users\\isen.shura\\${addressPath}`}
                     readOnly
                     data-testid="explorer-address"
                 />
             </div>
 
-            {/* Panneaux */}
             <div className="file-explorer__panes" style={{ flex: 1, overflow: 'hidden' }}>
-
-                {/* Arbre de navigation */}
                 <div className="file-explorer__tree">
                     <TreeNode
                         id="root"
                         depth={0}
                         currentFolder={currentFolder}
                         selectedItem={selectedItem}
+                        ancestors={ancestors}
                         onNavigate={navigateFolder}
                         onSelectFile={openFile}
                     />
                 </div>
 
-                {/* Zone de contenu */}
                 <div className="file-explorer__content">
                     <div className="file-explorer__grid">
                         {children.map(id => {
@@ -207,7 +189,7 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
                                     onDoubleClick={() => isFolder ? navigateFolder(id) : openFile(id)}
                                     data-testid={`explorer-item-${id}`}
                                 >
-                                    <img src={isFolder ? ICONS.folder : getFileIcon(node.name)} alt="\" />
+                                    <img src={isFolder ? ICONS.folder : getFileIcon(node.name)} alt="" />
                                     <span>{node.name}</span>
                                 </div>
                             )
@@ -216,10 +198,9 @@ export default function FileExplorer({ onOpenNotepad, onPlayMusic, onOpenImage, 
                 </div>
             </div>
 
-            {/* Barre de statut */}
             <div className="win98-window__statusbar">
                 <span>{children.length} objet(s)</span>
-                <span>{`C:\\Isen\\${addressPath}`}</span>
+                <span>{`C:\\Users\\isen.shura\\${addressPath}`}</span>
             </div>
         </div>
     )
