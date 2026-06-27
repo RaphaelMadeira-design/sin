@@ -5,7 +5,7 @@ import '../styles/Boot.scss'
 // Séquence BIOS - lignes qui s'affichent une par une
 const BIOS_LINES = [
     { text: 'Award Modular BIOS v4.51PG, An Energy Star Ally', delay: 0 },
-    { text: 'Copyright (C) 1984-98, Award Software, Inc.', delay: 80 },
+    { text: 'Copyright (C) XXXX-XX, Award Software, Inc.', delay: 80 },
     { text: '', delay: 160 },
     { text: 'PYR_PC BIOS Version 1.00', delay: 240 },
     { text: '', delay: 320 },
@@ -14,7 +14,7 @@ const BIOS_LINES = [
     { text: '', delay: 1100 },
     { text: 'Detecting Primary Master ... ST34321A', delay: 1200 },
     { text: 'Detecting Primary Slave  ... None', delay: 1380 },
-    { text: 'Detecting Secondary Master ... ATAPI CD-ROM', delay: 1560 },
+    { text: 'Detecting Secondary Master ... APATI CD-ROM', delay: 1560 },
     { text: '', delay: 1740 },
     { text: 'Press DEL to enter SETUP', delay: 1820, dim: true },
     { text: '', delay: 1900 },

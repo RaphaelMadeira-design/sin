@@ -186,7 +186,12 @@ export default function MyComputer({ onOpenNotepad, onOpenWindow, onOpenImage, d
         }
         if (node.type === 'image') {
             Sounds.click?.()
-            onOpenImage?.({ file: node.imageFile, name: node.name })
+            const parent = tree[node.parent]
+            const siblings = (parent?.children || [])
+                .map(cid => tree[cid])
+                .filter(n => n && n.type === 'image' && n.imageFile)
+                .map(n => ({ name: n.name, file: n.imageFile }))
+            onOpenImage?.({ file: node.imageFile, name: node.name, siblings })
             return
         }
         Sounds.navigate?.()

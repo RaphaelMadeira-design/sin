@@ -20,7 +20,7 @@
         "icon": "floppyLocked",
         "locked": true,
         "password": "las-noches",
-        "children": ["b_readme", "b_log", "b_img1"]
+        "children": ["b_readme", "b_log", "b_img1", "b_img2"]
     },
     "b_readme": {
         "name": "LISEZ-MOI.txt",
@@ -40,6 +40,13 @@
         "type": "image",
         "content": null,
         "imageFile": "/images/scar.jpg"
+    },
+    "b_img2": {
+        "name": "cratere.jpg",
+        "parent": "driveB",
+        "type": "image",
+        "content": null,
+        "imageFile": "/images/cratere.jpg"
     },
 
     "driveC": {

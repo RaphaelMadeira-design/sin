@@ -440,7 +440,7 @@ function App() {
         if (id.startsWith("help-")) { return <Help app={win.helpApp} />}
         if (id === 'imageviewer') return <ImageViewer requestedImage={imageToView} />
         if (id === 'media') return <MediaPlayer requestedTrack={mediaTrack} />
-        if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow} desktopIcons={icons}/>)
+        if (id === 'computer') return (<MyComputer onOpenNotepad={openNotepad} onOpenWindow={openWindow} onOpenImage={handleOpenImage} desktopIcons={icons}/>)
         if (id === 'explorer') return (<FileExplorer key={win.initialFolder ?? 'root'} onOpenNotepad={openNotepad} onPlayMusic={handlePlayMusic} onOpenImage={handleOpenImage} initialFolder={win.initialFolder}/>)
         if (id.startsWith('notepad-')) return <Notepad fileName={win.notepadFile?.name} content={win.notepadContent} />
         return null

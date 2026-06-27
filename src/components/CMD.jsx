@@ -35,7 +35,7 @@ help: () => [
 ver: () => [
 '',
 'Nicrosoft Vindows 98 [Version 4.10.2222]',
-'Pyrakitaï Edition — Build 0001',
+'CGU Edition — Build 0001',
 '',
 ],
 
@@ -92,7 +92,7 @@ logout: () => {
 sessionStorage.removeItem('cgu_clearance')
 return [
 '',
-'> Session Kishi-NET fermée. Clearance révoquée.',
+'> Session CGU-NET fermée. Autorisation révoquée.',
 '',
 ]
 },
@@ -102,10 +102,10 @@ const lvl = parseInt(sessionStorage.getItem('cgu_clearance') || '0', 10)
 return [
 '',
 '┌─────────────────────────────────┐',
-`│ SESSION KISHI-NET               │`,
-`│ CLEARANCE ACTUELLE : NIVEAU ${lvl}    │`,
-`│ UTILISATEUR : K. Igarashi       │`,
-`│ POSTE : KIBA-PC98               │`,
+`│ SESSION CGU-NET                 │`,
+`│ CLEARANCE ACTUELLE : NIVEAU ${lvl}   │`,
+`│ UTILISATEUR : Isen Shura        │`,
+`│ POSTE : CGU-PC98 #0791          │`,
 '└─────────────────────────────────┘',
 '',
 ]
@@ -138,7 +138,7 @@ const lines = [
 'Initialisation du protocole de connexion...',
 'Bypass firewall... [OK]',
 'Injection de paquets... [OK]',
-'Accès au système SHOKAN NO KISHI... [OK]',
+'Accès au système CGU-NET CONFIDENTIEL... [OK]',
 'Déchiffrement des données...',
 '> MÉMOIRE FRAGMENT #1 : [ILLISIBLE]',
 '> MÉMOIRE FRAGMENT #2 : "...il ne faut pas..."',
@@ -206,10 +206,10 @@ return () => { clearInterval(interval); clearTimeout(timeout) }
 
 const runCommand = (raw) => {
 const cmd = raw.trim().toLowerCase()
-const newHistory = [...history, `C:\\WINDOWS> ${raw}`]
+const newHistory = [...history, `C:\\VINDOWS> ${raw}`]
 
 if (cmd === 'cls') {
-setHistory(['C:\\WINDOWS>'])
+setHistory(['C:\\VINDOWS>'])
 return
 }
 
@@ -258,7 +258,6 @@ setIsHacking(false)
 return
 }
 
-// ─── Authentification Kishi-NET ───
 if (cmd.startsWith('auth ')) {
 const parts = raw.trim().split(/\s+/)
 const level = (parts[1] || '').toUpperCase()
@@ -282,7 +281,7 @@ return
 if (VALID[level].token !== token) {
 setHistory([...newHistory,
 '',
-'> ╳ Token rejeté. Tentative consignée.',
+'> X Token rejeté. Tentative consignée.',
 `> Niveau demandé : ${level}`,
 '',
 ])
@@ -293,7 +292,7 @@ setHistory([...newHistory,
 '',
 '> ████████████████████████████████',
 `> ✓ Authentification ${level} validée.`,
-`> Clearance élevée à NIVEAU ${VALID[level].lvl}.`,
+`> Autorisation élevée à NIVEAU ${VALID[level].lvl}.`,
 '> Bienvenue, Agent SHURA.',
 '> ████████████████████████████████',
 '',

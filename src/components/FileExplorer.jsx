@@ -124,7 +124,13 @@ if (node.name.endsWith('.mp3') && onPlayMusic) {
 onPlayMusic({ file: node.musicFile, title: node.name.replace('.mp3', '') })
 }
 if (node.name.match(/\.(png|jpg|jpeg|gif|bmp)$/i) && onOpenImage) {
-onOpenImage({ file: node.imageFile, name: node.name })
+const parentId = node.parent
+const parent = FILE_TREE[parentId]
+const siblings = (parent?.children || [])
+.map(cid => FILE_TREE[cid])
+.filter(n => n && n.type === 'file' && /\.(png|jpg|jpeg|gif|bmp)$/i.test(n.name) && n.imageFile)
+.map(n => ({ name: n.name, file: n.imageFile }))
+onOpenImage({ file: node.imageFile, name: node.name, siblings })
 }
 }
 
