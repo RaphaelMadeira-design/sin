@@ -20,7 +20,7 @@ const ICONS = {
     warning:      'https://win98icons.alexmeub.com/icons/png/msg_warning-0.png',
     error:        'https://win98icons.alexmeub.com/icons/png/msg_error-0.png',
     info:         'https://win98icons.alexmeub.com/icons/png/msg_information-0.png',
-    key:          'https://win98icons.alexmeub.com/icons/png/key_win-0.png',
+    key:          'https://win98icons.alexmeub.com/icons/png/key_padlock-0.png',
     msn:          '/images/icons/32x32/messenger.png',
     games:        'https://win98icons.alexmeub.com/icons/png/joystick-2.png',
     game:         'https://win98icons.alexmeub.com/icons/png/joystick_alt-0.png',

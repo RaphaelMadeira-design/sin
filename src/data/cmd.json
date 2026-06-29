@@ -1,5 +1,5 @@
 {
-    "prompt": "C:\\WINDOWS> ",
+    "prompt": "C:\\VINDOWS> ",
     "bootPrompt": "C:\\VINDOWS> ",
     "matrixChars": "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF",
 
@@ -13,21 +13,21 @@
         "help": [
             "Commandes disponibles :",
             "",
-            "  help              Affiche cette aide",
-            "  ver               Version du système",
-            "  whoami            Informations utilisateur",
-            "  dir               Liste les fichiers",
-            "  cls               Efface l'écran",
-            "  echo [msg]        Affiche un message",
-            "  ping [host]       Teste la connexion",
-            "  auth [LVL] [tok]  Authentification Kishi-NET",
-            "  status            Affiche la clearance actuelle",
-            "  logout            Ferme la session Kishi-NET",
-            "  matrix            ???",
-            "  hack              ???",
-            "  koga              ???",
-            "  sudo              ???",
-            "  format c:         ATTENTION",
+            "  help                 Affiche cette aide",
+            "  ver                  Version du système",
+            "  whoami               Informations utilisateur",
+            "  dir                  Liste les fichiers",
+            "  cls                  Efface l'écran",
+            "  echo [msg]           Affiche un message",
+            "  ping [host]          Teste la connexion",
+            "  auth [LVL] [Token]   Authentification CGU-NET",
+            "  status               Affiche le niveau d'autorisation",
+            "  logout               Ferme la session CGU-NET",
+            "  matrix               ???",
+            "  hack                 ???",
+            "  memory               ???",
+            "  sudo                 Active le mode Admin",
+            "  format c:            ATTENTION",
             "",
             "Tapez une commande et appuyez sur Entrée."
         ],
@@ -35,7 +35,7 @@
         "ver": [
             "",
             "Nicrosoft Vindows 98 [Version 4.10.2222]",
-            "CGU Edition — Build 0001",
+            "CGU Edition — Build 141",
             ""
         ],
 
@@ -43,46 +43,48 @@
             "",
             "┌─────────────────────────────────┐",
             "│  UTILISATEUR : Isen Shura       │",
-            "│  RANG        : E                │",
-            "│  CLAN        : Magaishi         │",
-            "│  SHOKAN      : [DIVERS]         │",
-            "│  STATUT      : VIVANT           │",
+            "│  SECTION     : 7                │",
+            "│  ÉQUIPE      : 2                │",
+            "│  STATUT      : [ACTIF]          │",
+            "│  CLEARANCE   : 1 - 3            │",
             "└─────────────────────────────────┘",
             ""
         ],
 
         "dir": [
             "",
-            " Répertoire de C:\\ISEN\\SYSTEM32",
+            " Répertoire de C:\\isen.shura\\SYSTEM32\\locked.dir",
             "",
-            "  TROJAN.exe      42 Ko",
-            "  RAPPORT_SHOKAN.dat    ???  Ko",
-            "  new_tricks.txt             18 Ko",
-            "  SNAKE.exe                 8 Ko",
-            "  JUMP.exe                  6 Ko",
-            "  TSL.txt               1337 Ko",
-            "  MEMORIES.locked         [ACCÈS REFUSÉ]",
+            "  ishaka.log                  42 Ko",
+            "  RAPPORT_JINSEI.dat         ??? Ko",
+            "  las_noches-st235.txt        18 Ko",
+            "  XENO.log                     8 Ko",
+            "  Continuum_Shift.dat        121 Ko",
+            "  Calamity_Trigger.dat       133 Ko",
+            "  REMEMBRANCE.exe    [ACCÈS REFUSÉ]",
             "  --------                          ",
             "  7 fichier(s)    ??? Ko disponibles",
             ""
         ],
 
         "sudo": [
-            "",
-            "sudo: command not found",
-            "Ce n'est pas Linux ici, tu crois qu'on est chez qui ?",
-            ""
+            "Activation de la commande SUDO...",
+            "Tentative d'accès aux privilèges ADMINISTRATEUR...",
+            "Échec.",
+            "Votre activation a été interrompue par une entité extérieure.",
+            "La commande SUDO est bloquée.",
+            "Contactez votre administrateur."
         ],
 
-        "koga": [
+        "memory": [
             "",
-            "> Initialisation du protocole SHOKAN NO KISHI...",
+            "> Initialisation du protocole REMEMBRANCE.EXE...",
             "> Chargement des données de personnage...",
             "> ...",
             "> ...",
             "> [DONNÉES CORROMPUES]",
             "> Certaines vérités ne sont pas encore accessibles.",
-            "> Réessaie plus tard.",
+            "> Veuillez essayer plus tard.",
             ""
         ],
 
@@ -100,7 +102,7 @@
             "???",
             "...",
             "...",
-            "T'as vraiment essayé ? Respect.",
+            "Cette opération a été bloquée.",
             ""
         ],
 
@@ -132,7 +134,7 @@
             "Réponse de {host} : [AUCUNE RÉPONSE]",
             "",
             "Statistiques : connexion établie puis perdue.",
-            "Certains hôtes ne répondent pas. C'est leur choix.",
+            "Certains hôtes ne répondent pas.",
             ""
         ],
 
@@ -144,11 +146,11 @@
 
     "matrix": {
         "start": [
-            "> Activation de la séquence Matrix...",
-            "> Appuie sur une touche pour arrêter."
+            "> Activation de la séquence.",
+            "> Appuyez sur une touche pour arrêter."
         ],
         "end": [
-            "> Séquence terminée. Tu as vu ce que tu voulais voir.",
+            "> Séquence terminée.",
             ""
         ]
     },
@@ -160,12 +162,12 @@
             "Injection de paquets... [OK]",
             "Accès au système CGU-NET CONFIDENTIEL... [OK]",
             "Déchiffrement des données...",
-            "> MÉMOIRE FRAGMENT #1 : [ILLISIBLE]",
-            "> MÉMOIRE FRAGMENT #2 : \"...il ne faut pas...\"",
-            "> MÉMOIRE FRAGMENT #3 : [CORROMPU]",
-            "> MÉMOIRE FRAGMENT #4 : \"...je suis encore là...\"",
+            "> MÉMOIRE FRAGMENT #1 : \"...origine inconnue...\"",
+            "> MÉMOIRE FRAGMENT #2 : [ILLISIBLE]",
+            "> MÉMOIRE FRAGMENT #3 : \"...temps anciens...\"",
+            "> MÉMOIRE FRAGMENT #4 : [CORROMPU]",
             "Connexion terminée.",
-            "Tu n'aurais pas dû chercher.",
+            "Votre administrateur a mis fin à l'opération.",
             ""
         ]
     },

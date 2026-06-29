@@ -52,8 +52,8 @@
             "senderColor": "#cc007a"
         },
         {
-            "id": "tetsu",
-            "name": "Tetsu-Lo",
+            "id": "naleos",
+            "name": "N.",
             "status": "offline",
             "personalMessage": "Hors ligne — Retraité. Pas mort.",
             "senderColor": "#4a4a4a"
@@ -188,21 +188,23 @@
                 { "from": "Sayo★", "text": "je compte sur toi ♥", "time": "18:03" }
             ]
         },
-        "tetsu": {
+        "naleos": {
             "date": "Il y a 3 semaines",
             "messages": [
-                { "from": "Tetsu-Lo", "text": "petit. ça fait longtemps", "time": "11:14" },
+                { "from": "N", "text": "petit. ça fait longtemps", "time": "11:14" },
                 { "from": "isen.s",   "text": "capitaine. comment tu vas", "time": "11:20" },
-                { "from": "Tetsu-Lo", "text": "vieux. tranquille. j'ai planté des tomates", "time": "11:21" },
-                { "from": "Tetsu-Lo", "text": "j'ai appris pour Vendamir. tu tiens le coup ?", "time": "11:22" },
+                { "from": "N", "text": "vieux. tranquille. j'ai planté des tomates", "time": "11:21" },
+                { "from": "N", "text": "j'ai appris pour Vendamir. tu tiens le coup ?", "time": "11:22" },
                 { "from": "isen.s",   "text": "ça va", "time": "11:24" },
-                { "from": "Tetsu-Lo", "text": "« ça va » je l'ai entendu mille fois en 30 ans de service. ça veut dire non.", "time": "11:25" },
+                { "from": "N", "text": "« ça va » je l'ai entendu mille fois en 35 ans de service. ça veut dire non.", "time": "11:25" },
                 { "from": "isen.s",   "text": "nan ça veut dire « ça va »", "time": "11:26" },
-                { "from": "Tetsu-Lo", "text": "écoute petit. la CGU c'est un beau costume. mais c'est qu'un costume.", "time": "11:27" },
-                { "from": "Tetsu-Lo", "text": "fais ton job. mais oublie pas qui tu étais avant", "time": "11:27" },
-                { "from": "Tetsu-Lo", "text": "et si Davis fait le con, frappe-le pour moi", "time": "11:28" },
+                { "from": "N", "text": "écoute petit. la CGU c'est un beau costume. mais c'est qu'un costume.", "time": "11:27" },
+                { "from": "N", "text": "fais ton job et n'oublie pas de regarder la disquette chiffrée, ça te concerne", "time": "11:28" },
+                { "from": "N", "text": "le mot de passe est l'endroit où je t'ai trouvé pour la première fois", "time": "11:28" },
+                { "from": "isen.s", "text": "je men occupe dès que possible", "time": "11:29" },
+                { "from": "N", "text": "et si Davis fait le con, frappe-le pour moi", "time": "11:29" },
                 { "from": "isen.s",   "text": "tkt, Orisa s'en charge à ma place", "time": "11:30" },
-                { "from": "system",   "text": "[Tetsu-Lo s'est déconnecté]" }
+                { "from": "system",   "text": "[N s'est déconnecté]" }
             ]
         },
         "vendamir": {

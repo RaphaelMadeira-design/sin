@@ -358,17 +358,17 @@
     "secure": {
             "echo": {
             "level": 1,
-            "title": "DOSSIER « ??? »",
-            "content": "...\n...\n...\n..."
+            "title": "DOSSIER « Vendamir »",
+            "content": "21 février — 16h51\nDisparition de Yuri Vendamir. Homme, humain âgé de 66 ans résidant à Reach.\nChercheur et professeur d'histoire à la Maison des Ancêtres de l'Académie.\nÉtudes sur divers mythes et légendes de Lenoxia datant de l'ère archaïque / pré-archaïque.\nCasier judiciaire : Vide / Dossier médical : OK"
         },
             "ambre01": {
             "level": 2,
-            "title": "DOSSIER « ??? »",
+            "title": "DOSSIER « Neziaka »",
             "content": "...\n...\n...\n..."
         },
             "kogaveil": {
             "level": 3,
-            "title": "DOSSIER « ??? »",
+            "title": "DOSSIER « Ashura »",
             "content": "...\n...\n...\n..."
         }
     }
