@@ -1,0 +1,326 @@
+{
+    "self": "koga99",
+
+    "pdaApps": [
+        { "id": "identite", "label": "Identité", "icon": "◉" },
+        { "id": "stats",    "label": "Pouvoir",  "icon": "◆" },
+        { "id": "histoire", "label": "Histoire", "icon": "▤" },
+        { "id": "contacts", "label": "Contacts", "icon": "☰" }
+    ],
+
+    "gameApps": [
+        { "id": "snake", "label": "Snake", "icon": "§" },
+        { "id": "jump",  "label": "Jump",  "icon": "^" },
+        { "id": "media", "label": "Media", "icon": "♪" }
+    ],
+
+    "pageOrder": ["identite", "stats", "histoire", "contacts"],
+
+    "identity": {
+        "codename": "KŌGA",
+        "fullName": "Kiba Igarashi",
+        "alias": "Croc Écarlate, Kōga",
+        "age": 19,
+        "birth": "23/05/6070",
+        "sexe": "Masculin ♂",
+        "clan": "Magaishi",
+        "role": "Membre",
+        "shokan": "Dualité",
+        "rank": "E",
+        "type": "Divers",
+        "email": "koga99@hotmail.jp",
+        "portraitSrc": "/images/4.jpg",
+        "registers": {
+        "clan": "#MAG01-2119",
+        "shokan": "#JP01-482-E",
+        "statut": "▣ ACTIF"
+        }
+    },
+
+    "physical": {
+        "intro": "Du haut de son 1m80 et pesant 71kg, Kiba est un homme qui possède un physique plutôt banal. Ses cheveux carmins tirent légèrement vers un rouge brun et sont coiffés de manière naturelle, presque négligée avec des mèches désordonnées qui retombent sur son front sans jamais vraiment masquer ses yeux. Son visage est équilibré, aux traits nets mais assez doux. Ses yeux sont violets et dessinés en amande. Le grain de beauté sous son œil gauche attire subtilement l'attention et ajoute une petite signature visuelle qui casse la symétrie de son visage. Kiba ne possède aucun tatouage ni piercing, et son corps ne présente aucune cicatrice visible ou importante.",
+        "traits": [
+            ["TATOUAGES", "Aucun"],
+            ["CICATRICES", "Aucune"],
+            ["STYLE", "Streetwear minimaliste"]
+        ]
+    },
+
+    "psycho": {
+        "intro": "Kiba est quelqu'un d'ouvert, avenant et facile à approcher. Il engage la conversation sans difficulté et met naturellement les autres à l'aise, sans effort particulier. Son attitude détendue et son sens du contact lui permettent de s'intégrer rapidement, quel que soit le contexte. Il possède une énergie plutôt tranquille, sans jamais devenir envahissant, ce qui rend sa présence agréable. Il trouve instinctivement sa place parmi les autres, sans chercher à s'imposer. Sociable sans être dépendant, Kiba apprécie les échanges simples et sincères, mais garde toujours une certaine maîtrise de lui-même. Il sait écouter, répondre, plaisanter, mais choisit avec soin ce qu'il révèle réellement de lui.",
+        "traits": [
+            ["QUALITÉS",   "Stable, empathique, loyal."],
+            ["DÉFAUTS",    "Secret, têtu, trop spontanné"],
+            ["PEURS",      "Stagnation, l'échec continuel"],
+            ["MOTIVATION", "Indépendance, liens sincères"]
+        ]
+    },
+
+    "stats": [
+        { "name": "Perception", "value": 0 },
+        { "name": "Dextérité",  "value": 0 },
+        { "name": "Endurance",  "value": 0 },
+        { "name": "Force",      "value": 0 },
+        { "name": "Résistance", "value": 0 },
+        { "name": "Shokan",     "value": 0 }
+    ],
+
+    "vitals": {
+        "level":  1,
+        "hp":     { "cur": 800, "max": 800 },
+        "energy": { "cur": 500, "max": 500 },
+        "xp":     { "cur": 50,  "max": 10000 }
+    },
+
+    "shokanDescription": "Manifestation éphémère de sa volonté sous forme de fragments d'une silhouette (main, bras, jambe) dans un rayon de 4 m. Durée actuelle : 1–2 s. Frappe égale à celle de l'utilisateur.",
+
+    "abilities": [
+        {
+        "key": "A",
+        "name": "Permutation",
+        "cost": "E",
+        "dur": "⧗ 1 tour",
+        "desc": "Technique basique qui permet à Kiba d'échanger sa position avec celle de sa projection de la Dualité, lui offrant ainsi une grande mobilité tactique pour surprendre ses adversaires ou échapper à des situations dangereuses."
+        }
+    ],
+
+    "historyChapters": [
+        {
+        "id": 1,
+        "year": "6070",
+        "title": "Naissance",
+        "body": " Kiba Igarashi voit le jour au sein de la famille Igarashi, une lignee mineure quasi oubliée, éclipsée par les branches superieures du clan Magaishi. Contrairement aux lignées principales, ou les héritiers sont formes des l'enfance pour occuper des fonctions stratégiques, la branche dont il est issu occupe une position de second plan, souvent reléguée à des rôles d'exécution ou de soutien. Ses parents, bien que membres du clan, n'ont jamais été très impliqués dans les affaires internes. Ils ont laissé une grande liberté à leur fils, tant qu'il respectait les règles de base. Ce coté indépendant lui a permis d'explorer ses propres intérêts et de développer sa personnalité sans être constamment comparé à des figures plus prestigieuses de la famille. De ce fait, Kiba a grandi loin des projecteurs et dans une relative obscurité, sans les pressions et les attentes qui pèsent sur les membres plus en vue du clan. Une enfance presque ordinaire, si l'on oublie le nom qu'il porte et le sang qui coule dans ses veines. Personne, à ce moment-là, ne soupconnait ce que cet enfant deviendrait."
+        },
+        {
+        "id": 2,
+        "year": "6078",
+        "title": "Enfance",
+        "body": "Élevé dans le quartier de Bunkyo a Tokyo, Kiba n'a pas eu d'enfance particulierement dure, ni reellement privilégiée. Les ruelles étroites, les parcs bordés d'érables, les toits accessibles par les escaliers de secours, tout cela est devenu son terrain de jeu bien avant qu'il ne sache ce qu'était le parkour. Il passait ses journées a vadrouiller dans les rues des différents quartiers de la capitale, sautant par-dessus les murets, grimpant aux façades des immeubles abandonnes, courant sur les toits des garages. Ce n'était pas par rebellion, mais plutôt par instinct. Quelque chose en lui cherchait le mouvement, l'espace et la vitesse. A l'école, Kiba était le genre de gamin qu'on ne remarque pas vraiment. Ce n'était pas le meilleur mais pas le pire non plus, juste dans la moyenne. Il était sociable sans pour autant être envahissant, il savait écouter, plaisanter, s'adapter ou même s'affirmer, mais il ne se livrait jamais complètement. Même enfant, il gardait une certaine distance, comme si une partie de lui observait le monde plutôt que d'y participer pleinement. Ses parents ne posaient pas de questions. La liberté qu'ils lui accordaient n'était pas de l'indifférence, c'était une forme de confiance silencieuse. Tant qu'il rentrait avant la nuit, tant qu'il ne déshonorait pas le nom des Igarashi ou qu'il ne s'apportait pas trop d'ennuis, il pouvait faire ce qu'il voulait. Et ce qu'il voulait, c'était courir librement."
+        },
+        {
+        "id": 3,
+        "year": "6081",
+        "title": "Éveil",
+        "body": " C'est au collège que tout à réellement commencé. Ses journées passées à profiter de cette liberté en vadrouillant dans les rues l'amènent à faire la rencontre de Ryohei Nishikawa, un camarade de classe qui deviendra rapidement son meilleur ami. Ryohei est le leader naturel d'un petit groupe cherchant à former un club de parkour au sein du college. Il recrute Kiba afin de permettre la création officielle du club, qui est completé par Kazuki Kurogane, un garçon sûr de lui, ambitieux, et cherchant a surpasser Ryohei ; ainsi que Aoi Kanzaki, une adolescente silencieuse, analytique, et qui est le véritable cerveau stratégique de la future équipe. Les Ura Ura Kidz sont nés. Pour Kiba, c'était la première fois qu'il ressentait ça, ce sentiment d'appartenance. Pas lié au clan pour qui il n'était qu'un pion de plus, ni lié au sang. Juste quatre gamins qui couraient ensemble, qui se poussaient mutuellement, qui rêvaient de devenir les meilleurs traceurs de Tokyo. Ryohei avait cette énergie contagieuse. Il voyait en chaque toit un chemin et en chaque mur une possibilité de continuer. Il disait toujours : 'Le parkour, c'est pas juste sauter, c'est choisir de ne pas s'arrêter.'. Une expression qu'il avait emprunté à un traceur français très connu de la scène européenne, lu dans un vieux magazine qu'il considérait comme sa bible personnelle. Kiba ne le savait pas encore, mais cette phrase allait définir le reste de sa vie."
+        },
+        {
+        "id": 4,
+        "year": "6082",
+        "title": "Découverte",
+        "body": "Sous le nom des Ura Ura Kidz, ils participent à des courses clandestines contre d'autres équipes des collèges de l'arrondissement de Bunkyo. Leur progression est fulgurante. Leur cohésion, leur créativité et leur style attirent l'attention des Tenku Striders, une équipe de lycéens réputée dans tout Tokyo. Un tournoi final est organisé. Les meilleures équipes des collèges environnants s'affrontent. Une seule equipe sera choisie et aura le privilège de porter le nom de Tenku Striders et de poursuivre leur travail. Les Ura Ura Kidz parviennent jusqu'en finale sans trop de mal. Mais lors de cette course décisive, tout bascule. Alors que la victoire semble à leur portée, Kazuki révèle ses véritables intentions et trahit le groupe. Au moment d'un saut critique, il pousse volontairement Ryohei dans le vide. La chute est violente et malgré les tentatives désespérées de Kiba et Aoi pour le rattraper, Ryohei s'ecrase lourdement après plusieurs mètres de chute libre. Graves blessures aux jambes, la course est perdue. Les Tenku Striders se voient dans l'obligation de recruter l'équipe adverse, avec Kazuki à leur tête. Ce jour-là, quelque chose s'est brisé chez Kiba. Mais ce n'est pas sa determination ; plutôt sa naïveté qui s'envole en éclats. Il a compris que le monde ne récompensait pas toujours les meilleurs. Parfois, il récompensait les plus cruels."
+        },
+        {
+        "id": 5,
+        "year": "6085",
+        "title": "Combat",
+        "body": "Après une longue réeducation, Ryohei parvient à remarcher mais ne peut plus pratiquer le parkour au même niveau. A leur entrée au lycée, il choisit d'abandonner son rêve d'être le meilleur traceur du Japon et se tourne vers la gestion. Avant de tourner la page, il confie ses dernières instructions à son meilleur ami : 'Continue. Avance. Ne laisse pas cette trahison être la fin de notre histoire. Un mur sur notre route n'est pas un obstacle, c'est une invitation à créer notre propre chemin.' Encouragés par leur ami, Kiba et Aoi fondent leur propre équipe : les Bunkyo City Bolts, en hommage à leur quartier d'origine, comme pour prévenir les nouveaux Tenku Striders qu'ils en sont les dignes représentants. Leur approche change drastiquement. Moins naïve, plus directe et plus ancrée dans la performance plutôt que dans le rêve. Ils sont rejoints par Hidemichi Oyama, un lycéen a la carrure impressionnante, et Daigo Kawamura, considéré comme l'un des traceurs les plus rapides du nord de Tokyo. Les Bolts se font rapidement un nom. Rapides, agressifs, imprevisibles et surtout, chaque membre détient un Shokan. C'est ainsi qu'ils intègrent la Tokyo Skyrunner League, une compétition officieuse mais extrêmement influente, où l'utilisation de Shokan est autorisée, même indispensable pour concourir. C'est là que Kiba découvre l'utilité de son propre Shokan pour la première fois. Au milieu d'une course, pris entre deux immeubles, sans prise et sans issue, une main d'apparence spectrale jaillit de nulle part et le rattrape. Une main qui n'appartenait à personne d'autre qu'à lui-même. Dualité sera son atout pour se hisser au sommet."
+        },
+        {
+        "id": 6,
+        "year": "6089",
+        "title": "Aujourd'hui",
+        "body": "Ryohei commence à s'intéresser à ce qui entoure réellement la Tokyo Skyrunner League. Il repère un schéma : des Chevaliers de rang faible, aux Shokans instables ou atypiques, qui disparaissent du circuit du jour au lendemain et les organisateurs n'en parlent jamais. Et puis il y a les silhouettes. Des figures immobiles, aux yeux ambrés luisants, postées en hauteur tout au long des parcours. Elles observent toujours les mêmes participants. La majorité les ignore et ceux qui les pointent publiquement du doigt finissent rarement par les revoir. Lors de leurs derniers échanges, Ryohei confie à Kiba une intuition troublante : quelqu'un observe la ligue et sélectionne. Ceux qui possèdent un Shokan particulierement instable, atypique ou prometteur. Puis, quelques mois après l'obtention de leur diplôme, Ryohei cesse de répondre. Il laisse un dernier message : 'Je m'absente un moment. Inutile de me chercher.' Les messages restent sans réponse, les appels tombent dans le vide et les lieux qu'il fréquentait sont devenus déserts. Comme s'il avait simplement disparu au bon moment. Aujourd'hui, plus de 2 mois après sa disparition, Kiba poursuit les recherches. Chaque course est devenue une analyse. Chaque adversaire est une piste ou un suspect. Et chaque disparition, une répétition du même schéma. La question reste ouverte : Saura-t-il percer le secret de la disparition de son meilleur ami ?"
+        }
+    ],
+
+    "contacts": [
+        {
+        "id": "naomi",
+        "name": "naomi_07",
+        "status": "online",
+        "msg": "Toujours à la recherche d'un scoop",
+        "note": "Journaliste indépendante pour ActuNet."
+        },
+        {
+        "id": "yuki",
+        "name": "YukiChan",
+        "status": "online",
+        "msg": "j'en ai marre des exams...",
+        "note": "Camarade de lycée, maintenant dans la même fac."
+        },
+        {
+        "id": "kagami",
+        "name": "KagamiSpirit",
+        "status": "away",
+        "msg": "Le reflet ne ment jamais.",
+        "note": "C'est qui ?"
+        },
+        {
+        "id": "masahiro",
+        "name": "MasaMasa",
+        "status": "offline",
+        "msg": "Concert bientôt — Let's go !",
+        "note": "Pote de fac, membre d'un groupe de musique."
+        },
+        {
+        "id": "ryo",
+        "name": "Ry0",
+        "status": "offline",
+        "msg": "",
+        "note": "Disparu depuis 2 mois."
+        }
+    ],
+
+    "conversations": {
+        "naomi": {
+            "date": "Aujourd'hui — 20:45",
+            "messages": [
+                { "from": "naomi_07", "text": "kiba !! t'as vu les nouvelles de ce soir ?", "time": "20:45" },
+                { "from": "koga99",   "text": "non, quoi encore",                            "time": "20:46" },
+                { "from": "naomi_07", "text": "ya une nouvelle course clandestine",          "time": "20:46" },
+                { "from": "naomi_07", "text": "et de nouveaux crews foutent le bordel pour entrer dans la ligue", "time": "20:47" },
+                { "from": "naomi_07", "text": "tu devrais lire mes articles de temps en temps -_-", "time": "20:47" },
+                { "from": "koga99",   "text": "je regarde sur ton site",                     "time": "20:49" },
+                { "from": "naomi_07", "text": "j'ai besoin de toi sur ce coup",              "time": "20:49" },
+                { "from": "koga99",   "text": "laisse les se faire choper par les flics ou les clans", "time": "20:50" },
+                { "from": "naomi_07", "text": "c'est ça... ^^",                              "time": "20:50" },
+                { "from": "naomi_07", "text": "tu sais très bien qu'ils vont rien faire",    "time": "20:51" },
+                { "from": "koga99",   "text": "j'avoue",                                     "time": "20:51" },
+                { "from": "naomi_07", "text": "le run se passe à toshima, près d'ikebukuro", "time": "20:52" },
+                { "from": "koga99",   "text": "je me prépare",                               "time": "20:52" },
+                { "from": "naomi_07", "text": "je pars mtn ^^ rendez-vous au pont de maruyama. 23h.", "time": "20:54" },
+                { "from": "koga99",   "text": "ok",                                          "time": "20:54" }
+            ]
+        },
+        "yuki": {
+            "date": "Aujourd'hui — 21:12",
+            "messages": [
+                { "from": "YukiChan_☆", "text": "KIBA !!! j'ai eu une vision ce matin omg", "time": "21:12" },
+                { "from": "YukiChan_☆", "text": "c'était bizarre... tu étais là mais pas toi en même temps ??", "time": "21:12" },
+                { "from": "koga99",     "text": "une vision de quoi exactement",             "time": "21:14" },
+                { "from": "YukiChan_☆", "text": "une silhouette derrière toi. noire. mais familière", "time": "21:15" },
+                { "from": "koga99",     "text": "qu'est-ce que tu racontes",                 "time": "21:16" },
+                { "from": "koga99",     "text": "t'es chelou avec tes histoires de visions", "time": "21:17" },
+                { "from": "YukiChan_☆", "text": "dis moi que c'est rien ;_;",                "time": "21:18" },
+                { "from": "koga99",     "text": "c'est rien. oublie cette vision.",          "time": "21:18" },
+                { "from": "YukiChan_☆", "text": "... :/ tu mens très mal tu sais xD",        "time": "21:19" },
+                { "from": "koga99",     "text": "passe une bonne nuit yuki",                 "time": "21:20" },
+                { "from": "YukiChan_☆", "text": "toi aussi... fais attention à toi stp ;_;", "time": "21:20" }
+            ]
+        },
+        "kagami": {
+            "date": "Hier — 22:01",
+            "messages": [
+                { "from": "KagamiSpirit", "text": "Le reflet ne ment jamais.",             "time": "22:01" },
+                { "from": "koga99",       "text": "t'es qui toi",                          "time": "22:01" },
+                { "from": "KagamiSpirit", "text": "Ce que tu portes... il le sent aussi.", "time": "22:02" },
+                { "from": "KagamiSpirit", "text": "Méfie-toi de ton ombre.",               "time": "22:02" },
+                { "from": "koga99",       "text": "de quoi tu parles. je t'ai jamais ajouté", "time": "22:03" },
+                { "from": "KagamiSpirit", "text": "Bientôt. Le voile est fin cette nuit.", "time": "22:03" },
+                { "from": "KagamiSpirit", "text": "Ne te retourne pas.",                   "time": "22:04", "italic": true },
+                { "from": "system",       "text": "[KagamiSpirit est injoignable]",        "time": "22:04" }
+            ]
+        },
+        "masahiro": {
+            "date": "Aujourd'hui — 21:01",
+            "messages": [
+                { "from": "♫-MasaMasa-♫", "text": "Hello mon batteur préféré~~",           "time": "21:01" },
+                { "from": "koga99",       "text": "yo",                                    "time": "21:01" },
+                { "from": "♫-MasaMasa-♫", "text": "On organise une répét' jeudi avec le groupe", "time": "21:02" },
+                { "from": "♫-MasaMasa-♫", "text": "Ça te dit de jouer avec nous ?",        "time": "21:02" },
+                { "from": "koga99",       "text": "wakatsuru est encore malade ?",         "time": "21:06" },
+                { "from": "♫-MasaMasa-♫", "text": "Non pas cette fois",                    "time": "21:08" },
+                { "from": "♫-MasaMasa-♫", "text": "Depuis qu'il sort avec Reina-chan, il vient plus trop", "time": "21:08" },
+                { "from": "koga99",       "text": "c'est con",                             "time": "21:10" },
+                { "from": "koga99",       "text": "quelle heure",                          "time": "21:10" },
+                { "from": "♫-MasaMasa-♫", "text": "On sait pas encore",                    "time": "21:11" },
+                { "from": "♫-MasaMasa-♫", "text": "Je te dis ça demain, ok ?",             "time": "21:11" },
+                { "from": "koga99",       "text": "ok mais je promets rien",               "time": "21:12" },
+                { "from": "♫-MasaMasa-♫", "text": "Je compte sur toi~ à demain",           "time": "21:12" },
+                { "from": "koga99",       "text": "a+",                                    "time": "21:15" },
+                { "from": "system",       "text": "[♫-MasaMasa-♫ est déconnecté]" }
+            ]
+        },
+        "ryo": {
+            "date": "Il y a 2 mois",
+            "messages": [
+                { "from": "Ry0",    "text": "ya un truc bizarre qui se prepare",           "time": "14:22" },
+                { "from": "Ry0",    "text": "je dois disparaître un moment",               "time": "14:23" },
+                { "from": "koga99", "text": "quoi ? pourquoi",                             "time": "14:23" },
+                { "from": "Ry0",    "text": "tu comprendras plus tard.",                   "time": "14:24" },
+                { "from": "Ry0",    "text": "ne me cherche pas.",                          "time": "14:24" },
+                { "from": "koga99", "text": "ryo. qu'est-ce qui se passe vraiment",        "time": "14:25" },
+                { "from": "system", "text": "[CONNEXION PERDUE]",                          "time": "14:25" },
+                { "from": "system", "text": "Ry0 n'est plus en ligne depuis 2 mois." }
+            ]
+        }
+    },
+
+    "ui": {
+        "brand": { "top": "PYR//TECH", "bottom": "PDA-98" },
+        "defaultBattery": 48,
+        "portraitSize": { "width": 150, "height": 150 },
+        "off": {
+        "testId": "pda-off-screen",
+        "hint": "— appuyer sur ⏻ pour allumer —"
+        },
+        "boot": {
+        "logoTop": "PYR//",
+        "logoBottom": "Personal Digital Assistant",
+        "initText": "Initialisation système",
+        "version": "v2.5b — © 2000 Shokan no Kishi",
+        "durationMs": 2500,
+        "progressDurationSec": 2.2
+        },
+        "home": {
+        "defaultTitle": "KIBA.PDA",
+        "defaultSubtitle": "// MENU PRINCIPAL",
+        "gamesTitle": "Jeux & Media",
+        "gamesSubtitle": "// DIVERTISSEMENT",
+        "dateLabel": "DATE SYSTÈME"
+        },
+        "labels": {
+        "menu": "● Menu",
+        "prev": "◂",
+        "next": "▸",
+        "prevTitle": "Page précédente",
+        "nextTitle": "Page suivante",
+        "gamesShort": "Jeux",
+        "fallbackTitle": "KIBA.PDA",
+        "backToContacts": "◀ Liste des contacts",
+        "powerOn": "Allumer",
+        "powerOff": "Éteindre",
+        "powerAria": "Bouton d'alimentation"
+        },
+        "sections": {
+        "identityTitle": "> IDENTITE.DAT",
+        "fiche": "[ FICHE SUJET ]",
+        "physique": "[ DESCRIPTION PHYSIQUE ]",
+        "psycho": "[ PROFIL PSYCHOLOGIQUE ]",
+        "power": "> POWER.SYS",
+        "vitals": "[ VITALS ]",
+        "statistics": "[ STATISTIQUES ]",
+        "shokan": "[ SHOKAN // DUALITÉ ]",
+        "technique": "[ TECHNIQUE SPÉCIALE ]",
+        "history": "> HISTORY.LOG",
+        "historySubtitle": "5 entrées — tri chronologique",
+        "historyEnd": "> Fin du journal — EOF_",
+        "contacts": "> CONTACTS.ADB",
+        "online": "[ EN LIGNE ]",
+        "offline": "[ HORS LIGNE ]",
+        "note": "[ NOTE ]",
+        "conversation": "[ CONVERSATION ]"
+        },
+        "statusLabels": {
+        "online": "EN LIGNE",
+        "away": "ABSENT",
+        "offline": "HORS LIGNE"
+        },
+        "identityRowLabels": {
+        "fullName": "NOM",
+        "alias":    "ALIAS",
+        "age":      "ÂGE",
+        "birth":    "NAISS.",
+        "clan":     "CLAN",
+        "role":     "ROLE",
+        "shokan":   "SHOKAN",
+        "rank":     "RANG",
+        "type":     "TYPE"
+        },
+        "identityRegisterLabels": {
+        "clan":   "REGISTRE CLAN",
+        "shokan": "REGISTRE SHOKAN",
+        "statut": "STATUT CHEVALIER"
+        }
+    }
+}
