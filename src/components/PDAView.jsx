@@ -286,7 +286,7 @@ export default function PDAView() {
     // ═══════════════════════════════════════════════════════════════════
     // IMAGE VERTE (canvas + dithering Floyd-Steinberg, palette LCD 4 niveaux)
     // ═══════════════════════════════════════════════════════════════════
-    function PDAGreenImage({ src, width = 132, height = 150 }) {
+    function PDAGreenImage({ src, width = 150, height = 150 }) {
     const canvasRef = useRef(null)
 
     useEffect(() => {
@@ -318,7 +318,7 @@ export default function PDAView() {
 
         const gray = new Float32Array(width * height)
         for (let i = 0; i < data.length; i += 4) {
-            gray[i / 4] = 0.299 * data[i] + 0.587 * data[i + 1] + 0.114 * data[i + 2]
+            gray[i / 4] = 0.399 * data[i] + 0.1 * data[i + 1] + 0.2 * data[i + 2]
         }
 
         for (let y = 0; y < height; y++) {
@@ -400,10 +400,10 @@ export default function PDAView() {
             />
             </div>
             <div className="pda-id__tag">
-            <div className="pda-id__label">{R.clan}</div>
-            <div className="pda-id__value">{IDENTITY.registers.clan}</div>
-            <div className="pda-id__label" style={{ marginTop: 8 }}>{R.jinsei}</div>
-            <div className="pda-id__value">{IDENTITY.registers.jinsei}</div>
+            <div className="pda-id__label">{R.id}</div>
+            <div className="pda-id__value">{IDENTITY.registers.id}</div>
+            <div className="pda-id__label" style={{ marginTop: 8 }}>{R.team}</div>
+            <div className="pda-id__value">{IDENTITY.registers.team}</div>
             <div className="pda-id__label" style={{ marginTop: 8 }}>{R.statut}</div>
             <div className="pda-id__value pda-id__value--ok">{IDENTITY.registers.statut}</div>
             </div>

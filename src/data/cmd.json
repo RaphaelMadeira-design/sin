@@ -176,7 +176,7 @@
         "valid": {
             "NIVEAU-1": { "token": "ECHO77", "lvl": 1 },
             "NIVEAU-2": { "token": "KISHI-OMEGA", "lvl": 2 },
-            "NIVEAU-3": { "token": "KOGA-VEIL", "lvl": 3 }
+            "NIVEAU-3": { "token": "INFINITE-VEIL", "lvl": 3 }
         },
         "unknownLevel": [
             "",
