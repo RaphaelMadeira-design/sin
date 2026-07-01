@@ -493,91 +493,113 @@ letter-spacing: 0.4px;
         flex: 0 0 auto;
     }
 
-// ─── Encarts profil (description physique / psychologique) ─────
-&__profiles {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-gap: 16px;
-margin-top: 18px;
+    // ─── Encarts profil (description physique / psychologique) ─────
+    &__profiles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 18px;
 
-@media (max-width: 640px) {
-grid-template-columns: 1fr;
-}
-}
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+        }
+    }
 
-&__profile-card {
-background: $win98-light-gray;
-@include border-outset;
-display: flex;
-flex-direction: column;
-border-left-width: 5px;
-}
+    &__profile-card {
+        background: $win98-light-gray;
+        @include border-outset;
+        display: flex;
+        flex-direction: column;
+        border-left-width: 5px;
 
-&__profile-head {
-color: $win98-white;
-font-size: 11px;
-font-weight: bold;
-letter-spacing: 0.8px;
-padding: 5px 10px;
-background: $win98-navy;
-}
+        &--full {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+    }
 
-&__profile-body {
-flex: 1;
-padding: 12px 14px;
-font-family: $font-system;
-font-size: 12px;
-line-height: 1.55;
-white-space: pre-wrap;
-color: #1a1a1a;
-}
+    &__profile-head {
+        color: $win98-white;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+        padding: 5px 10px;
+        background: $win98-navy;
+    }
+    &__profile-subhead {
+        margin: 8px 0 4px;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        letter-spacing: 0.5px;
+        color: #06408b;
+    }
 
-&__profile-empty {
-color: #999;
-font-style: italic;
-letter-spacing: 0.4px;
-}
+    &__profile-body {
+        flex: 1;
+        padding: 12px 14px;
+        font-family: $font-system;
+        font-size: 12px;
+        line-height: 1.55;
+        white-space: pre-wrap;
+        color: #1a1a1a;
+    }
 
-// ─── Logs ─────────────────────────────────────────
-&__logs {
-background: #1a1a1a;
-color: #b6ffb6;
-font-family: 'Courier New', monospace;
-font-size: 12px;
-padding: 14px;
-border: 1px solid #000;
-height: 100%;
-box-sizing: border-box;
-}
-&__logline {
-padding: 1px 0;
-&:hover { background: rgba(255,255,255,0.05); }
-}
+    &__profile-empty {
+        color: #999;
+        font-style: italic;
+        letter-spacing: 0.4px;
+    }
 
-// ─── Confidentiel ─────────────────────────────────
-&__secure { display: flex; flex-direction: column; gap: 12px; }
-&__secure-banner {
-background: #2b0000;
-color: #ffcfcf;
-border: 1px solid #5a0000;
-padding: 8px 14px;
-letter-spacing: 0.5px;
-}
-&__sealed {
-background: #1f1f1f;
-color: #bbb;
-border: 1px solid #444;
-padding: 12px 14px;
-font-family: 'Courier New', monospace;
+    // ─── Logs ─────────────────────────────────────────
+    &__logs {
+        background: #1a1a1a;
+        color: #b6ffb6;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
+        padding: 14px;
+        border: 1px solid #000;
+        height: 100%;
+        box-sizing: border-box;
+    }
+    &__logline {
+        padding: 1px 0;
+        &:hover { 
+            background: rgba(255,255,255,0.05); 
+        }
+    }
 
-&.is-open {
-background: #fffef5;
-color: #000;
-border-color: #b87800;
-box-shadow: 0 0 0 2px rgba(184, 120, 0, 0.2);
-}
-pre { white-space: pre-wrap; margin: 8px 0 0; line-height: 1.5; }
-}
+    // ─── Confidentiel ─────────────────────────────────
+    &__secure { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 12px; 
+    }
+    &__secure-banner {
+        background: #2b0000;
+        color: #ffcfcf;
+        border: 1px solid #5a0000;
+        padding: 8px 14px;
+        letter-spacing: 0.5px;
+    }
+    &__sealed {
+        background: #1f1f1f;
+        color: #bbb;
+        border: 1px solid #444;
+        padding: 12px 14px;
+        font-family: 'Courier New', monospace;
+
+        &.is-open {
+            background: #fffef5;
+            color: #000;
+            border-color: #b87800;
+            box-shadow: 0 0 0 2px rgba(184, 120, 0, 0.2);
+        }
+        pre { 
+            white-space: pre-wrap; 
+            margin: 8px 0 0; 
+            line-height: 1.5; 
+        }
+    }
 &__sealed-head {
 font-weight: bold;
 font-size: 12px;

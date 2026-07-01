@@ -400,26 +400,48 @@ export default function Intranet() {
                                 </figure>
                             )}
                         </div>
-                            {('physicalDescription' in openPerson || 'psychProfile' in openPerson) && (
-                                <div className="intranet__profiles">
-                                    <section className="intranet__profile-card">
-                                        <div className="intranet__profile-head">DESCRIPTION PHYSIQUE</div>
-                                        <div className="intranet__profile-body">
-                                            {openPerson.physicalDescription
-                                                ? openPerson.physicalDescription
+                        {('physicalDescription' in openPerson || 'psychProfile' in openPerson) && (
+                            <div className="intranet__profiles">
+                                <section className="intranet__profile-card">
+                                    <div className="intranet__profile-head">DESCRIPTION PHYSIQUE</div>
+                                    <div className="intranet__profile-body">
+                                        {openPerson.physicalDescription
+                                            ? openPerson.physicalDescription
+                                            : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
+                                    </div>
+                                </section>
+                                <section className="intranet__profile-card">
+                                    <div className="intranet__profile-head">PROFIL PSYCHOLOGIQUE</div>
+                                    <div className="intranet__profile-body">
+                                        {openPerson.psychProfile
+                                            ? openPerson.psychProfile
+                                            : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
+                                    </div>
+                                </section>
+                            </div>
+                        )}
+                        {('shortTermGoals' in openPerson || 'longTermGoals' in openPerson) && (
+                            <div className="intranet__profiles">
+                                <section className="intranet__profile-card intranet__profile-card--full">
+                                    <div className="intranet__profile-head">OBJECTIFS DU PERSONNAGE</div>
+                                    <div className="intranet__profile-body">
+                                        <div className="intranet__profile-subhead">▸ Court terme</div>
+                                        <p>
+                                            {openPerson.shortTermGoals
+                                                ? openPerson.shortTermGoals
                                                 : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                        </div>
-                                    </section>
-                                    <section className="intranet__profile-card">
-                                        <div className="intranet__profile-head">PROFIL PSYCHOLOGIQUE</div>
-                                        <div className="intranet__profile-body">
-                                            {openPerson.psychProfile
-                                                ? openPerson.psychProfile
+                                        </p>
+
+                                        <div className="intranet__profile-subhead">▸ Long terme</div>
+                                        <p>
+                                            {openPerson.longTermGoals
+                                                ? openPerson.longTermGoals
                                                 : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                        </div>
-                                    </section>
-                                </div>
-                            )}
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                        )}
                     </div>
                 )}
 
