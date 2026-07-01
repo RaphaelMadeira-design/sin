@@ -127,7 +127,7 @@
             "author": "N/A",
             "date": "N/A",
             "place": "Lenoxia",
-            "body": "OBJECTIF : Retrouver les reliques liées à la légende des 'Lames de l'Espoir' et du 'Monarque Oublié'\n\nOBSERVATIONS :\n- Plusieurs rumeurs dans différentes régions du monde parlent d'une terre disparue durant l'Ère Archaïque nommée Ishaka\n- D'autres rumeurs traitent d'un troisième monarque proche de Datare et Yoma, mais qui n'aurait jamais succombé à la Corruption\n- Ces trois légendes auraient formé les 'Lames de l'Espoir' durant leur jeunesse visant combattre l'invasion de l'île d'Ishaka\n- Chaque membre des 'Lames de l'Espoir' aurait été détenteur d'une relique mystique, source de puissance et de savoir\n\nCONCLUSION :\nAucune preuve concrète sur l'existence de cette île ni même la légende du 'Monarque Oublié' \n\nACTION REQUISE :\nPoursuivre les recherches en se focalisant sur les reliques des 'Lames de l'Espoir'",
+            "body": "OBJECTIF : Vérifier la véracité des recherches du Pr. Vendamir\n\nOBSERVATIONS :\n- Les dernières recherches du professeur Vendamir traitent d'une terre disparue durant l'Ère Archaïque nommée 'Ishaka', d'où Datare et Yoma seraient originaires\n- Certaines rumeurs exposées dans ses recherches impliquent l'existence d'un troisième monarque proche de Datare et Yoma, qui n'aurait jamais succombé à la Corruption\n- Ces informations auraient été cachées au monde via un sortilège baptisé 'le Voile de Shigemori', maintenu par un groupe organisé et dissident\n- Ce groupe serait exclusivement composé de mages mythiques et illusionistes, établis dans plusieurs contrées de Lenoxia\n\nCONCLUSION :\nAucune preuve concrète mais plusieurs informateurs signalent la présence d'un illusioniste dissident à l'ouest d'Issitis\n\nACTION REQUISE :\nRecherches actives à l'ouest d'Issitis. Plusieurs équipes de patrouilleurs y sont envoyées de façon cyclique",
             "locked": 3
         }
     ],
@@ -215,7 +215,7 @@
             "alignment": "Neutre",
             "image": "/images/id.jpg",
             "physicalDescription": "Homme de taille et corpulence situées dans la moyenne, avec une silhouette longiligne accentuée par des épaules larges et de longues jambes. Cheveux bruns, coiffés mais légèrement désordonnés. Traits du visage fins mais anguleux, mâchoire carrée. Yeux en amande, iris caractérisés par la présence d'un motif galactique animé, composé d'une multitude de points lumineux semblables à des étoiles.",
-            "psychProfile": "Individu indolent, présentant un tempérament indépendant et une attitude généralement nonchalante. Tendance marquée à éviter les responsabilités et à limiter son implication aux tâches strictement nécessaires. Manifeste peu d'ambition professionnelle mais se montre efficace et fiable lors de ses interventions. Sujet à des épisodes de réminiscences exogènes dont l'origine demeure indéterminée."
+            "psychProfile": "Individu indolent, présentant un tempérament indépendant et une attitude généralement nonchalante. Tendance marquée à éviter les responsabilités et à limiter son implication aux tâches strictement nécessaires. Manifeste peu d'investissement professionnel mais se montre efficace et fiable lors de ses interventions. Sujet à des épisodes de réminiscences exogènes dont l'origine demeure indéterminée."
         },
         {
             "id": "9205",
@@ -358,18 +358,18 @@
     "secure": {
             "echo": {
             "level": 1,
-            "title": "DOSSIER « Vendamir »",
-            "content": "21 février — 16h51\nDisparition de Yuri Vendamir. Homme, humain âgé de 66 ans résidant à Reach.\nChercheur et professeur d'histoire à la Maison des Ancêtres de l'Académie.\nÉtudes sur divers mythes et légendes de Lenoxia datant de l'ère archaïque / pré-archaïque.\nCasier judiciaire : Vide / Dossier médical : OK"
+            "title": "DOSSIER « Neziaka »",
+            "content": "Surveillance interrompue — Cause inconnue\nNaleos Neziaka, edōlien de sexe masculin, âgé de 60 ans résidant à Reach.\nPatrouilleur à la retraite. Ex-capitaine de l'équipe 2 et ancien chef de la section 7.\nSujet d'une enquête en interne menée par le Protectorat pour manquement à ses devoirs.\nRemercié et démis de ses fonctions suite à l'ascension Malenia Valkenhein."
         },
             "ambre01": {
             "level": 2,
-            "title": "DOSSIER « Neziaka »",
-            "content": "...\n...\n...\n..."
+            "title": "DOSSIER « Vendamir »",
+            "content": "21 février — 16h51\nDisparition de Yuri Vendamir. Homme, humain âgé de 66 ans résidant à Reach.\nChercheur et professeur d'histoire à la Maison des Ancêtres de l'Académie.\nÉtudes sur divers mythes et légendes de Lenoxia datant de l'ère archaïque / pré-archaïque.\nCasier judiciaire : Vierge / Dossier médical : OK"
         },
             "kogaveil": {
             "level": 3,
-            "title": "DOSSIER « Ashura »",
-            "content": "...\n...\n...\n..."
+            "title": "DOSSIER « Voile de Shigemori »",
+            "content": "Recherches du Pr. Vendamir\nPlusieurs rapports de recherche, études et articles ont été saisis au domicile du professeur Vendamir.\nDes bases de données cryptées ont dévoilé son implication dans des recherches non communiquées aux instances de la CGU.\nCommunications fréquentes avec l'ex-patrouilleur Naloes Neziaka [SURVEILLANCE INTEROMPUE].\nAnalyse des documents saisis en cours. Plusieurs fichiers critiques semblent manquer."
         }
     }
 }
