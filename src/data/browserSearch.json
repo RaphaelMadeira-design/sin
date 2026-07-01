@@ -7,9 +7,9 @@
             "seconds": "0,24",
             "real": {
                 "title": "Isen Shura — Shokupédia, l'encyclopédie libre",
-                "url": "is.shokupedia.org/Isen_Shura",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura",
                 "target": "wiki",
-                "desc": "Isen Shura (修羅 威仙, Shura Isen), ..."
+                "desc": "Isen Shura (修羅 威仙, Shura Isen), également enregistré au sein de la Coalition des Gouvernements Unis sous le matricule #0791, est un patrouilleur de l'Ordre affecté à ..."
             },
             "fakes": [
                 { "title": "Registre municipal de Reach — Shura, I.", "url": "www.reach.metro.is/registre/shura-i#428046", "desc": "Citoyen recensé. Dernière mise à jour partielle. Certaines lignes du recensement sont marquées « données confidentielles »." },
@@ -51,7 +51,7 @@
             "seconds": "0,31",
             "real": {
                 "title": "Coalition des Gouvernements Unis — mentionnée sur la fiche Isen Shura (Shokupédia)",
-                "url": "is.shokupedia.org/Isen_Shura#CGU",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura#CGU",
                 "target": "wiki",
                 "desc": "Organisation intergouvernementale chargée de maintenir la paix et lutter contre la Corruption sur Lenoxia."
             },
@@ -105,7 +105,7 @@
             "seconds": "0,22",
             "real": {
                 "title": "L'Ordre — mentionné sur la fiche Isen Shura (Shokupédia)",
-                "url": "is.shokupedia.org/Isen_Shura#Ordre",
+                "url": "is.shokupedia.org/shokunin/Isen_Shura#Ordre",
                 "target": "wiki",
                 "desc": "Branche d'intervention principale de la Coalition des Gouvernements Unis. Isen Shura y officie comme agent de terrain."
             },
@@ -122,7 +122,7 @@
                 },
                 {
                 "title": "Est-ce que les Patrouilleurs possèdent un uniforme ?",
-                "url": "www.shokunin-times.lx/opinion/patrouilleurs",
+                "url": "www.shokunin-times.jp/opinion/patrouilleurs",
                 "desc": "Selon plusieurs membres de l'Ordre, l'indépendance reste au cœur de leur identité, même au sein de la CGU."
                 },
                 {

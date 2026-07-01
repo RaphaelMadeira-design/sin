@@ -3,8 +3,8 @@
     "KONAMI": ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"],
     "SECRET_SEARCHES": ["résonance", "resonance", "éveil", "eveil", "mémoire", "memoire", "fréquence", "frequence", "528", "raphurst", "academia", "académie"],
     "SECRET_URLS": ["isen://core", "isen://secret", "about:isen", "isen://memories"],
-    "WIKI_URL": "https://is.shokupedia.org/Isen_Shura",
-    "NEWS_URL": "http://www.actunet-news.jp/",
+    "WIKI_URL": "https://is.shokupedia.org/shokunin/Isen_Shura",
+    "NEWS_URL": "http://www.actunet-news.is/",
     "TAB_DEFS": {
         "google": {
             "id": "google",
@@ -15,13 +15,13 @@
         "wiki": {
             "id": "wiki",
             "label": "Isen Shura — Shokupédia",
-            "url": "https://is.shokupedia.org/Isen_Shura",
+            "url": "https://is.shokupedia.org/shokunin/Isen_Shura",
             "icon": "https://win98icons.alexmeub.com/icons/png/web_file-0.png"
         },
         "news": {
             "id": "news",
             "label": "ActuNet Actualités",
-            "url": "http://www.actunet-news.jp/",
+            "url": "http://www.actunet-news.is/",
             "icon": "https://win98icons.alexmeub.com/icons/png/web_file-0.png"
         }
     },
@@ -33,9 +33,9 @@
         "google.jp": "google",
         "www.google.com": "google",
         "google.com": "google",
-        "is.shokupedia.org/Isen_Shura": "wiki",
-        "www.actunet-news.jp": "news",
-        "actunet-news.jp": "news"
+        "is.shokupedia.org/shokunin/isen_shura": "wiki",
+        "www.actunet-news.is": "news",
+        "actunet-news.is": "news"
     },
     "page404": {
         "errorIcon": "https://win98icons.alexmeub.com/icons/png/msg_error-0.png",
