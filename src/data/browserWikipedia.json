@@ -2,9 +2,9 @@
     "header": {
         "logo": {
             "src": "/images/Wikipedia_logo.png",
-            "alt": "Wikipedia",
-            "title": "Wikipédia ???",
-            "name": "Wikipédia",
+            "alt": "Shokupedia",
+            "title": "Shokupédia ???",
+            "name": "Shokupédia",
             "tagline": "L'encyclopédie libre"
         },
         "nav": ["Discussion", "Modifier", "Historique"]
@@ -16,39 +16,38 @@
         },
         {
             "title": "Contribuer",
-            "items": ["Débuter sur Wikipédia", "Aide", "Communauté"]
+            "items": ["Débuter sur Shokupédia", "Aide", "Communauté"]
         },
         {
             "title": "Outils",
             "items": ["Pages liées", "Suivi des pages liées", "Importer un fichier"]
         }
     ],
-    "title": "Isen Hata",
-    "subtitleHtml": "<em>Cet article traite d'une personnalité publique. Pour d'autres usages, voir <span class=\"browser__wiki-link\">Hata (homonymie)</span>.</em>",
+    "title": "Isen Shura",
+    "subtitleHtml": "<em>Cet article traite d'une personnalité publique. Pour d'autres usages, voir <span class=\"browser__wiki-link\">Shura (homonymie)</span>.</em>",
     "noticeHtml": "<strong>Cet article est une ébauche concernant une personne physique.</strong> Vous pouvez partager vos connaissances en l'améliorant.",
     "infobox": {
-        "title": "Isen Hata",
+        "title": "Isen Shura",
         "image": {
             "src": "/images/id.jpg",
-            "alt": "Isen Hata",
+            "alt": "Isen Shura",
             "credit": "Illustration par Pyr"
         },
         "rows": [
-            ["Nom complet", "Isen Hata"],
-            ["Surnoms", "Croc Écarlate, Kōga"],
-            ["Naissance", "3 août 6070 (28 ans) (♊︎)"],
+            ["Nom complet", "Isen Shura"],
+            ["Âge", "28 ans"],
             ["Sexe", "Masculin ♂"],
-            ["Alignement", "Neutre - Bon"],
-            ["Clan", "Magaishi"],
-            ["Rôle", "Membre"],
-            ["Shokan", "Dualité"],
-            ["Type", "Divers"],
-            ["Rang", "E"]
+            ["Race", "???"],
+            ["Ethnie", "Astral"],
+            ["Origine", "Las Noches"],
+            ["Affiliation", "CGU, Ordre"],
+            ["Rôle", "Patrouilleur"],
+            ["Alignement", "Neutre"],
+            ["MBTI", "INFJ"]
         ]
     },
     "introParagraphs": [
-        "<strong>Isen Hata</strong> (五十嵐 牙, <em>Hata Isen</em>), aussi appelé <strong>Kōga</strong> ou <strong>Croc Écarlate</strong>, est un <em>chevalier</em> de rang E. C'est un membre issu de la souche inférieure du clan <strong>Magaishi</strong>, qui contrôle une grande partie de la <em>métropole de Tokyo</em>. Affilié de second plan du fait de son jeune âge et de sa position au sein de la hiérarchie, il est peu impliqué dans les affaires officielles du clan et apparaît rarement dans les registres gouvernementaux qui y sont liés.",
-        "Il est membre des <strong>Bunkyo City Bolts</strong>, un groupe de <em>parkour</em> très présent sur la scène locale et participant à de nombreuses compétitions dans la capitale, qu'ils ont remportées à plusieurs reprises. Ils alimentent une rivalité avec le fameux crew <strong>Tenku Striders</strong>."
+        "<strong>Isen Shura</strong> (修羅 威仙, <em>Shura Isen</em>), ..."
     ],
     "toc": {
         "title": "Sommaire",
@@ -58,27 +57,26 @@
                 "labelHtml": "Apparence",
                 "children": [
                     { "id": "wiki-physique", "labelHtml": "Physique" },
-                    { "id": "wiki-style", "labelHtml": "Style vestimentaire" }
+                    { "id": "wiki-signes", "labelHtml": "Signes distinctifs" }
                 ]
             },
             {
                 "id": "wiki-personnalite",
                 "labelHtml": "Personnalité",
                 "children": [
-                    { "id": "wiki-temperament", "labelHtml": "Tempérament" },
-                    { "id": "wiki-qualites", "labelHtml": "Qualités et Défauts" },
-                    { "id": "wiki-desirs", "labelHtml": "Désirs et craintes" }
+                    { "id": "wiki-caractere", "labelHtml": "Caractère" },
+                    { "id": "wiki-qualites", "labelHtml": "Qualités et Défauts" }
                 ]
             },
             {
                 "id": "wiki-biographie",
                 "labelHtml": "Biographie",
                 "children": [
-                    { "id": "wiki-origine", "labelHtml": "Origine et famille" },
-                    { "id": "wiki-parkour", "labelHtml": "Découverte du parkour et les <em>Ura Ura Kidz</em>" },
-                    { "id": "wiki-bunkyo", "labelHtml": "<em>Bunkyo City Bolts</em> et la <em>Skyrunner League</em>" },
-                    { "id": "wiki-disparition", "labelHtml": "Premier contact et disparition de Ryohei Nishikawa" },
-                    { "id": "wiki-present", "labelHtml": "Présent" }
+                    { "id": "wiki-chap1", "labelHtml": "..." },
+                    { "id": "wiki-chap2", "labelHtml": "..." },
+                    { "id": "wiki-chap3", "labelHtml": "..." },
+                    { "id": "wiki-chap4", "labelHtml": "..." },
+                    { "id": "wiki-chap5", "labelHtml": "..." }
                 ]
             },
             {
@@ -87,7 +85,7 @@
                 "children": [
                     { "id": "wiki-competences", "labelHtml": "Compétences générales" },
                     { "id": "wiki-combat", "labelHtml": "Style de combat" },
-                    { "id": "wiki-shokan", "labelHtml": "Shokan" }
+                    { "id": "wiki-jinsei", "labelHtml": "Jinsei" }
                 ]
             },
             {
@@ -99,46 +97,33 @@
     "sections": [
         { "level": 2, "id": "wiki-apparence", "titleHtml": "Apparence" },
         { "level": 3, "id": "wiki-physique", "titleHtml": "Physique", "paragraphs": [
-            "Du haut de son mètre quatre-vingt (<em>1m80</em>) et pesant soixante-et-onze kilogrammes (<em>71kg</em>), Isen est un homme qui possède un physique plutôt banal. Ses cheveux carmins tirent légèrement vers un rouge brun et sont coiffés de manière naturelle, presque négligée avec des mèches désordonnées qui retombent sur son front sans jamais vraiment masquer ses yeux. Son visage est équilibré, aux traits nets mais assez doux. Ses yeux sont violets et dessinés en amande. Le grain de beauté sous son œil gauche attire subtilement l'attention et ajoute une petite signature visuelle qui casse la symétrie de son visage. Isen ne possède aucun tatouage ni piercing, et son corps ne présente aucune cicatrice visible ou importante."
+            "..."
         ] },
-        { "level": 3, "id": "wiki-style", "titleHtml": "Style vestimentaire", "paragraphs": [
-            "Côté style vestimentaire, Isen privilégie l'essentiel. Des vêtements simples, confortables mais toujours pratiques. Son style penche vers le streetwear, sans extravagance et fonctionnel avant tout, sans jamais être négligé. Son accoutrement de prédilection est un sweat à capuche beige et ample, un pantalon chino bleu nuit bien ajusté, des sneakers basses blanches délavées à scratch et un blouson type bomber vert foncé. Il ne porte pas d'accessoires particuliers, préférant garder une apparence épurée et sans fioritures, à l'image de sa personnalité."
+        { "level": 3, "id": "wiki-signes", "titleHtml": "Signes distinctifs", "paragraphs": [
+            "..."
         ] },
         { "level": 2, "id": "wiki-personnalite", "titleHtml": "Personnalité" },
-        { "level": 3, "id": "wiki-temperament", "titleHtml": "Tempérament", "paragraphs": [
-            "Isen est quelqu'un d'ouvert, avenant et facile à approcher. Il engage la conversation sans difficulté et met naturellement les autres à l'aise, sans effort particulier. Son attitude détendue et son sens du contact lui permettent de s'intégrer rapidement, quel que soit le contexte. Il possède une énergie plutôt tranquille, sans jamais devenir envahissant, ce qui rend sa présence agréable. Il trouve instinctivement sa place parmi les autres, sans chercher à s'imposer. Sociable sans être dépendant, Isen apprécie les échanges simples et sincères, mais garde toujours une certaine maîtrise de lui-même. Il sait écouter, répondre, plaisanter, mais choisit avec soin ce qu'il révèle réellement de lui. En effet, derrière cette facilité apparente se cache quelqu'un de plus mesuré, qui ne se livre jamais complètement, même dans des relations proches."
+        { "level": 3, "id": "wiki-caractere", "titleHtml": "Caractère", "paragraphs": [
+            "..."
         ] },
         { "level": 3, "id": "wiki-qualites", "titleHtml": "Qualités et Défauts", "paragraphs": [
-            "Isen possède un excellent sens du relationnel. Il comprend rapidement les dynamiques sociales et sait adapter son comportement en fonction des personnes qu'il a en face de lui, sans jamais paraître artificiel. Il est aussi constant dans ses efforts. Peu importe les circonstances, il maintient un rythme stable et fiable, ce qui fait de lui quelqu'un sur qui l'on peut compter dans la durée. Il n'est pas du genre à trop réfléchir et vouloir tout analyser avant de se lancer, préférant prendre des risques au risque d'échouer. Enfin, Isen est assez pragmatique et ne s'attarde pas inutilement sur ce qui ne peut pas être changé car il préfère se concentrer sur ce qui dépend réellement de lui.",
-            "Mais à l'inverse, Isen peut donner l'illusion d'être plus proche des autres qu'il ne l'est réellement. Sa facilité sociale masque une sorte de distance émotionnelle, qui peut créer un décalage entre ce que les autres ressentent et ce qu'il est prêt à offrir. Il a tendance à éviter les confrontations importantes en les désamorçant par le dialogue ou l'humour. Mais si cela fonctionne dans des situations légères, cela devient problématique lorsque les enjeux sont plus sérieux. Finalement, Isen est parfois trop spontané dans ses décisions, au point de ne pas toujours peser le pour et le contre."
-        ] },
-        { "level": 3, "id": "wiki-desirs", "titleHtml": "Désirs et craintes", "paragraphs": [
-            "Au fond, Isen aspire à une forme de liberté simple et honnête. Il ne cherche ni la gloire ni le pouvoir, mais souhaite avancer selon ses propres règles, sans être défini par son nom ou son appartenance au clan Magaishi. À travers le parkour, il cherche un espace où il peut exister pleinement, sans contrainte ni attente extérieure. C'est dans ces moments qu'il se sent le plus proche de ce qu'il veut être. Bien qu'il ne l'exprime pas ouvertement, Isen aspire à créer des liens sincères, des relations basées sur la confiance et le respect mutuel, loin des hiérarchies et des intérêts du clan.",
-            "L'une des plus grandes craintes de Isen est la stagnation. L'idée de rester au même point et de ne pas évoluer malgré ses efforts, est quelque chose qu'il perçoit comme un échec profond. Il redoute aussi de ne pas être à la hauteur. Non pas aux yeux des autres, mais face à ses propres attentes et c'est cette peur alimente son besoin constant de progresser."
+            "..."
         ] },
         { "level": 2, "id": "wiki-biographie", "titleHtml": "Biographie" },
-        { "level": 3, "id": "wiki-origine", "titleHtml": "Origine et famille", "paragraphs": [
-            "Isen est issu de la famille <strong>Hata</strong>, une lignée mineure quasiment oubliée et éclipsée par les branches supérieures du clan <strong>Magaishi</strong>. Contrairement aux lignées principales, où les héritiers sont formés dès l'enfance pour occuper des fonctions stratégiques, la branche dont il est issu occupe une position de second plan et est souvent reléguée à des rôles d'exécution ou de soutien. De ce fait, il a grandi loin des projecteurs, dans une relative obscurité, sans les pressions et les attentes qui pèsent sur les membres plus en vue du clan.",
-            "Élevé dans le quartier de <em>Bunkyo</em> à Tokyo, Isen n'a pas eu d'enfance particulièrement dure, ni réellement privilégiée. Ses parents, bien que membres du clan, n'ont jamais été très impliqués dans les affaires internes et ont laissé une grande liberté à leur fils, tant qu'il respectait les règles de base. Ce côté indépendant lui a permis d'explorer ses propres intérêts et de développer sa personnalité sans être constamment comparé à des figures plus prestigieuses de la famille."
+        { "level": 3, "id": "wiki-chap1", "titleHtml": "...", "paragraphs": [
+            "..."
         ] },
-        { "level": 3, "id": "wiki-parkour", "titleHtml": "Découverte du parkour et les <em>Ura Ura Kidz</em>", "paragraphs": [
-            "Ses journées passées à profiter de cette liberté en vadrouillant dans les rues des différents quartiers de la capitale l'amènent à faire la rencontre de <strong>Ryohei Nishikawa</strong>, un camarade de collège qui deviendra rapidement son meilleur ami. Ryohei est le leader naturel d'un petit groupe cherchant à former un club de parkour au sein du collège. Il recrute Isen afin de permettre la création officielle du club, qui est complété par <strong>Kazuki Kurogane</strong>, un garçon sûr de lui, ambitieux, et cherchant à surpasser Ryohei ; ainsi que <strong>Aoi Kanzaki</strong>, une adolescente silencieuse, analytique, et qui est le véritable cerveau stratégique de l'équipe.",
-            "Sous le nom des <em>Ura Ura Kidz</em>, ils participent à des courses clandestines contre d'autres équipes des collèges de l'arrondissement de Bunkyo. Leur progression est rapide et ils sont bientôt invités à participer à des runs organisées. Leur cohésion, leur créativité et leur style attirent l'attention des <em>Tenku Striders</em>, une équipe de lycéens réputée dans tout Tokyo, qui cherchent à recruter une nouvelle génération pour reprendre leur place avant d'obtenir leur diplôme de fin d'études. Un tournoi final est organisé et oppose les meilleures équipes des collèges environnants. Mais une seule équipe sera choisie et aura le privilège de porter le nom de <em>Tenku Striders</em>.",
-            "Les <em>Ura Ura Kidz</em> parviennent jusqu'en finale sans trop de mal. Mais lors de cette course décisive, tout bascule. Alors que la victoire semble à leur portée, Kazuki révèle ses véritables intentions et finit par trahir le groupe. Au moment d'un saut critique, il pousse volontairement le leader des <em>Ura Ura Kidz</em> dans le vide. La chute est violente et malgré les tentatives désespérées de Isen et Aoi pour le rattraper, Ryohei, considéré comme le meilleur <em>traceur</em> du tournoi, s'écrase lourdement après plusieurs mètres de chute libre et subit de graves blessures aux jambes. La course est perdue et les <em>Tenku Striders</em> recrutent l'équipe adverse, avec Kazuki à leur tête."
+        { "level": 3, "id": "wiki-chap2", "titleHtml": "...", "paragraphs": [
+            "..."
         ] },
-        { "level": 3, "id": "wiki-bunkyo", "titleHtml": "<em>Bunkyo City Bolts</em> et la <em>Tokyo Skyrunner League</em>", "paragraphs": [
-            "Après une longue rééducation, Ryohei parvient à remarcher mais ne peut plus pratiquer le parkour au même niveau. À leur entrée au lycée, il choisit d'abandonner son rêve d'être le meilleur traceur du Japon et se tourne vers une autre passion liée à cette pratique qu'il aime tant, la gestion. Il espère voir la pratique se démocratiser et il est prêt à tout pour que cela arrive. Cependant, avant de tourner la page, il confie ses dernières instructions à son meilleur ami. Continuer, avancer et ne pas laisser cette trahison être la fin de leur histoire. Encouragés par leur ami, Isen et Aoi fondent leur propre équipe au club de parkour du lycée. Les <em>Bunkyo City Bolts</em> sont nés. Contrairement aux <em>Ura Ura Kidz</em>, leur approche de la course change drastiquement. Moins naïve, plus directe et ancrée dans la performance plutôt que dans le rêve. Ils sont rejoints par <strong>Hidemichi Ōyama</strong>, un lycéen à la carrure impressionnante qui respire la puissance ainsi que <strong>Daigo Kawamura</strong>, considéré comme l'un des traceurs les plus rapides du nord de Tokyo, mais qui manque de discipline.",
-            "Les <em>Bunkyo City Bolts</em> se font rapidement un nom dans la scène underground de Tokyo grâce à leur style reconnaissable. Ils sont rapides, agressifs et imprévisibles mais surtout, chaque membre détient un <em>Shokan</em>. C'est donc tout naturellement que le crew finit par intégrer la <strong>Tokyo Skyrunner League</strong>, une compétition officieuse mais extrêmement influente, où s'affrontent les meilleures équipes de parkour urbain avec un twist : l'utilisation de <em>Shokan</em> est autorisée et (presque) tous les coups sont permis. Mais tout sport populaire possède son lot de sombres secrets, surtout quand ils touchent aux <em>Chevaliers</em>, et les jeux de pouvoirs sont comme un poison inévitable qui corrompt tout ce qu'il touche."
+        { "level": 3, "id": "wiki-chap3", "titleHtml": "...", "paragraphs": [
+            "..."
         ] },
-        { "level": 3, "id": "wiki-disparition", "titleHtml": "Premier contact et disparition de Ryohei Nishikawa", "paragraphs": [
-            "Alors que les <em>Bunkyo City Bolts</em> s'imposent progressivement dans la <em>Tokyo Skyrunner League</em>, Isen et le crew maintiennent un lien régulier avec Ryohei. Contrairement à ce que l'on pourrait attendre, leur relation ne s'est jamais brisée. Ryohei suit attentivement les performances des Bolts, commente leurs courses, corrige certains choix, à la manière d'un coach qui fait encore partie de l'équipe. Mais quelque chose a changé. Depuis leur entrée dans la ligue, Ryohei se montre plus attentif à certains détails, comme les équipes qui utilisent des <em>Shokans</em>, les comportements anormaux en course, ou même certains participants qui disparaissent du circuit du jour au lendemain. Au début, cela ressemble à de simples observations mais progressivement au fil des ans, ses remarques deviennent plus précises. Il évoque des schémas, des absences répétées et des noms qui cessent d'apparaître sans explication. Plusieurs crews remarquent aussi la présence d'une ou plusieurs silhouettes placées à plusieurs endroits de la course, qui observent de leurs yeux ambrés et brillants, les membres les plus éminents. Phénomène qui devient systématique au fil des ans, mais ignoré par la grande majorité. En dernière année au lycée, Ryohei commence à s'intéresser à ce qui entoure réellement la <em>Tokyo Skyrunner League</em> et surtout aux <em>Chevaliers</em> qui participent.",
-            "Lors de leurs derniers échanges, Ryohei confie à Isen une intuition troublante. Selon lui, certains participants ne sont pas simplement éliminés ou blessés, ils sont ciblés. Ceux qui possèdent un <em>Shokan</em> particulièrement instable, atypique ou prometteur. Bien sûr, il n'a aucune preuve concrète mais se décide de mener l'enquête, avec un sentiment persistant : quelqu'un observe la ligue et sélectionne. Parce que malgré sa blessure, Ryohei reste un cas à part. Son talent n'a jamais réellement disparu, il s'est transformé. Moins explosif, mais plus précis. Moins rapide, mais plus efficace. Et surtout, lui aussi est détenteur d'un <em>Shokan</em>, que personne, pas même Isen, n'a eu l'occasion d'observer.",
-            "Puis quelques mois après avoir obtenu leur diplôme de fin d'études, Ryohei cesse de répondre. Il envoie une dernière instruction à son meilleur ami, pour le prévenir qu'il s'absente et qu'il est inutile de partir à sa recherche. Les messages restent sans réponse, les appels tombent dans le vide. Les lieux qu'il fréquentait sont déserts et ses habitudes s'arrêtent net. Comme s'il avait simplement disparu au bon moment."
+        { "level": 3, "id": "wiki-chap4", "titleHtml": "...", "paragraphs": [
+            "..."
         ] },
-        { "level": 3, "id": "wiki-present", "titleHtml": "Présent", "paragraphs": [
-            "Aujourd'hui encore, plus de 2 mois après la disparition de son meilleur ami, Isen poursuit les recherches. Officiellement, rien n'a changé. Il continue d'évoluer avec les <em>Bunkyo City Bolts</em>, d'enchaîner les courses dans la <em>Tokyo Skyrunner League</em>, et de participer aux compétitions comme n'importe quel autre traceur. Sauf qu'en réalité, tout a changé. Chaque course est devenue une analyse. Chaque adversaire, une piste potentielle. Chaque disparition, une répétition du même schéma. Et ces mystérieuses silhouettes, toujours présentes pour les observer, mais toujours assez loin pour être inaccessibles... La majorité des participants les ignore et les organisateurs n'en parlent pas. Mais ceux qui les pointent publiquement du doigt, finissent rarement par les revoir une deuxième fois.",
-            "Isen est face à un mystère qui dépasse largement le cadre de son petit monde, du parkour. Un système qui semble intimement lié aux <em>Chevaliers</em> et aux <em>Shokans</em>. Ce n'est pas la ligue qu'il observent mais certains participants. Une question se pose alors :",
-            "<strong>Saura-t-il percer le secret de la disparition de son meilleur ami ?</strong>"
+        { "level": 3, "id": "wiki-chap5", "titleHtml": "...", "paragraphs": [
+            "..."
         ] },
         { "level": 2, "id": "wiki-aptitudes", "titleHtml": "Aptitudes et compétences" },
         { "level": 3, "id": "wiki-competences", "titleHtml": "Compétences générales", "list": [
@@ -150,19 +135,18 @@
         { "level": 3, "id": "wiki-combat", "titleHtml": "Style de combat", "paragraphs": [
             "Isen ne possède pas de style de combat à proprement parler. Sa manière de combattre se rapproche plus du <em>street fighting</em> que des arts martiaux traditionnels. Il emprunte des techniques de <strong>boxe anglaise</strong>, de <strong>lutte libre</strong>, de <strong>taekwondo</strong> et de <strong>capoeira</strong> qu'il adapte à sa propre manière de bouger. Bien qu'il reste amateur, son style est fluide, imprévisible et chaotique, basé sur les feintes, les changements de rythme mais aussi sur son environnement immédiat."
         ] },
-        { "level": 3, "id": "wiki-shokan", "titleHtml": "Shokan", "paragraphs": [
-            "Le <em>Shokan</em> de Isen lui permet, via son téléphone, de matérialiser sa volonté sous la forme d'une entité semi-indépendante, baptisée <strong>Dualité</strong>, qui combat à ses côtés. Cette présence se manifeste comme une ombre déformée qui à mi-chemin entre apparition et disparition, gravitant autour de lui. Plutôt qu'un corps complet permanent, elle prend vie par impulsions. Ses membres surgissent, frappent, bloquent ou assistent, puis redeviennent translucides et flous aussitôt, comme s'il lui était impossible de demeurer dans le plan physique trop longtemps.",
-            "Ce <em>Shokan</em> présente plusieurs contraintes qui limitent grandement son efficacité, expliquant son rang au plus bas dans la hiérarchie. D'abord, ces manifestations sont brèves, <strong>1 à 2 secondes</strong> tout au plus, et ne peuvent surgir que dans un <strong>rayon de 4 mètres</strong> autour de Isen. Ensuite, leur puissance de frappe est équivalente à celle de l'utilisateur, comme s'il s'agissait d'une extension de son propre corps, bien qu'elles ne partagent pas de sensations."
+        { "level": 3, "id": "wiki-jinsei", "titleHtml": "Jinsei", "paragraphs": [
+            "..."
         ] }
     ],
     "references": {
         "title": "Références",
         "id": "wiki-references",
         "items": [
-            "Mairie de Tokyo, <em>Recensement des membres de clan</em>, 6089.",
-            "« Registre gouvernemental des Shokans », <em>Grand Lexique du Japon</em>, consulté le 7 avril 6089.",
-            "Archives Magaishi, document interne, non daté."
+            "...",
+            "...",
+            "..."
         ]
     },
-    "categories": ["Homme", "Magaishi", "Souche inférieure", "Shokan"]
+    "categories": ["Homme", "CGU", "Ordre", "Jinsei"]
 }
