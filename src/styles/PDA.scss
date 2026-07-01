@@ -194,7 +194,7 @@ height: 100%;
 overflow-y: auto;
 overflow-x: hidden;
 color: $lcd-text;
-font-family: 'Pixelify Sans', monospace;
+
 
 &::-webkit-scrollbar { width: 6px; }
 &::-webkit-scrollbar-track { background: $lcd-shadow; }
@@ -229,7 +229,6 @@ justify-self: center;
 }
 
 &__nav-btn {
-font-family: 'Pixelify Sans', monospace;
 font-size: 11px;
 padding: 6px 10px;
 background: $lcd-shadow;
@@ -264,7 +263,6 @@ background: $lcd-highlight;
 }
 
 &__nav-arrow {
-font-family: 'Pixelify Sans', monospace;
 font-size: 16px;
 width: 36px;
 height: 30px;
@@ -372,7 +370,7 @@ animation: pda-power-pulse 2.8s ease-in-out infinite;
 
 span {
 font-family: 'Pixelify Sans', monospace;
-font-size: 14px;
+font-size: 18px;
 color: #666;
 font-weight: 600;
 }
@@ -477,7 +475,6 @@ text-align: center;
 margin-bottom: 20px;
 
 h1 {
-font-family: 'Pixelify Sans', monospace;
 font-size: 22px;
 color: $lcd-highlight;
 margin: 0 0 4px;
@@ -486,7 +483,6 @@ letter-spacing: 3px;
 }
 
 p {
-font-family: 'Pixelify Sans', monospace;
 font-size: 10px;
 color: $lcd-text-dim;
 margin: 0;
@@ -545,12 +541,10 @@ text-shadow: none;
 font-size: 32px;
 color: $lcd-text;
 text-shadow: 0 0 10px rgba($lcd-text, 0.5);
-font-family: 'Pixelify Sans', monospace;
 line-height: 1;
 }
 
 &-label {
-font-family: 'Pixelify Sans', monospace;
 font-size: 12px;
 color: $lcd-text;
 text-shadow: 0 0 6px rgba($lcd-text, 0.4);
@@ -567,7 +561,6 @@ background: rgba($lcd-text, 0.05);
 display: flex;
 align-items: center;
 justify-content: space-between;
-font-family: 'Pixelify Sans', monospace;
 }
 
 &__date-label {
@@ -590,7 +583,6 @@ text-shadow: 0 0 8px rgba($lcd-highlight, 0.5);
 // =====================
 .pda-page {
 padding: 12px 14px 20px;
-font-family: 'Pixelify Sans', monospace;
 color: $lcd-text;
 
 &__title {
@@ -872,7 +864,7 @@ box-shadow: 0 0 4px rgba($lcd-text, 0.6);
 }
 }
 
-.pda-shokan p {
+.pda-jinsei p {
 font-size: 11px;
 color: $lcd-text;
 line-height: 1.55;
@@ -992,7 +984,6 @@ padding: 8px 10px;
 background: transparent;
 border: none;
 color: $lcd-text;
-font-family: 'Pixelify Sans', monospace;
 font-size: 11px;
 cursor: pointer;
 text-align: left;
@@ -1210,7 +1201,6 @@ gap: 6px;
 padding: 8px 10px;
 border: 1px solid $lcd-text-dim;
 background: rgba($lcd-text, 0.03);
-font-family: 'Pixelify Sans', monospace;
 max-height: 260px;
 overflow-y: auto;
 
@@ -1320,7 +1310,6 @@ padding: 20px;
 margin-bottom: 40px;
 
 span {
-font-family: 'Pixelify Sans', monospace;
 font-size: 48px;
 font-weight: 700;
 color: $lcd-highlight;
@@ -1331,7 +1320,6 @@ animation: lcd-flicker 2s infinite;
 }
 
 small {
-font-family: 'Pixelify Sans', monospace;
 font-size: 10px;
 color: $lcd-text-dim;
 letter-spacing: 2px;
@@ -1342,7 +1330,6 @@ margin-top: 8px;
 
 &__text {
 p {
-font-family: 'Pixelify Sans', monospace;
 font-size: 11px;
 color: $lcd-text;
 margin: 0 0 12px;

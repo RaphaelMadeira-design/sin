@@ -19,7 +19,7 @@ const {
     psycho:          PSYCHO,
     stats:           STATS_LIST,
     vitals:          VITALS,
-    shokanDescription: SHOKAN_DESC,
+    jinseiDescription: JINSEI_DESC,
     abilities:       ABILITIES,
     historyChapters: HISTORY_CHAPTERS,
     contacts:        CONTACTS_LIST,
@@ -378,14 +378,13 @@ export default function PDAView() {
     const R = UI.identityRegisterLabels
     const rows = [
         [L.fullName, IDENTITY.fullName],
-        [L.alias,    IDENTITY.alias],
+        [L.id,    IDENTITY.id],
         [L.age,      `${IDENTITY.age} ans`],
-        [L.birth,    IDENTITY.birth],
-        [L.clan,     IDENTITY.clan],
+        [L.origin,    IDENTITY.origin],
+        [L.race,     IDENTITY.race],
         [L.role,     IDENTITY.role],
-        [L.shokan,   IDENTITY.shokan],
-        [L.rank,     IDENTITY.rank],
-        [L.type,     IDENTITY.type],
+        [L.ethnicity,   IDENTITY.ethnicity],
+        [L.alignment,     IDENTITY.alignment],
     ]
 
     return (
@@ -403,8 +402,8 @@ export default function PDAView() {
             <div className="pda-id__tag">
             <div className="pda-id__label">{R.clan}</div>
             <div className="pda-id__value">{IDENTITY.registers.clan}</div>
-            <div className="pda-id__label" style={{ marginTop: 8 }}>{R.shokan}</div>
-            <div className="pda-id__value">{IDENTITY.registers.shokan}</div>
+            <div className="pda-id__label" style={{ marginTop: 8 }}>{R.jinsei}</div>
+            <div className="pda-id__value">{IDENTITY.registers.jinsei}</div>
             <div className="pda-id__label" style={{ marginTop: 8 }}>{R.statut}</div>
             <div className="pda-id__value pda-id__value--ok">{IDENTITY.registers.statut}</div>
             </div>
@@ -491,9 +490,9 @@ export default function PDAView() {
             ))}
         </div>
 
-        <div className="pda-page__section">{UI.sections.shokan}</div>
-        <div className="pda-shokan">
-            <p>{SHOKAN_DESC}</p>
+        <div className="pda-page__section">{UI.sections.jinsei}</div>
+        <div className="pda-jinsei">
+            <p>{JINSEI_DESC}</p>
         </div>
 
         <div className="pda-page__section">{UI.sections.technique}</div>
