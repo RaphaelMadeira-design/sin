@@ -129,11 +129,11 @@
         { "level": 3, "id": "wiki-competences", "titleHtml": "Compétences générales", "list": [
             "<strong>Motricité</strong> — Isen est ambidextre depuis son plus jeune âge et possède une excellente coordination œil-main et œil-pied.",
             "<strong>Ouïe surdéveloppée</strong> — Il perçoit les sons avec une acuité exceptionnelle, ce qui lui permet de détecter des bruits subtils.",
-            "<strong>Langues</strong> — En plus du japonais, sa langue maternelle, Isen parle aussi couramment l'anglais, le mandarin et le cantonais.",
+            "<strong>Langues</strong> — ...",
             "<strong>Technologie</strong> — Isen est familier avec les dernières avancées technologiques et connaît plusieurs langages de programmation."
         ] },
         { "level": 3, "id": "wiki-combat", "titleHtml": "Style de combat", "paragraphs": [
-            "Isen ne possède pas de style de combat à proprement parler. Sa manière de combattre se rapproche plus du <em>street fighting</em> que des arts martiaux traditionnels. Il emprunte des techniques de <strong>boxe anglaise</strong>, de <strong>lutte libre</strong>, de <strong>taekwondo</strong> et de <strong>capoeira</strong> qu'il adapte à sa propre manière de bouger. Bien qu'il reste amateur, son style est fluide, imprévisible et chaotique, basé sur les feintes, les changements de rythme mais aussi sur son environnement immédiat."
+            "Isen ne possède pas de style de combat à proprement parler. Sa manière de combattre se rapproche plus du <em>street fighting</em> que des arts martiaux traditionnels. Il emprunte des techniques de <strong>taekwondo</strong> et de <strong>capoeira</strong> qu'il adapte à sa propre manière de bouger. Il se bat majoritairement avec ses jambes. Bien qu'il reste amateur, son style est fluide, imprévisible et chaotique, basé sur les feintes, les changements de rythme mais aussi sur son environnement immédiat."
         ] },
         { "level": 3, "id": "wiki-jinsei", "titleHtml": "Jinsei", "paragraphs": [
             "..."
