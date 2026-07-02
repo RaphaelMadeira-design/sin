@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import '../styles/Browser.scss'
 import config from '../data/browserConfig.json'
 import secretData from '../data/browserSecret.json'
@@ -512,6 +512,79 @@ function FakeGoogleNoResult({ query, onSearch }) {
     )
 }
 
+function WikiAudioPlayer({ voice }) {
+    const audioRef = useRef(null)
+    const [playing, setPlaying] = useState(false)
+    const [cur, setCur] = useState(0)
+    const [dur, setDur] = useState(0)
+
+    useEffect(() => {
+        const a = audioRef.current
+        if (!a) return
+        const onTime = () => setCur(a.currentTime)
+        const onMeta = () => setDur(a.duration || 0)
+        const onEnd = () => setPlaying(false)
+        a.addEventListener('timeupdate', onTime)
+        a.addEventListener('loadedmetadata', onMeta)
+        a.addEventListener('ended', onEnd)
+        return () => {
+            a.removeEventListener('timeupdate', onTime)
+            a.removeEventListener('loadedmetadata', onMeta)
+            a.removeEventListener('ended', onEnd)
+        }
+    }, [])
+
+    const toggle = () => {
+        const a = audioRef.current
+        if (!a) return
+        if (playing) { a.pause(); setPlaying(false) }
+        else { a.play(); setPlaying(true) }
+    }
+
+    const seek = (e) => {
+        const a = audioRef.current
+        if (!a || !dur) return
+        const rect = e.currentTarget.getBoundingClientRect()
+        const pct = (e.clientX - rect.left) / rect.width
+        a.currentTime = Math.max(0, Math.min(dur, pct * dur))
+    }
+
+    const fmt = (t) => {
+        if (!isFinite(t) || t < 0) t = 0
+        const m = Math.floor(t / 60)
+        const s = Math.floor(t % 60)
+        return `${m}:${String(s).padStart(2, '0')}`
+    }
+
+    const pct = dur ? (cur / dur) * 100 : 0
+
+    return (
+        <div className="browser__wiki-audio" data-testid="wiki-voice-player">
+            <div className="browser__wiki-audio-title">{voice.title}</div>
+            <div className="browser__wiki-audio-row">
+                <button
+                    type="button"
+                    className="browser__wiki-audio-btn"
+                    onClick={toggle}
+                    aria-label={playing ? 'Pause' : 'Lire'}
+                    data-testid="wiki-voice-toggle"
+                >
+                    {playing ? '❚❚' : '▶'}
+                </button>
+                <div className="browser__wiki-audio-body">
+                    <div
+                        className="browser__wiki-audio-track"
+                        onClick={seek}
+                    >
+                        <div className="browser__wiki-audio-fill" style={{ width: `${pct}%` }} />
+                    </div>
+                </div>
+            </div>
+            <audio ref={audioRef} src={voice.src} preload="metadata" />
+        </div>
+    )
+}
+
 function FakeWikipedia({ onLogoClick }) {
     const w = wikiData
     const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -557,6 +630,7 @@ function FakeWikipedia({ onLogoClick }) {
                                 ))}
                             </tbody>
                         </table>
+                        {w.infobox.voice && <WikiAudioPlayer voice={w.infobox.voice} />}
                     </div>
                     {w.introParagraphs.map((p, i) => (
                         <p key={i} dangerouslySetInnerHTML={{ __html: p }} />

@@ -44,7 +44,11 @@
             ["Rôle", "Patrouilleur"],
             ["Alignement", "Neutre"],
             ["MBTI", "INFJ"]
-        ]
+        ],
+        "voice": {
+            "src": "/music/voice.mp3",
+            "title": "Extrait vocal"
+        }
     },
     "introParagraphs": [
         "<strong>Isen Shura</strong> (修羅 威仙, <em>Shura Isen</em>), également enregistré au sein de la <span class=\"browser__wiki-link\">Coalition des Gouvernements Unis</span> sous le matricule <strong>#0791</strong>, est un patrouilleur de l'<span class=\"browser__wiki-link\">Ordre</span> affecté à la <span class=\"browser__wiki-link\">Section 7</span>, Équipe 2, en poste dans la métropole de <span class=\"browser__wiki-link\">Reach</span>. Retrouvé inanimé dans le désert blanc de <span class=\"browser__wiki-link\">Las Noches</span> alors qu'il n'était âgé que de dix-neuf ans, il fut recueilli par l'ex-patrouilleur <span class=\"browser__wiki-link\">Naleos Neziaka</span> qui rédigea son premier rapport d'identification.",
