@@ -5,17 +5,17 @@ import pouvoirsData from '../data/pouvoirs.json'
 // ─── DATA ────────────────────────────────────────────────────────
 const {
     hero: HERO,
-    jinsei: JINSEI,
+    power: POWER,
     stats: STATS,
     hp: HP,
     energy: ENERGY,
     spells: SPELLS,
-    equipement: EQUIPEMENT,
-    artefact: ARTEFACT,
+    strengths: FORCES,
+    weaknesses: FAIBLESSES,
 } = pouvoirsData
 
 // ─── RADAR GEOMETRY ──────────────────────────────────────────────
-const CX = 130, CY = 130, R = 80
+const CX = 90, CY = 90, R = 60
 const ANGLES = STATS.map((_, i) => -Math.PI / 2 + (2 * Math.PI * i) / STATS.length)
 const OUTER = ANGLES.map(a => ({ x: CX + R * Math.cos(a), y: CY + R * Math.sin(a) }))
 const DATA = STATS.map((s, i) => ({
@@ -24,6 +24,10 @@ const DATA = STATS.map((s, i) => ({
 }))
 const RINGS = [0.25, 0.5, 0.75, 1.0]
 const polyOf = pts => pts.map(p => `${Math.round(p.x)},${Math.round(p.y)}`).join(' ')
+
+// ─── SPELL ICONS ─────────────────────────────────────────────────
+
+const isImg = (icon) => typeof icon === 'string' && /\.(png|jpe?g|webp|gif|svg)$/i.test(icon)
 
 // ─── COMPONENT ───────────────────────────────────────────────────
 export default function Pouvoirs() {
@@ -59,11 +63,11 @@ export default function Pouvoirs() {
                 <header className="moba__topbar">
                     <div className="moba__crumb">
                         <span className="moba__crumb-dot" />
-                        PROFIL  AGENTS  <strong>{HERO.lastName}, {HERO.firstName}</strong>
+                        DATA CHECK // PROFIL élève <strong>{HERO.lastName} {HERO.firstName}</strong>
                     </div>
                     <div className="moba__rank">
-                        <span className="moba__rank-label">RANG</span>
-                        <span className="moba__rank-val">{HERO.rank}</span>
+                        <span className="moba__rank-label">ÉTABLISSEMENT</span>
+                        <span className="moba__rank-val">{HERO.school}</span>
                         <span className="moba__rank-mat">{HERO.matricule}</span>
                     </div>
                 </header>
@@ -71,56 +75,69 @@ export default function Pouvoirs() {
                 {/* Main 3-col grid */}
                 <div className="moba__grid">
 
-                    {/* LEFT: identity + jinsei + spells */}
+                    {/* LEFT: identity + power + spells */}
                     <section className="moba__col moba__col--left">
-                        {/* Name + rank/alignment/anima */}
-                        <div className="moba__name-block">
 
-                            <div className="moba__ident-row" data-testid="hero-identity">
-                                <span className="moba__ident">
-                                    <i>CLASSE</i>{HERO.class}
-                                </span>
-                                <span className="moba__ident">
-                                    <i>ALIGNEMENT</i>{HERO.alignment}
-                                </span>
-                                <span className="moba__ident">
-                                    <i>ANIMA</i>{HERO.anima}
-                                </span>
+                        {/* pOWER panel */}
+                        <div className="moba__panel moba__power-panel" data-testid="power-panel">
+                            <div className="moba__panel-head">
+                                <span className="moba__panel-title">Données de capacité</span>
+                                <span className="moba__panel-dot" />
+                            </div>
+                            <div className="moba__power-grid">
+                                <div className="moba__power-cell" data-testid="power-name">
+                                    <i>APPELATION</i>
+                                    <span>{POWER.name}</span>
+                                </div>
+                                <div className="moba__power-cell" data-testid="power-tier">
+                                    <i>TIER</i>
+                                    <span>{POWER.tier}</span>
+                                </div>
+                                <div className="moba__power-cell" data-testid="power-level">
+                                    <i>NIVEAU</i>
+                                    <span>{POWER.level}</span>
+                                </div>
+                                <div className="moba__power-cell moba__power-cell--aura" data-testid="power-aura">
+                                    <i>AURA </i>
+                                    <span>{POWER.aura}</span>
+                                </div>
+                                <div className="moba__power-cell" data-testid="power-type">
+                                    <i>TYPE</i>
+                                    <span>{POWER.type}</span>
+                                </div>
+                                <div className="moba__power-cell" data-testid="power-role">
+                                    <i>RÔLE</i>
+                                    <span>{POWER.role}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bars: Santé / Énergie */}
+                        <div className="moba__bars" data-testid="hero-bars">
+                            <div className="moba__bar moba__bar--hp">
+                                <div className="moba__bar-track">
+                                    <div
+                                        className="moba__bar-fill"
+                                        style={{ width: bars ? `${(HP.current / HP.max) * 100}%` : '0%' }}
+                                    />
+                                    <span className="moba__bar-label">Santé</span>
+                                    <span className="moba__bar-value">{HP.current}HP</span>
+                                </div>
+                            </div>
+                            <div className="moba__bar moba__bar--energy">
+                                <div className="moba__bar-track">
+                                    <div
+                                        className="moba__bar-fill"
+                                        style={{ width: bars ? `${(ENERGY.current / ENERGY.max) * 100}%` : '0%' }}
+                                    />
+                                    <span className="moba__bar-label">Énergie</span>
+                                    <span className="moba__bar-value">{ENERGY.current}EP</span>
+                                </div>
                             </div>
                         </div>
 
                         {/* Quick description */}
                         <p className="moba__desc" data-testid="hero-desc">{HERO.description}</p>
-
-                        {/* Jinsei panel */}
-                        <div className="moba__panel moba__jinsei-panel" data-testid="jinsei-panel">
-                            <div className="moba__panel-head">
-                                <span className="moba__panel-title">PROFIL JINSÉIQUE</span>
-                                <span className="moba__panel-dot" />
-                            </div>
-                            <div className="moba__jinsei-grid">
-                                <div className="moba__jinsei-cell" data-testid="jinsei-qualite">
-                                    <i>QUALITÉ DU JINSEI</i>
-                                    <span>{JINSEI.qualite}</span>
-                                </div>
-                                <div className="moba__jinsei-cell" data-testid="jinsei-quantite">
-                                    <i>QUANTITÉ DU JINSEI</i>
-                                    <span>{JINSEI.quantite}</span>
-                                </div>
-                                <div className="moba__jinsei-cell" data-testid="jinsei-genre">
-                                    <i>GENRE SHOKUNÉEN</i>
-                                    <span>{JINSEI.genreShokuneen}</span>
-                                </div>
-                                <div className="moba__jinsei-cell" data-testid="jinsei-type">
-                                    <i>TYPE JINSÉIQUE</i>
-                                    <span>{JINSEI.typeJinseique}</span>
-                                </div>
-                                <div className="moba__jinsei-cell moba__jinsei-cell--wide" data-testid="jinsei-nature">
-                                    <i>NATURE JINSÉIQUE</i>
-                                    <span>{JINSEI.natureJinseique}</span>
-                                </div>
-                            </div>
-                        </div>
 
                         {/* Spells — icon row */}
                         <div className="moba__panel moba__spells-panel">
@@ -140,7 +157,11 @@ export default function Pouvoirs() {
                                         data-testid={`spell-${sp.key.toLowerCase()}`}
                                         aria-label={`Ouvrir détails ${sp.name}`}
                                     >
-                                        <span className="moba__spell-glyph">{sp.icon || sp.key}</span>
+                                        {isImg(sp.icon) ? (
+                                            <img src={sp.icon} alt={sp.name} className="moba__spell-glyph moba__spell-glyph--img" />
+                                        ) : (
+                                            <span className="moba__spell-glyph">{sp.icon || sp.key}</span>
+                                        )}
                                         <span className="moba__spell-key">{sp.key}</span>
                                         <span className="moba__spell-tip">{sp.name}</span>
                                     </button>
@@ -166,7 +187,7 @@ export default function Pouvoirs() {
                         {/* Radar */}
                         <div className="moba__radar-bare">
                             <div className="moba__radar-wrap">
-                                <svg className="moba__radar" viewBox="0 0 260 260" data-testid="stats-radar" shapeRendering="crispEdges">
+                                <svg className="moba__radar" viewBox="0 0 180 180" data-testid="stats-radar" shapeRendering="crispEdges">
                                     {RINGS.map((s, ri) => (
                                         <polygon
                                             key={ri}
@@ -194,19 +215,19 @@ export default function Pouvoirs() {
                                         }}
                                     />
                                     {DATA.map((p, i) => (
-                                        <rect key={i} x={Math.round(p.x) - 3} y={Math.round(p.y) - 3} width="6" height="6" fill={STATS[i].color} />
+                                        <rect key={i} x={Math.round(p.x) - 1} y={Math.round(p.y) - 1.5} width="3" height="3" fill={STATS[i].color} />
                                     ))}
                                     {STATS.map((s, i) => {
-                                        const lx = Math.round(CX + (R + 22) * Math.cos(ANGLES[i]))
-                                        const ly = Math.round(CY + (R + 22) * Math.sin(ANGLES[i]))
+                                        const lx = Math.round(CX + (R + 14) * Math.cos(ANGLES[i]))
+                                        const ly = Math.round(CY + (R + 18) * Math.sin(ANGLES[i]))
                                         return (
                                             <g key={i}>
                                                 <text x={lx} y={ly - 4} textAnchor="middle" dominantBaseline="middle"
-                                                    fill="#9fc6ff" fontSize="9" letterSpacing="1">
+                                                    fill="#9fc6ff" fontSize="6" letterSpacing="1">
                                                     {s.name}
                                                 </text>
                                                 <text x={lx} y={ly + 8} textAnchor="middle" dominantBaseline="middle"
-                                                    fill={s.color} fontSize="11">
+                                                    fill={s.color} fontSize="9">
                                                     {s.value}
                                                 </text>
                                             </g>
@@ -216,30 +237,33 @@ export default function Pouvoirs() {
                             </div>
                         </div>
 
-                        {/* Equipment & Artifact */}
-                        <div className="moba__panel moba__gear-panel" data-testid="gear-panel">
+                        {/* Forces & Faiblesses */}
+                        <div className="moba__panel moba__traits-panel" data-testid="traits-panel">
                             <div className="moba__panel-head">
-                                <span className="moba__panel-title">ÉQUIPEMENT &amp; ARTEFACT</span>
+                                <span className="moba__panel-title">AVANTAGES &amp; LIMITES</span>
                                 <span className="moba__panel-dot" />
                             </div>
 
-                            <div className="moba__gear-section">
-                                <div className="moba__gear-label">ÉQUIPEMENT</div>
-                                <ul className="moba__gear-list" data-testid="equipment-list">
-                                    {EQUIPEMENT.map((it, i) => (
-                                        <li key={i} className="moba__gear-item">
-                                            <span className="moba__gear-bullet">›</span>{it}
+                            <div className="moba__traits-section">
+                                <div className="moba__traits-label">FORCES</div>
+                                <ul className="moba__traits-list" data-testid="forces-list">
+                                    {FORCES.map((it, i) => (
+                                        <li key={i} className="moba__traits-item">
+                                            <span className="moba__traits-bullet">›</span>{it}
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="moba__gear-section">
-                                <div className="moba__gear-label">ARTEFACT</div>
-                                <div className="moba__artifact" data-testid="artefact">
-                                    <div className="moba__artifact-name">{ARTEFACT.name}</div>
-                                    <div className="moba__artifact-desc">{ARTEFACT.description}</div>
-                                </div>
+                            <div className="moba__traits-section">
+                                <div className="moba__traits-label moba__traits-label--weak">FAIBLESSES</div>
+                                <ul className="moba__traits-list moba__traits-list--weak" data-testid="faiblesses-list">
+                                    {FAIBLESSES.map((it, i) => (
+                                        <li key={i} className="moba__traits-item">
+                                            <span className="moba__traits-bullet">›</span>{it}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </section>
@@ -276,11 +300,17 @@ export default function Pouvoirs() {
                         </div>
 
                         <div className="moba__modal-body">
-                            <div className="moba__modal-glyph">{spell.icon || spell.key}</div>
+                            <div className="moba__modal-glyph">
+                                {isImg(spell.icon) ? (
+                                    <img src={spell.icon} alt={spell.name} className="moba__modal-glyph-img" />
+                                ) : (
+                                    spell.icon || spell.key
+                                )}
+                            </div>
 
                             <div className="moba__modal-meta">
                                 <div className="moba__modal-pill moba__modal-pill--cost">
-                                    <i>COÛT</i><span>{spell.cost} JIN</span>
+                                    <i>COÛT</i><span>{spell.cost} énergie</span>
                                 </div>
                                 <div className="moba__modal-pill moba__modal-pill--recharge">
                                     <i>RECHARGE</i><span>{spell.recharge}</span>
@@ -299,8 +329,10 @@ export default function Pouvoirs() {
 
                             {spell.effect && (
                                 <div className="moba__modal-effect">
-                                    <span className="moba__modal-effect-label">EFFET</span>
-                                    <span className="moba__modal-effect-text">{spell.effect}</span>
+                                    <span className="moba__modal-effect-label">EFFETS</span>
+                                    {(Array.isArray(spell.effect) ? spell.effect : [spell.effect]).map((ef, i) => (
+                                        <span key={i} className="moba__modal-effect-text">{ef}</span>
+                                    ))}
                                 </div>
                             )}
                         </div>

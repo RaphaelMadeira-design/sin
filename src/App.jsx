@@ -73,7 +73,7 @@ const INITIAL_ICONS = [
     },
     {
         id: 'intranet',
-        label: 'CGU-NET Intranet',
+        label: 'WELLSTON-NET Intranet',
         icon: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png',
         x: 1, y: 1,
     },
@@ -87,7 +87,7 @@ const INITIAL_ICONS = [
 
 const WINDOW_CONFIGS = {
     powers: {
-        title: 'Registre interne des Jinsei - CGU',
+        title: 'Registre des capacités — ABILITY_GAUGE.exe',
         defaultSize: { width: '87%', height: '95%' },
         defaultPosition: { x: 150, y: 20 },
     },
@@ -137,7 +137,7 @@ const WINDOW_CONFIGS = {
         defaultPosition: { x: 0, y: 0 },
     },
     intranet: {
-        title: 'Intranet — CGU-NET v5.04',
+        title: 'Intranet — WELLSTON-NET v5.04',
         defaultSize: { width: '80%', height: '85%' },
         defaultPosition: { x: 60, y: 30 },
     },
@@ -168,7 +168,7 @@ const LOADING_LABELS = {
     powers: 'JINSEI-CGU.exe',
     snake: 'SNAKE.exe',
     jump: 'JUMP.exe',
-    intranet : 'CGU-NET v5.04',
+    intranet : 'WELLSTON-NET v5.04',
 }
 
 const makeNotepadConfig = (fileId, fileName) => ({

@@ -148,7 +148,7 @@
         "icon": "msn"
     },
     "p_intranet": {
-        "name": "CGU-NET Intranet",
+        "name": "WELLSTON-NET Intranet",
         "parent": "c_programs",
         "type": "shortcut",
         "target": "intranet",

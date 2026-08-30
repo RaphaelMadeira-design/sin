@@ -57,7 +57,7 @@ function IntranetLogin({ onLogin }) {
             <div className="cgu-login__header">
                 <div className="cgu-login__crest" />
                     <div>
-                        <div className="cgu-login__title">SERVEUR INTERNE — CGU-NET</div>
+                        <div className="cgu-login__title">SERVEUR INTERNE — WELLSTON-NET</div>
                         <div className="cgu-login__subtitle">
                             POSTE DE TRAVAIL MONITORÉ
                         </div>
@@ -128,7 +128,7 @@ function IntranetLogin({ onLogin }) {
                 {/* Footer collé tout en bas de la fenêtre */}
                 <div className="cgu-login__footer">
                     Toute tentative d'intrusion est consignée et tracée.<br/>
-                    CGU-NET VERSION 5.04
+                    WELLSTON-NET VERSION 5.04
                 </div>
         </div>
     )
@@ -201,7 +201,7 @@ export default function Intranet() {
                 <div className="intranet__crest"></div>
                 <div className="intranet__title">
                     <div className="intranet__org">ORDRE DE LA COALITION DES GOUVERNEMENTS UNIS</div>
-                    <div className="intranet__sub">Intranet CGU-NET v1.04 — Section 7</div>
+                    <div className="intranet__sub">Intranet WELLSTON-NET v5.04 — Section 7</div>
                 </div>
                 <div className={`intranet__clearance lvl-${clearance}`}>AUTORISATION : NIVEAU {clearance}</div>
             </div>
@@ -471,7 +471,7 @@ export default function Intranet() {
 
             {/* Footer */}
             <div className="intranet__footer">
-                CGU-NET — Section 7, Équipe 2 — Utilisateur : I. SHURA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
+                WELLSTON-NET — Section 7, Équipe 2 — Utilisateur : S. A'SHURA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
             </div>
         </div>
     )

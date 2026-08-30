@@ -40,13 +40,13 @@ export default function StartMenu({ onClose, onOpenWindow, onShutdown }) {
 
                 <div className="start-menu__content">
                     <div className="start-menu__item" onClick={() => handle('intranet')} data-testid="start-menu-intranet">
-                        <img src={ICONS.intranet} alt="CGU-NET" />
-                        CGU-NET Intranet v5.04
+                        <img src={ICONS.intranet} alt="WELLSTON-NET" />
+                        WELLSTON-NET v5.04
                     </div>
 
                     <div className="start-menu__item" onClick={() => handle('powers')} data-testid="start-menu-powers">
                         <img src={ICONS.powers} alt="Jinsei" />
-                        JINSEI-CGU.exe
+                        ABILITY_GAUGE.exe
                     </div>
 
                     <div className="start-menu__item" onClick={() => handle('browser')} data-testid="start-menu-browser">
