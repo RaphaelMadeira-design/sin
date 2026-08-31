@@ -11,7 +11,7 @@ const CGU_CREDENTIALS = {
 
 const { 
     tasks: TASKS, 
-    reports: REPORTS, 
+    schedule: SCHEDULE, 
     trombinoscope: TROMBINOSCOPE, 
     trombinoscopeStructure: TROMBINOSCOPE_STRUCTURE, 
     squads: SQUADS, 
@@ -142,7 +142,7 @@ export default function Intranet() {
     const [openReport, setOpenReport] = useState(null)
     const [openPerson, setOpenPerson] = useState(null)
     const [clearance, setClearance] = useState(getClearance())
-    const [openSquad, setOpenSquad] = useState(2)
+    const [openSquad, setOpenSquad] = useState('B')
 
     useEffect(() => {
         const i = setInterval(() => setClearance(getClearance()), 1000)
@@ -152,13 +152,6 @@ export default function Intranet() {
     if (!authed) {
         return <IntranetLogin onLogin={() => setAuthed(true)} />
     }
-
-    const groupedTrombinoscope = TROMBINOSCOPE.reduce((acc, p) => {
-        if (!p.team) return acc
-        acc[p.team] = acc[p.team] || []
-        acc[p.team].push(p)
-        return acc
-    }, {})
 
     const priColor = (p) => ({
         'CRITIQUE': '#c00',
@@ -178,13 +171,13 @@ export default function Intranet() {
 
     const renderTrombinoscopeCard = (p) => {
         const locked = p.locked && clearance < p.locked
-        const clickAllowed = p.team === 'Équipe 2' && !locked
+        const clickAllowed = p.id === '0791' && !locked
         return (
             <div
                 key={p.id}
                 className={`intranet__card${!clickAllowed ? ' is-locked' : ''}`}
                 onClick={() => clickAllowed && setOpenPerson(p)}
-                title={!clickAllowed ? 'Accès restreint — Équipe 2 uniquement' : ''}
+                title={!clickAllowed ? 'Accès restreint — dossier verrouillé' : ''}
                 >
                 <div className="intranet__card-id">N° {p.id.toUpperCase()}</div>
                 <div className="intranet__card-name">{locked ? '████████████' : p.name}</div>
@@ -250,44 +243,36 @@ export default function Intranet() {
                     </table>
                 )}
 
-                {/* Reports */}
-                {tab === 'reports' && !openReport && (
-                    <ul className="intranet__list">
-                        {REPORTS.map(r => {
-                            const locked = r.locked && clearance < r.locked
-                            return (
-                                <li key={r.id} className="intranet__listitem" onClick={() => !locked && setOpenReport(r)}>
-                                    <div className="intranet__listmain">
-                                        <div className="intranet__listcode">{r.code}</div>
-                                        <div className="intranet__listtitle">{locked ? '[ACCÈS RESTREINT]' : r.title}</div>
-                                        <div className="intranet__listmeta">{r.author} — {r.date}</div>
-                                    </div>
-                                    <div className={`intranet__stamp ${r.classification.toLowerCase().replace(/ /g,'-')}`}>
-                                        {locked ? `NIVEAU ${r.locked} REQUIS` : r.classification}
-                                    </div>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                )}
-
-                {tab === 'reports' && openReport && (
-                    <div className="intranet__doc">
-                        <button className="intranet__back" onClick={() => setOpenReport(null)}>
-                            ◄ Retour
-                        </button>
-                        <div className="intranet__doc-head">
-                            <div className="intranet__doc-org">SECTION 7, ÉQUIPE 2 — RAPPORT OFFICIEL</div>
-                            <div className={`intranet__stamp ${openReport.classification.toLowerCase().replace(/ /g,'-')}`}>{openReport.classification}</div>
-                        </div>
-                        <div className="intranet__doc-meta">
-                            <div><b>Réf. :</b> {openReport.code}</div>
-                            <div><b>Auteur :</b> {openReport.author}</div>
-                            <div><b>Date :</b> {openReport.date}</div>
-                            <div><b>Lieu :</b> {openReport.place}</div>
-                        </div>
-                        <h3 className="intranet__doc-title">{openReport.title}</h3>
-                        <pre className="intranet__doc-body">{openReport.body}</pre>
+                {/* Emploi du temps */}
+                {tab === 'reports' && (
+                    <div className="intranet__table">
+                        <table className="intranet__table intranet__table--schedule">
+                            <thead>
+                                <tr>
+                                    <th>Horaire</th>
+                                    {SCHEDULE.days.map(d => <th key={d}>{d}</th>)}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {SCHEDULE.slots.map(slot => (
+                                    <tr key={slot.time}>
+                                        <td className="intranet__slot-time">{slot.time}</td>
+                                        {SCHEDULE.days.map(d => {
+                                            const s = slot.sessions[d]
+                                            if (!s) return <td key={d} className="intranet__slot-empty">—</td>
+                                            const cancelled = s.status === 'ANNULÉ'
+                                            return (
+                                                <td key={d} className={`intranet__slot${cancelled ? ' is-cancelled' : ''}`}>
+                                                    <div className="intranet__slot-course">{s.course}</div>
+                                                    <div className="intranet__slot-meta">{s.room} · {s.teacher}</div>
+                                                    {s.status && <div className="intranet__slot-status">{s.status}</div>}
+                                                </td>
+                                            )
+                                        })}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 )}
 
@@ -301,50 +286,38 @@ export default function Intranet() {
                             </div>
                         </section>
 
-                        {SQUADS.map(number => (
-                            <section key={number} className="intranet__group">
-                                <button 
-                                className="intranet__squad-header" 
-                                onClick={() => setOpenSquad(openSquad === number ? null : number)}
+                        {SQUADS.map(letter => (
+                            <section key={letter} className="intranet__group">
+                                <button
+                                    className="intranet__squad-header"
+                                    onClick={() => setOpenSquad(openSquad === letter ? null : letter)}
                                 >
-                                {openSquad === number ? '▼' : '▶'} GROUPE {String(number).padStart(2,'0')}
+                                    {openSquad === letter ? '▼' : '▶'} GROUPE {letter}
                                 </button>
 
-                                {openSquad === number && (
-                                <>
-                                    {/* Agents de terrain */}
-                                    <div className="intranet__subgroup">
-                                    <div className="intranet__subgroup-title">ÉLÈVES</div>
-                                    <div className="intranet__cards">
-                                        {TROMBINOSCOPE_STRUCTURE[`squad${number}`]?.fieldAgents
-                                        .map(id => TROMBINOSCOPE.find(p => p.id === id))
-                                        .filter(Boolean)
-                                        .map(renderTrombinoscopeCard)}
-                                    </div>
-                                    </div>
-
-                                    {/* Téléopérateur */}
-                                    <div className="intranet__subgroup">
-                                    <div className="intranet__subgroup-title">MAJOR</div>
-                                    <div className="intranet__cards">
-                                        {TROMBINOSCOPE_STRUCTURE[`squad${number}`]?.teleoperator
-                                        .map(id => TROMBINOSCOPE.find(p => p.id === id))
-                                        .filter(Boolean)
-                                        .map(renderTrombinoscopeCard)}
-                                    </div>
-                                    </div>
-
-                                    {/* Pour l’équipe 2 uniquement, ajouter les autres données archivées */}
-                                    {number === 2 && (
-                                    <div className="intranet__subgroup">
-                                        <div className="intranet__subgroup-title">DONNÉES ARCHIVÉES</div>
-                                        <div className="intranet__cards">
-                                        {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.other.includes(p.id))
-                                            .map(renderTrombinoscopeCard)}
+                                {openSquad === letter && (
+                                    <>
+                                        {/* Élèves */}
+                                        <div className="intranet__subgroup">
+                                            <div className="intranet__subgroup-title">ÉLÈVES</div>
+                                            <div className="intranet__cards">
+                                                {TROMBINOSCOPE_STRUCTURE[`squad${letter}`]?.fieldAgents
+                                                    .map(id => TROMBINOSCOPE.find(p => p.id === id))
+                                                    .filter(Boolean)
+                                                    .map(renderTrombinoscopeCard)}
+                                            </div>
                                         </div>
-                                    </div>
-                                    )}
-                                </>
+
+                                        {letter === 'B' && (
+                                            <div className="intranet__subgroup">
+                                                <div className="intranet__subgroup-title">DONNÉES ARCHIVÉES</div>
+                                                <div className="intranet__cards">
+                                                    {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.other.includes(p.id))
+                                                        .map(renderTrombinoscopeCard)}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </>
                                 )}
                             </section>
                         ))}

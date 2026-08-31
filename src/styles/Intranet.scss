@@ -132,9 +132,40 @@
     // ─── Tables ───────────────────────────────────────
     &__table {
         width: 100%;
+        height: 100%;
         border-collapse: collapse;
         background: $win98-white;
         font-size: 11px;
+
+        &--schedule {
+            td { 
+                vertical-align: top; 
+            }
+            .intranet__slot-time   { 
+                font-weight: bold; 
+                white-space: nowrap; 
+            }
+            .intranet__slot-course { 
+                font-weight: bold; 
+            }
+            .intranet__slot-meta   { 
+                font-size: 0.85em; 
+                opacity: 0.8; 
+            }
+            .intranet__slot-empty  { 
+                text-align: center; 
+                opacity: 0.4; 
+            }
+            .intranet__slot-status { 
+                font-size: 0.8em; 
+                color: #b00; 
+                font-weight: bold; 
+            }
+            .is-cancelled .intranet__slot-course { 
+                text-decoration: line-through; 
+                opacity: 0.6; 
+            }
+        }
 
         th, td {
             border: 1px solid #252525;

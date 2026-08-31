@@ -1,162 +1,163 @@
 {
     "tasks": [
-        {
-            "id": 1,
-            "title": "Neutralisation sujet - Matricule ████████",
-            "priority": "CRITIQUE",
-            "deadline": "N/A",
-            "status": "BLOQUÉE",
-            "assigned": "CONFIDENTIEL"
+        { 
+            "id": 1,  
+            "title": "Révisions partiel — Théories de la communication", 
+            "priority": "CRITIQUE", 
+            "deadline": "24/06", 
+            "status": "EN COURS",   
+            "assigned": "Pr. Halvorsen" 
         },
-        {
-            "id": 2,
-            "title": "Enquête sur l'affaire n° EST-44200 - 'Amber Eyed Tiger'",
-            "priority": "CRITIQUE",
-            "deadline": "N/A",
-            "status": "EN COURS",
-            "assigned": "VALKENHEIN Malenia (#7000)"
+        { 
+            "id": 2,  
+            "title": "Rendre le dossier de Droit de l'information",        
+            "priority": "HAUTE",    
+            "deadline": "20/06", 
+            "status": "EN RETARD",  
+            "assigned": "Me. Brennac" 
         },
-        {
-            "id": 3,
-            "title": "Perquisition n°F4877-QE",
-            "priority": "HAUTE",
-            "deadline": "28/06",
-            "status": "PLANIFIÉE",
-            "assigned": "VALKENHEIN Malenia (#7000)"
+        { 
+            "id": 3,  
+            "title": "Projet tutoré — livrable intermédiaire (groupe)",    
+            "priority": "HAUTE",    
+            "deadline": "28/06", 
+            "status": "EN COURS",   
+            "assigned": "Pr. Valkenhein" 
         },
-        {
-            "id": 4,
-            "title": "Surveillance suspect - Matricule HF-24125VE",
-            "priority": "HAUTE",
-            "deadline": "16/06",
-            "status": "EN COURS",
-            "assigned": "SEDO Juni (#1322)"
+        { 
+            "id": 4,  
+            "title": "Analyse sémiologique d'une affiche",                 
+            "priority": "HAUTE",    
+            "deadline": "25/06", 
+            "status": "PLANIFIÉE",  
+            "assigned": "Mme Castellan" 
         },
-        {
-            "id": 5,
-            "title": "Arrestation suspect - Matricule SM-78914PM",
-            "priority": "HAUTE",
-            "deadline": "09/06",
-            "status": "COMPLÉTÉE",
-            "assigned": "DAVIS Malcolm (#5018)"
+        { 
+            "id": 5,  
+            "title": "Exposé — Sociologie des médias",                     
+            "priority": "MOYENNE",  
+            "deadline": "26/06", 
+            "status": "EN COURS",   
+            "assigned": "Pr. Yusaku" 
         },
-        {
-            "id": 6,
-            "title": "Prise de déposition n°14798-O",
-            "priority": "MOYENNE",
-            "deadline": "15/06",
-            "status": "EN COURS",
-            "assigned": "SHURA Isen (#0791)"
+        { 
+            "id": 6,  
+            "title": "Montage vidéo — TD Production audiovisuelle",        
+            "priority": "MOYENNE",  
+            "deadline": "27/06", 
+            "status": "EN COURS",   
+           "assigned": "Mr. Okonkwo" },
+        { 
+           "id": 7,  
+           "title": "Recherche de stage (fin de Licence)",               
+            "priority": "MOYENNE",  
+            "deadline": "15/07", 
+            "status": "EN COURS",   
+            "assigned": "Auto-assigné" 
         },
-        {
-            "id": 7,
-            "title": "Analyse de preuves n° EST-44200 - 'Amber Eyed Tiger'",
-            "priority": "MOYENNE",
-            "deadline": "15/06",
-            "status": "EN COURS",
-            "assigned": "DAVIS Malcolm (#5018)"
+        { 
+           "id": 8,  
+           "title": "Fiche de lecture — Écriture journalistique",        
+            "priority": "MOYENNE",  
+            "deadline": "18/06", 
+            "status": "COMPLÉTÉE",  
+            "assigned": "Mr. Okonkwo" 
         },
-        {
-            "id": 8,
-            "title": "Perquisition n°B1447-AD",
-            "priority": "MOYENNE",
-            "deadline": "08/06",
-            "status": "COMPLÉTÉE",
-            "assigned": "VALKENHEIN Malenia (#7000)"
+        { 
+            "id": 9,  
+            "title": "Devoir maison — Statistiques appliquées aux SHS",   
+            "priority": "BASSE",    
+            "deadline": "30/06", 
+            "status": "À RENDRE",   
+            "assigned": "Mme Rtelford" 
         },
-        {
-            "id": 9,
-            "title": "Rapport SK-417",
-            "priority": "MOYENNE",
-            "deadline": "30/06",
-            "status": "À RENDRE",
-            "assigned": "DAVIS Malcolm (#5018)"
+        { 
+            "id": 10, 
+            "title": "QCM Anglais en ligne",                              
+            "priority": "BASSE",    
+            "deadline": "12/06", 
+            "status": "COMPLÉTÉE",  
+            "assigned": "Mr. Danforth" 
         },
-        {
-            "id": 10,
-            "title": "Rapport SK-421",
-            "priority": "BASSE",
-            "deadline": "23/07",
-            "status": "À RENDRE",
-            "assigned": "DAVIS Malcolm (#5018)"
+        { 
+            "id": 11, 
+            "title": "Inscription pédagogique S4",                        
+            "priority": "MOYENNE",  
+            "deadline": "10/06", 
+            "status": "COMPLÉTÉE",  
+            "assigned": "Auto-assigné" 
         },
-        {
-            "id": 11,
-            "title": "Rapport SK-408",
-            "priority": "BASSE",
-            "deadline": "03/06",
-            "status": "COMPLÉTÉE",
-            "assigned": "DAVIS Malcolm (#5018)"
-        },
-        {
-            "id": 12,
-            "title": "Prise de déposition n°06987-N",
-            "priority": "BASSE",
-            "deadline": "28/05",
-            "status": "COMPLÉTÉE",
-            "assigned": "SHURA Isen (#0791)"
+        { 
+            "id": 12, 
+            "title": "Rendez-vous PPP — responsable de formation",        
+            "priority": "BASSE",    
+            "deadline": "02/07", 
+            "status": "PLANIFIÉE",  
+            "assigned": "Pr. Valkenhein" 
         }
     ],
 
-    "reports": [
-        {
-            "id": "r001",
-            "code": "SK-408",
-            "classification": "USAGE INTERNE",
-            "title": "Démantèlement d'un réseau narcotrafiquant",
-            "author": "Agent I. Shura #0791",
-            "date": "03/06",
-            "place": "Reach",
-            "body": "OBJECTIF : Lier le suspect SEO Makan (HM-1996UV) au groupe déviant 'Dent de Sabre'\n\nOBSERVATIONS :\n- Suspect observé en compagnie de membres importants du groupe à plusieurs reprises\n- Interception d'appels entrants et sortants avec des lieutenants du groupe déviant\n- La perquisition a permise de saisir 4 kilogrammes de narcotiques destinés à la vente et 2 disques durs \n\nCONCLUSION :\nLe suspect est impliqué dans l'élaboration et la distribution de narcotiques dans l'arrondissement vert \n\nACTION REQUISE :\nProcéder à l'arrestation de SEO Makan (HM-1996UV)"
-        },
-        {
-            "id": "r002",
-            "code": "SK-417",
-            "classification": "CONFIDENTIEL",
-            "title": "Disparition de K'SARI Rina",
-            "author": "Agent I. Shura #0791",
-            "date": "11/06",
-            "place": "Reach",
-            "body": "OBJECTIF : Enquêter sur les conditions de disparition de la victime\n\nOBSERVATIONS :\n- Victime déjà connue des forces de l'ordre locales et a été arrêtée à plusieurs reprises\n- Victime a déjà été portée disparue il y a 3 ans avant d'être retrouvée 2 semaines plus tard, saine et sauve\n- Plusieurs sources indiquent qu'elle est associée à la secte des 'Graines du Renouveau' \n\nCONCLUSION :\nNos recherches indiquent qu'un pélerinage est effectué chaque année par les membres de la secte \n\nACTION REQUISE :\nSurveillance modérée de l'itinéraire de pélerinage pour confirmer ou infirmer sa présence"
-        },
-        {
-            "id": "r003",
-            "code": "SL-011",
-            "classification": "TOP SECRET",
-            "title": "[ACCÈS RESTREINT — NIVEAU 3 REQUIS]",
-            "author": "N/A",
-            "date": "N/A",
-            "place": "Lenoxia",
-            "body": "OBJECTIF : Vérifier la véracité des recherches du Pr. Vendamir\n\nOBSERVATIONS :\n- Les dernières recherches du professeur Vendamir traitent d'une terre disparue durant l'Ère Archaïque nommée 'Ishaka', d'où Datare et Yoma seraient originaires\n- Certaines rumeurs exposées dans ses recherches impliquent l'existence d'un troisième monarque proche de Datare et Yoma, qui n'aurait jamais succombé à la Corruption\n- Ces informations auraient été cachées au monde via un sortilège baptisé 'le Voile de Shigemori', maintenu par un groupe organisé et dissident\n- Ce groupe serait exclusivement composé de mages mythiques et illusionistes, établis dans plusieurs contrées de Lenoxia\n\nCONCLUSION :\nAucune preuve concrète mais plusieurs informateurs signalent la présence d'un illusioniste dissident à l'ouest d'Issitis\n\nACTION REQUISE :\nRecherches actives à l'ouest d'Issitis. Plusieurs équipes de patrouilleurs y sont envoyées de façon cyclique",
-            "locked": 3
-        }
-    ],
+    "schedule": {
+        "days": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
+        "slots": [
+            {
+                "time": "08:00–10:00",
+                "sessions": {
+                    "Lundi":    { "course": "Théories de la communication (CM)", "room": "Amphi Lenox", "teacher": "Pr. Halvorsen" },
+                    "Mardi":    { "course": "Sociologie des médias (CM)",        "room": "Amphi Reach", "teacher": "Pr. Yusaku" },
+                    "Mercredi": { "course": "Écriture journalistique (TD)",      "room": "Salle 214",   "teacher": "Mr. Okonkwo" },
+                    "Jeudi":    { "course": "Communication numérique & web (CM)","room": "Amphi B",     "teacher": "Mr. Solberg" },
+                    "Vendredi": { "course": "Sémiologie de l'image (CM)",        "room": "Amphi Reach", "teacher": "Mme Castellan" }
+                }
+            },
+            {
+                "time": "10:15–12:15",
+                "sessions": {
+                    "Lundi":    { "course": "Sémiologie de l'image (TD)",        "room": "Salle 214",     "teacher": "Mme Castellan" },
+                    "Mardi":    { "course": "Statistiques appliquées aux SHS (TD)","room": "Salle info 3","teacher": "Mme Rtelford" },
+                    "Mercredi": { "course": "Droit de l'information (CM)",        "room": "Amphi Lenox",   "teacher": "Me. Brennac" },
+                    "Jeudi":    { "course": "Production audiovisuelle (TD)",      "room": "Studio Son/Vidéo","teacher": "Mr. Okonkwo" },
+                    "Vendredi": { "course": "Méthodologie documentaire",         "room": "B.U. — Salle 3","teacher": "Mme Rtelford" }
+                }
+            },
+            {
+                "time": "13:30–15:30",
+                "sessions": {
+                    "Lundi":    { "course": "Anglais appliqué",                  "room": "Salle 108",     "teacher": "Mr. Danforth" },
+                    "Mardi":    { "course": "Histoire des médias (CM)",          "room": "Amphi B",       "teacher": "Pr. Vendamir", "status": "ANNULÉ" },
+                    "Jeudi":    { "course": "Communication numérique & web (TD)","room": "Salle info 3",  "teacher": "Mr. Solberg" },
+                    "Vendredi": { "course": "Option — Culture & médias (CM)",    "room": "Amphi B",       "teacher": "Pr. Yusaku" }
+                }
+            },
+            {
+                "time": "15:45–17:45",
+                "sessions": {
+                    "Mardi":    { "course": "Projet tutoré (groupe)",           "room": "Labo Multimédia","teacher": "Pr. Valkenhein" },
+                    "Jeudi":    { "course": "PPP — Projet Personnel & Pro.",    "room": "Salle 108",      "teacher": "Pr. Valkenhein" }
+                }
+            }
+        ]
+    },
 
-    "squads": [1, 2, 3, 4, 5],
+    "squads": ["A", "B", "C", "D", "E"],
 
     "trombinoscopeStructure": {
         "leader": ["7000"],
-        "squad1": {
-            "fieldAgents": ["4215","9985","5543","7120"],
-            "teleoperator": ["5320"]
+        "squadA": {
+            "fieldAgents": ["4215", "9985", "5543", "7120", "5320"]
         },
-        "squad2": {
-            "fieldAgents": ["5018", "0791", "9205", "3054"],
-            "teleoperator": ["1322"]
+        "squadB": {
+            "fieldAgents": ["5018", "0791", "9205", "3054", "1322"]
         },
-        "squad3": {
-            "fieldAgents": ["4122","8761","6543","3210"],
-            "teleoperator": ["4778"]
+        "squadC": {
+            "fieldAgents": ["4122", "8761", "6543", "3210", "4778"]
         },
-        "squad4": {
-            "fieldAgents": ["1225","0189","6997","7880"],
-            "teleoperator": ["9988"]
+        "squadD": {
+            "fieldAgents": ["1225", "0189", "6997", "7880", "9988"]
         },
-        "squad5": {
-            "fieldAgents": ["4411", "0642", "1006", "4128"],
-            "teleoperator": ["7092"]
-        },
-        "other": ["1622"]
+        "squadE": {
+            "fieldAgents": ["4411", "0642", "1006", "4128", "7092"]
+        }
     },
 
     "trombinoscope": [
@@ -168,31 +169,26 @@
         {
             "id": "4215",
             "name": "KATO, Fubuki",
-            
             "status": "ACTIF"
         },
         {
             "id": "9985",
             "name": "MARLIN, Eliz",
-            
             "status": "ACTIF"
         },
         {
             "id": "5543",
             "name": "NIMTARA, Juran",
-            
             "status": "ACTIF"
         },
         {
             "id": "7120",
             "name": "YI, Lei Fon",
-            
             "status": "INACTIF"
         },
         {
             "id": "5320",
             "name": "AROKA, Minso",
-            
             "status": "ACTIF"
         },
         {
@@ -312,11 +308,12 @@
     ],
 
     "logs": [
-        "08:14:09 — [SYS] Connexion CGU-NET (poste #0791)",
+        "08:14:09 — [SYS] Connexion WELLSTON-NET (poste #0791)",
         "82:14:11 — [AUTH] Session NIVEAU-1 expirée",
         "08:14:42 — [APP] Ouverture module \"Tâches\"",
-        "82:15:01 — [APP] Ouverture module \"Rapports\"",
-        "02:15:30 — [WARN] Tentative d'accès SL-011 — refusée (clearance insuffisante)",
+        "08:15:01 — [APP] Ouverture module \"Emploi du temps\"",
+        "08:15:12 — [INFO] Séance annulée — Histoire des médias (Pr. Vendamir)",
+        "02:15:30 — [WARN] Tentative d'accès dossier « Voile de Shigemori » — refusée (clearance insuffisante)",
         "08:16:18 — [APP] Ouverture module \"Messagerie\"",
         "08:16:45 — [WARN] Email non-traçable détecté (exp.: ???). Conservé.",
         "08:17:02 — [APP] Ouverture module \"Personnel\"",
@@ -324,8 +321,8 @@
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
-        "13:47:12 — [USR] Soumission rapport SK-417",
-        "14:05:21 — [APP] Réception email — A. Valkenhein — objet: \"Re: Rapport SK-417\"",
+        "13:47:12 — [USR] Dépôt livrable — Projet tutoré",
+        "14:05:21 — [APP] Réception email — A. Valkenhein — objet: \"Re: Projet tutoré\"",
         "18:02:00 — [USR] Déconnexion volontaire"
     ],
 
@@ -337,8 +334,8 @@
         },
         {
             "id": "reports",
-            "label": "Rapports",
-            "icon": "https://win98icons.alexmeub.com/icons/png/notepad_file-1.png"
+            "label": "Emploi du temps",
+            "icon": "https://win98icons.alexmeub.com/icons/png/calendar-0.png"
         },
         {
             "id": "trombinoscope",
