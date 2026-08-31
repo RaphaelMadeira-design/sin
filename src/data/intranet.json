@@ -134,7 +134,7 @@
 
     "squads": [1, 2, 3, 4, 5],
 
-    "personnelStructure": {
+    "trombinoscopeStructure": {
         "leader": ["7000"],
         "squad1": {
             "fieldAgents": ["4215","9985","5543","7120"],
@@ -159,7 +159,7 @@
         "other": ["1622"]
     },
 
-    "personnel": [
+    "trombinoscope": [
         {
             "id": "7000",
             "name": "VALKENHEIN, Malenia",
@@ -207,18 +207,17 @@
             "genre": "Masculin ♂",
             "orientation": "Hétérosexuel",
             "physical": "1m91 / 88kg",
-            "race": "Shokunin",
-            "ethnicity": "Astral",
-            "origin": "Las Noches",
-            "role": "Patrouilleur de l'Ordre",
-            "team": "Équipe 2",
+            "specialization": "Information & Communication",
+            "cycle": "Licence",
+            "year": "2°",
+            "mbti": "INFJ",
             "status": "ACTIF",
             "alignment": "Neutre",
             "image": "/images/id.png",
-            "physicalDescription": "10 lignes minimum",
-            "psychProfile": "10 lignes minimum",
-            "shortTermGoals": "Le sujet ne semble que très peu engagé sur le plan professionnel et n'envisage ni évolution ni changement de poste au sein du service. Il montre très peu d'implication dans les différentes affaires qui lui sont assignées mais démontre un certain entrain pour l'affaire concernant la disparition du professeur Yuri Vendamir. [VÉRIFIÉ AUPRÈS DE SES PAIRS]",
-            "longTermGoals": "Au niveau professionnel, le sujet ne se projette pas particulièrement dans un futur éloigné. Il a refusé à plusieurs reprise une promotion pour devenir chez d'équipe. Sur le plan personnel, le souhait de comprendre et trouver un moyen de pallier à ses réminiscences exogènes avant qu'elles ne deviennent envahissantes a été évoqué. [SURVEILLANCE MÉDICALE RECOMMANDÉE]"
+            "physicalDescription": "Du haut de son mètre quatre-vingt-treize (1m93 ou 6’4”) et pesant près de quatre-vingt-quinze kilogrammes (95 kg ou 209 lbs), Sin est un homme qui impose naturellement par sa carrure. Difficile de passer inaperçu quand on occupe ainsi l’espace. Ses yeux sont d’un noir profond et lui donnent un air mélancolique intringuant. Sa peau pâle fait ressortir les mèches rebelles de sa chevelure châtain foncé, encadrant un visage aux traits nets et ciselés.",
+            "psychProfile": "Sin se montre sérieux, calme et farouchement indépendant. Fier de nature, il ne se laisse pas marcher sur les pieds et n'hésite pas à exprimer ses opinions, voire à les imposer. Il peut aussi cruellement manquer de tact lorsqu'il s'agit de s'entretenir avec les autres personnes et donc leur sembler irrespectueux. Malgré son comportement qui pourrait faire croire le contraire, il n’apprécie pas du tout la violence gratuite et déteste devoir se battre.\n\n Il est d’un naturel assez amical même s’il a du mal à accorder sa confiance aux gens mais quand on apprend à le connaître, il se révèle être un ami loyal et un allié sur lequel on peut compter en toutes circonstances.",
+            "shortTermGoals": "",
+            "longTermGoals": ""
         },
         {
             "id": "9205",
@@ -342,8 +341,8 @@
             "icon": "https://win98icons.alexmeub.com/icons/png/notepad_file-1.png"
         },
         {
-            "id": "personnel",
-            "label": "Personnel",
+            "id": "trombinoscope",
+            "label": "Trombinoscope",
             "icon": "https://win98icons.alexmeub.com/icons/png/users-1.png"
         },
         {

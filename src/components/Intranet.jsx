@@ -12,8 +12,8 @@ const CGU_CREDENTIALS = {
 const { 
     tasks: TASKS, 
     reports: REPORTS, 
-    personnel: PERSONNEL, 
-    personnelStructure: PERSONNEL_STRUCTURE, 
+    trombinoscope: TROMBINOSCOPE, 
+    trombinoscopeStructure: TROMBINOSCOPE_STRUCTURE, 
     squads: SQUADS, 
     logs: LOGS, 
     tabs: TABS, 
@@ -153,7 +153,7 @@ export default function Intranet() {
         return <IntranetLogin onLogin={() => setAuthed(true)} />
     }
 
-    const groupedPersonnel = PERSONNEL.reduce((acc, p) => {
+    const groupedTrombinoscope = TROMBINOSCOPE.reduce((acc, p) => {
         if (!p.team) return acc
         acc[p.team] = acc[p.team] || []
         acc[p.team].push(p)
@@ -176,7 +176,7 @@ export default function Intranet() {
         'BLOQUÉE': '#888',
     }[s] || '#333')
 
-    const renderPersonnelCard = (p) => {
+    const renderTrombinoscopeCard = (p) => {
         const locked = p.locked && clearance < p.locked
         const clickAllowed = p.team === 'Équipe 2' && !locked
         return (
@@ -200,8 +200,8 @@ export default function Intranet() {
             <div className="intranet__header">
                 <div className="intranet__crest"></div>
                 <div className="intranet__title">
-                    <div className="intranet__org">Université de Wellston</div>
-                    <div className="intranet__sub">Intranet WELLSTON-NET v5.04 — Section 7</div>
+                    <div className="intranet__org">UNIVERSITÉ DE WELLSTON</div>
+                    <div className="intranet__sub">Intranet WELLSTON-NET v5.04 — UFR Information et Communication</div>
                 </div>
                 <div className={`intranet__clearance lvl-${clearance}`}>AUTORISATION : NIVEAU {clearance}</div>
             </div>
@@ -291,13 +291,13 @@ export default function Intranet() {
                     </div>
                 )}
 
-                {/* Personnel */}
-                {tab === 'personnel' && !openPerson && (
-                    <div className="intranet__personnel-groups">
+                {/* Trombinoscope */}
+                {tab === 'trombinoscope' && !openPerson && (
+                    <div className="intranet__trombinoscope-groups">
                         <section className="intranet__group">
-                            <div className="intranet__group-title">CHEF DE LA SECTION 7</div>
+                            <div className="intranet__group-title">RESPONSABLE DE FORMATION</div>
                             <div className="intranet__cards">
-                                {PERSONNEL.filter(p => PERSONNEL_STRUCTURE.leader.includes(p.id)).map(renderPersonnelCard)}
+                                {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.leader.includes(p.id)).map(renderTrombinoscopeCard)}
                             </div>
                         </section>
 
@@ -307,30 +307,30 @@ export default function Intranet() {
                                 className="intranet__squad-header" 
                                 onClick={() => setOpenSquad(openSquad === number ? null : number)}
                                 >
-                                {openSquad === number ? '▼' : '▶'} ÉQUIPE {String(number).padStart(2,'0')}
+                                {openSquad === number ? '▼' : '▶'} GROUPE {String(number).padStart(2,'0')}
                                 </button>
 
                                 {openSquad === number && (
                                 <>
                                     {/* Agents de terrain */}
                                     <div className="intranet__subgroup">
-                                    <div className="intranet__subgroup-title">AGENTS DE TERRAIN</div>
+                                    <div className="intranet__subgroup-title">ÉLÈVES</div>
                                     <div className="intranet__cards">
-                                        {PERSONNEL_STRUCTURE[`squad${number}`]?.fieldAgents
-                                        .map(id => PERSONNEL.find(p => p.id === id))
+                                        {TROMBINOSCOPE_STRUCTURE[`squad${number}`]?.fieldAgents
+                                        .map(id => TROMBINOSCOPE.find(p => p.id === id))
                                         .filter(Boolean)
-                                        .map(renderPersonnelCard)}
+                                        .map(renderTrombinoscopeCard)}
                                     </div>
                                     </div>
 
                                     {/* Téléopérateur */}
                                     <div className="intranet__subgroup">
-                                    <div className="intranet__subgroup-title">TÉLÉOPÉRATEUR</div>
+                                    <div className="intranet__subgroup-title">MAJOR</div>
                                     <div className="intranet__cards">
-                                        {PERSONNEL_STRUCTURE[`squad${number}`]?.teleoperator
-                                        .map(id => PERSONNEL.find(p => p.id === id))
+                                        {TROMBINOSCOPE_STRUCTURE[`squad${number}`]?.teleoperator
+                                        .map(id => TROMBINOSCOPE.find(p => p.id === id))
                                         .filter(Boolean)
-                                        .map(renderPersonnelCard)}
+                                        .map(renderTrombinoscopeCard)}
                                     </div>
                                     </div>
 
@@ -339,8 +339,8 @@ export default function Intranet() {
                                     <div className="intranet__subgroup">
                                         <div className="intranet__subgroup-title">DONNÉES ARCHIVÉES</div>
                                         <div className="intranet__cards">
-                                        {PERSONNEL.filter(p => PERSONNEL_STRUCTURE.other.includes(p.id))
-                                            .map(renderPersonnelCard)}
+                                        {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.other.includes(p.id))
+                                            .map(renderTrombinoscopeCard)}
                                         </div>
                                     </div>
                                     )}
@@ -351,13 +351,13 @@ export default function Intranet() {
                     </div>
                 )}
 
-                {tab === 'personnel' && openPerson && (
+                {tab === 'trombinoscope' && openPerson && (
                     <div className="intranet__doc">
                         <button className="intranet__back" onClick={() => setOpenPerson(null)}>
                             ◄ Retour fiches
                         </button>
                         <div className="intranet__doc-head">
-                            <div className="intranet__doc-org">FICHE ÉLÈVE — DOSSIER N° {openPerson.id.toUpperCase()}</div>
+                            <div className="intranet__doc-org">DOSSIER ÉLÈVE — N° {openPerson.id.toUpperCase()}</div>
                             <div className={`intranet__stamp classifié`}>USAGE INTERNE</div>
                         </div>
 
@@ -368,11 +368,11 @@ export default function Intranet() {
                                         "Nom complet": openPerson.name,
                                         "Âge": openPerson.age,
                                         "Genre": openPerson.genre,
-                                        "Orientation": openPerson.orientation,
-                                        "Spécialisation": openPerson.race,
-                                        "Cycle": openPerson.ethnicity,
-                                        "Année": openPerson.origin,
-                                        "Poste": openPerson.role, 
+                                        "Orientation sexuelle": openPerson.orientation,
+                                        "Spécialisation": openPerson.specialization,
+                                        "Cycle": openPerson.cycle,
+                                        "Année": openPerson.year,
+                                        "MBTI": openPerson.mbti, 
                                         "Alignement": openPerson.alignment 
                                     }).map(([k,v]) => (
                                         <tr key={k}>
@@ -471,7 +471,7 @@ export default function Intranet() {
 
             {/* Footer */}
             <div className="intranet__footer">
-                WELLSTON-NET — Section 7, Équipe 2 — Utilisateur : S. ASHU'RA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
+                WELLSTON-NET — UFR Information et Communication — Utilisateur : S. ASHU'RA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
             </div>
         </div>
     )
