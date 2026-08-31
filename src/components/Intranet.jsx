@@ -14,7 +14,7 @@ const {
     schedule: SCHEDULE, 
     trombinoscope: TROMBINOSCOPE, 
     trombinoscopeStructure: TROMBINOSCOPE_STRUCTURE, 
-    squads: SQUADS, 
+    groups: GROUPS, 
     logs: LOGS, 
     tabs: TABS, 
     secure: SECURE 
@@ -139,10 +139,9 @@ export default function Intranet() {
         () => sessionStorage.getItem('cgu_auth') === '1'
     )
     const [tab, setTab] = useState('tasks')
-    const [openReport, setOpenReport] = useState(null)
     const [openPerson, setOpenPerson] = useState(null)
     const [clearance, setClearance] = useState(getClearance())
-    const [openSquad, setOpenSquad] = useState('B')
+    const [openGroup, setOpenGroup] = useState('B')
 
     useEffect(() => {
         const i = setInterval(() => setClearance(getClearance()), 1000)
@@ -282,41 +281,31 @@ export default function Intranet() {
                         <section className="intranet__group">
                             <div className="intranet__group-title">RESPONSABLE DE FORMATION</div>
                             <div className="intranet__cards">
-                                {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.leader.includes(p.id)).map(renderTrombinoscopeCard)}
+                                {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.dean.includes(p.id)).map(renderTrombinoscopeCard)}
                             </div>
                         </section>
 
-                        {SQUADS.map(letter => (
+                        {GROUPS.map(letter => (
                             <section key={letter} className="intranet__group">
                                 <button
-                                    className="intranet__squad-header"
-                                    onClick={() => setOpenSquad(openSquad === letter ? null : letter)}
+                                    className="intranet__group-header"
+                                    onClick={() => setOpenGroup(openGroup === letter ? null : letter)}
                                 >
-                                    {openSquad === letter ? '▼' : '▶'} GROUPE {letter}
+                                    {openGroup === letter ? '▼' : '▶'} GROUPE {letter}
                                 </button>
 
-                                {openSquad === letter && (
+                                {openGroup === letter && (
                                     <>
                                         {/* Élèves */}
                                         <div className="intranet__subgroup">
                                             <div className="intranet__subgroup-title">ÉLÈVES</div>
                                             <div className="intranet__cards">
-                                                {TROMBINOSCOPE_STRUCTURE[`squad${letter}`]?.fieldAgents
+                                                {TROMBINOSCOPE_STRUCTURE[`group${letter}`]?.classmates
                                                     .map(id => TROMBINOSCOPE.find(p => p.id === id))
                                                     .filter(Boolean)
                                                     .map(renderTrombinoscopeCard)}
                                             </div>
                                         </div>
-
-                                        {letter === 'B' && (
-                                            <div className="intranet__subgroup">
-                                                <div className="intranet__subgroup-title">DONNÉES ARCHIVÉES</div>
-                                                <div className="intranet__cards">
-                                                    {TROMBINOSCOPE.filter(p => TROMBINOSCOPE_STRUCTURE.other.includes(p.id))
-                                                        .map(renderTrombinoscopeCard)}
-                                                </div>
-                                            </div>
-                                        )}
                                     </>
                                 )}
                             </section>

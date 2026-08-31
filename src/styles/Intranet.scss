@@ -331,7 +331,7 @@ font-family: $font-system;
 
 // ─── Personnel hierarchy ──────────────────────────
 
-&__squad-header {
+&__group-header {
 width: 100%;
 text-align: left;
 padding: 6px 10px;
@@ -345,7 +345,7 @@ background: #d4d0c8;
 }
 }
 
-&__empty-squad {
+&__empty-group {
 padding: 12px;
 color: #666;
 font-style: italic;
