@@ -200,7 +200,7 @@ export default function Intranet() {
             <div className="intranet__header">
                 <div className="intranet__crest"></div>
                 <div className="intranet__title">
-                    <div className="intranet__org">ORDRE DE LA COALITION DES GOUVERNEMENTS UNIS</div>
+                    <div className="intranet__org">Université de Wellston</div>
                     <div className="intranet__sub">Intranet WELLSTON-NET v5.04 — Section 7</div>
                 </div>
                 <div className={`intranet__clearance lvl-${clearance}`}>AUTORISATION : NIVEAU {clearance}</div>
@@ -357,7 +357,7 @@ export default function Intranet() {
                             ◄ Retour fiches
                         </button>
                         <div className="intranet__doc-head">
-                            <div className="intranet__doc-org">FICHE PERSONNEL — DOSSIER N° {openPerson.id.toUpperCase()}</div>
+                            <div className="intranet__doc-org">FICHE ÉLÈVE — DOSSIER N° {openPerson.id.toUpperCase()}</div>
                             <div className={`intranet__stamp classifié`}>USAGE INTERNE</div>
                         </div>
 
@@ -368,10 +368,10 @@ export default function Intranet() {
                                         "Nom complet": openPerson.name,
                                         "Âge": openPerson.age,
                                         "Genre": openPerson.genre,
-                                        "Taille / Poids": openPerson.physical,
-                                        "Race": openPerson.race,
-                                        "Ethnie": openPerson.ethnicity,
-                                        "Origine": openPerson.origin,
+                                        "Orientation": openPerson.orientation,
+                                        "Spécialisation": openPerson.race,
+                                        "Cycle": openPerson.ethnicity,
+                                        "Année": openPerson.origin,
                                         "Poste": openPerson.role, 
                                         "Alignement": openPerson.alignment 
                                     }).map(([k,v]) => (
@@ -385,7 +385,7 @@ export default function Intranet() {
 
                             {openPerson.image && (
                                 <figure className="intranet__photo-frame">
-                                    <div className="intranet__photo-caption">PHOTO MATRICULE</div>
+                                    <div className="intranet__photo-caption">TROMBINOSCOPE</div>
                                     <div className="intranet__photo-inner">
                                         <img
                                             src={openPerson.image}
@@ -471,7 +471,7 @@ export default function Intranet() {
 
             {/* Footer */}
             <div className="intranet__footer">
-                WELLSTON-NET — Section 7, Équipe 2 — Utilisateur : S. A'SHURA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
+                WELLSTON-NET — Section 7, Équipe 2 — Utilisateur : S. ASHU'RA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
             </div>
         </div>
     )

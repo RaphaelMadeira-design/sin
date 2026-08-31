@@ -73,7 +73,7 @@ const INITIAL_ICONS = [
     },
     {
         id: 'intranet',
-        label: 'WELLSTON-NET Intranet',
+        label: 'Intranet',
         icon: 'https://win98icons.alexmeub.com/icons/png/network_internet_pcs_installer-2.png',
         x: 1, y: 1,
     },
