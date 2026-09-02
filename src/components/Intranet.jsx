@@ -25,6 +25,44 @@ const getClearance = () => {
     return isNaN(n) ? 0 : n
 }
 
+// ─── Sections de profil (boutons + modals) ─────────────────────
+const PROFILE_SECTIONS = [
+    {
+        key: 'physical',
+        label: 'Description physique',
+        field: 'physicalDescription',
+    },
+    {
+        key: 'condition',
+        label: 'Condition',
+        field: 'condition',
+        placeholder: "Texte d'exemple — Condition physique et état de santé du personnage. Décrivez ici sa constitution, ses éventuelles blessures, sa forme générale et toute particularité corporelle à renseigner ultérieurement.",
+    },
+    {
+        key: 'psych',
+        label: 'Profil psychologique',
+        field: 'psychProfile',
+    },
+    {
+        key: 'likes',
+        label: "Aime et n'aime pas",
+        field: 'likesDislikes',
+        placeholder: "Texte d'exemple — Aime : (à compléter). N'aime pas : (à compléter). Listez ici les goûts, préférences et aversions du personnage.",
+    },
+    {
+        key: 'hobbies',
+        label: 'Loisirs',
+        field: 'hobbies',
+        placeholder: "Texte d'exemple — Loisirs et passe-temps du personnage. Décrivez ici ses activités favorites en dehors des cours et ce qui occupe son temps libre.",
+    },
+    {
+        key: 'opinion',
+        label: 'Opinion',
+        field: 'opinion',
+        placeholder: "Texte d'exemple — Opinion et point de vue du personnage. Renseignez ici ses convictions, ses positions et son regard sur le monde qui l'entoure.",
+    },
+]
+
 // ─── CGU INTRANET LOGIN ────────────────────────────────────────
 function IntranetLogin({ onLogin }) {
     const [matricule, setMatricule] = useState('')
@@ -140,6 +178,7 @@ export default function Intranet() {
     )
     const [tab, setTab] = useState('tasks')
     const [openPerson, setOpenPerson] = useState(null)
+    const [openModal, setOpenModal] = useState(null)
     const [clearance, setClearance] = useState(getClearance())
     const [openGroup, setOpenGroup] = useState('B')
 
@@ -346,6 +385,20 @@ export default function Intranet() {
                                 </tbody>
                             </table>
 
+                            <div className="intranet__profile-actions" data-testid="intranet-profile-actions">
+                                {PROFILE_SECTIONS.map(s => (
+                                    <button
+                                        key={s.key}
+                                        type="button"
+                                        className="intranet__profile-btn"
+                                        onClick={() => setOpenModal(s)}
+                                        data-testid={`intranet-profile-btn-${s.key}`}
+                                    >
+                                        {s.label}
+                                    </button>
+                                ))}
+                            </div>
+
                             {openPerson.image && (
                                 <figure className="intranet__photo-frame">
                                     <div className="intranet__photo-caption">TROMBINOSCOPE</div>
@@ -363,26 +416,7 @@ export default function Intranet() {
                                 </figure>
                             )}
                         </div>
-                        {('physicalDescription' in openPerson || 'psychProfile' in openPerson) && (
-                            <div className="intranet__profiles">
-                                <section className="intranet__profile-card">
-                                    <div className="intranet__profile-head">DESCRIPTION PHYSIQUE</div>
-                                    <div className="intranet__profile-body">
-                                        {openPerson.physicalDescription
-                                            ? openPerson.physicalDescription
-                                            : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                    </div>
-                                </section>
-                                <section className="intranet__profile-card">
-                                    <div className="intranet__profile-head">PROFIL PSYCHOLOGIQUE</div>
-                                    <div className="intranet__profile-body">
-                                        {openPerson.psychProfile
-                                            ? openPerson.psychProfile
-                                            : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                    </div>
-                                </section>
-                            </div>
-                        )}
+
                         {('shortTermGoals' in openPerson || 'longTermGoals' in openPerson) && (
                             <div className="intranet__profiles">
                                 <section className="intranet__profile-card intranet__profile-card--full">
@@ -436,6 +470,41 @@ export default function Intranet() {
             <div className="intranet__footer">
                 WELLSTON-NET — UFR Information et Communication — Utilisateur : S. ASHU'RA # 0791 — Session : {new Date().toLocaleTimeString('fr-FR')}
             </div>
+
+            {/* Modal profil (même style que les encarts de description) */}
+            {openModal && (
+                <div
+                    className="intranet__modal-overlay"
+                    onClick={() => setOpenModal(null)}
+                    data-testid="intranet-profile-modal"
+                >
+                    <section
+                        className="intranet__profile-card intranet__modal-card"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="intranet__profile-head intranet__modal-head">
+                            <span>{openModal.label.toUpperCase()}</span>
+                            <button
+                                type="button"
+                                className="intranet__modal-close"
+                                onClick={() => setOpenModal(null)}
+                                aria-label="Fermer"
+                                data-testid="intranet-profile-modal-close"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        <div className="intranet__profile-body">
+                            {(openModal.field && openPerson && openPerson[openModal.field])
+                                ? openPerson[openModal.field]
+                                : (openModal.placeholder
+                                    ? openModal.placeholder
+                                    : <span className="intranet__profile-empty">— Donnée non renseignée —</span>)}
+                        </div>
+                    </section>
+                </div>
+            )}
+
         </div>
     )
 }

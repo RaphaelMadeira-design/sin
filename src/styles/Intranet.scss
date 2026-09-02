@@ -1,6 +1,7 @@
 @use 'Variables' as *;
 
 .intranet {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -576,6 +577,95 @@ letter-spacing: 0.4px;
         color: #999;
         font-style: italic;
         letter-spacing: 0.4px;
+    }
+
+    // ─── Colonne de boutons (entre fiche et photo) ─────────────
+    &__profile-actions {
+        flex: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-self: stretch;
+    }
+
+    &__profile-btn {
+        display: block;
+        width: 100%;
+        padding: 8px 10px;
+        font-family: $font-system;
+        font-size: 10px;
+        letter-spacing: 0.4px;
+        color: $win98-black;
+        background: $win98-gray;
+        @include border-outset;
+        cursor: pointer;
+
+        &:hover {
+            background: $win98-light-gray;
+        }
+
+        &:active {
+            @include border-inset;
+            border-left-width: 5px;
+            border-left-color: $win98-navy;
+            padding: 9px 9px 7px 11px;
+        }
+
+        &:focus-visible {
+            outline: 1px dotted $win98-black;
+            outline-offset: -4px;
+        }
+    }
+
+    // ─── Modal profil ─────────
+    &__modal-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    &__modal-card {
+        width: 100%;
+        max-width: 620px;
+        max-height: calc(100% - 48px);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+    }
+
+    &__modal-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    &__modal-close {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 18px;
+        line-height: 1;
+        padding: 0;
+        font-family: $font-system;
+        font-size: 11px;
+        font-weight: bold;
+        color: $win98-black;
+        background: $win98-gray;
+        @include border-outset-light;
+        cursor: pointer;
+
+        &:active {
+            @include border-inset-light;
+        }
+    }
+
+    &__modal-card &__profile-body {
+        overflow-y: auto;
+        max-height: 60vh;
     }
 
     // ─── Logs ─────────────────────────────────────────
