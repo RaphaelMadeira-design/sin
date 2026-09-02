@@ -334,6 +334,7 @@ export default function Intranet() {
                                         "Spécialisation": openPerson.specialization,
                                         "Cycle": openPerson.cycle,
                                         "Année": openPerson.year,
+                                        "Équipement": openPerson.equipment,
                                         "MBTI": openPerson.mbti, 
                                         "Alignement": openPerson.alignment 
                                     }).map(([k,v]) => (
