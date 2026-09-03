@@ -46,23 +46,17 @@
 
     &__clearance {
         padding: 3px 10px;
-        background: #c0c0c0;
         letter-spacing: 0.4px;
         font-size: 12px;
-        color: #dedede;
+        font-weight: bold;
+        color: #fff;
         @include border-inset-light;
 
-        &.lvl-0 { 
-            background-color: #aa0000; 
+        &.is-authed {
+            background-color: #006600;
         }
-        &.lvl-1 { 
-            background-color: #806000;
-        }
-        &.lvl-2 { 
-            background-color: #006600; 
-        }
-        &.lvl-3 { 
-            background-color: #000080; 
+        &.is-locked {
+            background-color: #aa0000;
         }
     }
 

@@ -118,7 +118,7 @@
             "",
             "┌─────────────────────────────────┐",
             "│ SESSION CGU-NET                 │",
-            "│ CLEARANCE ACTUELLE : NIVEAU {lvl}   │",
+            "│ AUTORISATION : {state}          │",
             "│ UTILISATEUR : Isen Shura        │",
             "│ POSTE : CGU-PC98 #0791          │",
             "└─────────────────────────────────┘",
@@ -173,29 +173,22 @@
     },
 
     "auth": {
-        "valid": {
-            "NIVEAU-1": { "token": "ECHO77", "lvl": 1 },
-            "NIVEAU-2": { "token": "KISHI-OMEGA", "lvl": 2 },
-            "NIVEAU-3": { "token": "INFINITE-VEIL", "lvl": 3 }
-        },
-        "unknownLevel": [
+        "token": "INFINITE-VEIL",
+        "usage": [
             "",
-            "> Erreur : niveau \"{level}\" inconnu.",
-            "> Format : auth NIVEAU-X TOKEN",
+            "> Format : auth TOKEN",
             ""
         ],
-        "emptyLevelLabel": "(vide)",
         "rejected": [
             "",
             "> X Token rejeté. Tentative consignée.",
-            "> Niveau demandé : {level}",
             ""
         ],
         "success": [
             "",
             "> ████████████████████████████████",
-            "> ✓ Authentification {level} validée.",
-            "> Autorisation élevée à NIVEAU {lvl}.",
+            "> ✓ Authentification validée.",
+            "> Autorisation accordée — ACCÈS AUTORISÉ.",
             "> Bienvenue, Agent SHURA.",
             "> ████████████████████████████████",
             ""

@@ -10,7 +10,8 @@ const WELLSTON_CREDENTIALS = {
 }
 
 const { 
-    tasks: TASKS, 
+    tasks: TASKS,
+    missions: MISSIONS, 
     schedule: SCHEDULE, 
     trombinoscope: TROMBINOSCOPE, 
     trombinoscopeStructure: TROMBINOSCOPE_STRUCTURE, 
@@ -20,9 +21,9 @@ const {
     secure: SECURE 
 } = intranetData
 
-const getClearance = () => {
-    const n = parseInt(sessionStorage.getItem('wellston_clearance') || '0', 10)
-    return isNaN(n) ? 0 : n
+const isAuthorized = () => {
+    const v = sessionStorage.getItem('wellston_clearance')
+    return v != null && v !== '0' && v !== ''
 }
 
 // ─── Sections de profil (boutons + modals) ─────────────────────
@@ -179,11 +180,11 @@ export default function Intranet() {
     const [tab, setTab] = useState('tasks')
     const [openPerson, setOpenPerson] = useState(null)
     const [openModal, setOpenModal] = useState(null)
-    const [clearance, setClearance] = useState(getClearance())
+    const [authorized, setAuthorized] = useState(isAuthorized())
     const [openGroup, setOpenGroup] = useState('B')
 
     useEffect(() => {
-        const i = setInterval(() => setClearance(getClearance()), 1000)
+        const i = setInterval(() => setAuthorized(isAuthorized()), 1000)
         return () => clearInterval(i)
     }, [])
 
@@ -208,7 +209,7 @@ export default function Intranet() {
     }[s] || '#333')
 
     const renderTrombinoscopeCard = (p) => {
-        const locked = p.locked && clearance < p.locked
+        const locked = p.locked && !authorized
         const clickAllowed = p.id === '0791' && !locked
         return (
             <div
@@ -234,40 +235,48 @@ export default function Intranet() {
                     <div className="intranet__org">UNIVERSITÉ DE WELLSTON</div>
                     <div className="intranet__sub">Intranet WELLSTON-NET v5.04 — UFR Information et Communication</div>
                 </div>
-                <div className={`intranet__clearance lvl-${clearance}`}>AUTORISATION : NIVEAU {clearance}</div>
+                <div
+                    className={`intranet__clearance ${authorized ? 'is-authed' : 'is-locked'}`}
+                    data-testid="intranet-clearance"
+                >
+                    {authorized ? 'AUTORISÉ' : 'NON AUTORISÉ'}
+                </div>
             </div>
 
             {/* Tabs */}
             <div className="intranet__tabs">
-                {TABS.map(t => (
-                    <button
-                        key={t.id}
-                        className={`intranet__tab${tab === t.id ? ' is-active' : ''}`}
-                        onClick={() => setTab(t.id)}
-                        data-testid={`intranet-tab-${t.id}`}
-                        >
-                        <img src={t.icon} alt="" className="intranet__tab-icon" />
-                        <span>{t.label}</span>
-                    </button>
-                ))}
+                {TABS.map(t => {
+                    const label = t.id === 'tasks' && authorized ? 'Missions' : t.label
+                    return (
+                        <button
+                            key={t.id}
+                            className={`intranet__tab${tab === t.id ? ' is-active' : ''}`}
+                            onClick={() => setTab(t.id)}
+                            data-testid={`intranet-tab-${t.id}`}
+                            >
+                            <img src={t.icon} alt="" className="intranet__tab-icon" />
+                            <span>{label}</span>
+                        </button>
+                    )
+                })}
             </div>
 
             <div className="intranet__body">
                 {/* Tasks */}
                 {tab === 'tasks' && (
-                    <table className="intranet__table">
+                    <table className="intranet__table" data-testid="intranet-tasks-table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Tâche</th>
+                                <th>{authorized ? 'Mission' : 'Tâche'}</th>
                                 <th>Priorité</th>
                                 <th>Échéance</th>
                                 <th>Statut</th>
-                                <th>Assigné par</th>
+                                <th>{authorized ? 'Commanditaire' : 'Assigné par'}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {TASKS.map(t => (
+                            {(authorized ? (MISSIONS || []) : TASKS).map(t => (
                                 <tr key={t.id}>
                                     <td>{String(t.id).padStart(3,'0')}</td>
                                     <td>{t.title}</td>
@@ -451,17 +460,22 @@ export default function Intranet() {
 
                 {/* Secure */}
                 {tab === 'secure' && (
-                    <div className="intranet__secure">
-                        {Object.values(SECURE).map(item => (
-                            <div key={item.title} className={`intranet__sealed${clearance >= item.level ? ' is-open' : ''}`}>
-                                <div className="intranet__sealed-head">{item.title} — Niveau {item.level}</div>
-                                {clearance >= item.level ? (
-                                    <pre>{item.content}</pre>
-                                ) : (
-                                    <div className="intranet__sealed-lock">Niveau {item.level} requis</div>
-                                )}
+                    <div className="intranet__secure" data-testid="intranet-secure">
+                        {!authorized ? (
+                            <div className="intranet__sealed" data-testid="intranet-secure-locked">
+                                <div className="intranet__sealed-head">◈ ACCÈS CONFIDENTIEL — VERROUILLÉ</div>
+                                <div className="intranet__sealed-lock">
+                                    Autorisation requise. Authentifiez-vous via le terminal avec la commande <code>auth TOKEN</code>.
+                                </div>
                             </div>
-                        ))}
+                        ) : (
+                            Object.values(SECURE).map(item => (
+                                <div key={item.title} className="intranet__sealed is-open">
+                                    <div className="intranet__sealed-head">{item.title}</div>
+                                    <pre>{item.content}</pre>
+                                </div>
+                            ))
+                         )} 
                     </div>
                 )}
             </div>

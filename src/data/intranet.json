@@ -97,6 +97,57 @@
         }
     ],
 
+    "missions": [
+        {
+            "id": 1,
+            "title": "[EXEMPLE] Infiltration — collecte de renseignements sur la cible",
+            "priority": "CRITIQUE",
+            "deadline": "24/06",
+            "status": "EN COURS",
+            "assigned": "Commandement CGU"
+        },
+        {
+            "id": 2,
+            "title": "[EXEMPLE] Extraction discrète d'un document classifié",
+            "priority": "HAUTE",
+            "deadline": "22/06",
+            "status": "À RENDRE",
+            "assigned": "Section 7"
+        },
+        {
+            "id": 3,
+            "title": "[EXEMPLE] Surveillance d'un contact suspect",
+            "priority": "HAUTE",
+            "deadline": "26/06",
+            "status": "EN COURS",
+            "assigned": "Contrôleur K."
+        },
+        {
+            "id": 4,
+            "title": "[EXEMPLE] Maintien de la couverture — routine étudiante",
+            "priority": "MOYENNE",
+            "deadline": "En continu",
+            "status": "EN COURS",
+            "assigned": "Protocole"
+        },
+        {
+            "id": 5,
+            "title": "[EXEMPLE] Rapport de mission chiffré à transmettre",
+            "priority": "MOYENNE",
+            "deadline": "28/06",
+            "status": "PLANIFIÉE",
+            "assigned": "Commandement CGU"
+        },
+        {
+            "id": 6,
+            "title": "[EXEMPLE] Débriefing du dernier contact — dossier Vendamir",
+            "priority": "BASSE",
+            "deadline": "30/06",
+            "status": "BLOQUÉE",
+            "assigned": "Section 7"
+        }
+    ],
+
     "schedule": {
         "days": ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"],
         "slots": [
