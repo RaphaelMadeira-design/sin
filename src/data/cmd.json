@@ -5,7 +5,7 @@
 
     "boot": [
         "Nicrosoft(R) Vindows 98",
-        "(C)Copyright Nicrosoft Corp XXXX-XXXX.",
+        "(C)Copyright Nicrosoft Corp 5018-MM.",
         ""
     ],
 
@@ -20,9 +20,9 @@
             "  cls                  Efface l'écran",
             "  echo [msg]           Affiche un message",
             "  ping [host]          Teste la connexion",
-            "  auth [LVL] [Token]   Authentification CGU-NET",
+            "  auth [Token]         Authentification BoS-NET",
             "  status               Affiche le niveau d'autorisation",
-            "  logout               Ferme la session CGU-NET",
+            "  logout               Ferme la session BoS-NET",
             "  matrix               ???",
             "  hack                 ???",
             "  memory               ???",
@@ -35,14 +35,14 @@
         "ver": [
             "",
             "Nicrosoft Vindows 98 [Version 4.10.2222]",
-            "CGU Edition — Build 141",
+            "Professional Edition — Build 141",
             ""
         ],
 
         "whoami": [
             "",
             "┌─────────────────────────────────┐",
-            "│  UTILISATEUR : Isen Shura       │",
+            "│  UTILISATEUR : SIN              │",
             "│  SECTION     : 7                │",
             "│  ÉQUIPE      : 2                │",
             "│  STATUT      : [ACTIF]          │",
@@ -108,7 +108,7 @@
 
         "logout": [
             "",
-            "> Session CGU-NET fermée. Autorisation révoquée.",
+            "> Session BoS-NET fermée. Autorisation révoquée.",
             ""
         ]
     },
@@ -117,10 +117,10 @@
         "status": [
             "",
             "┌─────────────────────────────────┐",
-            "│ SESSION CGU-NET                 │",
-            "│ AUTORISATION : {state}          │",
-            "│ UTILISATEUR : Isen Shura        │",
-            "│ POSTE : CGU-PC98 #0791          │",
+            "│ SESSION BoS-NET                 │",
+            "│ AUTORISATION : {state}          ",
+            "│ UTILISATEUR : SIN               │",
+            "│ POSTE : BoS-PC98 #0791          │",
             "└─────────────────────────────────┘",
             ""
         ],
@@ -160,7 +160,7 @@
             "Initialisation du protocole de connexion...",
             "Bypass firewall... [OK]",
             "Injection de paquets... [OK]",
-            "Accès au système CGU-NET CONFIDENTIEL... [OK]",
+            "Accès au système BoS-NET CONFIDENTIEL... [OK]",
             "Déchiffrement des données...",
             "> MÉMOIRE FRAGMENT #1 : \"...origine inconnue...\"",
             "> MÉMOIRE FRAGMENT #2 : [ILLISIBLE]",
@@ -174,6 +174,7 @@
 
     "auth": {
         "token": "INFINITE-VEIL",
+        "lvl": 3,
         "usage": [
             "",
             "> Format : auth TOKEN",
@@ -189,7 +190,7 @@
             "> ████████████████████████████████",
             "> ✓ Authentification validée.",
             "> Autorisation accordée — ACCÈS AUTORISÉ.",
-            "> Bienvenue, Agent SHURA.",
+            "> Bienvenue, Agent SIN.",
             "> ████████████████████████████████",
             ""
         ]

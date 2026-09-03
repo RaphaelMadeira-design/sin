@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import '../styles/CMD.scss'
 import content from '../data/cmd.json'
 
-const STORAGE_KEY = 'cgu_clearance'
+const STORAGE_KEY = 'wellston_clearance'
 
 const fmt = (lines, vars = {}) =>
 lines.map(line =>
@@ -104,32 +104,29 @@ export default function CMD() {
             return
         }
 
-        if (cmd.startsWith('auth ')) {
+        if (cmd === 'auth' || cmd.startsWith('auth ')) {
             const parts = raw.trim().split(/\s+/)
-            const level = (parts[1] || '').toUpperCase()
-            const token = (parts[2] || '').toUpperCase()
-            const VALID = content.auth.valid
+            const token = (parts[1] || '').toUpperCase()
 
-            if (!VALID[level]) {
-                setHistory([...newHistory, ...fmt(content.auth.unknownLevel, {
-                level: level || content.auth.emptyLevelLabel
-                })])
+            if (!token) {
+                setHistory([...newHistory, ...content.auth.usage])
                 return
             }
-            if (VALID[level].token !== token) {
-                setHistory([...newHistory, ...fmt(content.auth.rejected, { level })])
+            if (token !== content.auth.token.toUpperCase()) {
+                setHistory([...newHistory, ...content.auth.rejected])
                 return
             }
-            sessionStorage.setItem(STORAGE_KEY, String(VALID[level].lvl))
-            setHistory([...newHistory, ...fmt(content.auth.success, {
-                level, lvl: VALID[level].lvl
-            })])
+            sessionStorage.setItem(STORAGE_KEY, '1')
+            setHistory([...newHistory, ...content.auth.success])
             return
         }
 
         if (cmd === 'status') {
-            const lvl = parseInt(sessionStorage.getItem(STORAGE_KEY) || '0', 10)
-            setHistory([...newHistory, ...fmt(content.templates.status, { lvl })])
+            const v = sessionStorage.getItem(STORAGE_KEY)
+            const authed = v != null && v !== '0' && v !== ''
+            setHistory([...newHistory, ...fmt(content.templates.status, {
+                state: authed ? 'AUTORISÉ' : 'NON AUTORISÉ'
+            })])
             return
         }
 
