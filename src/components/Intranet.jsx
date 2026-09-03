@@ -3,8 +3,8 @@ import '../styles/Intranet.scss'
 import intranetData from '../data/intranet.json'
 import Sounds from '../components/Sounds'
 
-// ─── CGU CREDENTIALS ───────────────────────────────────────────
-const CGU_CREDENTIALS = {
+// ─── WELLS CREDENTIALS ───────────────────────────────────────────
+const WELLSTON_CREDENTIALS = {
     matricule: 'CHANGE_ME',
     password:  'CHANGE_ME',
 }
@@ -21,7 +21,7 @@ const {
 } = intranetData
 
 const getClearance = () => {
-    const n = parseInt(sessionStorage.getItem('cgu_clearance') || '0', 10)
+    const n = parseInt(sessionStorage.getItem('wellston_clearance') || '0', 10)
     return isNaN(n) ? 0 : n
 }
 
@@ -63,7 +63,7 @@ const PROFILE_SECTIONS = [
     },
 ]
 
-// ─── CGU INTRANET LOGIN ────────────────────────────────────────
+// ─── WELLSTON INTRANET LOGIN ────────────────────────────────────────
 function IntranetLogin({ onLogin }) {
     const [matricule, setMatricule] = useState('')
     const [password, setPassword]   = useState('')
@@ -75,11 +75,11 @@ function IntranetLogin({ onLogin }) {
         setLoading(true)
         setTimeout(() => {
             if (
-                matricule.trim() === CGU_CREDENTIALS.matricule &&
-                password === CGU_CREDENTIALS.password
+                matricule.trim() === WELLSTON_CREDENTIALS.matricule &&
+                password === WELLSTON_CREDENTIALS.password
             ) {
                 Sounds?.msnNotify?.()
-                sessionStorage.setItem('cgu_auth', '1')
+                sessionStorage.setItem('wellston_auth', '1')
                 onLogin()
             } else {
                 Sounds?.error?.()
@@ -90,35 +90,35 @@ function IntranetLogin({ onLogin }) {
     }
 
     return (
-        <div className="cgu-login" data-testid="intranet-login">
-            {/* Bandeau de marque CGU */}
-            <div className="cgu-login__header">
-                <div className="cgu-login__crest" />
+        <div className="wellston-login" data-testid="intranet-login">
+            {/* Bandeau de marque WELLSTON */}
+            <div className="wellston-login__header">
+                <div className="wellston-login__crest" />
                     <div>
-                        <div className="cgu-login__title">SERVEUR INTERNE — WELLSTON-NET</div>
-                        <div className="cgu-login__subtitle">
+                        <div className="wellston-login__title">SERVEUR INTERNE — WELLSTON-NET</div>
+                        <div className="wellston-login__subtitle">
                             POSTE DE TRAVAIL MONITORÉ
                         </div>
                     </div>
                 </div>
 
                 {/* Corps : centre le formulaire */}
-                <div className="cgu-login__body">
-                    <form onSubmit={handleSubmit} className="cgu-login__form">
-                        <div className="cgu-login__banner">
+                <div className="wellston-login__body">
+                    <form onSubmit={handleSubmit} className="wellston-login__form">
+                        <div className="wellston-login__banner">
                             ACCÈS RESTREINT — AUTHENTIFICATION REQUISE
                         </div>
 
-                        <p className="cgu-login__intro">
+                        <p className="wellston-login__intro">
                             Veuillez saisir votre matricule et votre code d'accèspour consulter le réseau interne.
                         </p>
 
-                        <div className="cgu-login__form-group">
-                            <label className="cgu-login__label" htmlFor="cgu-matricule">
-                                Matricule agent&nbsp;:
+                        <div className="wellston-login__form-group">
+                            <label className="wellston-login__label" htmlFor="wellston-matricule">
+                                Identifiant élève&nbsp;:
                             </label>
                             <input
-                                id="cgu-matricule"
+                                id="wellston-matricule"
                                 type="text"
                                 className="win98-input"
                                 value={matricule}
@@ -127,35 +127,35 @@ function IntranetLogin({ onLogin }) {
                                 autoFocus
                                 autoComplete="off"
                                 spellCheck={false}
-                                data-testid="cgu-matricule-input"
+                                data-testid="wellston-matricule-input"
                             />
                         </div>
 
-                        <div className="cgu-login__form-group">
-                            <label className="cgu-login__label" htmlFor="cgu-password">
+                        <div className="wellston-login__form-group">
+                            <label className="wellston-login__label" htmlFor="wellston-password">
                                 Code d'accès&nbsp;:
                             </label>
                             <input
-                                id="cgu-password"
+                                id="wellston-password"
                                 type="password"
                                 className="win98-input"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 autoComplete="off"
-                                data-testid="cgu-password-input"
+                                data-testid="wellston-password-input"
                             />
                         </div>
 
                         {error && (
-                            <div className="cgu-login__error">⚠ {error}</div>
+                            <div className="wellston-login__error">⚠ {error}</div>
                         )}
 
-                        <div className="cgu-login__actions">
+                        <div className="wellston-login__actions">
                             <button
                                 type="submit"
                                 className="win98-btn"
                                 disabled={loading}
-                                data-testid="cgu-login-submit"
+                                data-testid="wellston-login-submit"
                             >
                                 {loading ? 'Vérification...' : 'Se connecter'}
                             </button>
@@ -164,7 +164,7 @@ function IntranetLogin({ onLogin }) {
                 </div>
 
                 {/* Footer collé tout en bas de la fenêtre */}
-                <div className="cgu-login__footer">
+                <div className="wellston-login__footer">
                     Toute tentative d'intrusion est consignée et tracée.<br/>
                     WELLSTON-NET VERSION 5.04
                 </div>
@@ -174,7 +174,7 @@ function IntranetLogin({ onLogin }) {
 
 export default function Intranet() {
     const [authed, setAuthed] = useState(
-        () => sessionStorage.getItem('cgu_auth') === '1'
+        () => sessionStorage.getItem('wellston_auth') === '1'
     )
     const [tab, setTab] = useState('tasks')
     const [openPerson, setOpenPerson] = useState(null)
@@ -491,7 +491,6 @@ export default function Intranet() {
                                 aria-label="Fermer"
                                 data-testid="intranet-profile-modal-close"
                             >
-                                ✕
                             </button>
                         </div>
                         <div className="intranet__profile-body">

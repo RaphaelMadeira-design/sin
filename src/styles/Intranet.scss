@@ -272,151 +272,198 @@
         padding-bottom: 8px;
         margin-bottom: 12px;
     }
-&__doc-org { font-weight: bold; font-size: 13px; letter-spacing: 0.2px }
-&__doc-meta {
-display: flex;
-gap: 24px;
-font-size: 12px;
-color: #444;
-margin-bottom: 10px;
-}
-&__doc-title {
-margin: 10px 0 14px;
-font-size: 14px;
-text-transform: uppercase;
-letter-spacing: 0.4px;
-}
-&__doc-body {
-white-space: pre-wrap;
-line-height: 1.55;
-font-size: 12px;
-font-family: $font-system;
-background: transparent;
-margin: 0;
-}
-&__doc-sign {
-margin-top: 24px;
-text-align: right;
-font-size: 11px;
-color: #333;
-font-style: italic;
-}
+    &__doc-org { 
+        font-weight: bold; 
+        font-size: 13px; 
+        letter-spacing: 0.2px 
+    }
+    &__doc-meta {
+        display: flex;
+        gap: 24px;
+        font-size: 12px;
+        color: #444;
+        margin-bottom: 10px;
+    }
+    &__doc-title {
+        margin: 10px 0 14px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+    }
+    &__doc-body {
+        white-space: pre-wrap;
+        line-height: 1.55;
+        font-size: 12px;
+        font-family: $font-system;
+        background: transparent;
+        margin: 0;
+    }
+    &__doc-sign {
+        margin-top: 24px;
+        text-align: right;
+        font-size: 11px;
+        color: #333;
+        font-style: italic;
+    }
 
-// ─── Emails ───────────────────────────────────────
-&__mail { list-style: none; margin: 0; padding: 0; }
-&__mailitem {
-display: grid;
-grid-template-columns: 1.4fr 2fr 0.7fr;
-gap: 12px;
-padding: 8px 12px;
-background: #fff;
-border: 1px solid #b6b6b6;
-margin-bottom: 4px;
-cursor: pointer;
-align-items: center;
-&:hover { background: #fffbe6; }
-&.is-unread { font-weight: bold; background: #f0f5ff; }
-}
-&__mailfrom { color: #1b2540; }
-&__mailsubj { color: #000; }
-&__maildate { color: #666; font-size: 11px; text-align: right; }
+    // ─── Emails ───────────────────────────────────────
+    &__mail { 
+        list-style: none; 
+        margin: 0; 
+        padding: 0; 
+    }
+    &__mailitem {
+        display: grid;
+        grid-template-columns: 1.4fr 2fr 0.7fr;
+        gap: 12px;
+        padding: 8px 12px;
+        background: #fff;
+        border: 1px solid #b6b6b6;
+        margin-bottom: 4px;
+        cursor: pointer;
+        align-items: center;
 
-&__mailhead {
-background: #f5f3e3;
-border: 1px solid #b6b6b6;
-padding: 10px 14px;
-margin-bottom: 14px;
-font-family: $font-system;
-> div { margin: 2px 0; }
-}
+        &:hover { 
+            background: #fffbe6; 
+        }
+        &.is-unread { 
+            font-weight: bold; 
+            background: #f0f5ff; 
+        }
+    }
+    &__mailfrom { 
+        color: #1b2540; 
+    }
+    &__mailsubj { 
+        color: #000; 
+    }
+    &__maildate { 
+        color: #666; 
+        font-size: 11px; 
+        text-align: right; 
+    }
 
-// ─── Personnel hierarchy ──────────────────────────
+    &__mailhead {
+        background: #f5f3e3;
+        border: 1px solid #b6b6b6;
+        padding: 10px 14px;
+        margin-bottom: 14px;
+        font-family: $font-system;
 
-&__group-header {
-width: 100%;
-text-align: left;
-padding: 6px 10px;
-background: #c0c0c0;
-@include border-outset;
-font: inherit;
-font-weight: bold;
-cursor: pointer;
-&:hover {
-background: #d4d0c8;
-}
-}
+        > div { 
+            margin: 2px 0; 
+        }
+    }
 
-&__empty-group {
-padding: 12px;
-color: #666;
-font-style: italic;
-}
+    // ─── Personnel hierarchy ──────────────────────────
 
-&__trombinoscope-groups {
-display: flex;
-flex-direction: column;
-gap: 10px;
-}
+    &__group-header {
+        width: 100%;
+        text-align: left;
+        padding: 6px 10px;
+        background: #c0c0c0;
+        @include border-outset;
+        font: inherit;
+        font-weight: bold;
+        cursor: pointer;
 
-&__group {
-background: $win98-gray;
-padding: 8px;
-@include border-outset-light;
-}
+        &:hover {
+            background: #d4d0c8;
+        }
+    }
 
-&__group-title {
-margin-bottom: 10px;
-padding-bottom: 4px;
-border-bottom: 2px solid #000080;
-font-size: 12px;
-font-weight: bold;
-letter-spacing: 0.4px;
-text-transform: uppercase;
-color: #000080;
-}
+    &__empty-group {
+        padding: 12px;
+        color: #666;
+        font-style: italic;
+    }
 
-&__subgroup {
-margin-top: 12px;
-}
+    &__trombinoscope-groups {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-&__subgroup-title {
-margin-bottom: 8px;
-padding-left: 4px;
+    &__group {
+        background: $win98-gray;
+        padding: 8px;
+        @include border-outset-light;
+    }
 
-font-size: 12px;
-color: #444;
-letter-spacing: 0.4px;
-text-transform: uppercase;
-}
+    &__group-title {
+        margin-bottom: 10px;
+        padding-bottom: 4px;
+        border-bottom: 2px solid #000080;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        color: #000080;
+    }
 
-// ─── Trombinoscope cards ──────────────────────────────
-&__cards {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-gap: 12px;
-}
-&__card {
-background: #fff;
-border: 1px solid #b6b6b6;
-padding: 12px;
-cursor: pointer;
-transition: transform 0.1s;
-&:hover { background: #fffbe6; }
-}
-&__card-id { font-family: monospace; font-size: 10px; color: #777; }
-&__card-name { font-weight: bold; font-size: 14px; margin: 4px 0; letter-spacing: 0.2px; }
-&__card-rank { font-size: 12px; color: #555; }
-&__card-status {
-display: inline-block;
-margin-top: 8px;
-padding: 2px 8px;
-font-size: 12px;
-color: #fff;
-letter-spacing: 0.4px;
-&.s-actif { background: #2c7a2c; }
-&.s-inactif { background: #b80000; }
-&.s-disparu { background: #888; }
-}
+    &__subgroup {
+        margin-top: 12px;
+    }
+
+    &__subgroup-title {
+        margin-bottom: 8px;
+        padding-left: 4px;
+        font-size: 12px;
+        color: #444;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+    }
+
+    // ─── Trombinoscope cards ──────────────────────────────
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+    }
+    &__card {
+        background: #fff;
+        border: 1px solid #b6b6b6;
+        padding: 12px;
+        cursor: pointer;
+        transition: transform 0.1s;
+
+        &:hover { 
+            background: #fffbe6; 
+        }
+    }
+    &__card-id { 
+        font-family: monospace; 
+        font-size: 10px; 
+        color: #777; 
+    }
+    &__card-name { 
+        font-weight: bold; 
+        font-size: 14px; 
+        margin: 4px 0; 
+        letter-spacing: 0.2px; 
+    }
+    &__card-rank { 
+        font-size: 12px; 
+        color: #555; 
+    }
+    &__card-status {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 2px 8px;
+        font-size: 12px;
+        color: #fff;
+        letter-spacing: 0.4px;
+
+        &.s-actif { 
+            background: #2c7a2c; 
+        }
+        &.s-inactif { 
+            background: #b80000; 
+        }
+        &.s-disparu { 
+            background: #888; 
+        }
+    }
     &__fiche {
         flex: 1;
         border-collapse: separate;
@@ -440,7 +487,7 @@ letter-spacing: 0.4px;
         th {
             background: #c0c0c0;
             color: #000;
-            width: 140px;
+            width: 180px;
             font-weight: bold;
             letter-spacing: 0.5px;
             border-color: #fff #808080 #808080 #fff;
@@ -539,7 +586,6 @@ letter-spacing: 0.4px;
         @include border-outset;
         display: flex;
         flex-direction: column;
-        border-left-width: 5px;
 
         &--full {
             grid-column: 1 / -1;
@@ -606,8 +652,6 @@ letter-spacing: 0.4px;
 
         &:active {
             @include border-inset;
-            border-left-width: 5px;
-            border-left-color: $win98-navy;
             padding: 9px 9px 7px 11px;
         }
 
@@ -633,7 +677,7 @@ letter-spacing: 0.4px;
         width: 100%;
         max-width: 620px;
         max-height: calc(100% - 48px);
-        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
+        box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
         overflow: hidden;
     }
 
@@ -645,25 +689,23 @@ letter-spacing: 0.4px;
     }
 
     &__modal-close {
-        flex: 0 0 auto;
-        width: 20px;
+        width: 18px;
         height: 18px;
-        line-height: 1;
-        padding: 0;
-        font-family: $font-system;
-        font-size: 11px;
-        font-weight: bold;
-        color: $win98-black;
-        background: $win98-gray;
-        @include border-outset-light;
+        background-color: $win98-gray;
+        background-repeat: no-repeat;
         cursor: pointer;
+        margin-left: 2px;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
+        background-position: center;
 
-        &:active {
-            @include border-inset-light;
+        &:hover {
+            background-color: $pc98-red;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23fff'/%3E%3C/svg%3E");
         }
     }
 
     &__modal-card &__profile-body {
+        text-align: justify;
         overflow-y: auto;
         max-height: 60vh;
     }
@@ -718,158 +760,155 @@ letter-spacing: 0.4px;
             line-height: 1.5; 
         }
     }
-&__sealed-head {
-font-weight: bold;
-font-size: 12px;
-letter-spacing: 0.6px;
-color: inherit;
-}
-&__sealed-lock {
-margin-top: 8px;
-font-size: 11px;
-color: #ff9090;
-code {
-background: #000;
-color: #b6ffb6;
-padding: 1px 6px;
-font-size: 11px;
-}
-}
-&__hint {
-margin-top: 8px;
-padding: 8px 12px;
-background: #fffbe6;
-border-left: 3px solid #b87800;
-font-size: 11px;
-font-style: italic;
-}
-}
-
-// ─── CGU LOGIN (style cohérent avec MSN login) ──────────────────
-.cgu-login {
-display: flex;
-flex-direction: column;
-height: 100%;
-background: #c0c0c0;
-font-family: $font-system;
-color: #000;
-
-// Bandeau de marque (reste en haut, pleine largeur)
-&__header {
-display: flex;
-align-items: center;
-gap: 12px;
-padding: 14px 16px;
-background:
-linear-gradient(135deg, #0a0f25 0%, #1b2540 50%, #2a3a6e 100%);
-border-bottom: 2px solid #000;
-box-shadow: inset 0 -1px 0 #000080;
-flex-shrink: 0;
+    &__sealed-head {
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        color: inherit;
+    }
+    &__sealed-lock {
+        margin-top: 8px;
+        font-size: 11px;
+        color: #ff9090;
+        code {
+            background: #000;
+            color: #b6ffb6;
+            padding: 1px 6px;
+            font-size: 11px;
+        }
+    }
+    &__hint {
+        margin-top: 8px;
+        padding: 8px 12px;
+        background: #fffbe6;
+        border-left: 3px solid #b87800;
+        font-size: 11px;
+        font-style: italic;
+    }
 }
 
-&__crest {
-width: 40px;
-height: 40px;
-flex-shrink: 0;
-background:
-url('https://win98icons.alexmeub.com/icons/png/connected_world-0.png')
-no-repeat center / contain;
-image-rendering: pixelated;
-}
+// ─── WELLSTON LOGIN (style cohérent avec MSN login) ──────────────────
+.wellston-login {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #791010;
+    font-family: $font-system;
+    color: #000;
 
-&__title {
-color: #f5f1cc;
-font-size: 14px;
-font-weight: bold;
-letter-spacing: 0.6px;
-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
-}
+    // Bandeau de marque (reste en haut, pleine largeur)
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        background:
+        linear-gradient(135deg, #0a0f25 0%, #1b2540 50%, #2a3a6e 100%);
+        border-bottom: 2px solid #000;
+        box-shadow: inset 0 -1px 0 #000080;
+        flex-shrink: 0;
+    }
 
-&__subtitle {
-color: #9ecfff;
-font-size: 10px;
-letter-spacing: 0.4px;
-margin-top: 2px;
-}
+    &__crest {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        background:
+        url('https://win98icons.alexmeub.com/icons/png/connected_world-0.png')
+        no-repeat center / contain;
+        image-rendering: pixelated;
+    }
 
-// ── Corps centré ─────────────────────────────────────
-// On utilise flex pour centrer le formulaire verticalement
-// ET pousser le footer tout en bas.
-&__body {
-flex: 1;
-display: flex;
-flex-direction: column;
-align-items: center;       // centre horizontalement
-padding: 24px 20px 0;
-background: #ece9d8;
-overflow-y: auto;
-}
+    &__title {
+        color: #f5f1cc;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.6px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
 
-// Wrapper du formulaire avec largeur max contrôlée
-&__form {
-width: 100%;
-max-width: 320px;
-display: flex;
-flex-direction: column;
-}
+    &__subtitle {
+        color: #9ecfff;
+        font-size: 10px;
+        letter-spacing: 0.4px;
+        margin-top: 2px;
+    }
 
-&__banner {
-background: #2b0000;
-color: #ffcfcf;
-border: 1px solid #5a0000;
-padding: 6px 10px;
-text-align: center;
-font-size: 12px;
-letter-spacing: 1px;
-margin-bottom: 16px;
-}
+    // ── Corps centré ─────────────────────────────────────
+    &__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 20px 0;
+        background: #ece9d8;
+        overflow-y: auto;
+    }
 
-&__intro {
-font-size: 11px;
-line-height: 1.45;
-margin: 0 0 16px;
-color: #222;
-text-align: center;
-}
+    &__form {
+        width: 100%;
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+    }
 
-&__form-group {
-margin-bottom: 10px;
-margin: 0 auto;
-}
+    &__banner {
+        background: #2b0000;
+        color: #ffcfcf;
+        border: 1px solid #5a0000;
+        padding: 6px 10px;
+        text-align: center;
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+    }
 
-&__label {
-display: block;
-font-size: 11px;
-margin-bottom: 3px;
-color: #000;
-}
+    &__intro {
+        font-size: 11px;
+        line-height: 1.45;
+        margin: 0 0 16px;
+        color: #222;
+        text-align: center;
+    }
 
-&__error {
-background: #fff5f5;
-border: 1px solid #cc0000;
-color: #aa0000;
-font-size: 11px;
-padding: 6px 8px;
-margin: 4px 0 12px;
-line-height: 1.4;
-}
+    &__form-group {
+        margin-bottom: 10px;
+        margin: 0 auto;
+    }
 
-&__actions {
-display: flex;
-justify-content: center;   // bouton centré
-margin-top: 14px;
-}
+    &__label {
+        display: block;
+        font-size: 11px;
+        margin-bottom: 3px;
+        color: #000;
+    }
 
-// ── Footer collé en bas, pleine largeur ──────────────
-&__footer {
-flex-shrink: 0;
-padding: 8px 16px;
-background: #d4d0c8;
-border-top: 1px solid #b0b0a8;
-box-shadow: inset 0 1px 0 #fff;
-font-size: 10px;
-color: #555;
-text-align: center;
-line-height: 1.5;
-}
+    &__error {
+        background: #fff5f5;
+        border: 1px solid #cc0000;
+        color: #aa0000;
+        font-size: 11px;
+        padding: 6px 8px;
+        margin: 4px 0 12px;
+        line-height: 1.4;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 14px;
+    }
+
+    // ── Footer collé en bas, pleine largeur ──────────────
+    &__footer {
+        flex-shrink: 0;
+        padding: 8px 16px;
+        background: #d4d0c8;
+        border-top: 1px solid #b0b0a8;
+        box-shadow: inset 0 1px 0 #fff;
+        font-size: 10px;
+        color: #555;
+        text-align: center;
+        line-height: 1.5;
+    }
 }
