@@ -6,7 +6,7 @@
             "priority": "CRITIQUE", 
             "deadline": "24/06", 
             "status": "EN COURS",   
-            "assigned": "Pr. Halvorsen" 
+            "assigned": "P. HALVORSEN" 
         },
         { 
             "id": 2,  
@@ -14,7 +14,7 @@
             "priority": "HAUTE",    
             "deadline": "20/06", 
             "status": "EN RETARD",  
-            "assigned": "Me. Brennac" 
+            "assigned": "M. BRENNAC" 
         },
         { 
             "id": 3,  
@@ -22,7 +22,7 @@
             "priority": "HAUTE",    
             "deadline": "28/06", 
             "status": "EN COURS",   
-            "assigned": "Pr. Valkenhein" 
+            "assigned": "R. KISKI" 
         },
         { 
             "id": 4,  
@@ -30,7 +30,7 @@
             "priority": "HAUTE",    
             "deadline": "25/06", 
             "status": "PLANIFIÉE",  
-            "assigned": "Mme Castellan" 
+            "assigned": "E. CASTELLAN" 
         },
         { 
             "id": 5,  
@@ -38,7 +38,7 @@
             "priority": "MOYENNE",  
             "deadline": "26/06", 
             "status": "EN COURS",   
-            "assigned": "Pr. Yusaku" 
+            "assigned": "P. YUSAKU" 
         },
         { 
             "id": 6,  
@@ -46,7 +46,7 @@
             "priority": "MOYENNE",  
             "deadline": "27/06", 
             "status": "EN COURS",   
-           "assigned": "Mr. Okonkwo" },
+           "assigned": "Y. OKONKWO" },
         { 
            "id": 7,  
            "title": "Recherche de stage (fin de Licence)",               
@@ -61,7 +61,7 @@
             "priority": "MOYENNE",  
             "deadline": "18/06", 
             "status": "COMPLÉTÉE",  
-            "assigned": "Mr. Okonkwo" 
+            "assigned": "Y. OKONKWO" 
         },
         { 
             "id": 9,  
@@ -69,7 +69,7 @@
             "priority": "BASSE",    
             "deadline": "30/06", 
             "status": "À RENDRE",   
-            "assigned": "Mme Rtelford" 
+            "assigned": "A. RTELFORD" 
         },
         { 
             "id": 10, 
@@ -77,7 +77,7 @@
             "priority": "BASSE",    
             "deadline": "12/06", 
             "status": "COMPLÉTÉE",  
-            "assigned": "Mr. Danforth" 
+            "assigned": "J. DANFORTH" 
         },
         { 
             "id": 11, 
@@ -93,30 +93,30 @@
             "priority": "BASSE",    
             "deadline": "02/07", 
             "status": "PLANIFIÉE",  
-            "assigned": "Pr. Valkenhein" 
+            "assigned": "R. KISKI" 
         }
     ],
 
     "missions": [
         {
             "id": 1,
-            "title": "[EXEMPLE] Infiltration — collecte de renseignements sur la cible",
+            "title": "Infiltration — Collecte de renseignements sur ████████ ",
             "priority": "CRITIQUE",
             "deadline": "24/06",
             "status": "EN COURS",
-            "assigned": "Commandement CGU"
+            "assigned": "Commandement BoS"
         },
         {
             "id": 2,
-            "title": "[EXEMPLE] Extraction discrète d'un document classifié",
+            "title": "Extraction — Document HF-24125VE",
             "priority": "HAUTE",
             "deadline": "22/06",
             "status": "À RENDRE",
-            "assigned": "Section 7"
+            "assigned": "Section renseignement"
         },
         {
             "id": 3,
-            "title": "[EXEMPLE] Surveillance d'un contact suspect",
+            "title": "Surveillance — Suspect matricule BK-74926SV",
             "priority": "HAUTE",
             "deadline": "26/06",
             "status": "EN COURS",
@@ -124,7 +124,7 @@
         },
         {
             "id": 4,
-            "title": "[EXEMPLE] Maintien de la couverture — routine étudiante",
+            "title": "Infiltration — Maintien de la couverture",
             "priority": "MOYENNE",
             "deadline": "En continu",
             "status": "EN COURS",
@@ -132,19 +132,27 @@
         },
         {
             "id": 5,
-            "title": "[EXEMPLE] Rapport de mission chiffré à transmettre",
+            "title": "Transmission — Rapport de mission #12",
             "priority": "MOYENNE",
             "deadline": "28/06",
             "status": "PLANIFIÉE",
-            "assigned": "Commandement CGU"
+            "assigned": "Téléopérateur R. MAKKEN"
         },
         {
             "id": 6,
-            "title": "[EXEMPLE] Débriefing du dernier contact — dossier Vendamir",
+            "title": "Transmission — Debriefing opérationnel",
             "priority": "BASSE",
             "deadline": "30/06",
             "status": "BLOQUÉE",
-            "assigned": "Section 7"
+            "assigned": "Téléopérateur R. MAKKEN"
+        },
+        {
+            "id": 7,
+            "title": "Extraction — Document HF-423751TF",
+            "priority": "BASSE",
+            "deadline": "02/07",
+            "status": "À RENDRE",
+            "assigned": "Section renseignement"
         }
     ],
 
@@ -154,37 +162,37 @@
             {
                 "time": "08:00–10:00",
                 "sessions": {
-                    "Lundi":    { "course": "Théories de la communication (CM)", "room": "Amphi Lenox", "teacher": "Pr. Halvorsen" },
-                    "Mardi":    { "course": "Sociologie des médias (CM)",        "room": "Amphi Reach", "teacher": "Pr. Yusaku" },
-                    "Mercredi": { "course": "Écriture journalistique (TD)",      "room": "Salle 214",   "teacher": "Mr. Okonkwo" },
-                    "Jeudi":    { "course": "Communication numérique & web (CM)","room": "Amphi B",     "teacher": "Mr. Solberg" },
-                    "Vendredi": { "course": "Sémiologie de l'image (CM)",        "room": "Amphi Reach", "teacher": "Mme Castellan" }
+                    "Lundi":    { "course": "Théories de la communication (CM)", "room": "Amphi Lenox", "teacher": "P. HALVORSEN" },
+                    "Mardi":    { "course": "Sociologie des médias (CM)",        "room": "Amphi Reach", "teacher": "P. YUSAKU" },
+                    "Mercredi": { "course": "Écriture journalistique (TD)",      "room": "Salle 214",   "teacher": "Y. OKONKWO" },
+                    "Jeudi":    { "course": "Communication numérique & web (CM)","room": "Amphi B",     "teacher": "M. SOLBERG" },
+                    "Vendredi": { "course": "Sémiologie de l'image (CM)",        "room": "Amphi Reach", "teacher": "E. CASTELLAN" }
                 }
             },
             {
                 "time": "10:15–12:15",
                 "sessions": {
-                    "Lundi":    { "course": "Sémiologie de l'image (TD)",        "room": "Salle 214",     "teacher": "Mme Castellan" },
-                    "Mardi":    { "course": "Statistiques appliquées aux SHS (TD)","room": "Salle info 3","teacher": "Mme Rtelford" },
-                    "Mercredi": { "course": "Droit de l'information (CM)",        "room": "Amphi Lenox",   "teacher": "Me. Brennac" },
-                    "Jeudi":    { "course": "Production audiovisuelle (TD)",      "room": "Studio Son/Vidéo","teacher": "Mr. Okonkwo" },
-                    "Vendredi": { "course": "Méthodologie documentaire",         "room": "B.U. — Salle 3","teacher": "Mme Rtelford" }
+                    "Lundi":    { "course": "Sémiologie de l'image (TD)",        "room": "Salle 214",     "teacher": "E. CASTELLAN" },
+                    "Mardi":    { "course": "Statistiques appliquées aux SHS (TD)","room": "Salle info 3","teacher": "A. RTELFORD" },
+                    "Mercredi": { "course": "Droit de l'information (CM)",        "room": "Amphi Lenox",   "teacher": "M. BRENMAC" },
+                    "Jeudi":    { "course": "Production audiovisuelle (TD)",      "room": "Studio Son/Vidéo","teacher": "Y. OKONKWO" },
+                    "Vendredi": { "course": "Méthodologie documentaire",         "room": "B.U. — Salle 3","teacher": "A. RTELFORD" }
                 }
             },
             {
                 "time": "13:30–15:30",
                 "sessions": {
-                    "Lundi":    { "course": "Anglais appliqué",                  "room": "Salle 108",     "teacher": "Mr. Danforth" },
-                    "Mardi":    { "course": "Histoire des médias (CM)",          "room": "Amphi B",       "teacher": "Pr. Vendamir", "status": "ANNULÉ" },
-                    "Jeudi":    { "course": "Communication numérique & web (TD)","room": "Salle info 3",  "teacher": "Mr. Solberg" },
-                    "Vendredi": { "course": "Option — Culture & médias (CM)",    "room": "Amphi B",       "teacher": "Pr. Yusaku" }
+                    "Lundi":    { "course": "Anglais appliqué",                  "room": "Salle 108",     "teacher": "J. FANFORTH" },
+                    "Mardi":    { "course": "Histoire des médias (CM)",          "room": "Amphi B",       "teacher": "R. KISKI", "status": "ANNULÉ" },
+                    "Jeudi":    { "course": "Communication numérique & web (TD)","room": "Salle info 3",  "teacher": "M. SOLBERG" },
+                    "Vendredi": { "course": "Option — Culture & médias (CM)",    "room": "Amphi B",       "teacher": "P. YUSAKU" }
                 }
             },
             {
                 "time": "15:45–17:45",
                 "sessions": {
-                    "Mardi":    { "course": "Projet tutoré (groupe)",           "room": "Labo Multimédia","teacher": "Pr. Valkenhein" },
-                    "Jeudi":    { "course": "PPP — Projet Personnel & Pro.",    "room": "Salle 108",      "teacher": "Pr. Valkenhein" }
+                    "Mardi":    { "course": "Projet tutoré (groupe)",           "room": "Labo Multimédia","teacher": "R. KISKI" },
+                    "Jeudi":    { "course": "PPP — Projet Personnel & Pro.",    "room": "Salle 108",      "teacher": "R. KISKI" }
                 }
             }
         ]
@@ -250,13 +258,13 @@
         {
             "id": "0791",
             "name": "ASHU'RA, Sin",
-            "age": "20 ans",
+            "age": "21 ans",
             "genre": "Masculin ♂",
             "orientation": "Hétérosexuel",
             "physical": "1m91 / 88kg",
             "specialization": "Information & Communication",
             "cycle": "Licence",
-            "year": "2°",
+            "year": "3°",
             "equipment": "Aucun",
             "mbti": "INFJ",
             "status": "ACTIF",
@@ -264,8 +272,10 @@
             "image": "/images/id.png",
             "physicalDescription": "Du haut de son mètre quatre-vingt-treize (1m93) et pesant près de quatre-vingt-quinze kilogrammes (91 kg), Sin est un homme qui impose naturellement par sa carrure. Difficile de passer inaperçu quand on occupe ainsi l’espace. Il a un visage plutôt carré, avec des traits bien dessinés et une mâchoire marquée qui lui donnent un air naturellement sérieux. Sa peau est pâle, presque marmoréenne, qui fait ressortir ses yeux en amande d'un noir profond, avec une expression lourde et mélancolique assez intrigante, accentuée par ses sourcils fournis et légèrement froncés, qui lui donnent un air distant ou détaché. Sa coiffure est naturelle et désordonnée, une masse de cheveux châtain foncé épais et ondulés qui tombent un peu au hasard sur son front, tout en encadrant son visage.\n\nSon style vestimentaire est un mélange paradoxal de conformisme et d'indépendance. Il porte en permanence un uniforme scolaire composé d'une veste à col droit, dans un tissu épais de couleur violet foncé, constamment déboutonnée pour révéler un simple t-shirt noir uni. Un pantalon ajusté et assorti ainsi que des tennis blanches épurées complètent sa tenue. Ses mains sont souvent dissimulées dans ses poches dans une posture nonchalante. Il est souvent aperçu avec une cigarette sans tabac entre les lèvres, qu'il allume avec un Zippo dont il ne se sépare jamais.",
             "psychProfile": "Sin se montre sérieux, calme et farouchement indépendant. Fier de nature, il ne se laisse jamais marcher sur les pieds et n'hésite pas à exprimer ses opinions, quitte à les imposer malgré lui. Son attitude de délinquant, souvent marquée par une posture nonchalante et un regard un peu trop direct, est combinée à une honnêteté brute qui peut manquer cruellement de tact lors de ses échanges, ce qui le fait parfois passer pour quelqu'un d'irrespectueux. Pourtant, malgré les apparences, il éprouve une profonde aversion pour la violence gratuite et déteste devoir se battre. Il cherche toujours à régler les conflits par un silence méprisant ou une parole tranchante, mais il n'hésitera jamais à faire parler ses poings si la situation l'exige.\n\nMême s'il est d'un naturel plutôt avenant, notamment par ses manières simples et sans chichis, il reste néanmoins sélectif et il faut du temps pour qu'il puisse accorder sa confiance. Son égo l'empêche d'ailleurs bien souvent de demander de l'aide, préférant porter ses fardeaux en solitaire. Mais quand on arrive à passer outre sa carapace, il se révèle être un ami loyal et un allié précieux sur lequel on peut compter, en toutes circonstances. Trahir ce précieux lien est en revanche définitif, car pour lui, il n'existe aucune seconde chance.",
-            "shortTermGoals": "",
-            "longTermGoals": ""
+            "condition": "La capacité de Sin repose presque entièrement sur une bonne condition physique. Il est un combattant aguerri qui compte autant sur sa force brute que sur ses réflexes. Son imposant gabarit lui donne une puissance d'impact dévastatrice dans ses coups, mais sa carrure n'est pas qu'une question de volume car il est étonnamment rapide et mobile pour un homme de sa taille. Les cigarettes qu'il fume sont sans tabac ni nicotine, qui n'entâchent pas son excellente endurance, digne d'un athlète ou d'un agent entraîné.",
+            "likesDislikes": "Aime : Faire la sieste, l'ordre et la propreté, la littérature philosophique, les vieux dessins animés, les footings matinaux, les balades nocturnes en solitaire, la compétition, les chats noirs, le pain à la pâte de haricot sucrée, les jeux de cartes à échanger, collectionner des briquets vintage, la technologie rétro. \n\nN'aime pas : Les réseaux sociaux, les dessins animés récents, les films d'horreur, les fruits de mer, les personnes trop extravagantes ou à l'inverse trop effacées, les gens qui se déguisent et le cosplay, le modèle d'abonnement pour tout sans rien posséder, les moustiques qui empèchent de dormir tranquillement.",
+            "hobbies": "Depuis sa plus tendre enfance, Sin a toujours été passionné par le sport, et en particulier le baseball. Il a pratiqué ce sport au poste de lanceur pendant de nombreuses années, jusqu'à ce qu'il décide de se concentrer sur ses études. Il continue néanmoins à suivre les matchs et à s'intéresser aux performances des joueurs professionnels. Il est également un grand amateur de production musicale et, à l'aide de logiciels spécialisés, passe beaucoup de temps à créer des morceaux sur son ordinateur, qu'il ne partage jamais avec qui que ce soit.",
+            "opinion": "Sin est conscient des failles liées au système hiérarchique mis en place, créant des castes dès la naissance et des inégalités qui ne font que s'accentuer avec le temps. Le fait que la valeur d'une personne puisse être jugée sur la puissance et le potentiel de sa capacité innée peut être considéré comme injuste, mais c'est aussi la raison de son existence. Il voit aussi les côtés positifs de cette hiérarchie, notamment dans la cohésion et l'organisation qu'elle apporte dans la société. Son opinion est donc mitigée, mais il reste convaincu que le système est nécessaire pour maintenir l'ordre et la stabilité dans le monde."
         },
         {
             "id": "9205",
@@ -274,7 +284,7 @@
         },
         {
             "id": "3054",
-            "name": "O'BORO, Kanza",
+            "name": "OBORO, Kanza",
             "status": "ACTIF"
         },
         {
@@ -289,7 +299,7 @@
         },
         {
             "id": "8761",
-            "name": "WUDRAND, Clere",
+            "name": "VON WUDRAND, Clere",
             "status": "ACTIF"
         },
         {
@@ -334,7 +344,7 @@
         },
         {
             "id": "4411",
-            "name": "TURA'BO, Emporo",
+            "name": "TURA-BO, Emporo",
             "status": "INACTIF"
         },
         {
@@ -361,20 +371,24 @@
 
     "logs": [
         "08:14:09 — [SYS] Connexion WELLSTON-NET (poste #0791)",
-        "82:14:11 — [AUTH] Session NIVEAU-1 expirée",
-        "08:14:42 — [APP] Ouverture module \"Tâches\"",
+        "08:14:11 — [AUTH] Session ouverte",
+        "08:14:22 — [APP] Ouverture module \"Tâches\"",
+        "08:14:44 — [APP] Modifications enregistrées — Tâche #002",
         "08:15:01 — [APP] Ouverture module \"Emploi du temps\"",
-        "08:15:12 — [INFO] Séance annulée — Histoire des médias (Pr. Vendamir)",
-        "02:15:30 — [WARN] Tentative d'accès dossier « Voile de Shigemori » — refusée (clearance insuffisante)",
-        "08:16:18 — [APP] Ouverture module \"Messagerie\"",
-        "08:16:45 — [WARN] Email non-traçable détecté (exp.: ???). Conservé.",
-        "08:17:02 — [APP] Ouverture module \"Personnel\"",
+        "08:15:12 — [INFO] Séance annulée — Histoire des médias (CM)",
+        "02:15:30 — [APP] Ouverture module \"Trombinoscope\"",
+        "08:16:18 — [APP] Accès à la fiche de l'étudiant — ASHU'RA, Sin (0791)",
+        "08:16:45 — [WARN] Email non-traçable détecté. Conservé.",
+        "08:17:02 — [APP] Ouverture module \"Confidentiel\"",
+        "08:17:45 — [WARN] Niveau d'accès insuffisant — Accès refusé",
         "08:18:11 — [SYS] Latence inhabituelle — pingback 1337ms",
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
         "11:59:58 — [SYS] Ping entrant inconnu — origine masquée",
+        "13:08:39 — [AUTH] Niveau d'accès modifié",
+        "13:21:26 — [AUTH] Niveau d'accès modifié",
         "13:47:12 — [USR] Dépôt livrable — Projet tutoré",
-        "14:05:21 — [APP] Réception email — A. Valkenhein — objet: \"Re: Projet tutoré\"",
+        "14:05:21 — [APP] Réception email — R. KISKI — objet: \"Re: Projet tutoré\"",
         "18:02:00 — [USR] Déconnexion volontaire"
     ],
 
@@ -409,18 +423,18 @@
     "secure": {
             "echo": {
             "level": 1,
-            "title": "DOSSIER « Neziaka »",
-            "content": "Surveillance interrompue — Cause inconnue\nNaleos Neziaka, edōlien de sexe masculin, âgé de 60 ans résidant à Reach.\nPatrouilleur à la retraite. Ex-capitaine de l'équipe 2 et ancien chef de la section 7.\nSujet d'une enquête en interne menée par le Protectorat pour manquement à ses devoirs.\nRemercié et démis de ses fonctions suite à l'ascension Malenia Valkenhein."
+            "title": "OPÉRATION « VOILE DE L'INFINI »",
+            "content": "ASSIGNATION : Agent SIN [Classe 2]\nOpération jumellée d'infiltration au sein de l'université de Wellston — Durée : 10 mois\nL'agent est admis à l'université de Wellston en tant qu'étudiant au sein de l'UFR Information et Communication.\nSurveillance incognito, générale et rapprochée au sein du campus universitaire et lors des activités extra-muros.\nÉlaboration de pistes, d'analyses et de rapports sur les activités de l'université et de ses étudiants suspects."
         },
             "ambre01": {
             "level": 2,
-            "title": "DOSSIER « Vendamir »",
-            "content": "21 février — 16h51\nDisparition de Yuri Vendamir. Homme, humain âgé de 66 ans résidant à Reach.\nChercheur et professeur d'histoire à la Maison des Ancêtres de l'Académie.\nÉtudes sur divers mythes et légendes de Lenoxia datant de l'ère archaïque / pré-archaïque.\nCasier judiciaire : Vierge / Dossier médical : OK"
+            "title": "OPÉRATION « PIE BAVARDE »",
+            "content": "ASSIGNATION : Agent SIN [Classe 2] — Agent MAKKEN [Classe 1]\nOpération jumellée de récupération et d'exfiltration de documents sensibles — Durée : 10 mois\nL'agent est admis à l'université de Wellston en tant qu'étudiant au sein de l'UFR Information et Communication.\nInterception et transmission de communications en lien avec les organisations criminelles EMBER et SPECTRE.\nVérification de la fiabilité des sources et de la véracité des informations collectées."
         },
             "kogaveil": {
             "level": 3,
-            "title": "DOSSIER « Voile de Shigemori »",
-            "content": "Recherches du Pr. Vendamir\nPlusieurs rapports de recherche, études et articles ont été saisis au domicile du professeur Vendamir.\nDes bases de données cryptées ont dévoilé son implication dans des recherches non communiquées aux instances de la CGU.\nCommunications fréquentes avec l'ex-patrouilleur Naloes Neziaka [SURVEILLANCE INTEROMPUE].\nAnalyse des documents saisis en cours. Plusieurs fichiers critiques semblent manquer."
+            "title": "MISSION « ANTIVIRUS »",
+            "content": "ASSIGNATION : HAUTES INSTANCES — ÉQUIPE 3 — ÉQUIPE 4 — ÉQUIPE 7\nMission de sabotage des méthodes et viviers de recrutement des organisations criminelles EMBER et SPECTRE — Durée : Indéterminée\nConcentration sur les lieux de recrutement tels que les centres pénitentiaires, établissements scolaires et lieux de culte.\n13 opérations liées à cette mission — Importance : Critique / Impact : Important / Dangerosité : Élevée — RANG GLOBAL : A\nTAUX D'ÉCHEC ACCEPTABLE : 10% — Taux d'échec actuel : 2,7%"
         }
     }
 }

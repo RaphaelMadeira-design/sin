@@ -35,9 +35,8 @@ const PROFILE_SECTIONS = [
     },
     {
         key: 'condition',
-        label: 'Condition',
+        label: 'Condition physique',
         field: 'condition',
-        placeholder: "Texte d'exemple — Condition physique et état de santé du personnage. Décrivez ici sa constitution, ses éventuelles blessures, sa forme générale et toute particularité corporelle à renseigner ultérieurement.",
     },
     {
         key: 'psych',
@@ -48,19 +47,16 @@ const PROFILE_SECTIONS = [
         key: 'likes',
         label: "Aime et n'aime pas",
         field: 'likesDislikes',
-        placeholder: "Texte d'exemple — Aime : (à compléter). N'aime pas : (à compléter). Listez ici les goûts, préférences et aversions du personnage.",
     },
     {
         key: 'hobbies',
         label: 'Loisirs',
         field: 'hobbies',
-        placeholder: "Texte d'exemple — Loisirs et passe-temps du personnage. Décrivez ici ses activités favorites en dehors des cours et ce qui occupe son temps libre.",
     },
     {
         key: 'opinion',
-        label: 'Opinion',
+        label: 'Opinion hiérarchie',
         field: 'opinion',
-        placeholder: "Texte d'exemple — Opinion et point de vue du personnage. Renseignez ici ses convictions, ses positions et son regard sur le monde qui l'entoure.",
     },
 ]
 
@@ -425,29 +421,6 @@ export default function Intranet() {
                                 </figure>
                             )}
                         </div>
-
-                        {('shortTermGoals' in openPerson || 'longTermGoals' in openPerson) && (
-                            <div className="intranet__profiles">
-                                <section className="intranet__profile-card intranet__profile-card--full">
-                                    <div className="intranet__profile-head">OBJECTIFS DU PERSONNAGE</div>
-                                    <div className="intranet__profile-body">
-                                        <div className="intranet__profile-subhead">▸ Court terme</div>
-                                        <p>
-                                            {openPerson.shortTermGoals
-                                                ? openPerson.shortTermGoals
-                                                : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                        </p>
-
-                                        <div className="intranet__profile-subhead">▸ Long terme</div>
-                                        <p>
-                                            {openPerson.longTermGoals
-                                                ? openPerson.longTermGoals
-                                                : <span className="intranet__profile-empty">— Donnée non renseignée —</span>}
-                                        </p>
-                                    </div>
-                                </section>
-                            </div>
-                        )}
                     </div>
                 )}
 
@@ -465,7 +438,7 @@ export default function Intranet() {
                             <div className="intranet__sealed" data-testid="intranet-secure-locked">
                                 <div className="intranet__sealed-head">◈ ACCÈS CONFIDENTIEL — VERROUILLÉ</div>
                                 <div className="intranet__sealed-lock">
-                                    Autorisation requise. Authentifiez-vous via le terminal avec la commande <code>auth TOKEN</code>.
+                                    Autorisation requise. Contactez votre administrateur système ou authentifiez-vous via l'<code>invite de commandes</code>.
                                 </div>
                             </div>
                         ) : (
