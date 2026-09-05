@@ -25,14 +25,14 @@ const getIcon = (name = '') => {
 }
 
 const INITIAL_TRASH = [
-    { id: 't1', name: 'brouillon_rapport_sk417.txt',  origin: 'C:\\Users\\isen.shura\\Documents',     size: '2,4 Ko', deletedAt: '12/03 - 23:47' },
-    { id: 't2', name: 'DSCN4033.jpeg',                origin: 'C:\\Users\\isen.shura\\Documents\\Images',       size: '184 Ko', deletedAt: '04/04 - 02:13' },
-    { id: 't3', name: 'ancien_mdp.txt',               origin: 'C:\\Users\\isen.shura\\Documents\\Important',             size: '512 o',  deletedAt: '21/04 - 18:02' },
-    { id: 't4', name: 'DSCN4078.jpeg',      origin: 'C:\\Users\\isen.shura\\Documents\\Images',                size: '76 Ko',  deletedAt: '30/04 - 09:35' },
-    { id: 't5', name: 'surveillance_footage_reach_cam298.mp4',            origin: 'C:\\Users\\isen.shura\\Documents',        size: '3,7 Mo', deletedAt: '08/05 - 14:21' },
-    { id: 't6', name: 'parcours_reach_arr-vert.bmp',       origin: 'C:\\Users\\isen.shura\\Documents\\Images',     size: '912 Ko', deletedAt: '09/05 - 21:08' },
-    { id: 't7', name: 'CGU-NET_install.exe',          origin: 'C:\\Temp',                        size: '1,2 Mo', deletedAt: '11/06 - 11:58' },
-    { id: 't8', name: 'archives_vendamir_01.zip',     origin: 'C:\\Users\\isen.shura\\Documents\\Histoire',   size: '8,9 Mo', deletedAt: '13/06 - 16:44' },
+    { id: 't1', name: 'brouillon_rapport_sk417.txt',  origin: 'C:\\Users\\sin\\Documents',     size: '2,4 Ko', deletedAt: '12/03 - 23:47' },
+    { id: 't2', name: 'DSCN4033.jpeg',                origin: 'C:\\Users\\sin\\Documents\\Images',       size: '184 Ko', deletedAt: '04/04 - 02:13' },
+    { id: 't3', name: 'ancien_mdp.txt',               origin: 'C:\\Users\\sin\\Documents\\Important',             size: '512 o',  deletedAt: '21/04 - 18:02' },
+    { id: 't4', name: 'DSCN4078.jpeg',      origin: 'C:\\Users\\sin\\Documents\\Images',                size: '76 Ko',  deletedAt: '30/04 - 09:35' },
+    { id: 't5', name: 'surveillance_footage_cam298.mp4',            origin: 'C:\\Users\\sin\\Documents',        size: '3,7 Mo', deletedAt: '08/05 - 14:21' },
+    { id: 't6', name: 'parcours_wellston_red-dawn.bmp',       origin: 'C:\\Users\\sin\\Documents\\Images',     size: '912 Ko', deletedAt: '09/05 - 21:08' },
+    { id: 't7', name: 'OVERLOG_install.exe',          origin: 'C:\\Temp',                        size: '1,2 Mo', deletedAt: '11/06 - 11:58' },
+    { id: 't8', name: 'archives_vendamir_01.zip',     origin: 'C:\\Users\\sin\\Documents\\Histoire',   size: '8,9 Mo', deletedAt: '13/06 - 16:44' },
 ]
 
 export default function Trash() {

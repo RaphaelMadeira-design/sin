@@ -165,7 +165,7 @@ const NO_LOADING_WINDOWS = new Set([
 ])
 
 const LOADING_LABELS = {
-    powers: 'JINSEI-CGU.exe',
+    powers: 'ABILITY_GAUGE.exe',
     snake: 'SNAKE.exe',
     jump: 'JUMP.exe',
     intranet : 'WELLSTON-NET v5.04',

@@ -191,10 +191,10 @@
     "c_users": {
         "name": "Users",
         "parent": "driveC",
-        "children": ["u_isen", "u_admin"]
+        "children": ["u_sin", "u_admin"]
     },
-    "u_isen": {
-        "name": "isen.shura",
+    "u_sin": {
+        "name": "sin",
         "parent": "c_users",
         "children": ["u_desktop", "u_mydocs"]
     },
@@ -206,12 +206,12 @@
     },
     "u_desktop": {
         "name": "Bureau",
-        "parent": "u_isen",
+        "parent": "u_sin",
         "children": []
     },
     "u_mydocs": {
         "name": "Mes Documents",
-        "parent": "u_isen",
+        "parent": "u_sin",
         "icon": "myDocs",
         "type": "shortcut",
         "target": "explorer"
